@@ -1,0 +1,16 @@
+{% extends "rest_framework/base.html" %}
+
+{% load static %}
+
+{% block title %}IOTile Cloud API{% endblock %}
+
+{% block bootstrap_theme %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" type="text/css">
+    <link rel="shortcut icon" href="{% static 'dist/webapp/app/extras/favicon.ico' %}" />
+{% endblock %}
+
+{% block branding %}
+    <a class='navbar-brand' rel="nofollow" href='/'>
+        IOTile Cloud
+    </a>
+{% endblock %}

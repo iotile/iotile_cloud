@@ -1,0 +1,113 @@
+{% extends "project/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load stream_tags %}
+
+{% block js %}
+    <!-- Chart.js -->
+    <script>
+
+      {% include 'widget/widget/linechart/script.js' %}
+
+      var cCtrl = ChartCtrl();
+
+      var data, canvasElementId, url;
+      var lastUrl;   // Leave as undefined
+
+      {% for stream in streams %}
+
+          var chartObj{{ forloop.counter0 }} = {};
+
+          chartObj{{ forloop.counter0 }}.displayOptions = {};
+
+          chartObj{{ forloop.counter0 }}.canvasElementId = "{{ stream.slug }}";
+
+          chartObj{{ forloop.counter0 }}.url = "/api/v1/stream/{{ stream.slug }}/data/?";
+
+          var timeRange = false;
+          {% if start %}
+              console.log('start={{ start }}');
+              chartObj{{ forloop.counter0 }}.url += '&start={{ start }}';
+              timeRange = true;
+          {% else %}
+              console.log('start=NOTSET');
+          {% endif %}
+          {% if end %}
+              console.log('end={{ end }}');
+              chartObj{{ forloop.counter0 }}.url += '&end={{ end }}';
+              timeRange = true;
+          {% else %}
+              console.log('end=NOTSET');
+          {% endif %}
+
+          if (timeRange) {
+              chartObj{{ forloop.counter0 }}.url += '&page_size=10000';
+          } else {
+              chartObj{{ forloop.counter0 }}.url += 'lastn=10000';
+          }
+
+          chartObj{{ forloop.counter0 }}.name = '{{ stream.variable.name }}';
+          chartObj{{ forloop.counter0 }}.unit = '{% if stream.output_unit %} {{ stream.output_unit.unit_full }} {% endif %}'
+          chartObj{{ forloop.counter0 }}.index = {{forloop.counter}}
+
+          console.log(chartObj{{ forloop.counter0 }}.url);
+          console.log(chartObj{{ forloop.counter0 }});
+          cCtrl.addChartObj(chartObj{{ forloop.counter0 }});
+
+      {% endfor %}
+
+      cCtrl.initCharts(false);
+
+      {% include 'widget/widget/datepicker/script.js' %}
+      var updateAfterPicker = function (startDate, endDate) {
+
+          console.log('Current Url=' + document.URL);
+          console.log('Location=', window.location);
+          var newUrl = window.location.pathname;
+          console.log('pathname='+ newUrl);
+          console.log(startDate, endDate);
+          if (startDate && endDate) {
+              console.log('[Simple] updateAfterPicker(): start/end dates are ' + startDate.format('MMMM D, YYYY') + " to " + endDate.format('MMMM D, YYYY'));
+              console.log('[Simple] from ' + startDate.toISOString() + " to " + endDate.toISOString());
+              newUrl += "?page_size=10000&start=" + startDate.toISOString();
+              newUrl += "&end=" + endDate.toISOString();
+
+              console.log('goto = ' + newUrl);
+              window.location.href = newUrl;
+          }
+
+      };
+
+      DatePickerCtrl(updateAfterPicker, '{{ start }}', '{{ end }}');
+
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{% if device.label %}{{ device.label }}{% endif %}</h3>
+            <h5>GID: {{ device.slug }}</h5>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <br/>
+
+
+    <div class="row">
+        {% if not streams %}
+            <div class="col-xs-12" align="center">
+                <h3>No Streams to show</h3>
+            </div>
+        {% endif %}
+
+        {% include 'widget/widget/linechart/widget.html' %}
+
+    </div>
+
+    <br/>
+
+
+{% endblock %}
+

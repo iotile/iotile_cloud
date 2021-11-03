@@ -1,0 +1,62 @@
+{% load i18n %}
+
+<div class="row" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>
+                    IOTile Device Templates
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <!-- should be is_staff or can_create_device_template -->
+                    {% if is_staff %}
+                        <li>
+                            <a href="{% url 'template:create' %}">
+                                <i class="fa fa-plus"></i> {% trans 'Create' %}
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-striped" id="product-table">
+                    <tbody>
+                    {% for device in device_list %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'template:detail' device.slug %}">
+                                    <img src="{{ device.org.get_avatar_tiny_url }}" alt="..." >
+                                </a>
+                            </td>
+                            <th scope="row">
+                                <a href="{% url 'template:detail' device.slug %}">
+                                    {{ device.external_sku }}
+                                </a>
+                            </th>
+                            {% if user.is_staff %}
+                            <td scope="row">
+                                <a href="{% url 'template:detail' device.slug %}">
+                                    {{ device.internal_sku }}
+                                </a>
+                            </td>
+                            {% endif %}
+                            {% if device.active %}
+                            <td>{{ device.version }}</td>
+                            {% else %}
+                            <td><b style="color:red;">Not Active</b></td>
+                            {% endif %}
+                            <td>{{ device.os_tag_and_version }}</td>
+                            <td>{{ device.hw_tag_and_version }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+

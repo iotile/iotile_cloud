@@ -1,0 +1,16 @@
+{
+  "name": "Shipping Template",
+  "org": "arch-systems",
+  "major_version": 1,
+  "minor_version": 0,
+  "patch_version": 0,
+  "extra_data": {
+    "web": {
+      "projectTemplateSlug": "shipping"
+    },
+    "mobile": {
+      "projectTemplateSlug": "shipping",
+      "waveform": true
+    }
+  }
+}

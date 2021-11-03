@@ -1,0 +1,39 @@
+{%  extends "staff/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{%  load tz %}
+
+{%  block media %}
+    {{ form.media }}
+{% endblock %}
+
+{%  block content %}
+
+    <div class="row">
+        <!-- Location -->
+        <form action="." method="post">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {{ title }}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-floppy-o"></i> Save
+                            </button>
+                        </li>
+                </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% csrf_token %}
+                    {{ form }}
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+
+{%  endblock %}

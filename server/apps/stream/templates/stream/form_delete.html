@@ -1,0 +1,68 @@
+{% extends "project/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Delete Confirmation</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br>
+    <h4>Stream : {{stream.slug}}</h4>
+    <h4>Label  : {{stream.data_label}}</h4>
+
+    {% if from_parse or to_parse %}
+    <p style="color:blue;"><i class="fa fa-info" aria-hidden="true"></i> The following date and time information is based on {{current_timezone}} timezone</p>
+    {% endif %}
+    {% if from_parse %}
+        <h2>
+            {% if to_parse %}
+                Start date
+            {%else%}
+                Delete all data from
+            {%endif%}
+            :{{from_parse}}
+        </h2>
+    {% endif%}
+    {% if to_parse %}
+        <h2>
+            {% if from_parse %}
+                End date
+            {%else%}
+                Delete all data up to
+            {%endif%}
+            :{{to_parse}}
+        </h2>
+    {%endif%}
+    <br>
+    {% if data_count %}
+        <h3 class = "alert alert-danger" >
+            {{ data_count }} data points will be deleted
+        </h3>
+    {% endif %}
+    {% if event_count %}
+        <h3 class = "alert alert-danger" >
+            {{ event_count }} event points will be deleted
+        </h3>
+    {% endif %}
+
+        <br>
+    <p class = "alert alert-danger" >
+        {% trans 'ATTENTION : There is no way to undo this operation !' %}
+    </p>
+
+
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            {% crispy form %}
+
+        </div>
+    </div>
+
+{% endblock %}

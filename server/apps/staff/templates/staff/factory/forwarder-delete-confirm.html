@@ -1,0 +1,18 @@
+{% extends "base-confirm-delete.html" %}
+{% load i18n %}
+
+
+{% block delete_description %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Delete Confirmation</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <h2>
+        {% trans 'Are you sure you want to remove Streamer Report Forwarder' %} for "{{ object.target }}" ?
+    </h2>
+
+{% endblock %}

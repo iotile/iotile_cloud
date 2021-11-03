@@ -1,0 +1,72 @@
+{% if query %}
+
+    {% if devices %}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Devices</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="list-group">
+                            {% for d in devices %}
+                                <a href="{{ d.get_absolute_url }}" class="list-group-item">
+                                    <h4 class="list-group-item-heading">{{ d.label }} <small> {{d.sg}}</small></h4>
+                                    <p class="list-group-item-text">{{ d.slug }}</p>
+                                    {% for p in devices.get_properties_qs %}
+                                        <p class="list-group-item-text">{{ p.key }}: {{ p.value }}</p>
+
+                                    {% endfor %}
+
+                                    {% comment %} <p class="list-group-item-text"> {{project.template}}</p> {% endcomment %}
+                                    <p class="list-group-item-text"><small>Claimed on {{ d.claimed_on }} by {{ d.claimed_by }}</small></p>
+                                </a>
+                            {% endfor %}
+                        </div>                                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if datablocks %}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Archives</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="list-group">
+                            {% for b in datablocks %}
+                                <a href="{{ b.get_absolute_url }}" class="list-group-item">
+                                    <h4 class="list-group-item-heading">{{ b.title }} <small> {{b.sg}}</small></h4>
+                                    <p class="list-group-item-text">{{ b.slug }}</p>
+                                    <p class="list-group-item-text"><small>Created on {{ b.created_on }} by {{ b.created_by }}</small></p>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if not devices and not datablocks %}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="x_panel">
+                    <h4>No results found.</h4>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+{% endif %}

@@ -1,0 +1,25 @@
+$icon-font-path: '../fonts/';
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+// npm:scss
+@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endnpm
+
+.thin-canvas {
+    // background-color: black;
+    max-height: 160px;
+    width: 100%;
+    height: auto;
+}
+
+.checkbox-label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios {
+    border-radius: 20px;
+}
+.toggle.ios .toggle-handle {
+    border-radius: 20px;
+}

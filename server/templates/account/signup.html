@@ -1,0 +1,55 @@
+{% extends "account/auth-base.html" %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
+{% load static %}
+
+{% block js %}
+{% endblock %}
+
+{% block main_class %}site-wrapper-login registerbackground{% endblock %}
+
+{% block form_class %}register-form{% endblock %}
+
+{% block form_content %}
+
+    <form method="post" action="{% url 'account_signup' %}">
+
+        <div>
+            <img src="{% static 'dist/webapp/app/images/auth/archiotilecloudblue.png' %}" class="logo-separator"
+                 alt="Arch Logo">
+            <h6 class="login-title"> SIGN UP </h6>
+            <p class="login-description "> "Industrial IoT for a more connected and sustainable Earth"
+            </p>
+        </div>
+      <hr>
+        {% crispy form %}
+
+        <div class="separator" align="center">
+            <div class="form-group input-group">
+                {{ form.captcha }}
+            </div>
+            {% if form.captcha.errors %}
+                <div class="alert alert-danger">
+                    {{ form.captcha.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <p class="tcpmessage">
+            By clicking on "Sign Up" below, you are agreeing to the
+            <a href="#">Terms of Use</a>
+            and <a href="#">Privacy Policy</a>
+        </p>
+
+        <button type="submit" class="submit">
+            {% trans 'Sign Up' %}
+        </button>
+
+        <p class="message"><br>Already registered? <a href="{% url 'account_login' %}">Sign In</a></p>
+
+    </form>
+{% endblock %}
+
+

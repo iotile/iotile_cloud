@@ -1,0 +1,56 @@
+{% load i18n %}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>
+                    Org Template List
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    {% if is_staff %}
+                        <li>
+                            <a href="{% url 'org-template:create' %}">
+                                <i class="fa fa-plus"></i> {% trans 'Create' %}
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Version</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for org in org_list %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'org-template:detail' org.slug %}"
+                                   class="btn btn-sm btn-success">
+                                    <i class="fa fa-info"></i>
+                                </a>
+                            </td>
+                            <th scope="row">{{ org.name }}</th>
+                            {% if org.active %}
+                            <td>{{ org.version }}</td>
+                            {% else %}
+                            <td><b style="color:red;">Not Active</b></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+

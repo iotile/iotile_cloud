@@ -1,0 +1,22 @@
+{
+    "Records": [
+        {
+            "EventSource": "aws:sns",
+            "EventVersion": "1.0",
+            "EventSubscriptionArn": "arn:aws:sns:us-east-1:868687213780:custom--kla-tencor1--dev:5a3e51be-e971-406c-a98a-ae1196e5d131",
+            "Sns": {
+                "Type": "Notification",
+                "MessageId": "ae11070f-c082-5e39-907e-56d0d037fa51",
+                "TopicArn": "arn:aws:sns:us-east-1:868687213780:custom--kla-tencor1--dev",
+                "Subject": null,
+                "Message": "[{\"uuid\": \"49df52de-d8a9-46a0-b213-7e8dbf4b7b98\", \"bucket\": \"iotile-cloud-stream-event-data\", \"key\": \"dev/s--0000-0001--0000-0000-0000-0001--5020/49df52de-d8a9-46a0-b213-7e8dbf4b7b98.json\"}]",
+                "Timestamp": "2017-07-11T17:44:21.053Z",
+                "SignatureVersion": "1",
+                "Signature": "AF1HGVSTHHQ8oauORXJNLdMx5mSxI7LUh9TZPUJuBvF8qlslaVy/58AHVfRAlD0dpi6sxf5ezYszbgqp/sUoNT5ARr4lzvQXj2v6qR4QqbulhYXVbs7oLUchn+4+KDmi+s9EbtQ8omz+I8gvmAW1l5ou+FoNPhOtUPWVcEiumYh6KvEqUjM3SYbU/VyxEJ3UHPhO7vwVqc952bgWP9gT4wi5I60R85esh8x9v3EDu4J2CtUwX7ApdVViaQLeVlzAlotVWu8JGBtbsmKR7FCl+JVE0MZR+zx5/gPlp49b7dBXm38dpTmF/TW8EwIe+BRd1ppKvJ/gVKJ8f53F2Q1dTA==",
+                "SigningCertUrl": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-b95095beb82e8f6a046b3aafc7f4149a.pem",
+                "UnsubscribeUrl": "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:868687213780:custom--kla-tencor1--dev:5a3e51be-e971-406c-a98a-ae1196e5d131",
+                "MessageAttributes": {}
+            }
+        }
+    ]
+}

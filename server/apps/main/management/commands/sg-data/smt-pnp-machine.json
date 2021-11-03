@@ -1,0 +1,54 @@
+{
+  "name": "SMT PnP",
+  "org": "arch-systems",
+  "description": "Factory SMT - Pick and Place Machine",
+  "project_template": "default-template-v1-0-0",
+  "report_processing_engine_ver": 2,
+  "app_tag": 2059,
+  "app_version": "1.0",
+  "variable_templates": [
+    {
+      "label": "SMEMA",
+      "lid_hex": "5051",
+      "derived_lid_hex": "",
+      "var_type": "count",
+      "default_input_unit": "in--count--na",
+      "default_output_unit": "out--count--na",
+      "ctype": "unsigned int",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": false,
+      "web_only": true
+    },
+    {
+      "label": "Placements",
+      "lid_hex": "5052",
+      "derived_lid_hex": "",
+      "var_type": "count",
+      "default_input_unit": "in--count--na",
+      "default_output_unit": "out--count--na",
+      "ctype": "unsigned int",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": false,
+      "web_only": true
+    }
+  ],
+  "display_widget_templates": [],
+  "ui_extra": {
+    "web": {
+      "pageTemplateSlug": "default"
+    },
+    "mobile": {
+      "template": "default",
+      "controller": "defaultCtrl",
+      "other": null,
+      "ioInfo": null
+    }
+  },
+  "major_version": 1,
+  "minor_version": 0,
+  "patch_version": 0
+}

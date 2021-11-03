@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+
+<script type="text/javascript">
+
+    var deviceData = [];
+    {% for d in devices %}
+        deviceData.push([
+            '<a href="{{ d.get_absolute_url }}" class="btn btn-sm btn-success"><i class="fa fa-cogs"></i></a>',
+            '{{ d.label }}',
+            '{{ d.slug }}',
+            '{{ d.get_state_icon }} {{ d.get_state_display }}'
+        ]);
+    {% endfor %}
+    var deviceTable = $('#device-table').DataTable({
+        order: [[2, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: "", bSortable: false},
+            {sTitle: "{% trans 'Device Label' %}"},
+            {sTitle: "{% trans 'Device ID' %}"},
+            {sTitle: "{% trans 'State' %}"}
+        ],
+        data: deviceData
+    });
+</script>

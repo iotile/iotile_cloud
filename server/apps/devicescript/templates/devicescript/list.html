@@ -1,0 +1,89 @@
+{% extends "ota/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block media %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    <!-- DataBlock table -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script type="text/javascript">
+
+    var deploymentRequestTable = $('#device-script-table').DataTable({
+        order: [[1, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true
+    });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <br/>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        IOTile Device Script List
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_staff %}
+                        <li>
+                            <a href="{% url 'ota:script:create' org.slug %}">
+                                <i class="fa fa-plus"></i> {% trans 'Create' %}
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped" id="device-script-table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Slug</th>
+                            <th>Name</th>
+                            <th>Version</th>
+                            <th>Released on</th>
+                            <th>Released by</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ds in object_list %}
+                            <tr>
+                                <td>
+                                    <a href="{{ ds.get_absolute_url }}"
+                                       class="btn btn-sm btn-success">
+                                        <i class="fa fa-info"></i>
+                                    </a>
+                                </td>
+                                <td>{{ ds.slug }}</td>
+                                <td>{{ ds.name }}</td>
+                                <td>{{ ds.version }}</td>
+                                {%  if ds.released_on %}
+                                    <td>{{ ds.released_on }}</td>
+                                {% else %}
+                                    <td><i class="fa fa-times-circle text-danger"></i></td>
+                                {% endif %}
+                                <td>{{ ds.org.name }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

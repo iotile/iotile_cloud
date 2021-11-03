@@ -1,0 +1,63 @@
+{%  extends "base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block media %}
+    <style>
+    .onboard p {
+        font-size: 14px;
+    }
+    .onboard h2 {
+        font-size: 20px;
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <!-- page content -->
+    <div class="row onboard">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                {% include 'onboard/snippet-box-title.html' %}
+                <div class="x_content">
+
+
+                    <!-- Smart Wizard -->
+                {% if welcome %}
+                    <div class="row" style="margin-top: 10px">
+                        <div class="col-sm-10 col-sm-offset-1" align="center">
+                            {% include 'onboard/snippet-description.html' %}
+                        </div>
+                    </div>
+                {% endif %}
+                    <div id="wizard" class="form_wizard wizard_horizontal">
+                        {% include 'onboard/snippet-status-bar.html' %}
+                            <div class="row" style="margin-top: 40px">
+                                <div class="col-sm-10 col-sm-offset-1">
+                                    {% if note %}
+                                        {{ note|safe }}
+                                        <br>
+                                    {% endif %}
+                                    <h2>{{ title }}</h2>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px">
+                                <div class="col-sm-10 col-sm-offset-1">
+
+                                    {% block onboard_content %}
+
+                                    {% endblock %}
+
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{%  extends "onboard/onboard-base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block onboard_content %}
+
+    <div class="row" align="center">
+        <div class="col-sm-6">
+            <a href="https://itunes.apple.com/ca/app/iotile-companion/id{{ apple_id }}" target="_blank" class="site_title">
+                <img src="{% static 'dist/webapp/app/images/apple-store-badge.svg' %}">
+            </a>
+        </div>
+        <div class="col-sm-6" align="center">
+            <a href="http://play.google.com/store/apps/details?id={{ google_id }}" target="_blank" class="site_title">
+                <img src="{% static 'dist/webapp/app/images/google-play-badge.svg' %}">
+            </a>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+
+    <p>
+        The mobile app will be used to setup and claim new devices, view real time readings, and upload
+        historical readings to the cloud.
+    </p>
+    <p>
+        Click above to go download the app. If you are not on your mobile device already, use your
+        mobile device now to search IOTile on the app store and install the app.
+    </p>
+
+
+    <br>
+
+    <a href="{{ next }}" class="btn btn-block btn-success">
+        Next Step
+    </a>
+
+
+{% endblock %}

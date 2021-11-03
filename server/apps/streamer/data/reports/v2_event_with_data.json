@@ -1,0 +1,44 @@
+{
+    "format": "v100",
+    "device": 10,
+    "streamer_index": 100,
+    "streamer_selector": 65536,
+    "device_sent_timestamp": 1,
+    "incremental_id": 1,
+    "lowest_id": 2,
+    "highest_id": 5,
+    "events": [
+      {
+        "stream": "5053",
+        "timestamp": "2017-01-10T10:00:00Z",
+        "streamer_local_id": 2,
+        "extra_data": {
+          "foo": "a",
+          "bar": "b"
+        }
+      },
+      {
+        "stream": "5053",
+        "timestamp": "2017-01-10T10:10:00Z",
+        "streamer_local_id": 4,
+        "extra_data": {
+            "foo": "c",
+            "bar": "d"
+        }
+      }
+    ],
+    "data": [
+        {
+            "stream": "5051",
+            "timestamp": "2017-01-10T10:02:00Z",
+            "streamer_local_id": 3,
+            "value": 5
+        },
+        {
+            "stream": "5051",
+            "timestamp": "2017-01-10T10:07:00Z",
+            "streamer_local_id": 5,
+            "value": 6
+        }
+    ]
+  }

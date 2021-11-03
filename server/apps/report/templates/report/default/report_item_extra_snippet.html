@@ -1,0 +1,47 @@
+{% load i18n %}
+
+{% include 'report/snippets/configuration_button.html' %}
+
+{% if obj.sources %}
+<table class="table table-striped">
+    <caption>
+        <b>{% trans 'Sources' %}</b>
+    </caption>
+    <tbody>
+        {% for p in obj.org.projects.all %}
+            {% if p.slug in obj.sources %}
+            <tr>
+                <td>{% trans 'All devices' %}: "{{ p.name }}"</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+</table>
+<table class="table table-striped">
+    <caption>
+        <b>{% trans 'Columns' %}</b>
+    </caption>
+    <tbody>
+    {% for c in  obj.config.cols %}
+        <tr>
+            <td>
+                <b>{{ c.name }}</b><br>
+                {% for v in c.vars %}
+                    "{{ v.name }} - {{ v.lid }}",
+                {% endfor %}
+                <br><small>({{ c.units }})</small>
+            </td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td>
+                <a href="{% url 'org:report:default:step1' org.slug obj.id %}" class="btn btn-default btn-sm btn-block">
+                    <i class="fa fa-plus"></i> {% trans 'Add Column' %}
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% else %}
+    <h5 class="text-danger" align="center">{% trans 'Required Report Configuration is missing' %}</h5>
+{% endif %}

@@ -1,0 +1,11 @@
+{% load i18n %}
+{% blocktrans %}
+    {{ level }} IOTile Cloud Notification
+{% endblocktrans %}
+
+{% block content %}
+{% endblock %}
+
+
+
+{% trans 'Notification ID:' %} {{ uuid }}

@@ -1,0 +1,294 @@
+{
+    "name": "4-420-1-flow ProtoPod",
+    "org": "arch-systems",
+    "project_template": "default-template-v1-0-0",
+    "variable_templates": [
+        {
+            "label": "IO 1",
+            "lid_hex": "5001",
+            "derived_lid_hex": "",
+            "var_type": "water-meter-volume",
+            "default_input_unit": "in--water-meter-volume--gallons",
+            "default_output_unit": "out--water-meter-volume--gallons",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "IO 2",
+            "lid_hex": "5005",
+            "derived_lid_hex": "",
+            "var_type": "420-milliamps",
+            "default_input_unit": "in--420-milliamps--milliamps",
+            "default_output_unit": "out--420-milliamps--milliamps",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "IO 3",
+            "lid_hex": "500c",
+            "derived_lid_hex": "",
+            "var_type": "420-milliamps",
+            "default_input_unit": "in--420-milliamps--milliamps",
+            "default_output_unit": "out--420-milliamps--milliamps",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "IO 4",
+            "lid_hex": "500d",
+            "derived_lid_hex": "",
+            "var_type": "420-milliamps",
+            "default_input_unit": "in--420-milliamps--milliamps",
+            "default_output_unit": "out--420-milliamps--milliamps",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "IO 5",
+            "lid_hex": "500e",
+            "derived_lid_hex": "",
+            "var_type": "420-milliamps",
+            "default_input_unit": "in--420-milliamps--milliamps",
+            "default_output_unit": "out--420-milliamps--milliamps",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "Pulse 1",
+            "lid_hex": "100b",
+            "derived_lid_hex": "",
+            "var_type": "water-meter-flow",
+            "default_input_unit": "in--water-meter-flow--gallons",
+            "default_output_unit": "out--water-meter-flow--gallons-per-min",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        },
+        {
+            "label": "RT 2",
+            "lid_hex": "1011",
+            "derived_lid_hex": "",
+            "var_type": "420-milliamps",
+            "default_input_unit": "in--420-milliamps--milliamps",
+            "default_output_unit": "out--420-milliamps--milliamps",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        },
+        {
+            "label": "RT 3",
+            "lid_hex": "1016",
+            "derived_lid_hex": "",
+            "var_type": "420-milliamps",
+            "default_input_unit": "in--420-milliamps--milliamps",
+            "default_output_unit": "out--420-milliamps--milliamps",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        },
+        {
+            "label": "RT 4",
+            "lid_hex": "1017",
+            "derived_lid_hex": "",
+            "var_type": "420-milliamps",
+            "default_input_unit": "in--420-milliamps--milliamps",
+            "default_output_unit": "out--420-milliamps--milliamps",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        },
+        {
+            "label": "RT 5",
+            "lid_hex": "1018",
+            "derived_lid_hex": "",
+            "var_type": "420-milliamps",
+            "default_input_unit": "in--420-milliamps--milliamps",
+            "default_output_unit": "out--420-milliamps--milliamps",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        }
+    ],
+    "display_widget_templates": [
+        {
+            "label": "IO 1",
+            "lid_hex": "5001",
+            "var_type": "water-meter-volume",
+            "derived_unit_type": "",
+            "show_in_web": true,
+            "show_in_app": false
+        },
+        {
+            "label": "IO 2",
+            "lid_hex": "5005",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true
+        },
+        {
+            "label": "IO 3",
+            "lid_hex": "500c",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true
+        },
+        {
+            "label": "IO 4",
+            "lid_hex": "500d",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true
+        },
+        {
+            "label": "IO 5",
+            "lid_hex": "500e",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true
+        },
+        {
+            "label": "RT 1",
+            "lid_hex": "100b",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        },
+        {
+            "label": "RT 2",
+            "lid_hex": "1011",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        },
+        {
+            "label": "RT 3",
+            "lid_hex": "1016",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        },
+        {
+            "label": "RT 4",
+            "lid_hex": "1017",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        },
+        {
+            "label": "RT 5",
+            "lid_hex": "1018",
+            "var_type": "420-milliamps",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        }
+    ],
+    "ui_extra": {
+        "web": {
+            "pageTemplateSlug": "default"
+        },
+        "mobile": {
+            "template": "default",
+            "controller": "defaultCtrl",
+            "other": null,
+            "ioInfo": {
+                "order": [
+                    "5001", "5005", "500c", "500d", "500e"
+                ],
+                "map": {
+                    "5001": {
+                        "label": "IO 1",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "100b",
+                                "label": "Flow 1"
+                            }
+                        }
+                    },
+                    "5005": {
+                        "label": "IO 2",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "1011",
+                                "label": "IO 2"
+                            }
+                        }
+                    },
+                    "500c": {
+                        "label": "IO 3",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "1016",
+                                "label": "IO 3"
+                            }
+                        }
+                    },
+                    "500d": {
+                        "label": "IO 4",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "1017",
+                                "label": "IO 4"
+                            }
+                        }
+                    },
+                    "500e": {
+                        "label": "IO 5",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "1018",
+                                "label": "IO 5"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "major_version": 1,
+    "minor_version": 0,
+    "patch_version": 0
+}

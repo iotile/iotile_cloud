@@ -1,0 +1,11 @@
+{% extends "emailutil/notification-base.txt" %}
+{% load i18n %}
+
+{% block content %}
+
+{{ body }}
+
+{% trans 'To view your data, go to ' %}{{ url }}
+{% trans 'For help with these notifications, please contact Arch at help@archsys.io.' %}
+
+{% endblock %}

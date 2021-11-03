@@ -1,0 +1,49 @@
+/* WRAPPER */
+
+$wrapper-width: 1260px;
+$wrapper-bg: $white;
+
+.site-wrapper {
+  z-index: 500;
+  // max-width: $wrapper-width;
+  background-color: $wrapper-bg;
+  @extend .center-block;
+  position: relative;
+  overflow: hidden;
+  // border: 20px solid $white;
+  @include transition(250ms);
+  @include respond-to(xs) {
+    // border: 10px solid $white;
+  }
+  &.offcanvas-open {
+		overflow: hidden;
+	}
+}
+
+.site-wrapper-2 {
+  z-index: 500;
+  max-width: $wrapper-width;
+  background-color: $wrapper-bg;
+  @extend .center-block;
+  position: relative;
+  overflow: hidden;
+  // border: 20px solid $white;
+  @include transition(250ms);
+  @include respond-to(xs) {
+    // border: 10px solid $white;
+  }
+  &.offcanvas-open {
+		overflow: hidden;
+	}
+}
+
+.content-wrapper {
+  position: relative;
+  @include transition(250ms);
+  &.open {
+    transform: translate3d(calc(#{-$offcanvas-width} + 20px), 0, 0);
+    @include respond-to(xs) {
+      transform: translate3d(calc(#{-$offcanvas-width} + 10px), 0, 0);
+    }
+  }
+}

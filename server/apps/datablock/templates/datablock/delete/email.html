@@ -1,0 +1,15 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        This is to let you know that data block {{ slug }}  ( '{{ title }}' ) has been successfully deleted.
+    </p>
+
+{% endblocktrans %}
+
+<p><a href="{{ url }}">Organization Page</a></p>
+
+{% include 'base/email.html' %}

@@ -1,0 +1,27 @@
+{%  load static %}
+
+<div class="list-group">
+    {% if user.is_staff %}
+    <div class="list-group-item-heading">Summaries</div>
+    <a href="{% url 'staff:gateway' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-plug"></i> Gateway Status Summary</h4>
+        <p class="list-group-item-text">Current Gateway Device Statuses</p>
+    </a>
+    {% endif %}
+    <a href="{% url 'staff:sg-matrix' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-table"></i> Sensor Graph Matrix</h4>
+        <p class="list-group-item-text">Sensor Graph Usage Matrix</p>
+    </a>
+    <a href="{% url 'template:list' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-list"></i> Available IOTile Products</h4>
+        <p class="list-group-item-text">List of IOTile Device Templates</p>
+    </a>
+    <a href="{% url 'component:list' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-list"></i> Available IOTile Components</h4>
+        <p class="list-group-item-text">List of IOTile Device Components</p>
+    </a>
+    <a href="{% url 'ota:file:list' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-list"></i> Device Images</h4>
+        <p class="list-group-item-text">Device .ship files</p>
+    </a>
+</div>

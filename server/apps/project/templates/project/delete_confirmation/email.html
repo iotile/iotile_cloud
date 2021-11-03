@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load custom_tags %}
+{% load tz %}
+
+{% localtime off %}
+
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        This is to let you know that the project {{ project_name }} ({{ project_slug }}) has been successfully deleted by @{{ username }}.<br>
+    </p>
+
+    <p>
+        What data was deleted?:
+    </p>
+
+    <ul>
+    {% for line in logs %}
+        <li>{{ line }}</li>
+    {% endfor %}
+    </ul>
+
+{% endlocaltime %}
+
+{% include 'base/email.html' %}

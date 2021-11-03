@@ -1,0 +1,51 @@
+{% load i18n %}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>
+                    IOTile Component List
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <!-- should be is_staff or can_create_component -->
+                    {% if is_staff %}
+                        <li>
+                            <a href="{% url 'component:create' %}">
+                                <i class="fa fa-plus"></i> {% trans 'Create' %}
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-striped"   id="component-table">
+                    <tbody>
+                    {% for component in component_list %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'component:detail' component.id %}">
+                                    <img src="{{ component.org.get_avatar_tiny_url }}" alt="..." >
+                                </a>
+                            </td>
+                            <th scope="row">
+                                <a href="{% url 'component:detail' component.id %}">
+                                    {{ component.name }}
+                                </a>
+                            </th>
+                            <td>{{ component.get_type_display }}</td>
+                            <td>{{ component.hw_tag }}</td>
+                            <td>{{ component.version }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+

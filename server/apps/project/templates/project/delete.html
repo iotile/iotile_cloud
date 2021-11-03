@@ -1,0 +1,74 @@
+{%  extends "project/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{%  load tz %}
+{% load crispy_forms_tags %}
+
+{% block js %}
+    <script>
+        $(document).ready(function(){
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_minimal-green',
+                radioClass: 'iradio_minimal-green',
+                increaseArea: '20%' // optional
+            });
+        });
+    </script>
+{% endblock %}
+
+{%  block content %}
+
+    {%  if title %}
+        <div class="page-title">
+            <h3>{{ title }}</h3>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+    {%  endif %}
+
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-8 col-sm-offset-2">
+
+          <div>
+            <h4>Deleting project:
+              <span style="color:red">{{project.name }}</span>
+            </h4>
+            <h4>belonging to organization:
+              <span style="color:red">{{project.org}} </span>
+            </h4>
+          </div>
+          <h4 style="color:blue">
+            <i class="fa fa-info" aria-hidden="true"></i>
+            The following data will be deleted:
+          </h4>
+          <div>
+            <h5>Project Variables: {{ variables }}</h5>
+          </div>
+          <div>
+            <h5>Streams: {{ streams }}</h5>
+          </div>
+          <div>
+            <h5>Stream Data: {{ data_streams }}</h5>
+          </div>
+          <div>
+            <h5>Stream Events: {{ stream_events }}</h5>
+          </div>
+          <div>
+            <h5>Stream Notes: {{ stream_notes }}</h5>
+          </div>
+
+          <p style="color:red">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            Project data, once deleted, CANNOT be recovered.
+          </p>
+        </div>
+
+        <div class="col-sm-8 col-sm-offset-2">
+
+            {% crispy form %}
+
+        </div>
+    </div>
+
+
+{%  endblock %}

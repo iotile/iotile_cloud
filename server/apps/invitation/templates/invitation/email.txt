@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+Hello from the Arch team!
+
+You're receiving this e-mail because you have been invited by @{{ from_user }} ({{ from_email }})
+to join the {{ org_name }} organization at {{ site.domain }}.
+
+Please click on the following link to accept the invitation and complete your registration:
+
+{% endblocktrans %}
+
+{{ url }}
+
+{% include 'base/email.txt' %}

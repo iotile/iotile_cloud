@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load custom_tags %}
+{% load tz %}
+
+{% localtime off %}
+
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        This is to let you know that the data for device {{ device_slug }}  ( '{{device_label}}' ) has been successfully trimmed.<br>
+        Selected range to keep was:
+    </p>
+    <ul>
+        {%if start %}
+            <li>start={{ start|utc|date:"Y-m-d H:i" }} UTC</li>
+        {%  else %}
+            <li>No <i>start</i> specified</li>
+        {% endif %}
+        {%if end %}
+            <li>end={{ end|utc|date:"Y-m-d H:i" }} UTC</li>
+        {%  else %}
+            <li>No <i>end</i> specified</li>
+        {% endif %}
+    </ul>
+
+    <p>
+        {% if not oldest and not newest %}
+            No data was found outside the given range.
+            No data was trimmed/deleted!
+        {% else %}
+            {% if start %}
+                {% if oldest %}
+                    Data was deleted from {{ oldest|utc|date:"Y-m-d H:i" }} to {{ start|utc|date:"Y-m-d H:i" }} (UTC).
+                {% endif %}
+            {% endif %}
+            {% if end %}
+                {% if newest %}
+                    Data was deleted from {{ end|utc|date:"Y-m-d H:i" }} to {{ newest|utc|date:"Y-m-d H:i" }} (UTC).
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </p>
+
+    <p>
+        What data was trimmed?:
+    </p>
+
+    <ul>
+    {% for line in logs %}
+        <li>{{ line }}</li>
+    {% endfor %}
+    </ul>
+
+    <p><a href="{{ url }}">{{ url }}</a></p>
+
+{% endlocaltime %}
+
+{% include 'base/email.html' %}

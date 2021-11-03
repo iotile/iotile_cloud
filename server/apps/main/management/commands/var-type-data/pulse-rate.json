@@ -1,0 +1,32 @@
+{
+  "name": "Pulse Rate",
+  "storage_units_full": "ppm",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "PPM",
+      "unit_short": "ppm",
+      "m": 1,
+      "d": 65536,
+      "o": 0.0
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "RPM",
+      "unit_short": "rpm",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 0,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "PPM",
+      "unit_short": "ppm",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 0,
+      "derived_units": {}
+    }
+  ]
+}

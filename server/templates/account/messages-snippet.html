@@ -1,0 +1,10 @@
+ {% block messages %}
+    {% if messages %}
+        <div class="danger alert-danger bottomerror">
+            {% for message in messages %}
+                <p>{{ message|safe }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+

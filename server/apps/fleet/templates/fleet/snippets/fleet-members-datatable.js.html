@@ -1,0 +1,32 @@
+{% load static %}
+{% load i18n %}
+
+<script type="text/javascript">
+
+    var deviceData = [];
+    {% for m in members %}
+        {% with m.device as d %}
+        deviceData.push([
+            '<a href="{{ m.get_edit_url }}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a><a href="{{ m.get_delete_url }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>',
+            '<a href="{{ d.get_absolute_url }}">{{ d.label }}</a>',
+            '<a href="{{ d.get_absolute_url }}">{{ d.slug }}</a>',
+            '<a href="{{ d.project.get_absolute_url }}">{{ d.project.name }}</a>',
+            '{{ m.type_icons|safe }}'
+        ]);
+        {% endwith %}
+    {% endfor %}
+    var deviceTable = $('#device-table').DataTable({
+        order: [[2, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: "", bSortable: false},
+            {sTitle: "{% trans 'Device Label' %}"},
+            {sTitle: "{% trans 'Device ID' %}"},
+            {sTitle: "{% trans 'Project' %}"},
+            {sTitle: "{% trans 'Type' %}"}
+        ],
+        data: deviceData
+    });
+</script>

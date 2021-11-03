@@ -1,0 +1,69 @@
+/* SECTION */
+
+.section {
+	position: relative;
+	margin-bottom: 20px;
+	z-index: 550;
+}
+.section--full-height {
+	height: calc(100vh);
+	@include respond-to(xs-min) {
+		min-height: calc(50vh - 20px);
+	}
+	@include respond-to(xs) {
+		transition: height 999999s;
+	}
+}
+.section--xs-height-auto {
+	@include respond-to(xs) {
+		height: 100%;
+	}
+}
+.section--has-bg {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+.section--has-bg--bottom {
+	background-position: 50% bottom;
+	background-size: contain;
+}
+
+.section--huge {
+	padding: 30px 0 120px 0;
+	@include respond-to(md) {
+		padding: 60px 0 120px 0;
+	}
+	@include respond-to(xs) {
+		padding: 30px 0 50px 0;
+	}
+}
+.section--divider {
+	padding: 55px 0;
+	@include respond-to(sm) {
+		padding: 60px 0;
+	}
+	@include respond-to(xs) {
+		padding: 30px 0;
+	}
+}
+.section--pb-small {
+	padding-bottom: 30px;
+	@include respond-to(xs) {
+		padding-bottom: 30px;
+	}
+}
+.section-has-shadow {
+	box-shadow: inset 0 -2px 0 0 #003674;
+}
+
+.section--product-height {
+	height: calc(25vh);
+	@include respond-to(xs-min) {
+		min-height: calc(20vh - 20px);
+	}
+	@include respond-to(xs) {
+		transition: height 999999s;
+	}
+}
+

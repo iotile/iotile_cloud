@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <!-- page content -->
+    <div class="col-xs-12">
+        <div class="text-center text-center">
+            <h1 class="error-number">404</h1>
+            <h2>{% trans 'Sorry but we couldn\'t find this page' %}</h2>
+            <p>{% trans 'This page you are looking for does not exist.' %}
+                <a href="#">{% trans 'Report this?' %}</a>
+            </p>
+            <div class="mid_center">
+                <a href="/" class="btn btn-default">{% trans 'Go Home!' %}</a>
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+
+{% endblock %}

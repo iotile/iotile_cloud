@@ -1,0 +1,95 @@
+{% extends "org/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <br xmlns="http://www.w3.org/1999/html"/>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>{% trans 'Generated Report Details' %}</h5>
+                    <div class="ibox-tools">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Streams -->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {{ object.label }}
+                        {% if not object.public %}
+                            <i class="fa fa-lock text-success" title="Private Report"></i>
+                        {% else %}
+                            <i class="fa fa-unlock text-warning" title="Public Report"></i>
+                        {% endif %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if object.index_file and object.public %}
+                        <li>
+                            <a href="{{ object.get_public_url }}">
+                                <i class="fa fa-external-link" title="{% trans 'Public Link' %}"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if can_write_reports %}
+                            <li>
+                                <a href="{{ object.get_edit_url }}">
+                                    <i class="fa fa-pencil" title="{% trans 'Edit' %}"></i>
+                                </a>
+                            </li>
+                            {% if object.index_file %}
+                                <li>
+                                    <a href="{{ object.get_delete_url }}">
+                                        <i class="fa fa-trash-o text-danger" title="{% trans 'Delete' %}"></i>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                    </ul>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" align="center">
+
+                    {% if not object.index_file %}
+                        <h1>{% trans 'Report not found' %}</h1>
+                        <h3>{% trans 'Status' %}: {{ object.get_status_display }}</h3>
+                    {% else %}
+                        <h4>{% trans 'Report generated on' %}
+                            {{ object.created_on }}
+                            {% trans 'by' %}
+                            {{ object.created_by }}</h4>
+                        <br>
+                        <br>
+
+                        <a href="{{ object.get_link }}" class="btn btn-success btn-lg">
+                            <i class="fa fa-link"></i> {% trans 'Open Report' %}
+                        </a>
+
+                        {% if object.public %}
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            {% trans 'This report is marked as public and can be accessed without login at' %}<br>
+                            <a href="{{ object.get_public_url }}">
+                                {{ object.get_full_public_url }}
+                            </a>
+                        {% endif %}
+
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+{% endblock %}

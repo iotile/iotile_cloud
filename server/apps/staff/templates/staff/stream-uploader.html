@@ -1,0 +1,92 @@
+{% extends "dist/webapp/fine-uploader-base.html" %}
+{% load i18n %}
+{% load static %}
+{% load account %}
+
+{% block fine-uploader-js %}
+    <script>
+        $('#fine-uploader-s3').fineUploaderS3({
+            //element: document.getElementById('fine-uploader-s3'),
+            template: 'qq-template-s3',
+            request: {
+                endpoint: "{{ fineuploader_request_endpoint }}",
+                accessKey: "{{ fineuploader_accesskey }}"
+            },
+            signature: {
+                // REQUIRED: Path to our local server where requests can be signed.
+                endpoint: "{{ fineuploader_signature_endpoint }}"
+            },
+            uploadSuccess: {
+                // OPTIONAL: An endopint for Fine Uploader to POST to
+                // after the file has been successfully uploaded.
+                endpoint: "{{ fineuploader_success_endpoint }}"
+            },
+            objectProperties: {
+                key: function (fileId) {
+                    var uuid = $('#fine-uploader-s3').fineUploader('getUuid', fileId);
+
+                    return  '{{ fineuploader_storage_dirname }}/' + uuid  + '.bin';
+                },
+                acl: "private"
+            },
+            thumbnails: {
+                placeholders: {
+                    waitingPath: "{% static 'dist/webapp/app/images/waiting-fineuploader.png' %}",
+                    notAvailablePath: "{% static 'dist/webapp/app/images/not_available-fineuploader.png' %}"
+                }
+            },
+            validation: {
+                allowedExtensions: ['{{ fineuploader_extensions }}'],
+                itemLimit: {{ fineuploader_item_limit }},
+                sizeLimit: {{ fineuploader_max_size }}
+            },
+            cors: {
+                expected: true
+            },
+            chunking: {
+                enabled: true
+            },
+            resume: {
+                enabled: true
+            },
+            debug: true
+        })
+                .on('complete', function(event, id, name, response) {
+                    if (response.success) {
+                        // Delay return to give it time for Lambda to resize
+                        setTimeout(function () {
+                            window.location.href = response.redirectURL;
+                        }, 500); //will call the function after 1/2 secs.
+                    }
+                });
+    </script>
+{% endblock %}
+
+
+{% block side_menu %}
+    <div class="menu_section">
+        <h3>&nbsp;</h3>
+        <ul class="nav side-menu">
+            <li>
+                <a href="{% url 'staff:home' %}">
+                    <i class="fa fa-institution"></i> Staff Home
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'staff:streams' %}">
+                    <i class="fa fa-line-chart"></i> Streams
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Stream File Uploader</h1>
+
+    <!-- Fine Uploader DOM Element
+    ====================================================================== -->
+    <div id="fine-uploader-s3"></div>
+
+{% endblock %}

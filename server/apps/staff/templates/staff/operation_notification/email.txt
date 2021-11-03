@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load custom_tags %}
+
+Hello,
+
+This is to let you know that the following scheduled Staff Operation was completed:
+
+- User: {{user}}
+- Operation: {{operation}}
+- Args:
+  {% for key, value in args.items %}
+  {{ key }}: {{ value }}
+  {%  endfor %}
+- Elapsed time: {{ op_time }}
+- Notes: {{notes}}
+
+{{ url }}
+
+{% include 'base/email.txt' %}

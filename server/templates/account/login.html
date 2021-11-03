@@ -1,0 +1,33 @@
+{% extends "account/auth-base.html" %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
+{% load static %}
+
+{% block main_class %}site-wrapper-login loginbackground{% endblock %}
+
+{% block form_content %}
+
+
+<!--LOGIN -->
+
+    <form method="post" action="" autocomplete="off">
+
+      <div>
+        <img src="{% static 'dist/webapp/app/images/auth/archiotilecloudblue.png' %}" class="logo-separator" alt="Arch Logo">
+        <h5 class="login-title" id="signin"> SIGN IN  </h5>
+        <p class="login-description "> "Industrial IoT for a more connected and sustainable Earth"
+        </p>
+      </div>
+      <hr>
+        {% crispy form %}
+      <button>SIGN IN</button>
+      <p class="message"><br>Not registered? <a href="{% url 'account_signup' %}">Create an account</a></p>
+      <p class="tcpmessage">Forgot your password? <a href="{% url 'account_reset_password' %}">Reset your password</a></p>
+    </form>
+
+
+{% endblock %}
+
+

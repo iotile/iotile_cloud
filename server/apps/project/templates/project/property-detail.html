@@ -1,0 +1,72 @@
+{% extends "project/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+    <div class="row tile_count">
+        <h2>
+            <a href="{{ object.get_absolute_url }}">
+                <i class="fa fa-arrow-left"></i> Back to {{ object.slug }}
+            </a>
+        </h2>
+    </div>
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Project Property Info</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <!-- Device Details -->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if can_modify_device_properties %}
+                            <li>
+                                <a href="{% url 'property:add' object.slug %}">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <h5>Project Properties</h5>
+                </div>
+                {% if can_read_device_properties %}
+                    <div class="ibox-content">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                                <th></th>
+                            </tr>
+                            {% for p in properties %}
+                                <tr>
+                                    <td>{{ p.name }}</td>
+                                    <td>{{ p.value|linebreaks }}</td>
+                                    <td>
+                                        {% if can_modify_device_properties %}
+                                            <a href="{% url 'property:edit' object.slug p.id %}">
+                                                <i class="fa fa-pencil"></i> {% trans 'Edit' %}
+                                            </a>
+                                            <a href="{% url 'property:delete' object.slug p.id %}">
+                                                <i class="fa fa-trash"></i> {% trans 'Delete' %}
+                                            </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    {% include 'org/no-access.html' %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

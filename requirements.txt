@@ -1,0 +1,3 @@
+# awscli==1.17.10 -- Now using v2
+awsebcli>=3.19.3
+invoke==1.5.0

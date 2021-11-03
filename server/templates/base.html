@@ -1,0 +1,166 @@
+{% extends "dist/webapp/index.html" %}
+{% load i18n %}
+{% load static %}
+{% load account %}
+
+{% block favicon %}
+<link rel="shortcut icon" href="{% static 'dist/webapp/app/extras/favicon.ico' %}" />
+{% endblock %}
+
+{% block body %}
+
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="{% url 'home' %}" class="site_title">
+                            <img src="{% static 'dist/webapp/app/images/logo-white-xs.png' %}" style="width:50%;">
+                        </a>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    {% block top_side_menu %}
+
+
+                            <!-- menu profile quick info -->
+                            <div class="profile">
+                                {% block company_profile %}
+                                {% endblock %}
+                            </div>
+                            <!-- /menu profile quick info -->
+
+                            <br/>
+
+                        {% if user.is_authenticated %}
+                            <!-- sidebar menu -->
+                            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                                {% block side_menu %}
+                                    <div class="menu_section">
+                                        <h3>&nbsp;</h3>
+                                        <ul class="nav side-menu">
+                                            {% if orgs %}
+                                            <li><a><i class="fa fa-users"></i> Companies <span class="fa fa-chevron-down"></span></a>
+                                                <ul class="nav child_menu">
+                                                    {% for org in orgs %}
+                                                        <li><a href="{{ org.get_absolute_url }}">{{ org.name }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                            <li><a href="{% url 'org:create' %}"><i class="fa fa-plus"></i> Setup New Company</a>
+                                            {% endif %}
+                                            {% include 'snippets/basic-side-menu-items.html' %}
+                                            {% if back_url %}
+                                                <li>
+                                                    <a href="{{ back_url }}">
+                                                        <i class="fa fa-chevron-left"></i>
+                                                        {% trans 'Back' %}
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                {% endblock %}
+                            </div>
+                            <!-- /sidebar menu -->
+
+                            <!-- /menu footer buttons -->
+                            <div class="sidebar-footer hidden-small">
+                            </div>
+                            <!-- /menu footer buttons -->
+                        {% endif %}
+                    {% endblock %}
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav class="" role="navigation">
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                {% if user.is_authenticated %}
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                                       aria-expanded="false">
+                                        <img src="{{ user.get_gravatar_tiny_url }}" alt="">{{ user.username }}
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                        {% if user.is_staff %}
+                                            <li><a href="{% url 'staff:home' %}">Staff Pages</a></li>
+                                        {% endif %}
+                                        <li><a href="{% url 'account_redirect' %}">
+                                            {% trans 'My Profile' %}
+                                        </a></li>
+                                        <li><a href="/account/password/change/">
+                                            {% trans 'Change Password' %}
+                                        </a></li>
+                                        <li><a href="{% url 'onboard-step-org' %}">
+                                            {% trans 'Initial User Setup' %}
+                                        </a></li>
+                                        <li><a href="{% url 'account_logout' %}">
+                                            <i class="fa fa-sign-out pull-right"></i>
+                                            {% trans 'Log Out' %}
+                                        </a></li>
+                                    </ul>
+                                {% else %}
+                                    <a href="{% url 'account_login' %}">{% trans 'Login' %}</a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                {% block messages %}
+                    {% if messages %}
+                        <div class="row">
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">  <!-- singular -->
+                                    <a class="close" data-dismiss="alert">×</a>
+                                    {{ message|safe }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="clearfix"></div>
+                    {% endif %}
+                {% endblock %}
+
+
+                {% block content %}
+                    <div class="jumbotron">
+                        <h1>Under Construction</h1>
+                    </div>
+                {% endblock %}
+
+            </div>
+            <!-- page content -->
+
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    <a href="#">
+                        {%  trans 'Copyright' %} &copy; {% now "Y" %} ...
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+
+            {% block support_widget %}
+            {% endblock %}
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

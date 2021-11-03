@@ -1,0 +1,52 @@
+{% extends "emailutil/notification-base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <p>
+        {% trans 'The state of' %} '{{ device.label }}' {% trans 'has changed' %}
+        {% if transition.src.label != transition.dst.label %}
+            {% trans 'from' %} {{ transition.src.label.upper }} {% trans 'to' %} {{ transition.dst.label.upper }}.
+        {% else %}
+            .
+        {% endif %}
+    </p>
+    <p>
+        {% trans 'This notification was caused by a data point with value' %} {{ value }}.
+    </p>
+    {% if custom_note %}
+        <br>
+        <p><b>{% trans 'Your note:' %}</b></p>
+        {{ custom_note|linebreaks }}
+    {% endif %}
+
+    <br>
+    <p><b>{% trans 'More information about this notification:' %}</b></p>
+    <p>
+        {% trans 'Organization' %}: {{ org.name }}<br>
+        {% trans 'Project' %}: {{ project.name }}<br>
+        {% trans 'Device label' %}: {{ device.label }}<br>
+        {% trans 'Device ID' %}: {{ device.slug }}<br>
+        {% if source_label %}
+        {% trans 'Stream' %}: {{ source_label }}<br>
+        {% endif %}
+        {% trans 'Timestamp' %}: {{ timestamp }}
+    </p>
+
+    <br>
+    <p><b>{% trans 'This notification is based on these triggers:' %}</b></p>
+    <ul>
+        {% for trigger in transition.triggers  %}
+            {% if trigger.user_threshold %}
+            <li>{{ trigger.get_operator_display }} {{ trigger.user_threshold }} {{ trigger.user_unit_full }}</li>
+            {% else %}
+            <li>{{ trigger.get_operator_display }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <br>
+    {% trans 'To view your data, please go to ' %}<a href="{{ url }}">app.iotile.cloud</a>.
+    {% trans 'For help with these notifications, please contact Arch at help@archsys.io.' %}
+
+{% endblock %}
+

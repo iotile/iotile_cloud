@@ -1,0 +1,41 @@
+{
+  "attributes": [
+    {
+      "name": ":report:summary:trip:temp:below",
+      "data": {
+        "value": 17,
+        "units": "C"
+      }
+    },
+    {
+      "name": ":report:summary:trip:temp:above",
+      "data": {
+        "value": 30,
+        "units": "C"
+      }
+    },
+    {
+      "name": ":report:summary:trip:dv:units",
+      "data": {
+        "units": "in/s"
+      }
+    },
+    {
+      "name": ":webapp:shipping:default_device_name:active",
+      "data": {
+        "properties": [
+          "Customer",
+          "Sales Order No"
+        ],
+        "label": "Customer [Order# SalesOrderNo]"
+      }
+    },
+    {
+      "name": ":webapp:shipping:default_device_name:inactive",
+      "data": {
+        "properties": [],
+        "label": "Device [$slug]"
+      }
+    }
+  ]
+}

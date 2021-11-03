@@ -1,0 +1,76 @@
+{%  extends "org/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block media %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    <!-- DataBlock table -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script type="text/javascript">
+
+    $('#template-table').DataTable({
+        order: [[1, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: "", bSortable: false},
+            {sTitle: "{% trans 'Name' %}"},
+            {sTitle: "{% trans 'Type' %}"},
+            {sTitle: "{% trans 'Default' %}"},
+            {sTitle: "{% trans 'Choices' %}"}
+        ]
+
+    });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>{{ org.name }} </h2>
+                <h2>Property Templates</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-striped" id="template-table">
+                    <tbody>
+                    {% for item in object_list %}
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                {{ item.name }}
+                            </td>
+                            <td>
+                                {{ item.get_type_display }}
+                            </td>
+                            <td>
+                                {{ item.default }}
+                            </td>
+                            <td>
+                                {% if item.enums.count %}
+                                    <a href="{% url 'property:template-detail' item.org.slug item.id %}" class="btn btn-primary">
+                                        <i class="fa fa-pencil"></i> {{ item.enums.count }}
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <br/>
+{% endblock %}

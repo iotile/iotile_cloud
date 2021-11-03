@@ -1,0 +1,25 @@
+
+{% load i18n %}
+
+{% blocktrans with site_name=site_name %}
+Hello from the Arch team!
+
+You're receiving this e-mail because you have been defined a stream data filter
+at {{ site_domain }} and this filter has triggered this notification
+
+{% endblocktrans %}
+
+{% for key, value in data.items %}
+{{ key }} = {{ value }}
+{% endfor %}
+
+{{ url }}
+
+
+{% blocktrans with site_name=site_name %}
+
+Thank you for using {{ site_name }}!
+
+-The Arch Team
+
+{% endblocktrans %}

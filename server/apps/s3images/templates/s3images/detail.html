@@ -1,0 +1,23 @@
+{%  extends "base.html" %}
+{%  load static %}
+{%  load i18n %}
+{%  load s3image %}
+
+{% block content %}
+
+    <br/>
+    <div class="row">
+        <img class="img-responsive img-thumbnail"
+             src="{{ object.medium_url }}"
+             onerror="{% on_image_error %}"/>
+        <img class="img-responsive img-thumbnail"
+             src="{{ object.thumbnail_url }}"
+             onerror="{% on_image_error %}"/>
+        <img class="img-responsive img-thumbnail" height="28" width="28"
+             src="{{ object.tiny_url }}"
+             onerror="{% on_image_error %}"/>
+    </div>
+
+    <br/>
+{% endblock %}
+

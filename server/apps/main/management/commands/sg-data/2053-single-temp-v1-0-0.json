@@ -1,0 +1,93 @@
+{
+    "name": "Single Temp 2053",
+    "org": "arch-systems",
+    "project_template": "simple-template-v1-0-0",
+    "report_processing_engine_ver": 2,
+    "app_tag": 2053,
+    "app_version": "1.0",
+    "description": "Single Temp App (originally created for MiniPOD) with external sensor",
+    "variable_templates": [
+        {
+            "label": "IO 1",
+            "lid_hex": "500f",
+            "derived_lid_hex": "",
+            "var_type": "temp",
+            "default_input_unit": "in--temp--10k-thermistor",
+            "default_output_unit": "out--temp--celsius",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "Sensor 1",
+            "lid_hex": "1027",
+            "derived_lid_hex": "",
+            "var_type": "temp",
+            "default_input_unit": "in--temp--10k-thermistor",
+            "default_output_unit": "out--temp--celsius",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        }
+    ],
+    "display_widget_templates": [
+        {
+            "label": "IO 1",
+            "lid_hex": "500f",
+            "var_type": "temp",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true,
+            "type": "val",
+            "args": {
+                "options": {
+                    "showLastValueBox": true
+                }
+            }
+        },
+        {
+            "label": "Sensor 1",
+            "lid_hex": "1027",
+            "var_type": "temp",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        }
+    ],
+    "ui_extra": {
+        "web": {
+            "pageTemplateSlug": "temp",
+            "primaryVarId": "500f"
+        },
+        "mobile": {
+            "template": "temp",
+            "controller": "tempCtrl",
+            "other": null,
+            "ioInfo": {
+                "order": [
+                    "500f"
+                ],
+                "map": {
+                    "500f": {
+                        "label": "IO 1",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "1027",
+                                "label": "Sensor 1"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "major_version": 1,
+    "minor_version": 0,
+    "patch_version": 0
+}

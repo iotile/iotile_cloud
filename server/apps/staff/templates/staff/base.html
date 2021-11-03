@@ -1,0 +1,61 @@
+{%  extends "base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block side_menu %}
+    <div class="menu_section">
+        <h3>&nbsp;</h3>
+        <ul class="nav side-menu">
+            <li>
+                <a href="{% url 'staff:home' %}">
+                    <i class="fa fa-institution"></i> Staff Home
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'staff:ops-status' %}">
+                    <i class="fa fa-gears"></i> Dev Ops
+                </a>
+            </li>
+            <li>
+                <a href="/admin">
+                    <i class="fa fa-wrench"></i> Admin Pages
+                </a>
+            </li>
+            <li>
+                <a href="/api/v1/">
+                    <i class="fa fa-code"></i> API Pages
+                </a>
+            </li>
+            <li>
+                <a><i class="fa fa-dashboard"></i> Other Tools <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li>
+                        <a href="https://console.aws.amazon.com/">
+                            AWS Console
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://app.codeship.com/projects/187985">
+                            Continues Integration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sentry.io/arch-systems/iotilecloud/">
+                            Sentry Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tools.pingdom.com">
+                            Pingdome Test
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}
+

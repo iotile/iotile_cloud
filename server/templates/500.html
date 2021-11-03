@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <div class="main_container">
+        <!-- page content -->
+        <div class="col-md-12">
+            <div class="col-middle">
+                <div class="text-center text-center">
+                    <h1 class="error-number">500</h1>
+                    <h2>{% trans 'Internal Server Error' %}</h2>
+                    <p>{% trans 'We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.' %}
+                        <a href="#">{% trans 'Report this?' %}</a>
+                    </p>
+                    <div class="mid_center">
+                        <a href="/" class="btn btn-default">{% trans 'Go Home!' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+    </div>
+
+{% endblock %}

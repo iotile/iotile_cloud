@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{% trans 'Device App' %}: <small>{{ object.name }}</small></h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'App Details' %}
+                    </h2>
+                    {% if is_staff %}
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a href="{% url 'sensor-graph:edit' object.slug %}">
+                                    <i class="fa fa-pencil"></i> {% trans 'Edit' %}
+                                </a>
+                            </li>
+                            <li></li>
+                        </ul>
+                    {% endif %}
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="col-md-12 col-xs-12">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ object.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ object.description|linebreaks }}</td>
+                        </tr>
+                        <tr>
+                            <th>Version</th>
+                            <td>{{ object.version }}</td>
+                        </tr>
+                        <tr>
+                            <th>App Tag</th>
+                            <td>{{ object.app_tag }}</td>
+                        </tr>
+                        <tr>
+                            <th>Provided By</th>
+                            <td>{{ object.org.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Streamer Processing Engine</th>
+                            <td>v{{ object.report_processing_engine_ver }}</td>
+                        </tr>
+                        <tr>
+                            <th>Project Template</th>
+                            <td><a href="{{ object.project_template.get_absolute_url }}">{{ object.project_template.name }} ({{ object.project_template.version }})</a></td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            {% if object.active %}
+                            <td><b style="color:green;">Active</b></td>
+                            {% else %}
+                            <td><b style="color:red;">Not Active</b></td>
+                            {% endif %}
+                        </tr>
+                        {% if is_staff %}
+                        <tr>
+                            <th>SG File</th>
+                            <td>
+                                {% if object.sgf %}
+                                    <a href="{{ object.get_edit_sgf_url }}" class="btn btn-success">
+                                        <i class="fa fa-pencil"></i> Edit SGF
+                                    </a>
+                                    <a href="{{ object.sgf.url }}" download="{{ object.sgf.title }}" class="btn btn-success">
+                                        <i class="fa fa-download"></i> Download SGF
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'sensor-graph:sgf-upload' object.slug %}" class="btn btn-success">
+                                        <i class="fa fa-upload"></i> Upload {% trans 'SGF' %}
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>UI Extra</th>
+                            <td>
+                                <a href="{% url 'sensor-graph:edit-ui-extra' object.slug %}" class="btn btn-success">
+                                    <i class="fa fa-pencil"></i> {% trans 'Edit Json' %}
+                                </a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

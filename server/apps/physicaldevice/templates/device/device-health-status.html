@@ -1,0 +1,140 @@
+{% extends "project/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <div class="page-title">
+        <div class="title_left">
+            <h3>IOTile Device Status</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <!-- Device Details -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Device Details</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{{ object.get_absolute_url }}">
+                                <i class="fa fa-arrow-circle-left"></i>  Device Page
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>
+                                {{ object.id }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Slug</th>
+                            <td>
+                                <a href="{{ object.get_absolute_url }}">
+                                    {{ object.slug }}
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Label</th>
+                            <td>{{ object.label }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Notifications</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'org:project:device:health-settings' object.org.slug object.project.id object.id %}">
+                                <i class="fa fa-pencil"></i>  Edit
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Enabled</th>
+                            <td>
+                                {% if status.health_check_enabled %}
+                                    <i class="fa fa-check-circle-o text-success"></i>
+                                {% else %}
+                                    <i class="fa fa-times-circle-o text-danger"></i>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Check Period</th>
+                            <td>{{ status.health_check_period_display }}</td>
+                        </tr>
+                        <tr>
+                            <th>Recipients</th>
+                            <td>
+                                {% for item in status.notification_recipients %}
+                                    {{ item }}<br>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Device Health</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ibox-content">
+
+                    <div class="animated flipInY col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                {%  if status.alert == 'OK' %}
+                                    <i class="fa fa-check-square-o"></i>
+                                {% endif %}
+                                {%  if status.alert == 'FAIL' %}
+                                    <i class="fa fa-times-circle-o"></i>
+                                {% endif %}
+                                {%  if status.alert == 'UNK' %}
+                                    <i class="fa fa-clock-o"></i>
+                                {% endif %}
+                                {%  if status.alert == 'DSBL' %}
+                                    <i class="fa fa-square-o"></i>
+                                {% endif %}
+                            </div>
+                            <div class="count">
+                                {{ status.alert }}
+                            </div>
+
+                            <h3>
+                                {% if status.last_report_ts %}
+                                    {{ status.last_report_ts }}
+                                {% else %}
+                                    <br>
+                                {% endif %}
+                            </h3>
+                            <p>{{ status.alert_verbose }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

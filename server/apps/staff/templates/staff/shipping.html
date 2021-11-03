@@ -1,0 +1,46 @@
+{% extends "staff/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <br/>
+    <div class="row">
+        <!-- Streams -->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Support Operations (Shipping)
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="list-group">
+
+                        <a href="{% url 'staff:shipping-org' %}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-building"></i> Create New Shipping Org</h4>
+                            <p class="list-group-item-text">Create a new organization with optional support account</p>
+                        </a>
+                        <a href="{% url 'staff:shipping-project' %}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-ship"></i> Create New Shipping Project</h4>
+                            <p class="list-group-item-text">Create a new project with necessary filters</p>
+                        <a href="{% url 'staff:shipping-claim' %}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-compass"></i> Claim a POD-1M</h4>
+                            <p class="list-group-item-text">Claim a device for a customer and set to Inactive</p>
+                        </a>
+                        <a href="{% url 'staff:shipping-data-fix' %}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-compass"></i> Fix timestamps for POD-1M</h4>
+                            <p class="list-group-item-text">Fix all data/event timestamps based on Start/End timestamps</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

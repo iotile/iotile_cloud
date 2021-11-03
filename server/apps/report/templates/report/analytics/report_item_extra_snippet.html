@@ -1,0 +1,19 @@
+{% load i18n %}
+
+{% include 'report/snippets/configuration_button.html' %}
+
+{% if obj.config.template %}
+<table class="table table-striped">
+    <caption>
+        <b>{% trans 'Template Settings' %}</b>
+    </caption>
+    <tbody>
+        <tr>
+            <td>{% trans 'Template' %}: "{{ obj.config.template }}"</td>
+        </tr>
+    </tbody>
+</table>
+{% else %}
+    <h5 class="text-danger" align="center">{% trans 'Required Report Configuration is missing' %}</h5>
+{% endif %}
+

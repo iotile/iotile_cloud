@@ -1,0 +1,95 @@
+{% extends "ota/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block media %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    <!-- DataBlock table -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script type="text/javascript">
+
+    var deploymentRequestTable = $('#deployment-request-table').DataTable({
+        order: [[0, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: ""},
+            {sTitle: "{% trans 'Script' %}"},
+            {sTitle: "{% trans 'Fleet' %}"},
+            {sTitle: "{% trans 'Completed on' %}"},
+            {sTitle: "{% trans 'Released on' %}"},
+            {sTitle: "{% trans 'Released by' %}"}
+        ]
+
+    });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <br/>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        IOTile Device Management: Deployment Requests
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_staff or is_admin %}
+                            <li>
+                                <a href="{% url 'ota:request-create' org.slug %}">
+                                    <i class="fa fa-plus"></i> Add
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped" id="deployment-request-table">
+                        <tbody>
+                        {% for obj in object_list %}
+                            <tr>
+                                <td>
+                                    <a href="{{ obj.get_absolute_url }}"
+                                       class="btn btn-sm btn-success">
+                                        {{ obj.id }}
+                                    </a>
+                                </td>
+                                <td>{{ obj.script.slug }}</td>
+                                {% if obj.fleet %}
+                                    <td>{{ obj.fleet.slug }}</td>
+                                {% else %}
+                                    <td>Global</td>
+                                {% endif %}
+                                {%  if obj.completed_on %}
+                                    <td>{{ obj.completed_on }}</td>
+                                {% else %}
+                                    <td><i class="fa fa-times-circle text-danger"></i></td>
+                                {% endif %}
+                                {%  if obj.released_on %}
+                                    <td>{{ obj.released_on }}</td>
+                                {% else %}
+                                    <td><i class="fa fa-times-circle text-danger"></i></td>
+                                {% endif %}
+                                <td>{{ obj.org.name }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

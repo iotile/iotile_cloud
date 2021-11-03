@@ -1,0 +1,48 @@
+/* FONTS */
+
+/* Fonts PATH */
+$icon-font-path: '../fonts/';
+
+//Montserrat
+@font-face {
+  font-family: 'Montserrat-Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$icon-font-path}Montserrat/Montserrat-Thin.woff2') format('woff2'),
+       url('#{$icon-font-path}Montserrat/Montserrat-Thin.woff') format('woff'),
+       url('#{$icon-font-path}Montserrat/Montserrat-Thin.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$icon-font-path}Montserrat/Montserrat-Light.woff2') format('woff2'),
+       url('#{$icon-font-path}Montserrat/Montserrat-Light.woff') format('woff'),
+       url('#{$icon-font-path}Montserrat/Montserrat-Light.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$icon-font-path}Montserrat/Montserrat-Regular.woff2') format('woff2'),
+       url('#{$icon-font-path}Montserrat/Montserrat-Regular.woff') format('woff'),
+       url('#{$icon-font-path}Montserrat/Montserrat-Regular.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$icon-font-path}Montserrat/Montserrat-Bold.woff2') format('woff2'),
+       url('#{$icon-font-path}Montserrat/Montserrat-Bold.woff') format('woff'),
+       url('#{$icon-font-path}Montserrat/Montserrat-Bold.ttf') format('ttf');
+}
+
+//Cardo
+@font-face {
+  font-family: 'Cardo-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$icon-font-path}Cardo/Cardo-Regular.woff2') format('woff2'),
+       url('#{$icon-font-path}Cardo/Cardo-Regular.woff') format('woff'),
+       url('#{$icon-font-path}Cardo/Cardo-Regular.ttf') format('ttf');
+}

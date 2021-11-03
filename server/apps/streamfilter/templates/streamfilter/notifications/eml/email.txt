@@ -1,0 +1,44 @@
+{% extends "emailutil/notification-base.txt" %}
+{% load i18n %}
+
+{% block content %}
+    {% trans 'The state of' %} '{{ device.label }}'
+    {% if transition.src.label != transition.dst.label %}
+    {% trans 'has changed' %} {% trans 'from' %} {{ transition.src.label.upper }} {% trans 'to' %} {{ transition.dst.label.upper }}.
+    {% else %}
+    {% trans 'has changed' %}.
+    {% endif %}
+    {% trans 'This notification was caused by a data point with value' %}: {{ value }}.
+
+    {% if custom_note %}
+
+    {% trans 'Your note:' %}
+    {{ custom_note}}
+    {% endif %}
+
+
+    {% trans 'More information about this notification:' %}
+    {% trans 'Organization' %} : {{ org.name }}
+    {% trans 'Project' %}      : {{ project.name }}
+    {% trans 'Device label' %} : {{ device.label }}
+    {% trans 'Device ID' %}    : {{ device.slug }}
+    {% if source_label %}
+    {% trans 'Stream' %}        : {{ source_label }}
+    {% endif %}
+    {% trans 'Timestamp' %}    : {{ timestamp }}
+
+
+    {% trans 'This notification is based on these triggers:' %}
+        {% for trigger in transition.triggers  %}
+           {% if trigger.user_threshold %}
+            {{ trigger.get_operator_display }} {{ trigger.user_threshold }} {{ trigger.user_unit_full }}
+           {% else %}
+            {{ trigger.get_operator_display }}
+           {% endif %}
+        {% endfor %}
+
+
+    {% trans 'To view your data, please go to ' %}{{ url }}
+    {% trans 'For help with these notifications, please contact Arch at help@archsys.io.' %}
+
+{% endblock %}

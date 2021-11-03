@@ -1,0 +1,57 @@
+{
+  "name": "Saver Event",
+  "storage_units_full": "Event",
+  "data_type": "E0",
+  "schema": {
+    "keys": {
+      "max_peak": {
+        "label": "Max G",
+        "units": "G",
+        "type": "float",
+        "decimal": 2
+      },
+      "max_peak_direction": {
+        "label": "Axis",
+        "type": "str"
+      },
+      "type": {
+        "label": "Axis",
+        "type": "str"
+      },
+      "duration": {
+        "label": "Duration",
+        "units": "ms",
+        "type": "float",
+        "decimal": 3
+      },
+      "delta_v": {
+        "label": "dV",
+        "units": "m/s",
+        "decimal": 3,
+        "type": "float",
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      },
+      "pressure": {
+        "units": "mbar",
+        "decimal": 2,
+        "type": "float"
+      },
+      "relative_humidity": {
+        "units": "% RH",
+        "decimal": 2,
+        "type": "float"
+      },
+      "temperature": {
+        "units": "C",
+        "decimal": 2,
+        "type": "float"
+      }
+    }
+  },
+  "available_input_units": [],
+  "available_output_units": []
+}

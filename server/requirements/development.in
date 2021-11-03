@@ -1,0 +1,8 @@
+-r base.txt
+pip-tools
+django-debug-toolbar
+pytest-django
+pytest-cov
+pytest-xdist
+pylint
+pylint_django

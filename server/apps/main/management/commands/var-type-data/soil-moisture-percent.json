@@ -1,0 +1,36 @@
+{
+  "name": "Soil Moisture Percent",
+  "storage_units_full": "Percent",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "Percent",
+      "unit_short": "%",
+      "m": 100,
+      "d": 4095
+    },
+    {
+      "unit_full": "EC-5",
+      "unit_short": "%",
+      "m": 4103,
+      "d": 40950,
+      "o": -46.875
+    },
+    {
+     "unit_full": "GS3-Decagon",
+     "unit_short": "%",
+     "m": 1,
+     "d": 80000
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "Percent",
+      "unit_short": "%",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 1,
+      "derived_units": {}
+    }
+  ]
+}

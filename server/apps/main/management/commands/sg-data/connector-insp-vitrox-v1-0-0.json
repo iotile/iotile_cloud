@@ -1,0 +1,91 @@
+{
+    "name": "Connector - Insp Vitrox",
+    "org": "arch-systems",
+    "description": "Virtual Device repressents a Vitrox Inspection Machine Connector",
+    "project_template": "default-template-v1-0-0",
+    "report_processing_engine_ver": 2,
+    "variable_templates": [
+      {
+        "label": "cycle-times",
+        "lid_hex": "5050",
+        "derived_lid_hex": "",
+        "var_type": "default-event",
+        "default_input_unit": "",
+        "default_output_unit": "",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": false,
+        "web_only": true
+      },
+      {
+        "label": "inspection_pass",
+        "lid_hex": "5053",
+        "derived_lid_hex": "",
+        "var_type": "count",
+        "default_input_unit": "in--count--na",
+        "default_output_unit": "out--count--na",
+        "ctype": "unsigned int",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": false,
+        "web_only": true
+      },
+      {
+        "label": "inspection_fail",
+        "lid_hex": "5054",
+        "derived_lid_hex": "",
+        "var_type": "count",
+        "default_input_unit": "in--count--na",
+        "default_output_unit": "out--count--na",
+        "ctype": "unsigned int",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": false,
+        "web_only": true
+      },
+      {
+        "label": "inspection_details",
+        "lid_hex": "5065",
+        "derived_lid_hex": "",
+        "var_type": "default-event",
+        "default_input_unit": "",
+        "default_output_unit": "",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": false,
+        "web_only": true
+      },
+      {
+          "label": "defects",
+          "lid_hex": "5064",
+          "derived_lid_hex": "",
+          "var_type": "default-event",
+          "default_input_unit": "",
+          "default_output_unit": "",
+          "m": 1,
+          "d": 1,
+          "o": 0.0,
+          "app_only": false,
+          "web_only": true
+      }
+    ],
+    "display_widget_templates": [],
+    "ui_extra": {
+      "web": {
+        "pageTemplateSlug": "default"
+      },
+      "mobile": {
+        "template": "default",
+        "controller": "defaultCtrl",
+        "other": null,
+        "ioInfo": null
+      }
+    },
+    "major_version": 1,
+    "minor_version": 0,
+    "patch_version": 0
+}

@@ -1,0 +1,116 @@
+{% load static %}
+{% comment %}
+    =================================================================
+    =================================================================
+
+    THIS FILE IS COPIED from webapp/src/index.html
+                          to server/templates/dist/webapp/index.html
+
+    =================================================================
+    =================================================================
+{% endcomment %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block meta %}
+    {% endblock %}
+
+    <title>IOTile Cloud</title>
+
+    <link rel="apple-touch-icon" href="app/extras/apple-touch-icon-v1.png">
+    {% block favicon %}
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="app/extras/favicon.ico" type="image/x-icon" />
+    {% endblock %}
+
+    <!-- build:css app/styles/vendor.css -->
+    <!-- npm:css -->
+    <!-- endnpm -->
+    <!-- endbuild -->
+
+    <!-- build:css app/styles/main.css -->
+    <link rel="stylesheet" href="app/styles/main.css">
+    <link rel="stylesheet" href="/node_modules/gentelella/build/css/custom.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-toggle/css/bootstrap-toggle.css">
+    <link rel="stylesheet" href="app/styles/iCheck.css">
+    <!-- endbuild -->
+
+    {% block media %}
+    {% endblock %}
+
+      <!--[if lt IE 9]>
+      <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+      <![endif]-->
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+  </head>
+  <body {% block body_class %}class="nav-md"{% endblock %}>
+
+    {% block body %}
+
+        <H1>Under Construction</H1>
+
+    {% endblock %}
+
+
+    <!-- Google Analytics -->
+    <script>
+        {% if production %}
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-79660151-3', 'auto');
+        ga('send', 'pageview');
+        {% endif %}
+    </script>
+
+    <!-- build:js app/scripts/vendor.js -->
+    <!-- npm:js -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/moment/moment.js"></script>
+    <!-- endnpm -->
+    <!-- endbuild -->
+
+    <!-- build:js app/scripts/plugins.js -->
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="/node_modules/highcharts/highcharts.js"></script>
+    <script src="/node_modules/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="/node_modules/gentelella/build/js/custom.js"></script>
+    <script src="/node_modules/iCheck/iCheck.js"></script>
+    <script src="/node_modules/bootstrap-toggle/js/bootstrap-toggle.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js app/scripts/main.js -->
+    <script src="app/scripts/main.js"></script>
+    <script src="app/scripts/misc.js"></script>
+    <script src="app/scripts/stream-utils.js"></script>
+    <script src="app/scripts/markercluster.js"></script>
+    <!-- endbuild -->
+
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>

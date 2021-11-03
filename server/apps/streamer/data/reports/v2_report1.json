@@ -1,0 +1,38 @@
+{
+  "format": "v100",
+  "device": 10,
+  "streamer_index": 100,
+  "streamer_selector": 65536,
+  "device_sent_timestamp": 1,
+  "incremental_id": 1,
+  "lowest_id": 2,
+  "highest_id": 3,
+  "events": [
+    {
+      "stream": "5020",
+      "timestamp": null,
+      "streamer_local_id": 2,
+      "extra_data": {
+        "axis": "z",
+        "peak": 45.41939932879673,
+        "duration": 15,
+        "delta_v_x": 0.0,
+        "delta_v_y": 0.0,
+        "delta_v_z": 0.0
+      }
+    },
+    {
+      "stream": 20512,
+      "timestamp": null,
+      "streamer_local_id": 3,
+      "extra_data": {
+        "axis": "z",
+        "peak": 58.13753330123034,
+        "duration": 15,
+        "delta_v_x": 0.0,
+        "delta_v_y": 0.0,
+        "delta_v_z": 0.0
+      }
+    }
+  ]
+}

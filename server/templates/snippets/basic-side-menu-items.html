@@ -1,0 +1,9 @@
+
+{% if user.is_staff %}
+    <li class="separator"></li>
+    <li>
+        <a href="{% url 'staff:home' %}">
+            <i class="fa fa-institution"></i> Staff Home
+        </a>
+    </li>
+{% endif %}

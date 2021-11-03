@@ -1,0 +1,93 @@
+{%  extends "org/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block js %}
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+    {% include 'project/snippets/project-datatable.js.html' %}
+{% endblock %}
+
+{% block content %}
+    {% if not org.is_vendor and can_access_classic %}
+        {% include 'snippets/webapp-button.html' %}
+    {% endif %}
+    <!-- top tiles -->
+    <div class="row tile_count">
+        {% if org.is_vendor %}
+            <div class="col-md-6 col-sm-6 col-xs-6 tile_stats_count">
+                <span class="count_top"><i class="fa fa-money"></i> {% trans 'Total Templates' %}</span>
+                <div class="count" align="center">{{ object.templates.active_templates.count }}</div>
+            </div>
+        {% else %}
+            {% if can_access_classic %}
+                <div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+                    <a href="{% url 'org:members' org.slug %}">
+                        <span class="count_top"><i class="fa fa-users"></i> {% trans 'Users' %}</span>
+                        <div class="count" align="center">
+                            {{ membership_count }}
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+                    <span class="count_top"><i class="fa fa-puzzle-piece"></i> {% trans 'Projects' %}</span>
+                    <div class="count" align="center">{{ object.projects.count }}</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+                    <a href="{% url 'org:datablock:list' org.slug %}">
+                        <span class="count_top"><i class="fa fa-archive"></i> {% trans 'Archives' %}</span>
+                        <div class="count" align="center">
+                            {{ object.data_blocks.count }}
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+    <!-- /top tiles -->
+
+    {% if org.is_vendor %}
+        <br>
+        {% with object.templates.active_templates as device_list %}
+            {% include 'devicetemplate/device-list-snippet.html' %}
+        {% endwith %}
+    {% endif %}
+
+    {% if org.about %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ org.name }}</h2>
+                    {% if can_manage_org_and_projects %}
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a href="{% url 'org:edit' org.slug %}">
+                                    <i class="fa fa-pencil"></i> Edit
+                                </a>
+                            </li>
+                            <li></li>
+                        </ul>
+                    {% endif %}
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {{ org.about|linebreaks }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if can_access_classic %}
+        {% include 'project/snippets/project-list-snippet.html' %}
+
+        {% if can_manage_ota %}
+            {% include 'fleet/snippets/fleet-list-snippet.html' %}
+        {% endif %}
+    {% else %}
+        {% include 'org/no-access-box.html' %}
+    {% endif %}
+
+    <br/>
+{% endblock %}
+

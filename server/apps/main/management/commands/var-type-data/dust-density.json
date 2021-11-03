@@ -1,0 +1,32 @@
+{
+  "name": "Dust Density",
+  "storage_units_full": "ug/m^3",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "mg/m^3",
+      "unit_short": "mg/m3",
+      "m": 2000,
+      "d": 14625,
+      "o": -80.0
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "ug/m^3",
+      "unit_short": "ug/m3",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "mg/m^3",
+      "unit_short": "mg/m3",
+      "m": 1,
+      "d": 1000,
+      "decimal_places": 1,
+      "derived_units": {}
+    }
+  ]
+}

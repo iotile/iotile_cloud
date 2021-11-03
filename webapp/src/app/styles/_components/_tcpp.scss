@@ -1,0 +1,68 @@
+.section--legal-height {
+    height: calc(15vh);
+}
+.legalbackground {
+	background-image:url('../images/auth/bg-2.png'), linear-gradient(-181deg,#0292d1,#0159a4);
+}
+.bs-docs-section h1 {
+	font-size: 22px;
+}
+.bs-docs-section h2 {
+	font-size: 18px;
+}
+.bs-docs-section h3 {
+	font-size: 16px;
+}
+.bs-docs-section p {
+	font-size: 14px;
+}
+
+
+.legal {
+	font-size: 14px;
+	color: #333;
+	counter-reset: h2counter;
+}
+.legal h1 {
+	margin-top: 40px;
+	margin-bottom: 30px;
+	font-size: 26px;
+	counter-reset: h2counter;
+}
+.legal h2:before {
+	content: counter(h2counter) ".\0000a0\0000a0";
+}
+.legal h2.nocount:before {
+	content: none;
+	counter-increment: none;
+}
+.legal h2 {
+	margin-top: 30px;
+	font-size: 22px;
+	counter-increment: h2counter;
+	counter-reset: h3counter;
+}
+.legal h2.smaller {
+	margin-top: 30px;
+	font-size: 16px;
+	counter-increment: h2counter;
+	counter-reset: h3counter;
+}
+.legal h3:before {
+	content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+}
+.legal h3 {
+	margin-top: 20px;
+	font-size: 14px;
+	counter-increment: h3counter;
+}
+.legal a {
+	color: blue;
+}
+.legal ol {
+	list-style-type: lower-alpha;
+	margin-bottom: 20px;
+}
+.legal li {
+	margin-bottom: 10px;
+}

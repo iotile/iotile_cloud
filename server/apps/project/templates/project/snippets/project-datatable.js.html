@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+
+<script type="text/javascript">
+
+    var projectData = [];
+    {% for project in project_list %}
+        projectData.push([
+            '<a href="{{ project.get_absolute_url }}">{{ project.name }}</a>',
+            '{{ project.slug }}',
+            '{{ project.created_on }}',
+            '{{ project.project_template }}',
+        ]);
+    {% endfor %}
+    var projectTable = $('#project-table').DataTable({
+        order: [[0, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: "{% trans 'Project Name' %}"},
+            {sTitle: "{% trans 'Project Slug' %}"},
+            {sTitle: "{% trans 'Created On' %}"},
+            {sTitle: "{% trans 'Project Template' %}"},
+        ],
+        data: projectData
+    });
+</script>

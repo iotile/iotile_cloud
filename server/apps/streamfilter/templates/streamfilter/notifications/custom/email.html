@@ -1,0 +1,15 @@
+{% extends "emailutil/notification-base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <p>
+    {{ body }}
+    </p>
+
+    <br>
+    {% trans 'To view your data, go to ' %}<a href="{{ url }}">app.iotile.cloud</a>.
+    {% trans 'For help with these notifications, please contact Arch at help@archsys.io.' %}
+
+{% endblock %}
+

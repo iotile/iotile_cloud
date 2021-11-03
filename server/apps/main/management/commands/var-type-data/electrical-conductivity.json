@@ -1,0 +1,31 @@
+{
+  "name": "Electrical Conductivity",
+  "storage_units_full": "uS/cm",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "GS3-Decagon",
+      "unit_short": "uS/cm",
+      "m": 1,
+      "d": 1000
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "uS/cm",
+      "unit_short": "uS/cm",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 3,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "mS/cm",
+      "unit_short": "mS/cm",
+      "m": 1,
+      "d": 1000,
+      "decimal_places": 3,
+      "derived_units": {}
+    }
+  ]
+}

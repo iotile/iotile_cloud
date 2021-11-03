@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+
+    Thank you for using {{ site_name }}!
+    -The Arch Team
+
+{% endblocktrans %}

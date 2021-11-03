@@ -1,0 +1,108 @@
+{% extends "project/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{%  load tz %}
+
+{%  block media %}
+    {{ form.media }}
+{% endblock %}
+
+
+{% block content %}
+
+    {% localtime off %}
+
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Device Trim Data Confirmation</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+        <div class="row" style="margin-top: 40px">
+            <div class="col-sm-8 col-sm-offset-2">
+                <br>
+                <h4>Device : {{object.slug}}</h4>
+                <h4>Label  : {{object.label}}</h4>
+                <br>
+
+                {% if start or end %}
+                    <p style="color:blue;"><i class="fa fa-info" aria-hidden="true"></i> The following date and time information is UTC based</p>
+                {% endif %}
+                {% if start %}
+                    {% if oldest %}
+                        <h2>
+                            Data will be deleted from {{ oldest|utc|date:'Y-m-d H:i:s' }} to {{ start|utc|date:'Y-m-d H:i:s' }} (Start)
+                        </h2>
+                        <ul>
+                            {% if data0_qs %}
+                                <li>
+                                    {{ data0_qs.count }} data records will be deleted
+                                </li>
+                            {% endif %}
+                            {% if event0_qs %}
+                                <li>
+                                    {{ event0_qs.count }} event records will be deleted
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% else %}
+                        <h2>There was no data found before {{ start|utc|date:'Y-m-d H:i:s' }} (Start)</h2>
+                        <ul>
+                            <li>No data will be deleted</li>
+                        </ul>
+                    {% endif %}
+                {% endif%}
+                {% if end %}
+                    {% if newest %}
+                        <h2>
+                            Data will be deleted from {{ end|utc|date:'Y-m-d H:i:s' }} (End) to {{ newest|utc|date:'Y-m-d H:i:s' }}
+                        </h2>
+                        <ul>
+                            {% if data1_qs %}
+                                <li>
+                                    {{ data1_qs.count }} data records will be deleted
+                                </li>
+                            {% endif %}
+                            {% if event1_qs %}
+                                <li>
+                                    {{ event1_qs.count }} event records will be deleted
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% else %}
+                        <h2>There was no data found after {{ end|utc|date:'Y-m-d H:i:s' }} (End)</h2>
+                        <ul>
+                            <li>No data will be deleted</li>
+                        </ul>
+                    {% endif %}
+                {%endif%}
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 40px">
+            <div class="col-sm-8 col-sm-offset-2">
+                {% if data0_qs or data1_qs or event0_qs or event1_qs %}
+                    <p class = "alert alert-danger" >
+                        {% trans 'ATTENTION : Data will be deleted permanently! (No <b>undo</b> available)' %}
+                    </p>
+
+                    {% crispy form %}
+                {% else %}
+                    <p class = "alert alert-danger" >
+                        {% trans 'No data to delete outside this range' %}
+                    </p>
+                    <h2>
+                    <a href="{{ object.get_absolute_url }}" class="btn btn-success">
+                        <i class="fa fa-chevron-left"></i> Back to device page
+                    </a>
+                    </h2>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endlocaltime %}
+
+{% endblock %}

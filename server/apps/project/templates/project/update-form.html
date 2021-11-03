@@ -1,0 +1,55 @@
+{%  extends "project/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{%  load tz %}
+{% load crispy_forms_tags %}
+
+{%  block content %}
+
+    {%  if title %}
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ title | safe }}</h3>
+            </div>
+            <div class="title_right">
+                <h3>{{ subtitle | safe }}</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    {%  endif %}
+
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            {% crispy form %}
+
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        {% if devices %}
+        <h2>Want to delete the project?</h2>
+        <div>Projects cannot be deleted if there are devices still claimed by the project.</div>
+        <br>
+        <div>You will have to move each device to another project before deleting the project:</div>
+        <h5>Devices :</h5>
+        <ul>
+            {% for d in devices %}
+            <li><a href="{% url 'org:project:device:detail' org.slug project.id d.id %}">{{ d.slug }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+          <a href="{% url 'org:project:delete' org.slug project.id %}" class="btn btn-danger">
+              Delete Project
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+
+{%  endblock %}

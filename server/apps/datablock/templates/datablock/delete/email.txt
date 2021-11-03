@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+Hello from the Arch team!
+
+This is to let you know that data block {{ slug }} ( '{{ title }}' ) has been successfully deleted.
+
+{% endblocktrans %}
+
+{{ url }}
+
+{% include 'base/email.txt' %}

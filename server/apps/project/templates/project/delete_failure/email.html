@@ -1,0 +1,33 @@
+{% load i18n %}
+{% load custom_tags %}
+{% load tz %}
+
+{% localtime off %}
+
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        This is to let you know that the project {{ project.name }} ({{ project.slug }}) could not be deleted.<br>
+    </p>
+
+    <div>
+        Projects cannot be deleted if there are devices still claimed by the project.
+    </div>
+
+    <br>
+    
+    <div>
+        You will have to move each device to another project before deleting the project.
+    </div>
+
+    <h5>Device:</h5>
+    
+    <ul>
+        {% for d in devices %}
+        <li><a href="{% url 'org:project:device:detail' project.org.slug project.id d.id %}">{{ d.slug }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endlocaltime %}
+
+{% include 'base/email.html' %}

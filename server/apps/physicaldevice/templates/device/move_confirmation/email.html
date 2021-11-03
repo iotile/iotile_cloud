@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        This is to let you know that device {{ device_slug }}  ( '{{ device_label }}' ) 
+        has been successfully moved:
+    </p>
+
+    <ul>
+        <li>
+            From project {{ src_project_slug }} ( '{{ src_project_name }}' )
+        </li>
+        <li>
+            To project {{ dst_project_slug }} ( '{{ dst_project_name }}' )
+        </li>
+    </ul>
+
+    <p>
+        Please click on the following link to go to the device page:
+    </p>
+{% endblocktrans %}
+
+<p><a href="{{ url }}">{{ url }}</a></p>
+
+{% include 'base/email.html' %}

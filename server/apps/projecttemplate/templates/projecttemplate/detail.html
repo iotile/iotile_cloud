@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{% trans 'Project Template' %}: <small>{{ object.name }}</small></h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Template Details' %}
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="col-md-12 col-xs-12">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ object.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Version</th>
+                            <td>{{ object.version }}</td>
+                        </tr>
+                        <tr>
+                            <th>Provided By</th>
+                            <td>{{ object.org.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            {% if object.active %}
+                            <td><b style="color:green;">Active</b></td>
+                            {% else %}
+                            <td><b style="color:red;">Not Active</b></td>
+                            {% endif %}
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

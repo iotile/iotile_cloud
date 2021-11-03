@@ -1,0 +1,61 @@
+/* LOGO */
+
+.site-logo {
+  z-index: 300;
+  background: url(../images/elements/arch_logo.svg) no-repeat 50% 50% / cover;
+  width: 90px;
+  height: 32px;
+  display: inline-block;;
+  @include respond-to(xs) {
+    width: 70px;
+    height: 25px;
+  }
+}
+
+.site-logo-black {
+  z-index: 300;
+  background: url(../images/elements/arch_logotype_black.svg) no-repeat 50% 50% / cover;
+  width: 90px;
+  height: 32px;
+  display: inline-block;;
+  @include respond-to(xs) {
+    width: 70px;
+    height: 25px;
+  }
+}
+
+.site-logo-blue {
+  z-index: 300;
+  background: url(../images/elements/arch_logotype_blue.svg) no-repeat 50% 50% / cover;
+  width: 90px;
+  height: 32px;
+  display: inline-block;;
+  @include respond-to(xs) {
+    width: 70px;
+    height: 25px;
+  }
+}
+
+.logo-hero {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 55%;
+  left: 50%;
+  max-height: 30%;
+  z-index: 200;
+  @include respond-to(sm) {
+    max-width: 200px;
+  }
+  @include respond-to(xs) {
+    max-width: 160px;
+  }
+}
+.logo-separator {
+  @extend .img-responsive, .center-block;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  @include respond-to(xs) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+	}
+}

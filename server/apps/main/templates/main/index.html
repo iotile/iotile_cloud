@@ -1,0 +1,92 @@
+{%  extends "base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block content %}
+
+    {% if orgs %}
+
+    <div class="row">
+    {% for org in orgs %}
+        <div class="col-md-4 col-xs-12 widget widget_tally_box">
+        <a href="{{ org.get_absolute_url }}">
+            <div class="x_panel fixed_height_390">
+                <div class="x_content">
+
+                    <div class="flex">
+                        <ul class="list-inline widget_profile_box">
+                            <li></li>
+                            <li>
+                                <img src="{{ org.get_avatar_thumbnail_url }}" alt="..." class="img-circle profile_img">
+                            </li>
+                            <li></li>
+                        </ul>
+                    </div>
+
+                    <h3 class="name">{{ org.name }}</h3>
+
+                    <div class="flex">
+                        <ul class="list-inline count2">
+                            {% if org.is_vendor %}
+                            <li>
+                                <h3><i class="fa fa-institution"></i></h3>
+                                <span>{% trans 'Vendor' %}</span>
+                            </li>
+                            <li>
+                                <h3>{{ org.projects.count }}</h3>
+                                <span>{% trans 'Templates' %}</span>
+                            </li>
+                            <li>
+                                <h3>{{ org.templates.active_templates.count }}</h3>
+                                <span>{% trans 'Products' %}</span>
+                            </li>
+                            {% else %}
+                            <li>
+                                <h3>{{ org.member_count }}</h3>
+                                <span>{% trans 'Users' %}</span>
+                            </li>
+                            <li>
+                                <h3>{{ org.projects.count }}</h3>
+                                <span>{% trans 'Projects' %}</span>
+                            </li>
+                            <li>
+                                <h3>{{ org.devices.count }}</h3>
+                                <span>{% trans 'Devices' %}</span>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <p>
+                        {{ org.about|truncatewords:20 }}
+                    </p>
+                </div>
+            </div>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+    {% else %}
+        <div class="row">
+            <div class="col-xs-12" align="center">
+                <h3>You are not a member of any organization</h3>
+                <p>
+                    All users are required to be a member of an organization before they can create
+                    projects and claim devices
+                </p>
+                <br>
+                <p>
+                    If you believe your Organization has already been created, you can click here to search
+                    for it and request an invitation.
+                </p>
+                <p>
+                    Otherwise, you can create a new Organiation and later invite other users to join.
+                </p>
+                <hr>
+                <a href="{% url 'org:create' %}" class="btn btn-block btn-success"><i class="fa fa-plus"></i> New Organization</a>
+
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
+

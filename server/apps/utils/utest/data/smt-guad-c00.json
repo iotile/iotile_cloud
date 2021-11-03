@@ -1,0 +1,4948 @@
+{
+  "var_type": [
+    {
+      "name": "Default",
+      "storage_units_full": "Unit",
+      "stream_data_type": "D0",
+      "available_input_units": [
+        {
+          "unit_full": "Unit",
+          "unit_short": "",
+          "m": 1,
+          "d": 1
+        }
+      ],
+      "available_output_units": [
+        {
+          "unit_full": "Unit",
+          "unit_short": "",
+          "m": 1,
+          "d": 1,
+          "decimal_places": 1,
+          "derived_units": {}
+        }
+      ],
+      "created_by": "user1"
+    }
+  ],
+  "org": [
+    {
+      "name": "Arch Systems",
+      "vendor": true,
+      "created_by": "user1"
+    },
+    {
+      "name": "User Org",
+      "created_by": "user2",
+      "config": []
+    }
+  ],
+  "device_template": [
+    {
+      "external_sku": "Node",
+      "internal_sku": "arch002a",
+      "family": "POD-1C",
+      "org": "arch-systems",
+      "major_version": 1,
+      "minor_version": 0,
+      "patch_version": 0,
+      "os_tag": 2050,
+      "os_major_version":0,
+      "os_minor_version":1,
+      "released_on": "2018-01-25",
+      "created_by": "user1"
+    }
+  ],
+  "sensor_graph": [
+    {
+      "name": "SMT",
+      "org": "arch-systems",
+      "report_processing_engine_ver": 2,
+      "app_tag": 1031,
+      "created_by": "user1",
+      "variable_templates": [
+        {
+          "label": "Product Done",
+          "lid_hex": "5051",
+          "var_type": "default",
+          "default_input_unit": "in--default--unit",
+          "default_output_unit": "out--default--unit",
+          "app_only": false,
+          "web_only": false
+        }
+      ],
+      "ui_extra": {},
+      "major_version": 1,
+      "minor_version": 0,
+      "patch_version": 0
+    }
+  ],
+  "project_template": [
+    {
+      "name": "Factory Template",
+      "org": "arch-systems",
+      "created_by": "user1",
+      "major_version": 1,
+      "minor_version": 0,
+      "patch_version": 0
+    }
+  ],
+  "project": [
+    {
+      "name": "Project 1",
+      "org": "user-org",
+      "created_by": "user2",
+      "project_template": "factory-template-v1-0-0",
+      "device": [
+        {
+          "label": "Machine 1",
+          "template": "node-v1-0-0",
+          "created_by": "user1",
+          "sg": "smt-v1-0-0",
+          "data": [
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:00:59+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 1,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:01:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 2,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:03:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 3,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:10:40+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 4,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:11:14+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 5,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:11:42+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 6,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:12:43+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 7,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:13:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 8,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:13:38+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 9,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:14:07+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 10,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:14:55+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 11,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:15:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 12,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:15:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 13,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:16:14+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 14,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:17:09+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 15,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:29:41+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 16,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:30:11+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 17,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:30:40+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 18,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:31:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 19,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:32:14+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 20,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:32:44+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 21,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:33:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 22,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:34:04+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 23,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:34:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 24,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:35:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 25,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:36:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 26,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:36:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 27,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:37:00+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 28,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:37:29+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 29,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:37:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 30,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:38:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 31,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:39:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 32,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:39:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 33,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:41:08+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 34,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:41:37+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 35,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:42:06+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 36,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:42:35+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 37,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:43:42+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 38,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:44:39+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 39,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:45:08+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 40,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:45:56+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 41,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:46:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 42,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:46:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 43,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:47:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 44,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:47:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 45,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:48:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 46,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:48:56+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 47,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:49:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 48,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:50:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 49,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:51:08+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 50,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:51:35+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 51,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:52:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 52,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:52:34+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 53,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:53:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 54,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:53:34+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 55,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:54:03+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 56,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:54:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 57,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:55:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 58,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:55:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 59,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:56:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 60,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:56:44+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 61,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:57:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 62,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:57:42+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 63,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:58:11+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 64,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:58:40+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 65,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:59:09+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 66,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T12:59:38+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 67,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T13:00:07+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 68,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T13:00:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 69,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T13:01:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 70,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T13:02:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 71,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:09:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 72,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:10:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 73,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:14:02+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 74,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:14:36+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 75,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:21:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 76,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:39:50+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 77,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:40:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 78,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:40:46+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 79,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:41:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 80,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:42:22+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 81,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:42:50+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 82,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:43:35+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 83,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:44:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 84,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:44:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 85,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:45:22+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 86,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:46:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 87,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:46:44+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 88,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:47:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 89,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T14:47:52+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 90,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:51:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 91,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:51:50+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 92,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:52:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 93,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:53:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 94,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:53:53+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 95,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:54:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 96,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:54:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 97,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:55:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 98,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:55:50+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 99,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:56:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 100,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:56:56+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 101,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:58:37+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 102,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:59:12+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 103,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T15:59:43+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 104,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:00:14+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 105,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:01:34+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 106,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:02:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 107,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:02:37+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 108,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:03:08+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 109,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:03:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 110,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:04:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 111,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:04:46+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 112,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:05:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 113,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:05:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 114,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:06:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 115,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:06:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 116,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:07:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 117,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:07:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 118,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:08:28+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 119,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:08:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 120,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:41:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 121,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:42:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 122,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:43:28+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 123,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:45:04+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 124,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:45:35+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 125,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:46:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 126,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:46:36+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 127,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:47:07+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 128,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:47:38+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 129,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:48:09+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 130,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:49:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 131,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:49:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 132,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:51:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 133,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:52:02+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 134,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:52:34+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 135,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:53:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 136,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:53:38+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 137,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:54:09+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 138,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:54:40+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 139,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T16:55:11+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 140,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:08:28+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 141,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:09:46+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 142,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:10:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 143,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:11:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 144,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:12:22+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 145,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:12:53+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 146,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:13:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 147,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:13:44+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 148,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:14:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 149,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:14:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 150,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:15:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 151,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:15:42+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 152,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:16:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 153,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:16:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 154,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:17:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 155,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:17:41+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 156,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:18:09+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 157,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:18:36+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 158,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:19:07+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 159,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:21:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 160,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:22:34+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 161,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:24:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 162,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:25:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 163,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:25:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 164,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:26:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 165,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:26:59+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 166,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:27:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 167,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:28:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 168,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T18:28:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 169,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:20:55+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 170,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:22:12+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 171,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:23:37+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 172,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:24:56+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 173,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:25:28+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 174,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:26:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 175,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:28:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 176,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:28:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 177,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:30:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 178,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:30:56+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 179,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:31:37+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 180,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:32:08+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 181,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:32:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 182,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:33:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 183,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:34:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 184,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:34:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 185,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:35:21+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 186,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:35:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 187,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:36:24+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 188,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:36:55+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 189,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:38:10+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 190,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:38:40+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 191,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:39:12+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 192,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:39:43+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 193,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:40:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 194,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:41:19+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 195,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:41:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 196,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:42:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 197,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:43:22+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 198,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:43:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 199,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:44:36+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 200,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:45:07+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 201,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:45:38+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 202,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:46:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 203,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:46:55+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 204,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:47:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 205,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:48:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 206,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:48:43+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 207,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:49:14+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 208,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:50:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 209,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:50:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 210,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:51:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 211,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:51:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 212,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:52:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 213,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:52:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 214,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:53:46+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 215,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:54:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 216,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:55:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 217,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:55:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 218,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:56:08+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 219,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:56:39+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 220,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:57:10+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 221,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:57:41+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 222,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:58:11+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 223,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:58:42+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 224,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T20:59:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 225,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:00:22+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 226,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:00:52+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 227,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:01:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 228,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:06:38+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 229,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:09:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 230,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:11:22+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 231,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:12:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 232,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:12:52+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 233,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:14:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 234,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:14:42+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 235,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:15:41+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 236,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:16:12+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 237,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:16:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 238,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:17:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 239,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:17:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 240,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:18:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 241,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:19:03+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 242,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:19:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 243,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:20:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 244,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:20:41+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 245,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:21:12+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 246,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:21:42+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 247,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:22:12+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 248,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:22:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 249,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:23:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 250,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:23:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 251,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:24:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 252,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:25:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 253,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:25:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 254,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:26:36+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 255,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:27:06+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 256,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:27:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 257,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:28:14+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 258,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:28:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 259,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:29:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 260,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:29:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 261,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:30:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 262,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:30:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 263,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:31:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 264,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:32:04+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 265,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:32:35+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 266,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:33:06+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 267,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:33:59+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 268,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:34:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 269,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:35:34+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 270,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:36:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 271,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:36:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 272,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:37:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 273,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:37:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 274,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:38:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 275,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:39:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 276,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:39:43+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 277,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:40:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 278,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:40:46+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 279,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:41:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 280,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:41:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 281,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:42:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 282,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:42:50+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 283,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:43:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 284,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:43:52+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 285,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:44:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 286,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:45:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 287,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:45:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 288,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:46:02+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 289,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:46:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 290,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:47:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 291,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:47:55+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 292,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:48:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 293,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:49:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 294,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:50:04+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 295,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:50:35+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 296,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:51:19+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 297,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:51:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 298,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:52:21+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 299,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:52:50+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 300,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:53:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 301,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:53:52+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 302,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:54:39+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 303,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:55:09+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 304,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:56:55+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 305,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:57:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 306,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:58:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 307,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:59:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 308,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T21:59:56+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 309,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:00:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 310,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:01:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 311,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:01:46+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 312,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:02:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 313,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:03:03+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 314,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:03:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 315,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:04:03+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 316,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:05:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 317,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:05:43+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 318,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:06:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 319,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:06:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 320,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:07:19+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 321,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:07:50+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 322,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:09:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 323,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:09:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 324,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:10:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 325,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:11:02+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 326,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:11:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 327,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:12:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 328,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:12:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 329,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:13:40+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 330,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:14:11+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 331,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:14:42+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 332,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:15:29+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 333,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:16:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 334,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:16:47+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 335,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:17:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 336,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:18:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 337,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:18:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 338,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:19:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 339,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:20:12+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 340,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:20:43+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 341,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:21:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 342,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:21:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 343,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:22:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 344,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:22:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 345,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:23:19+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 346,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:23:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 347,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:24:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 348,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:25:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 349,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:26:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 350,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:26:35+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 351,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:27:06+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 352,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:27:37+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 353,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:28:08+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 354,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T22:28:39+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 355,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T23:11:10+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 356,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T23:11:36+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 357,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T23:12:03+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 358,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T23:57:21+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 359,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-12T23:59:06+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 360,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:08:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 361,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:10:38+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 362,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:11:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 363,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:11:41+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 364,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:12:08+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 365,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:12:35+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 366,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:13:06+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 367,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:13:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 368,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:14:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 369,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:14:59+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 370,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:15:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 371,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:15:53+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 372,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:16:19+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 373,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:16:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 374,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:17:14+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 375,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:17:44+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 376,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:18:09+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 377,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:18:39+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 378,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:19:03+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 379,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:19:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 380,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:19:59+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 381,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:20:24+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 382,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:20:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 383,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:21:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 384,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:21:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 385,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:22:12+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 386,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:24:04+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 387,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:25:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 388,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:26:04+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 389,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:26:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 390,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:26:59+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 391,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:27:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 392,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:27:53+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 393,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:28:21+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 394,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:28:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 395,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:29:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 396,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:29:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 397,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:30:21+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 398,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:30:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 399,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:31:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 400,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:31:44+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 401,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:32:11+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 402,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:32:40+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 403,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:33:05+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 404,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:33:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 405,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:37:02+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 406,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:38:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 407,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:38:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 408,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:55:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 409,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T02:56:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 410,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T04:29:16+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 411,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T04:30:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 412,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:13:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 413,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:14:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 414,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:15:20+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 415,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:16:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 416,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:17:17+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 417,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:18:07+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 418,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:19:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 419,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:19:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 420,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:20:37+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 421,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:21:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 422,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:22:21+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 423,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:23:19+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 424,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:24:09+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 425,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:24:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 426,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:25:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 427,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:26:38+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 428,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:27:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 429,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:48:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 430,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:53:14+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 431,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:53:45+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 432,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:54:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 433,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:55:22+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 434,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:55:52+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 435,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:56:25+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 436,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:58:02+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 437,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:58:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 438,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T05:59:04+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 439,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:00:19+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 440,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:00:49+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 441,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:02:55+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 442,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:03:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 443,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:04:13+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 444,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:04:46+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 445,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:05:15+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 446,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:05:50+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 447,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:06:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 448,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:15:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 449,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:15:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 450,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:16:22+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 451,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:16:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 452,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:17:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 453,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:58:00+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 454,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:58:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 455,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T06:59:29+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 456,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:03:52+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 457,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:04:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 458,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:04:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 459,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:05:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 460,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:06:19+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 461,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:06:51+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 462,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:07:23+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 463,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:07:53+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 464,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:08:31+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 465,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:09:02+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 466,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:09:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 467,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:10:03+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 468,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:10:56+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 469,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:11:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 470,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:11:58+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 471,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:12:30+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 472,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:13:01+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 473,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:13:32+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 474,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:14:02+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 475,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:14:33+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 476,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:15:11+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 477,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:15:48+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 478,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:16:18+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 479,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:16:54+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 480,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:17:26+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 481,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:17:57+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 482,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:18:27+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 483,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    },
+                    {
+                      "variable": "5051",
+                      "type": "ITR",
+                      "timestamp": "2019-07-13T07:18:59+00:00",
+                      "int_value": 1,
+                      "value": 1,
+                      "streamer_local_id": 484,
+                      "dirty_ts": false,
+                      "status": "cln"
+                    }
+            ]
+        }
+      ]
+    }
+  ]
+}

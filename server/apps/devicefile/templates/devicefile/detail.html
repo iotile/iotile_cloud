@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Device File</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Attributes' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_staff %}
+                        <li>
+                            <a href="{% url 'ota:file:edit' object.slug %}">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'ota:file:list' %}">
+                                <i class="fa fa-chevron-left"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">{% trans 'ID' %}</th>
+                            <td style="font-family: Courier;">{{ object.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Slug' %}</th>
+                            <td style="font-family: Courier;">{{ object.slug }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Type' %}</th>
+                            <td>{{ object.type }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Tag' %}</th>
+                            <td>{{ object.tag }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Version' %}</th>
+                            <td>{{ object.version }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Released' %}</th>
+                            {%  if object.released %}
+                                <td><i class="fa fa-check-circle text-success"></i></td>
+                            {% else %}
+                                <td><i class="fa fa-times-circle text-danger"></i></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Released by' %}</th>
+                            <td>
+                                {{ object.created_by }} on {{ object.created_on|date:"Y-m-d H:i" }}<br>
+                                <b>{{ object.released_by }}</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Notes' %}</th>
+                            <td>{{ object.notes|linebreaks }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if is_staff %}
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Script File' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_staff %}
+                        <li>
+                            <a href="{% url 'ota:file:upload' object.slug %}">
+                                <i class="fa fa-upload"></i> {% trans 'Script File' %}
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+
+                        {% if object.file %}
+                            <a href="{{ object.file.url }}" download="{{ object.file.title }}" class="btn btn-primary">
+                                Download {{ object.file.title }}
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+{% endblock %}

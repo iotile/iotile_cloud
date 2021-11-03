@@ -1,0 +1,180 @@
+{% extends "ota/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block media %}
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    <!-- DataBlock table -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script type="text/javascript">
+
+        var deploymentRequestTable = $('#deployment-action-table').DataTable({
+            order: [[0, "asc"]],
+            pageLength: 100,
+            lengthMenu: [[100, 200, -1], [100, 200, "All"]],
+            responsive: true,
+            columns: [
+                {sTitle: "{% trans 'Device' %}"},
+                {sTitle: "{% trans 'Last Attempt' %}"},
+                {sTitle: "{% trans 'Attempt Successful' %}",  bSortable: false},
+                {sTitle: "{% trans 'Update Confirmed' %}",  bSortable: false}
+            ]
+        });
+    </script>
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Deployment Request</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Attributes' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_staff or is_admin %}
+                            {% if not object.released_on %}
+                                <li>
+                                    <a href="{% url 'ota:request-edit' org.slug object.id %}">
+                                        <i class="fa fa-pencil"></i> Edit
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'ota:request-release' org.slug object.id %}">
+                                        <i class="fa fa-bullhorn"></i> Publish
+                                    </a>
+                                </li>
+                            {% else %}
+                                {% if not object.completed %}
+                                    <li>
+                                        <a href="{% url 'ota:request-complete' org.slug object.id %}">
+                                            <i class="fa fa-check-circle"></i> Set to complete
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">{% trans 'ID' %}</th>
+                            <td style="font-family: Courier;">{{ object.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Script' %}</th>
+                            <td><a href="{{ object.script.get_absolute_url }}">{{ object.script }}</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Fleet' %}</th>
+                            <td><a href="{{ object.fleet.get_absolute_url }}">{{ object.fleet }}</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Released by' %}</th>
+                            <td><a href="{{ object.org.get_absolute_url }}">{{ object.org.name }}</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Released' %}</th>
+                            {% if object.released_on %}
+                                <th class="text-success">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    {{ object.released_on|date:"Y-m-d H:i" }}
+                                </th>
+                            {% else %}
+                                <td><i class="fa fa-times-circle text-danger"></i></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Completed' %}</th>
+                            {% if object.completed_on %}
+                                <th class="text-success">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    {{ object.completed_on|date:"Y-m-d H:i" }}
+                                </th>
+                            {% else %}
+                                <td><i class="fa fa-times-circle text-danger"></i></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Created by' %}</th>
+                            <td>{{ object.created_by }} ({{ object.created_on|date:"Y-m-d H:i" }})</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Selection Criteria' %}</th>
+                            <td>
+                                {% for item in object.selection_criteria %}
+                                    {{ item }}<br>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Deployment Actions
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_staff %}
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped" id="deployment-action-table">
+                        <tbody>
+                        {% for obj in object.actions.all %}
+                            <tr>
+                                <td>{{ obj.device.slug }}</td>
+                                <td>{{ obj.last_attempt_on|date:"Y-m-d H:i" }}</td>
+                                {% if obj.attempt_successful %}
+                                    <td><i class="fa fa-check-circle text-success"></i></td>
+                                {% else %}
+                                    <td><i class="fa fa-times-circle text-danger"></i></td>
+                                {% endif %}
+                                {% if obj.device_confirmation %}
+                                    <td><i class="fa fa-check-circle text-success"></i></td>
+                                {% else %}
+                                    <td><i class="fa fa-times-circle text-danger"></i></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

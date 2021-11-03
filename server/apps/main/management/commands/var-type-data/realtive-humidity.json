@@ -1,0 +1,31 @@
+{
+  "name": "Relative Humidity",
+  "storage_units_full": "Percent RH",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "Lansmont Saver",
+      "unit_short": "% RH",
+      "m": 1,
+      "d": 1000000,
+      "o": 0.0
+    },
+    {
+      "unit_full": "POD1-M",
+      "unit_short": "%",
+      "m": 1,
+      "d": 1024,
+      "o": 0.0
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "Percent",
+      "unit_short": "% RH",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 1,
+      "derived_units": {}
+    }
+  ]
+}

@@ -1,0 +1,1073 @@
+{
+    "components":[
+        {
+            "external_sku": "BTC1-ES1",
+            "internal_sku": "comp0005",
+            "type": "BTC",
+            "org": "arch-systems",
+            "version": "2-0-0",
+            "hw_name": "NRF52",
+            "hw_tag": "btc1_v2"
+        },
+        {
+            "external_sku": "BTC1",
+            "internal_sku": "comp0020",
+            "type": "BTC",
+            "org": "arch-systems",
+            "version": "3-0-0",
+            "hw_name": "NRF52",
+            "hw_tag": "btc1_v3"
+        },
+        {
+            "external_sku": "BTC1",
+            "internal_sku": "comp0024",
+            "type": "BTC",
+            "org": "arch-systems",
+            "version": "4-0-0",
+            "hw_name": "NRF52",
+            "hw_tag": "btc1_v4",
+            "description": "I2C RTC with CLKOUT going to XTAL1 via jumper; Programming Pins routed and Vbackup to GPIO1"
+        },
+        {
+            "external_sku": "GPIO1-ES1",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "gpio1",
+            "version": "0-1-0"
+        },
+        {
+            "external_sku": "GPIO1",
+            "internal_sku": "comp0021",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "gpio1",
+            "version": "1-0-0",
+            "description": "GPIO Tile 1. Original POD-1G[g1] 2.8V GPIO"
+        },
+        {
+            "external_sku": "Tile-P1",
+            "internal_sku": "comp0022",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "gpio1",
+            "version": "1-0-0",
+            "description": "GPIO Tile 1. Original POD-1G[g1] 2.8V GPIO. Configured as Pipeline"
+        },
+        {
+            "external_sku": "Tile-G1",
+            "internal_sku": "comp0025",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "gpio1",
+            "version": "2-0-0",
+            "description": "2.8V. Equivalent to GPIO1 (comp21), but in stand-alone form and compatible with the ProtoPOD and POD-1C, as well as the POD-1G v2"
+        },
+        {
+            "external_sku": "Tile-P1",
+            "internal_sku": "comp0028",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "gpio1",
+            "version": "2-0-0",
+            "description": "2.8V. Equivalent to GPIO1 (comp21), but in stand-alone form and compatible with the ProtoPOD and POD-1C, as well as the POD-1G v2. Configured as Pipeline."
+        },
+        {
+            "external_sku": "Tile-G2",
+            "internal_sku": "comp0006",
+            "type": "SEN",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "description": "GPIO Tile 4 Power 4 Analog 2 Open Colelctor 12V"
+        },
+        {
+            "external_sku": "Tile-G3",
+            "internal_sku": "comp0008",
+            "type": "SEN",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "description": "GPIO Tile 4 Power 4 Analog 2 Open 2V8"
+        },
+        {
+            "external_sku": "Tile-G4",
+            "internal_sku": "comp0007",
+            "type": "SEN",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "description": "GPIO Tile 4 Power 4 Analog 2 Open 4-20 mA"
+        },
+        {
+            "external_sku": "Tile-G5",
+            "internal_sku": "comp0009",
+            "type": "SEN",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "description": "GPIO Tile 5 Power 4 Analog 2 Open 5V0."
+        },
+        {
+            "external_sku": "Tile-G6",
+            "internal_sku": "comp0026",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "gpio1",
+            "version": "2-0-0",
+            "description": "GPIO Tile 6: 4 Channels of 5V analog input (no 5V output)."
+        },
+        {
+            "external_sku": "Tile-G7",
+            "internal_sku": "comp002a",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "gpio1",
+            "version": "2-0-0",
+            "description": "GPIO Tile 7: GPIO Tile 7: 4 Channels of 2V8 GPIOs."
+        },
+        {
+            "external_sku": "Tile-P6",
+            "internal_sku": "comp0027",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "gpio1",
+            "version": "2-0-0",
+            "description": "GPIO Tile 6: 4 Channels of 5V analog input (no 5V output). Configured as Pipeline"
+        },
+        {
+            "external_sku": "Tile-A1",
+            "internal_sku": "comp000a",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "accel1",
+            "version": "1-0-0",
+            "description": "Accelerometer Tile"
+        },
+        {
+            "external_sku": "Tile-E1",
+            "internal_sku": "comp000b",
+            "type": "SEN",
+            "org": "arch-systems",
+            "hw_name": "envbsl",
+            "version": "1-0-0",
+            "description": "Enviromental Tile with BME280 temp/humidity sensor"
+        }
+    ],
+    "devices": [
+        {
+            "external_sku": "POD-1G[g1] ES1",
+            "internal_sku": "arch0002",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "2-0-0",
+            "os_tag": 1024,
+            "components": [
+                {
+                    "slug": "btc1-es1-2-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "gpio1-es1-0-1-0",
+                    "slot": 1
+                }
+            ]
+        },
+        {
+            "external_sku": "POD-1G[g1] ES1",
+            "internal_sku": "arch0002",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "2-0-1",
+            "os_tag": 2049,
+            "os_version": "1.0",
+            "components": [
+                {
+                    "slug": "btc1-es1-2-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "gpio1-es1-0-1-0",
+                    "slot": 1
+                }
+            ]
+        },
+        {
+            "external_sku": "POD-1G[g1]",
+            "internal_sku": "arch0004",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "3-0-0",
+            "os_tag": 1024,
+            "hw_tag": 8192,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "gpio1-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "Built to deliver on NFC300s"
+        },
+        {
+            "external_sku": "POD-1G[g1]",
+            "internal_sku": "arch0004",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "3-0-1",
+            "os_tag": 2048,
+            "os_version": "1.1",
+            "hw_tag": 8192,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "gpio1-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "Built to deliver on NFC300s"
+        },
+        {
+            "external_sku": "POD-1G[g1]",
+            "internal_sku": "arch0004",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "3-3-0",
+            "os_tag": 2048,
+            "os_version": "1.3",
+            "hw_tag": 8192,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "gpio1-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "POD-1G with new BLE protocol and safe mode"
+        },
+        {
+            "external_sku": "GTWY-1R Metal",
+            "internal_sku": "arch0009",
+            "family": "Gateway",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "released_on": "2017-04-01"
+        },
+        {
+            "external_sku": "ProtoPOD-1[g3] ES1",
+            "internal_sku": "arch0028",
+            "family": "POD-1P",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 1024,
+            "released_on": "2017-08-01",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g3-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "ProtoPOD-1 with 2.8V GPIO"
+        },
+        {
+            "external_sku": "ProtoPOD-1[g3] ES1",
+            "internal_sku": "arch0028",
+            "family": "POD-1P",
+            "org": "arch-systems",
+            "version": "1-0-1",
+            "os_tag": 2051,
+            "os_version": "1.0",
+            "released_on": "2017-08-01",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g3-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "ProtoPOD-1 with 2.8V GPIO"
+        },
+        {
+            "external_sku": "ProtoPOD-1[g5] ES1",
+            "internal_sku": "arch0029",
+            "family": "POD-1P",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 1024,
+            "released_on": "2017-08-01",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g5-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "ProtoPOD-1 with 5V GPIO"
+        },
+        {
+            "external_sku": "ProtoPOD-1[g5] ES1",
+            "internal_sku": "arch0029",
+            "family": "POD-1P",
+            "org": "arch-systems",
+            "version": "1-0-1",
+            "os_tag": 2052,
+            "os_version": "1.0",
+            "released_on": "2017-08-01",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g5-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "ProtoPOD-1 with 5V GPIO"
+        },
+        {
+            "external_sku": "ProtoPOD-1[e1] ES1",
+            "internal_sku": "arch002d",
+            "family": "POD-1P",
+            "org": "arch-systems",
+            "version": "1-0-1",
+            "os_tag": 2053,
+            "os_version": "1.0",
+            "released_on": "2017-08-01",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "ProtoPOD-1 with Environmental Tile"
+        },
+        {
+            "external_sku": "ProtoPOD-1 ES1",
+            "internal_sku": "arch0014",
+            "family": "POD-1P",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 1024,
+            "released_on": "2017-08-01",
+            "active": false,
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                }
+            ]
+        },
+        {
+            "external_sku": "GTWY-2R",
+            "internal_sku": "arch0015",
+            "family": "Gateway",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "released_on": "2017-08-11"
+        },
+        {
+            "external_sku": "miniTemp-1 ES1",
+            "internal_sku": "arch0017",
+            "family": "miniTemp Logger",
+            "org": "arch-systems",
+            "version": "1-1-0",
+            "os_tag": 1024,
+            "hw_tag": 8199,
+            "hw_version": "1",
+            "released_on": "2017-08-16",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                }
+            ]
+        },
+        {
+            "external_sku": "PODuino Mega ES1",
+            "internal_sku": "arch0018",
+            "family": "PODuino",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 1024,
+            "released_on": "2017-08-01",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                }
+            ],
+            "description": "IOTile Controller and GPIO with Arduino Mega 2560"
+        },
+        {
+            "external_sku": "POD-1M[ae1] ES1",
+            "internal_sku": "arch001a",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "0-1-0",
+            "os_tag": 1024,
+            "hw_tag": 8194,
+            "hw_version": "1",
+            "released_on": "2017-09-20",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 1
+                }
+            ]
+        },
+        {
+            "external_sku": "POD-1M[ae1] ES2",
+            "internal_sku": "arch001b",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "0-2-0",
+            "os_tag": 1024,
+            "hw_tag": 8194,
+            "hw_version": "1",
+            "released_on": "2017-09-20",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                }
+            ]
+        },
+        {
+            "external_sku": "SAVER Dock ES1",
+            "internal_sku": "arch001f",
+            "family": "NODE-1",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "released_on": "2017-10-13"
+        },
+        {
+            "external_sku": "POD-1M[ae1] ES3",
+            "internal_sku": "arch0023",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "0-3-0",
+            "os_tag": 1024,
+            "hw_tag": 8194,
+            "hw_version": "1",
+            "released_on": "2017-12-15",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ]
+        },
+        {
+            "external_sku": "POD-1M[ae1]",
+            "internal_sku": "arch002a",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 2050,
+            "os_version": "1.0",
+            "hw_tag": 8194,
+            "hw_version": "1",
+            "released_on": "2018-01-25",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors"
+        },
+        {
+            "external_sku": "POD-1G[p1]",
+            "internal_sku": "arch002f",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 2055,
+            "os_version": "1.0",
+            "hw_tag": 8192,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-p1-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "POD-1G but programmed with pipeline FW"
+        },
+        {
+            "external_sku": "POD-1G[p1] ES1",
+            "internal_sku": "arch002e",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 2056,
+            "os_version": "1.0",
+            "hw_tag": 8192,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-p1-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "POD-1G but programmed with pipeline FW"
+        },
+        {
+            "external_sku": "EDGE-CL200",
+            "internal_sku": "arch0030",
+            "family": "SmartEdge",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "released_on": "2018-06-20"
+        },
+        {
+            "external_sku": "ProtoPOD-1C[g6]",
+            "internal_sku": "arch0034",
+            "family": "POD-1C",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 2057,
+            "os_version": "1.0",
+            "hw_tag": 8201,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g6-2-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "Indoor POD optimized for factories with a DB-25 connector, RTC and rechargable battery."
+        },
+        {
+            "external_sku": "POD-1C[g7]",
+            "internal_sku": "arch0035",
+            "family": "POD-1C",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 2059,
+            "os_version": "1.0",
+            "hw_tag": 8202,
+            "hw_version": "1",
+            "released_on": "2018-12-10",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g7-2-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "Indoor POD optimized for factories with a DB-9 connector, RTC and rechargable battery"
+        },
+        {
+            "external_sku": "POD-1C[g7]",
+            "internal_sku": "arch0041",
+            "family": "POD-1C",
+            "org": "arch-systems",
+            "version": "1-1-0",
+            "os_tag": 2059,
+            "os_version": "1.1",
+            "hw_tag": 8202,
+            "hw_version": "1",
+            "released_on": "2019-09-24",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g7-2-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "Indoor POD optimized for factories with a DB-9 connector, RTC and rechargable battery"
+        },
+        {
+            "external_sku": "POD-1C[g7]",
+            "internal_sku": "arch0042",
+            "family": "POD-1C",
+            "org": "arch-systems",
+            "version": "1-2-0",
+            "os_tag": 2059,
+            "os_version": "1.2",
+            "hw_tag": 8202,
+            "hw_version": "1",
+            "released_on": "2019-10-29",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g7-2-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "Indoor POD optimized for factories with a DB-9 connector, RTC and rechargable battery"
+        },
+        {
+            "external_sku": "POD-1C[g7]",
+            "internal_sku": "arch0042",
+            "family": "POD-1C",
+            "org": "arch-systems",
+            "version": "1-3-0",
+            "os_tag": 2059,
+            "os_version": "1.3",
+            "hw_tag": 8202,
+            "hw_version": "1",
+            "released_on": "2019-10-29",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g7-2-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "Indoor POD optimized for factories with a DB-9 connector, RTC and rechargable battery, password protection"
+        },
+        {
+            "external_sku": "POD-1G[g1] v2",
+            "internal_sku": "arch0033",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "4-0-0",
+            "released_on": "2018-10-05",
+            "os_tag": 2048,
+            "os_version": "1.2",
+            "hw_tag": 8193,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g1-2-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "POD-1G v2 based on a merged ProtoPOD-1"
+        },
+        {
+            "external_sku": "POD-1G[g1] v2",
+            "internal_sku": "arch0033",
+            "family": "POD-1G",
+            "org": "arch-systems",
+            "version": "4-3-0",
+            "released_on": "2020-08-26",
+            "os_tag": 2048,
+            "os_version": "2.3",
+            "hw_tag": 8193,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g1-2-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "POD-1G v2 with new BLE protocol and safe mode."
+        },
+        {
+            "external_sku": "POD-1C[g6]",
+            "internal_sku": "arch0035",
+            "family": "POD-1C",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "released_on": "2018-10-05",
+            "os_tag": 2059,
+            "os_version": "1.0",
+            "hw_tag": 8203,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-g6-2-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "Indoor POD optimized for factories with a DB-9 connector, RTC and rechargable battery"
+        },
+        {
+            "external_sku": "POD-1M[ae1] v2",
+            "internal_sku": "arch0036",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "2-0-0",
+            "os_tag": 2050,
+            "os_version": "1.1",
+            "hw_tag": 8195,
+            "hw_version": "1",
+            "released_on": "2018-10-05",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Version 2"
+        },
+        {
+            "external_sku": "Raspberry Pi 3 Model B plus",
+            "internal_sku": "arch0037",
+            "family": "Gateway",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "os_tag": 2062,
+            "os_version": "1.0",
+            "hw_tag": 8205,
+            "hw_version": "1",
+            "released_on": "2018-01-28"
+        },
+        {
+            "external_sku": "Gyarados",
+            "internal_sku": "welldone0001",
+            "family": "WellDone PODs",
+            "org": "welldone",
+            "version": "0-0-1",
+            "os_tag": 2060,
+            "os_version": "0.1",
+            "hw_tag": 8203,
+            "hw_version": "1",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "gpio1-1-0-0",
+                    "slot": 1
+                }
+            ],
+            "description": "WellDone's custom POD. It contains: v3 Controller - has no RTC tile_gpio + capsense chip - use to measure water flow from hand pumps"
+        },
+        {
+            "external_sku": "Generic Virtual Device",
+            "internal_sku": "",
+            "family": "Virtual",
+            "org": "arch-systems",
+            "version": "1-0-0",
+            "released_on": "2019-04-30"
+        },
+        {
+            "external_sku": "POD-1M[ae1] v2",
+            "internal_sku": "arch0036",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "2-1-0",
+            "os_tag": 2050,
+            "os_version": "1.2",
+            "hw_tag": 8195,
+            "hw_version": "1",
+            "released_on": "2018-10-05",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Version 2 that has exec_nrf52 v2.3.0 and con_btc1 v3.2.4"
+        },
+        {
+            "external_sku": "POD-1M[ae1]",
+            "internal_sku": "arch002a",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "1-1-0",
+            "os_tag": 2050,
+            "os_version": "1.3",
+            "hw_tag": 8194,
+            "hw_version": "1",
+            "released_on": "2018-01-25",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Only applied to 2050 v1.0 has exec_nrf52 v2.1.0 and con_btc1 v3.2.4. New tile_env as well"
+        },
+        {
+            "external_sku": "POD-1M[ae1] v2",
+            "internal_sku": "arch0036",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "2-2-0",
+            "os_tag": 2050,
+            "os_version": "1.4",
+            "hw_tag": 8195,
+            "hw_version": "1",
+            "released_on": "2018-10-05",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Only applied to 2050 v1.1 and v1.2 has exec_nrf52 v2.1.0 and con_btc1 v3.2.4. New tile_env as well"
+        },
+        {
+            "external_sku": "POD-1M[ae1]",
+            "internal_sku": "arch002a",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "1-5-0",
+            "os_tag": 2050,
+            "os_version": "1.5",
+            "hw_tag": 8194,
+            "hw_version": "1",
+            "released_on": "2018-01-25",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Only applied to 2050 v1.0 and v1.3 has has exec_nrf52 v3.x.x and con_btc1 v4.x.x"
+        },
+        {
+            "external_sku": "POD-1M[ae1]",
+            "internal_sku": "arch002a",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "1-6-0",
+            "os_tag": 2050,
+            "os_version": "1.6",
+            "hw_tag": 8194,
+            "hw_version": "1",
+            "released_on": "2020-09-08",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Fixed accel tile's waveform sorting algorithm."
+        },
+        {
+            "external_sku": "POD-1M[ae1]",
+            "internal_sku": "arch002a",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "1-7-0",
+            "os_tag": 2050,
+            "os_version": "1.7",
+            "hw_tag": 8194,
+            "hw_version": "1",
+            "released_on": "2020-11-25",
+            "components": [
+                {
+                    "slug": "btc1-3-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Fixed accel tile's shock threshold."
+        },
+        {
+            "external_sku": "POD-1M[ae1] v2",
+            "internal_sku": "arch0036",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "2-5-0",
+            "os_tag": 2050,
+            "os_version": "2.5",
+            "hw_tag": 8195,
+            "hw_version": "1",
+            "released_on": "2018-10-05",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Only applied to 2050 v1.1, v1.2, v1.4 has exec_nrf52 v3.x.x and con_btc1 v4.x.x"
+        },
+        {
+            "external_sku": "POD-1M[ae1] v2",
+            "internal_sku": "arch0036",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "2-6-0",
+            "os_tag": 2050,
+            "os_version": "2.6",
+            "hw_tag": 8195,
+            "hw_version": "1",
+            "released_on": "2020-09-08",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Fixed accel tile's waveform sorting algorithm."
+        },
+        {
+            "external_sku": "POD-1M[ae1] v2",
+            "internal_sku": "arch0036",
+            "family": "POD-1M",
+            "org": "arch-systems",
+            "version": "2-7-0",
+            "os_tag": 2050,
+            "os_version": "2.7",
+            "hw_tag": 8195,
+            "hw_version": "1",
+            "released_on": "2020-11-25",
+            "components": [
+                {
+                    "slug": "btc1-4-0-0",
+                    "slot": 0
+                },
+                {
+                    "slug": "tile-a1-1-0-0",
+                    "slot": 2
+                },
+                {
+                    "slug": "tile-e1-1-0-0",
+                    "slot": 4
+                }
+            ],
+            "description": "IOTile Device with Accelerometer and Temperature, Humidity and Pressure sensors. Fixed accel tile's shock threshold."
+        }
+    ]
+}

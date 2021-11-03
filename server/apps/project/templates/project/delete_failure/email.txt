@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load custom_tags %}
+{% load tz %}
+{% localtime off %}
+
+Hello from the Arch team!
+
+This is to let you know that the project {{ project_name }} ({{ project_slug }}) could not be deleted.
+
+Projects cannot be deleted if there are devices still claimed by the project.
+
+You will have to move each device to another project before deleting the project.
+
+Devices:
+    
+{% for d in devices %}
+{{ d.slug }}
+{% endfor %}
+
+{% endlocaltime %}
+{% include 'base/email.txt' %}

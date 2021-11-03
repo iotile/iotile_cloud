@@ -1,0 +1,371 @@
+{% extends "staff/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+
+{% block media %}
+    <style>
+       #map_canvas {
+        height: 200px;
+        width: 90%;
+       }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    {% include 'project/snippets/device-locations-js.html' %}
+    <!-- DataTable -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script>
+        var streamData = [];
+        {% for value, item in data_counter.stream_totals.items %}
+                streamData.push([
+                    '{{ item.stream_slug }}',
+                    {% if item.data_count  %}
+                    '<a href="/api/v1/data/?filter={{ item.stream_slug }}&staff=1&mask=1" class="btn btn-sm btn-success">{{ item.data_count }}</a>',
+                    {% else %}
+                        '',
+                    {% endif %}
+                    {% if item.event_count  %}
+                    '<a href="/api/v1/event/?filter={{ item.stream_slug }}&staff=1&mask=1" class="btn btn-sm btn-success">{{ item.event_count }}</a>',
+                    {% else %}
+                        '',
+                    {% endif %}
+                    {% if item.has_streamid %}
+                        '<i class="fa fa-check-circle-o text-success"></i>',
+                    {% else %}
+                        '<i class="fa fa-times-circle text-danger"></i>',
+                    {% endif %}
+                    {% if not object.busy %}
+                        '<a href="{% url 'staff:stream-data-delete' value %}"><i class="fa fa-trash"></i></a>'
+                    {% else %}
+                        ''
+                    {% endif %}
+
+                ]);
+        {% endfor %}
+        var streamTable = $('#stream-table').DataTable({
+            order: [[0, "asc"]],
+            pageLength: 25,
+            responsive: true,
+            columns: [
+                {sTitle: "{% trans 'Data Stream' %}"},
+                {sTitle: "{% trans 'No. Data' %}"},
+                {sTitle: "{% trans 'No. Event' %}"},
+                {sTitle: "{% trans 'Has StreamId' %}"},
+                {sTitle: "{% trans 'Actions' %}"}
+            ],
+            data: streamData
+        });
+
+        {% localtime off %}
+        var reportData = [];
+        {% for report in reports %}
+                reportData.push([
+                    '{{ report.sent_timestamp|date:'Y-m-d H:i:s' }}',
+                    '<a href="/api/v1/data/?filter={{ object.slug }}&streamer_id_0={{ report.actual_first_id }}&streamer_id_1={{ report.actual_last_id }}&staff=1">{{ report.streamer }}</a>',
+                    '<a href="/api/v1/streamer/report/{{ report.id }}/">{{ report.id }}</a>',
+                    '{{ report.original_first_id }}',
+                    '{{ report.original_last_id }}',
+                    '{{ report.actual_first_id }}',
+                    '{{ report.actual_last_id }}',
+                    '<a href="{% url 'staff:user-detail' report.created_by.id %}">{{ report.created_by }}</a>',
+                    '{{ report.status }}'
+
+                ]);
+        {% endfor %}
+        var reportTable = $('#report-table').DataTable({
+            order: [[0, "asc"]],
+            pageLength: 25,
+            responsive: true,
+            columns: [
+                {sTitle: "{% trans 'Sent date (UTC)' %}"},
+                {sTitle: "{% trans 'Streamer' %}"},
+                {sTitle: "{% trans 'Report ID' %}"},
+                {sTitle: "{% trans 'Original first Id' %}"},
+                {sTitle: "{% trans 'Original last Id' %}"},
+                {sTitle: "{% trans 'Actual first Id' %}"},
+                {sTitle: "{% trans 'Actual last Id' %}"},
+                {sTitle: "{% trans 'Uploaded by' %}"},
+                {sTitle: "{% trans 'Status' %}"}
+            ],
+            data: reportData
+        });
+
+        var logData = [];
+        {% for n in device_system_logs %}
+                logData.push([
+                    '{{ n.timestamp|date:'Y-m-d H:i:s' }}',
+                    '<a href="{% url 'staff:user-detail' n.created_by.id %}">{{ n.created_by }}</a>',
+                    '{{ n.note|linebreaks }}'
+
+                ]);
+        {% endfor %}
+        var logTable = $('#device-logs-table').DataTable({
+            order: [[0, "asc"]],
+            pageLength: 25,
+            responsive: true,
+            columns: [
+                {sTitle: "{% trans 'Timestamp (UTC)' %}"},
+                {sTitle: "{% trans 'User' %}"},
+                {sTitle: "{% trans 'Note' %}"}
+            ],
+            data: logData
+        });
+
+        var filterLogData = [];
+        {% for log in filter_logs %}
+                filterLogData.push([
+                    '{{ log.timestamp|date:'Y-m-d H:i:s'}}',
+                    '{{ log.target_slug }}',
+                    '{{ log.src }}',
+                    '{{ log.dst }}'
+
+                ]);
+        {% endfor %}
+        var filterLogTable = $('#filter-logs-table').DataTable({
+            order: [[0, "asc"]],
+            pageLength: 25,
+            responsive: true,
+            columns: [
+                {sTitle: "{% trans 'Date (UTC)' %}"},
+                {sTitle: "{% trans 'Stream' %}"},
+                {sTitle: "{% trans 'From state' %}"},
+                {sTitle: "{% trans 'To state' %}"}
+            ],
+            data: filterLogData
+        });
+        {% endlocaltime %}
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row tile_count">
+        <h2> Device ID : {{ object.slug }}</h2>
+    </div>
+
+    <div class="row tile_count">
+        <div class="col-md-3 col-sm-3 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-line-chart"></i> Stream IDs</span>
+            <div class="count" align="center">
+                {{ stream_count }}
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-random"></i> Data Stream Entries</span>
+            <div class="count" align="center">{{ data_counter.total_data_count }}</div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-random"></i> Event Stream Entries</span>
+            <div class="count" align="center">{{ data_counter.total_event_count }}</div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-archive"></i> Archived Data Blocks</span>
+            <div class="count" align="center">
+                {% if object.org %}
+                <a href="{{ object.get_archive_list_url }}">
+                    {{ object.data_blocks.count }}
+                </a>
+                {% else %}
+                    N/A
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+            <!-- Device Actions -->
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>
+                            Actions
+                        </h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" align="center">
+                        <div class="btn-group group-vertical" role="group" aria-label="Action Buttons">
+                            {% if object.project %}
+                            <a href="{% url 'org:page:device' org.slug object.slug %}" class="btn btn-success btn-block">
+                                Data Charts
+                            </a>
+                            <a href="{{ object.status.get_absolute_url }}"
+                               class="btn btn-success btn-block" {% if object.busy %}disabled{% endif %}>
+                                Device Health
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Device Details -->
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <ul class="nav navbar-right panel_toolbox">
+                        </ul>
+                        <h5>Device Details</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <th>ID</th>
+                                <td>
+                                    {{ object.id }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Slug</th>
+                                <td>
+                                    <a href="{{ object.get_absolute_url }}">
+                                        {{ object.slug }}
+                                    </a>
+                                </td>
+                            </tr>
+                            {% if object.org %}
+                            <tr>
+                                <th>Organization</th>
+                                <td>
+                                    <a href="{% url "org:detail"  object.org.slug %}">
+                                        {{ object.org }}
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if object.project %}
+                            <tr>
+                                <th>Project</th>
+                                <td>
+                                    {{ object.project }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Project ID</th>
+                                <td>
+                                    {{ object.project.id }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Project Slug</th>
+                                <td>
+                                    {{ object.project.slug }}
+                                </td>
+                            </tr>
+                            {% endif %}
+                            <tr>
+                                <th>Device Template</th>
+                                <td>
+                                    {% if user.is_staff %}
+                                    <a href="/api/v1/dt/{{ object.template.slug }}">
+                                        {{ object.template.name }}
+                                    </a>
+                                    {% else %}
+                                    {{ object.template.name }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Sensor Graph</th>
+                                <td>
+                                    {% if user.is_staff %}
+                                    <a href="/api/v1/sg/{{ object.sg.slug }}">
+                                        {{ object.sg }}
+                                    </a>
+                                    {% else %}
+                                        {{ object.sg }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>External ID</th>
+                                <td>{{ object.external_id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Label</th>
+                                <td>{{ object.label }}</td>
+                            </tr>
+                            <tr>
+                                <th>State</th>
+                                <td>{{ object.get_state_icon }} {{ object.get_state_display }}</td>
+                            </tr>
+                            <tr>
+                                <th>Claimed on</th>
+                                <td>{{ object.claimed_on|date:'Y-m-d H:i:s' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Claimed by</th>
+                                <td>{{ object.claimed_by }}</td>
+                            </tr>
+                            <tr>
+                                <th>Last known id</th>
+                                <td>{{ object.last_known_id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Last upload </th>
+                                <td>{{ last_report.sent_timestamp|date:'Y-m-d H:i:s' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Last reboot </th>
+                                <td>{{ object.last_reboot_ts|date:'Y-m-d H:i:s' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Last Updates</th>
+                                <td>
+                                    {% for version in device_versions %}
+                                        <a href="{% url 'deviceversionattribute-list' %}?device={{ object.slug }}&type={{ version.type }}">
+                                            {{ version.type }}:{{ version.tag }} {{ version.version }}: {{ version.updated_ts|date:'Y-m-d H:i:s' }}
+                                        </a>
+                                        <br>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% if data_counter.data_mask %}
+                            <tr>
+                                <th>Data Mask</th>
+                                <td>
+                                    {% if data_counter.data_mask.start %}
+                                       Start: {{ data_counter.data_mask.start }}
+                                    {% else %}
+                                       Start: Not Set
+                                    {% endif %}
+                                    <br>
+                                    {% if data_counter.data_mask.end %}
+                                       End: {{ data_counter.data_mask.end }}
+                                    {% else %}
+                                       End: Not Set
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>
+                            Device Locations
+                        </h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" align="center">
+                        <div id="map_canvas"><h3>No Location Information</h3></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

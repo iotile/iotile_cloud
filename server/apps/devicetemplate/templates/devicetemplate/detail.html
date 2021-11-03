@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{% trans 'IOTile' %}:
+                <small>{{ object.name }} ({{ object.family }})</small>
+            </h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row1">
+        <div class="col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Product Details' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'template:list' %}">
+                                <i class="fa fa-chevron-left"></i> Back
+                            </a>
+                        </li>
+                        {% if is_staff or is_owner %}
+                            <li>
+                                <a href="{% url 'template:edit' object.slug %}">
+                                    <i class="fa fa-pencil"></i> Edit
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    {% if poster %}
+                        <div class="col-md-9 col-xs-12">
+                    {% else %}
+                        <div class="col-md-12 col-xs-12">
+                    {% endif %}
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>External SKU (Name)</th>
+                            <td>{{ object.external_sku }}</td>
+                        </tr>
+                        <tr>
+                            <th>Version</th>
+                            <td>{{ object.version }}</td>
+                        </tr>
+                        <tr>
+                            <th>Family</th>
+                            <td>{{ object.family }}</td>
+                        </tr>
+                        <tr>
+                            <th>Sold By</th>
+                            <td>{{ object.org.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Internal SKU</th>
+                            <td>{{ object.internal_sku }}</td>
+                        </tr>
+                        <tr>
+                            <th>Release Date</th>
+                            <td>{{ object.released_on }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            {% if object.active %}
+                                <td><b style="color:green;">Active</b></td>
+                            {% else %}
+                                <td><b style="color:red;">Not Active</b></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <th>OS Tag</th>
+                            <td>{{ object.os_tag_and_version }}</td>
+                        </tr>
+                        <tr>
+                            <th>HW Tag</th>
+                            <td>{{ object.hw_tag_and_version }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ object.description|linebreaks }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    {% if poster %}
+                        <div class="col-md-3 hidden-xs hidden-sm">
+                            <div class="thumbnail">
+                                <img style="height: 100%; display: block;" src="{{ poster }}" alt="image"/>
+                            </div>
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Device Slots' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_owner %}
+                            <li>
+                                <a href="{% url 'template:component-add' object.slug %}">
+                                    <i class="fa fa-plus"></i> {% trans 'Add Component' %}
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>{% trans 'Slot' %}</th>
+                            <th>{% trans 'Name' %}</th>
+                            <th>{% trans 'HW Tag' %}</th>
+                            <th>{% trans 'Version' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for slot in object.slots.all %}
+                            <tr>
+                                <td>{{ slot.number }}</td>
+                                <th scope="row">
+                                    <a href="{{ slot.component.get_absolute_url }}">{{ slot.component.name }}</a>
+                                </th>
+                                <td>{{ slot.component.hw_tag }}</td>
+                                <td>{{ slot.component.version }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row1">
+        <div class="col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Images' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_owner %}
+                            <li>
+                                <a href="{% url 'template:upload-image' object.slug %}">
+                                    <i class="fa fa-upload"></i> {% trans 'Image' %}
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+
+                        <p>Image Gallery</p>
+
+                        {% for img in object.images.all %}
+                            <div class="col-md-55" align="center">
+                                <div class="thumbnail">
+                                    <div class="image view view-first">
+                                        <img style="height: 100%; display: block;" src="{{ img.medium_url }}" alt="image" />
+                                        <div class="mask">
+                                            <p>Product Image</p>
+                                            {% if is_owner %}
+                                                <div class="tools tools-bottom">
+                                                    <a href="{% url 'template:image-title-edit' object.slug img.id %}"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{% url 'template:image-delete' object.slug img.id %}"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="caption">
+                                        <p>{{ img.title }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}
+
+

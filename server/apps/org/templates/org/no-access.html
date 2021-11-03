@@ -1,0 +1,39 @@
+<div class="x_content" align="center">
+
+    <h2>Welcome to the {{ org.name }} organization</h2>
+
+    {% if role %}
+        <p>
+            {% if role == 'm1' %}
+                You have logged in to this Organization as a "Member".
+            {% elif role == 'r1' %}
+            You have logged in to this Organization as a "Operator".
+            {% endif %}
+            <br>
+            <p style="color:red">This role does not have access to this page.</p>
+
+            <div class="btn-group group-vertical col-xs-12" role="group" aria-label="Action Buttons">
+                {% if can_access_webapp %}
+                <a href="{{ object.get_webapp_url }}" class="btn btn-success btn-block">
+                    Your role gives you access to the IOTile WebApp
+                    &nbsp;&nbsp;
+                    <i class="fa fa-external-link fa-lg"></i>
+                </a>
+                <p>The IOTile WebApp can be used to visualize device data.</p>
+                {% endif %}
+                <a href="https://dkaqmcpxoulk5.cloudfront.net/iotile/communication-tools/iotile-companion-mobile-app/" class="btn btn-success btn-block">
+                    Your role gives you access to the IOTile Companion Mobile App
+                    &nbsp;&nbsp;
+                    <i class="fa fa-external-link fa-lg"></i>
+                </a>
+                <p>The IOTile Companion Mobile App can be used to interact with devices and upload data.</p>
+            </div>
+
+        </p>
+
+    {% else %}
+        <p>
+            Contact your Organization Administrator for access to this page.
+        </p>
+    {% endif %}
+</div>

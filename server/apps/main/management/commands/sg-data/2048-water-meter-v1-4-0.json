@@ -1,0 +1,148 @@
+{
+    "name": "Water Meter",
+    "org": "arch-systems",
+    "project_template": "default-template-v1-0-0",
+    "report_processing_engine_ver": 2,
+    "app_tag": 2048,
+    "app_version": "1.4",
+    "description": "POD-1G Water Meter App with Broadcasting and SG hashing",
+    "variable_templates": [
+      {
+        "label": "IO 1",
+        "lid_hex": "5001",
+        "derived_lid_hex": "",
+        "var_type": "water-meter-volume",
+        "default_input_unit": "in--water-meter-volume--gallons",
+        "default_output_unit": "out--water-meter-volume--gallons",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": false,
+        "web_only": false
+      },
+      {
+        "label": "IO 2",
+        "lid_hex": "5002",
+        "derived_lid_hex": "",
+        "var_type": "water-meter-volume",
+        "default_input_unit": "in--water-meter-volume--gallons",
+        "default_output_unit": "out--water-meter-volume--gallons",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": false,
+        "web_only": false
+      },
+      {
+        "label": "Pulse 1",
+        "lid_hex": "100b",
+        "derived_lid_hex": "",
+        "var_type": "water-meter-flow",
+        "default_input_unit": "in--water-meter-flow--gallons",
+        "default_output_unit": "out--water-meter-flow--gallons-per-min",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": true,
+        "web_only": false
+      },
+      {
+        "label": "Pulse 2",
+        "lid_hex": "100c",
+        "derived_lid_hex": "",
+        "var_type": "water-meter-flow",
+        "default_input_unit": "in--water-meter-flow--gallons",
+        "default_output_unit": "out--water-meter-flow--gallons-per-min",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": true,
+        "web_only": false
+      },
+      {
+        "label": "Odometer 1",
+        "lid_hex": "100d",
+        "derived_lid_hex": "",
+        "var_type": "water-meter-volume",
+        "default_input_unit": "in--water-meter-volume--gallons",
+        "default_output_unit": "out--water-meter-volume--gallons",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": true,
+        "web_only": false
+      },
+      {
+        "label": "Odometer 2",
+        "lid_hex": "100e",
+        "derived_lid_hex": "",
+        "var_type": "water-meter-volume",
+        "default_input_unit": "in--water-meter-volume--gallons",
+        "default_output_unit": "out--water-meter-volume--gallons",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": true,
+        "web_only": false
+      }
+    ],
+    "display_widget_templates": [
+      {
+        "label": "IO 1",
+        "lid_hex": "5001",
+        "var_type": "water-meter-volume",
+        "derived_unit_type": "rate",
+        "show_in_web": true,
+        "show_in_app": false
+      },
+      {
+        "label": "IO 2",
+        "lid_hex": "5002",
+        "var_type": "water-meter-volume",
+        "derived_unit_type": "rate",
+        "show_in_web": true,
+        "show_in_app": false
+      }
+    ],
+    "ui_extra": {
+      "web": {
+        "pageTemplateSlug": "water"
+      },
+      "mobile": {
+        "controller": "waterMeterCtrl",
+        "template": "water-meter",
+        "ioInfo": {
+          "order": [ "5001", "5002" ],
+          "map": {
+            "5001": {
+              "settingsController": "waterMeterSettingsCtrl",
+              "settingsTemplate": "water-meter-settings",
+              "label": "IO 1",
+              "derived": {
+                "odometer": {"lid": "100d", "label": "Trip Computer"},
+                "flow": {"lid": "100b", "label": "Flow", "type": "water-meter-flow"}
+              }
+            },
+            "5002": {
+              "settingsController": "waterMeterSettingsCtrl",
+              "settingsTemplate": "water-meter-settings",
+              "label": "IO 2",
+              "derived": {
+                "odometer": {"lid": "100e", "label": "Trip Computer"},
+                "flow": {"lid": "100c", "label": "Flow", "type": "water-meter-flow"}
+              }
+            }
+          }
+        },
+        "other": {
+          "flowMdo": {
+            "d": 65536
+          }
+        }
+      }
+    },
+    "major_version": 1,
+    "minor_version": 4,
+    "patch_version": 0
+  }
+  

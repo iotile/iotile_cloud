@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <div class="page-title">
+        <div class="title_left">
+            <h3>IOTile Component</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Attributes' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'component:list' %}">
+                                <i class="fa fa-chevron-left"></i> Back
+                            </a>
+                        </li>
+                        {% if is_staff or is_owner %}
+                            <li>
+                                <a href="{% url 'component:edit' object.id %}">
+                                    <i class="fa fa-pencil"></i> Edit
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">{% trans 'SKU/Name' %}</th>
+                            <td>{{ object.external_sku }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Internal SKU' %}</th>
+                            <td>{{ object.internal_sku }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'ID' %}</th>
+                            <td style="font-family: Courier;">{{ object.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Slug' %}</th>
+                            <td style="font-family: Courier;">{{ object.slug }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Version' %}</th>
+                            <td>{{ object.version }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'HW Tag' %}</th>
+                            <td>
+                                {% if  object.hw_tag %}
+                                    {{ object.hw_tag}}
+                                {% else %}
+                                    {% trans 'Unk' %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'HW Name' %}</th>
+                            <td>
+                                {% if  object.hw_name %}
+                                    {{ object.hw_name}}
+                                {% else %}
+                                    {% trans 'Unk' %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Type' %}</th>
+                            <td>{{ object.get_type_display }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Active' %}</th>
+                            <td>{{ object.active }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Sold By' %}</th>
+                            <td>{{ object.org.name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Release Date' %}</th>
+                            <td>{{ object.created_on|date:"Y-m-d" }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Description' %}</th>
+                            <td>{{ object.description|linebreaks }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Images' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        {% if is_owner %}
+                        <li>
+                            <a href="{% url 'component:upload-image' object.id %}">
+                                <i class="fa fa-upload"></i> {% trans 'Image' %}
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+
+                        {% for img in object.images.all %}
+                            <div class="col-md-55" align="center">
+                                <div class="thumbnail">
+                                    <div class="image view view-first">
+                                        <img style="height: 100%; display: block;" src="{{ img.medium_url }}" alt="image" />
+                                        <div class="mask">
+                                            <p>Product Image</p>
+                                            {% if is_owner %}
+                                            <div class="tools tools-bottom">
+                                                <a href="{% url 'component:image-title-edit' object.id img.id %}"><i class="fa fa-pencil"></i></a>
+                                                <a href="{% url 'component:image-delete' object.id img.id %}"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="caption">
+                                        <p>{{ img.title }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Devices with' %} {{ object.external_sku }}
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>{% trans 'Device' %}</th>
+                                <th>{% trans 'Family' %}</th>
+                                <th>{% trans 'OS Tag' %}</th>
+                                <th>{% trans 'version' %}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for slot in object.slots.all %}
+                                <tr>
+                                    <th scope="row">
+                                        <a href="{{ slot.template.get_absolute_url }}">
+                                            {{ slot.template.external_sku }}
+                                        </a>
+                                    </th>
+                                    <td>{{ slot.template.family }}</td>
+                                    <td>{{ slot.template.os_tag }}</td>
+                                    <td>{{ slot.template.version }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

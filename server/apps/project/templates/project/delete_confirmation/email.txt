@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load custom_tags %}
+{% load tz %}
+{% localtime off %}
+
+Hello from the Arch team!
+
+This is to let you know that the project {{ project_name }} ({{ project_slug }}) has been successfully deleted by @{{ username }}.
+
+What data was deleted?:
+
+{% for line in logs %}
+{{ line }}
+{% endfor %}
+
+{% endlocaltime %}
+{% include 'base/email.txt' %}

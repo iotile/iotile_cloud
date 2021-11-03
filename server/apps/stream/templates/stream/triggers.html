@@ -1,0 +1,84 @@
+{% extends "project/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Stream Triggers</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Conditions
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'org:project:stream:trigger-create' org.slug project.id stream.id %}">
+                                <i class="fa fa-pie-chart"></i> {% trans 'Add Trigger' %}
+                            </a>
+                        </li>
+                        <li></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% for trigger in object_list %}
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>
+                                        {{ trigger.name }}
+                                    </h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <table class="table table-striped">
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">{% trans 'Condition' %}</th>
+                                            <td>{{ trigger.get_operator_display }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">{% trans 'Threshold' %}</th>
+                                            <td>{{ trigger.threshold }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">{% trans 'Active' %}</th>
+                                            <td>{% if trigger.active %}{% trans 'Yes' %}{% else %}
+                                                {% trans 'No' %}{% endif %}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">{% trans 'Created on' %}</th>
+                                            <td>{{ stream.created_on|date:"Y-m-d" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">{% trans 'Created by' %}</th>
+                                            <td>@{{ stream.created_by.username }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

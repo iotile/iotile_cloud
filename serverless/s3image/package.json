@@ -1,0 +1,15 @@
+{
+  "name": "s3image",
+  "version": "1.0.0",
+  "description": "Serverless Image Resizer",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Karchmer",
+  "license": "NONE",
+  "dependencies": {
+    "async": "^2.0.1",
+    "gm": "^1.23.0"
+  }
+}

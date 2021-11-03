@@ -1,0 +1,34 @@
+<div class="list-group">
+    <a href="{% url 'staff:user-create' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-user-plus"></i> Add User</h4>
+        <p class="list-group-item-text">Manually create a User account</p>
+    </a>
+    <a href="{% url 'staff:shipping' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-ship"></i> Shipping Operations</h4>
+        <p class="list-group-item-text">Setup Org, Project and onboard POD-1Ms</p>
+    </a>
+    <a href="{% url 'staff:iotile-batch' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-barcode"></i> Create a batch of IOTile Devices</h4>
+        <p class="list-group-item-text">Create a batch of Devices for a given template</p>
+    </a>
+    <a href="{% url 'staff:upgrade-sg-batch' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-barcode"></i> Batch upgrade Sensor Graph</h4>
+        <p class="list-group-item-text">Upgrade sensor graph for a batch of Devices</p>
+    </a>
+    <a href="{% url 'staff:upgrade-dt-batch' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-barcode"></i> Batch upgrade Device Template</h4>
+        <p class="list-group-item-text">Upgrade device template (product) for a batch of Devices</p>
+    </a>
+    <a href="{% url 'staff:project-delete' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-trash"></i> Delete Project</h4>
+        <p class="list-group-item-text">Manually delete a Project</p>
+    </a>
+    <a href="{% url 'staff:project-move' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-arrows"></i> Move Project</h4>
+        <p class="list-group-item-text">Move a Project from one Organization to another</p>
+    </a>
+    <a href="{% url 'staff:device-data-move' %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-arrows"></i> Move Device Data</h4>
+        <p class="list-group-item-text">Move a device data from one device to another</p>
+    </a>
+</div>

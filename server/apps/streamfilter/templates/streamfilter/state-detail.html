@@ -1,0 +1,133 @@
+{% extends "project/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{% trans 'State' %}: {{ object.label }}</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'State info' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">{% trans 'Label' %}</th>
+                            <td>{{ object.label }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{% trans 'Filter' %}</th>
+                            <td><a href="{% url 'filter:detail' object.filter.slug %}">{{ object.filter }}</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Action on entry' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <a href="{% url "filter:action-create-type" state.filter.slug state.slug %}?on=entry"><i class="fa fa-plus-circle"></i></a>
+                            </th>
+                            <th>
+                                Add
+                            </th>
+                        </tr>
+                        {% for action in state.entry_action_qs %}
+                        <tr>
+                            <th scope="row">
+                                <a href="{% url "filter:action-edit" state.filter.slug action.pk %}"><i class="fa fa-pencil"></i></a>
+                                <a href="{% url "filter:action-delete" state.filter.slug action.pk %}"><i class="fa fa-trash"></i></a>
+                            </th>
+                            <td>
+                                {{ action.get_type_display }}<br>
+                                {% if action.extra_payload.output_stream %}Output stream: {{ action.extra_payload.output_stream }}<br>{% endif %}
+                                <ul>{% for key, value in action.extra_payload.items %}<li>{{ key }}: {{ value }}</li>{% endfor %}</ul>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Action on exit' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <a href="{% url "filter:action-create-type" state.filter.slug state.slug %}?on=exit"><i class="fa fa-plus-circle"></i></a>
+                            </th>
+                            <th>
+                                Add
+                            </th>
+                        </tr>
+                        {% for action in state.exit_action_qs %}
+                        <tr>
+                            <th scope="row">
+                                <a href="{% url "filter:action-edit" state.filter.slug action.pk %}"><i class="fa fa-pencil"></i></a>
+                                <a href="{% url "filter:action-delete" state.filter.slug action.pk %}"><i class="fa fa-trash"></i></a>
+                            </th>
+                            <td>
+                                {{ action.get_type_display }}<br>
+                                {% if action.output_stream %}Output stream: {{ action.output_stream }}<br>{% endif %}
+                                <ul>{% for key, value in action.extra_payload.items %}<li>{{ key }}: {{ value }}</li>{% endfor %}</ul>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <br/>
+
+{% endblock %}
+

@@ -1,0 +1,57 @@
+{% extends "account/auth-base.html" %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
+{% load static %}
+
+{% block main_class %}site-wrapper-login registerbackground{% endblock %}
+
+{% block form_content %}
+
+
+    <!--LOGIN -->
+
+    {% if confirmation %}
+        {% user_display confirmation.email_address.user as user_display %}
+
+
+        <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+
+            <div>
+                <img src="{% static 'dist/webapp/app/images/auth/archiotilecloudblue.png' %}" class="logo-separator"
+                     alt="Arch Logo">
+                <h5 class="login-title" id="signin"> {% trans "Confirm E-mail Address" %}  </h5>
+                <p class="login-description">
+                    {% blocktrans with confirmation.email_address.email as email %}
+                        Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address
+                        for user {{ user_display }}.
+                    {% endblocktrans %}
+                </p>
+            </div>
+            <hr>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success btn-block submit">{% trans 'Confirm' %}</button>
+        </form>
+    {% else %}
+
+        <form class="login-form" action="" method="POST">
+            <div>
+                <img src="{% static 'dist/webapp/app/images/auth/archiotilecloudblue.png' %}" class="logo-separator"
+                     alt="Arch Logo">
+                <h5 class="login-title" id="signin"> {% url 'account_email' as email_url %} </h5>
+                <p class="login-description">
+                    {% blocktrans %}
+                        This e-mail confirmation link expired or is invalid. Please
+                        <a href="{{ email_url }}">issue a new e-mail
+                            confirmation request</a>.
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </form>
+        <p>
+
+    {% endif %}
+
+{% endblock %}
+

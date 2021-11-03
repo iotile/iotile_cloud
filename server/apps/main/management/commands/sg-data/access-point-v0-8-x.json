@@ -1,0 +1,23 @@
+{
+  "name": "Access Point",
+  "org": "arch-systems",
+  "description": "Access Point - Forwards POD broadcasted data to an MQTT broker",
+  "project_template": "default-template-v1-0-0",
+  "variable_templates": [],
+  "display_widget_templates": [],
+  "report_processing_engine_ver": 2,
+  "ui_extra": {
+    "web": {
+      "pageTemplateSlug": "proto"
+    },
+    "mobile": {
+      "template": "default",
+      "controller": "defaultCtrl",
+      "other": null,
+      "ioInfo": null
+    }
+  },
+  "major_version": 0,
+  "minor_version": 8,
+  "patch_version": 0
+}

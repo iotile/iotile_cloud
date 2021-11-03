@@ -1,0 +1,18 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        This is to let you know that device {{ device_slug }}  ( '{{device_label}}' ) has been successfully archived into data block '{{ block_title }}'.
+    </p>
+
+    <p>
+        Please click on the following link to see the archived data block:
+    </p>
+{% endblocktrans %}
+
+<p><a href="{{ url }}">{{ url }}</a></p>
+
+{% include 'base/email.html' %}

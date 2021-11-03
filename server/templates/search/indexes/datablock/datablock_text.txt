@@ -1,0 +1,15 @@
+{% load property_tags %}
+{% load note_tags %}
+
+{{ object.slug }}
+{{ object.title }}
+{{ object.description }}
+{{ object.device.slug }}
+{{ object.org.slug }}
+{{ object.org.name }}
+{% for p in object|properties %}
+{{ p.str_value }}
+{% endfor %}
+{% for n in object|notes %}
+{{ n.note }}
+{% endfor %}

@@ -1,0 +1,78 @@
+/* RESET STYLES */
+
+* {
+	&:hover, &:focus, &:active {
+		outline: none !important;
+	}
+}
+
+a:hover, a:focus, a:visited {
+	text-decoration: none;
+	outline: none;
+	outline-offset: 0;
+}
+
+ol, ul {
+	margin-bottom: 20px;
+	padding-left: 15px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.push-md-down {
+	@include respond-to(md) {
+  		margin-bottom: 15px;
+	}
+}
+.push-sm-down {
+	@include respond-to(sm) {
+  		margin-bottom: 15px;
+	}
+}
+.push-xs-down {
+	@include respond-to(xs) {
+  		margin-bottom: 15px;
+	}
+}
+.mobile-text-center {
+	@include respond-to(xs) {
+  		text-align: center;
+	}
+}
+.mobile-text-left {
+	@include respond-to(xs) {
+  		text-align: left;
+	}
+}
+.relative {
+	position: relative;
+}
+.block {
+	display: block;
+}
+.inline-block {
+	display: inline-block;
+}
+.full-width {
+	width: 100%;
+	display: block;
+}
+
+.divider {
+	background: $primary;
+	width: 110px;
+	height: 2px;
+	display: block;
+	margin: 25px 0;
+}
+
+hr {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	border-color: #D8D8D8;
+}
+.holder {
+	padding-left: 15px;
+	padding-right: 15px;
+}

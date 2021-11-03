@@ -1,0 +1,66 @@
+{%  extends "org/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block side_menu %}
+    <div class="menu_section">
+        <h2>&nbsp</h2>
+        <ul class="nav side-menu">
+            <li></li>
+        {% if org and project %}
+            <li>
+                <a href="{% url 'org:project:detail' org.slug project.id %}">
+                    <i class="fa fa-dashboard"></i> Project Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a><i class="fa fa-gears"></i>  Project Settings <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    {% if project %}
+                        <li>
+                            <a href="{% url 'org:project:var-list' org.slug project.id %}">
+                                Data Stream Variables
+                            </a>
+                        </li>
+                        {% if not project.is_template %}
+                            <li>
+                                <a href="{% url 'org:project:streamid-list' org.slug project.id %}">
+                                    Data Streams
+                                </a>
+                            </li>
+                        {% endif %}
+                        {%  if can_manage_org_and_projects %}
+                        <li>
+                            <a href="{% url 'org:project:edit' org.slug project.id %}">
+                                General Project Settings
+                            </a>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                </ul>
+            </li>
+            {% if can_manage_org_and_projects and project_menu_extras %}
+                <li>
+                <a><i class="fa fa-exchange"></i>  Project Extras <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                {% for menu_item in project_menu_extras.side_menus %}
+                <li>
+                    <a href="{{ menu_item.url }}">
+                        <i class="{{ menu_item.icon }}"></i> {{ menu_item.label }}
+                    </a>
+                </li>
+                {% endfor %}
+                </ul>
+                </li>
+            {% endif %}
+        {% endif %}
+            {% include 'snippets/basic-side-menu-items.html' %}
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}
+

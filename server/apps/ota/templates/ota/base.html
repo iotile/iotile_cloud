@@ -1,0 +1,57 @@
+{%  extends "base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block company_profile %}
+    <div class="profile_pic">
+        <a href="{% url 'org:detail' org.slug %}">
+            <img src="{{ org.get_avatar_tiny_url }}" alt="..." class="img-circle profile_img">
+        </a>
+    </div>
+    <div class="profile_info">
+        <a href="{% url 'org:detail' org.slug %}">
+            <span>Company</span>
+            <h2>
+                {{ org.name }}
+            </h2>
+        </a>
+    </div>
+{% endblock %}
+
+{% block side_menu %}
+    <div class="menu_section">
+        <h3>&nbsp;</h3>
+        <ul class="nav side-menu">
+            <li>
+                <a href="{% url 'ota:index' org.slug %}">
+                    <i class="fa fa-home"></i> Device Management
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'org:fleet:list' org.slug %}">
+                    <i class="fa fa-cubes"></i> Fleets
+                </a>
+            </li>
+            <li><a><i class="fa fa-code-fork"></i> Device Updates <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li>
+                        <a href="{% url 'ota:script:list'  org.slug %}">
+                            <i class="fa fa-code"></i> Device Scripts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'ota:request-list' org.slug %}">
+                            <i class="fa fa-download"></i> Deployments
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            {% include 'snippets/basic-side-menu-items.html' %}
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}
+

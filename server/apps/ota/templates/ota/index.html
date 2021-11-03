@@ -1,0 +1,47 @@
+{%  extends "ota/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{% load crispy_forms_tags %}
+
+{% block media %}
+    <style>
+       #map_canvas {
+        height: 200px;
+        width: 90%;
+       }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!-- top tiles -->
+    <div class="row tile_count">
+        <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-code"></i> Scripts</span>
+            <div class="count" align="center">
+                <a href={% url 'ota:script:list' org.slug %}>
+                    {{ scripts.count }}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-cubes"></i> Fleets</span>
+            <div class="count" align="center">
+                <a href={% url 'org:fleet:list' org.slug %}>
+                    {{ fleets.count }}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-download"></i> Deployment Requests</span>
+            <div class="count" align="center">
+                <a href={% url 'ota:request-list' org.slug %}>
+                    {{ requests.count }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /top tiles -->
+
+
+
+{% endblock %}

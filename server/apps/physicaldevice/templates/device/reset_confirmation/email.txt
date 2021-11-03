@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+Hello from the Arch team!
+
+This is to let you know that device {{ device_slug }} ( '{{device_label}}' ) has been successfully reset,
+and all data has been deleted.
+
+Please click on the following link to go to the device page:
+
+{% endblocktrans %}
+
+{{ url }}
+
+{% include 'base/email.txt' %}

@@ -1,0 +1,23 @@
+{
+  "name": "None",
+  "storage_units_full": "",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "N/A",
+      "unit_short": "",
+      "m": 1,
+      "d": 1
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "N/A",
+      "unit_short": "",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 1,
+      "derived_units": {}
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+/* BOOTSTRAP VARIABLES */
+
+.container-fluid--xs {
+  @include respond-to(md-min) {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  @include respond-to(md) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @include respond-to(sm) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @include respond-to(xs) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.row--flex {
+  @include respond-to(xs-min) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    &:before, &:after {
+      content: none;
+    }
+  }
+  >[class^="col"] {
+    float: none;
+  }
+}

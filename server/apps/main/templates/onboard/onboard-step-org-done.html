@@ -1,0 +1,31 @@
+{%  extends "onboard/onboard-base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block onboard_content %}
+
+
+    <h4>You already belong to the following company(ies):</h4>
+    <br>
+    <div class="list-group">
+        {% for org in orgs %}
+            <a href="{{ org.get_absolute_url }}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ org.name }}</h4>
+                <p class="list-group-item-text">{{ org.users.count }} user(s) and {{ org.projects.count }} project(s)</p>
+            </a>
+        {% endfor %}
+    </div>
+
+    <p>
+        The new user wizard only allows you to set up one company.
+        You can go to the <a href="{% url 'home' %}"><b>main entry page</b></a> to set up additional organizations.
+    </p>
+
+    <br>
+
+    <a href="{{ next }}" class="btn btn-block btn-success">
+        Next Step
+    </a>
+
+
+{% endblock %}

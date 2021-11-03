@@ -1,0 +1,103 @@
+{%  extends "onboard/onboard-base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block onboard_content %}
+    <p>
+        <b>
+        You will need internet access to complete the device set up and activation.
+        If your device monitoring location has no internet connectivity,
+        claim the device on a location with internet location before installing the device on its final location.
+        </b>
+    </p>
+
+
+        <ul class="list-unstyled timeline">
+        <li>
+            <div class="block">
+                <div class="tags">
+                    <a href="" class="tag">
+                        <span align="right">1</span>
+                    </a>
+                </div>
+                <div class="block_content">
+                    <h2 class="title">
+                        Open the installed mobile app and login using your IOTile Cloud credentials.
+                    </h2>
+                    <br>
+                    <div align="center">
+                        <img width="40%" src="{% static 'dist/webapp/app/images/onboard/claiming-step-1.png' %}">
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="block">
+                <div class="tags">
+                    <a href="" class="tag">
+                        <span align="right">2</span>
+                    </a>
+                </div>
+                <div class="block_content">
+                    <h2 class="title">
+                        Using the side menu, select 'New Device Setup'
+                    </h2>
+                    <br>
+                    <div align="center">
+                        <img width="40%" src="{% static 'dist/webapp/app/images/onboard/claiming-step-2.png' %}">
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="block">
+                <div class="tags">
+                    <a href="" class="tag">
+                        <span align="right">3</span>
+                    </a>
+                </div>
+                <div class="block_content">
+                    <h2 class="title">
+                        Select your device from the scanned devices by matching the ID number
+                    </h2>
+                    <br>
+                    <div align="center">
+                        <img width="80%" src="{% static 'dist/webapp/app/images/onboard/claiming-step-3.jpg' %}">
+                    </div>
+                    <br>
+                    <p class="excerpt">
+                        Note: If you don't see your device, make sure the battery is installed and you are within 50 feet.
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="block">
+                <div class="tags">
+                    <a href="" class="tag">
+                        <span align="right">4</span>
+                    </a>
+                </div>
+                <div class="block_content">
+                    <h2 class="title">
+                        Follow the 'New Device Setup' to create a project and configure the settings for both your project and device.
+                    </h2>
+                    <br>
+                    <h2>
+                        That's it!
+                    </h2>
+                    <p class="excerpt">
+                        For more information about all the things you can do with your IOTile Device,
+                        see our user guide page and refer to documentation that came with your device.
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <br>
+    <a href="{{ next }}" class="btn btn-block btn-success">
+        Done
+    </a>
+
+{% endblock %}

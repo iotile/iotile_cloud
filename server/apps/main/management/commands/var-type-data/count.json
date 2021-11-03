@@ -1,0 +1,30 @@
+{
+  "name": "Count",
+  "storage_units_full": "",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "N/A",
+      "unit_short": "",
+      "m": 1,
+      "d": 1
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "N/A",
+      "unit_short": "",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 0,
+      "derived_units": {
+        "rate": {
+          "rpm": {
+              "m": 1,
+              "d": 10
+          }
+        }
+      }
+    }
+  ]
+}

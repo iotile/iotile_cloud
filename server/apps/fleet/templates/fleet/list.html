@@ -1,0 +1,14 @@
+{%  extends "ota/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block content %}
+    <!-- top tiles -->
+    <div class="row tile_count">
+    </div>
+    <!-- /top tiles -->
+
+    {% include 'fleet/snippets/fleet-list-snippet.html' %}
+
+    <br/>
+{% endblock %}

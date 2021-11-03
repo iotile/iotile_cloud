@@ -1,0 +1,82 @@
+{% load i18n %}
+
+
+<table class="table table-striped">
+    <tbody>
+    <tr>
+        <th scope="row">{% trans 'ID' %}</th>
+        <td  style="font-family: Courier;">{{ var.formatted_lid }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Type' %}</th>
+        <td>{{ var.var_type }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Only show on Mobile' %}</th>
+        <td>{{ var.app_only }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Only show on WebApp' %}</th>
+        <td>{{ var.web_only }}</td>
+    </tr>
+    {% if var.sg %}
+    <tr>
+        <th scope="row">{% trans 'Device OS' %}</th>
+        <td>{{ var.sg.name }}</td>
+    </tr>
+    {% endif %}
+    </tbody>
+</table>
+
+<p class="panel_toolbox">
+    {% if is_admin %}
+    <a href="{{ var.get_units_url }}" style="color: grey">
+        <i class="fa fa-pencil"></i> {% trans 'IO Configuration' %}
+    </a>
+    {% endif %}
+</p>
+<table class="table table-striped">
+    <tbody>
+    <tr>
+        <th scope="row">{% trans 'Input Units' %}</th>
+        {% if var.input_unit %}
+            <td>{{ var.input_unit }}</td>
+        {% else %}
+            {% if var.units %}
+                <td>{{ var.units }}</td>
+            {% else %}
+                <td>{% trans 'Not defined' %}</td>
+            {% endif %}
+        {% endif %}
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Raw Value Format' %}</th>
+        <td>{{ var.raw_value_format }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Output Units' %}</th>
+        {% if var.output_unit %}
+            <td>{{ var.output_unit }}</td>
+        {% else %}
+            <td>{% trans 'Not defined' %}</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Conversion Factor' %}</th>
+        <td>
+            {{ var.multiplication_factor }} / {{ var.division_factor }} + {{ var.offset }}
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Decimal places' %}</th>
+        <td>{{ var.decimal_places }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>{% trans 'Short description' %}</h4>
+{% if var.about %}
+    <p>{{ var.about|truncatechars:55 }}</p>
+{% else %}
+    <p>{% trans 'No description' %}</p>
+{% endif %}

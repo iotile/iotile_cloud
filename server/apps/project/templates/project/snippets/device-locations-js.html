@@ -1,0 +1,51 @@
+{%  load static %}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}"></script>
+<script type="text/javascript">
+    function initMap() {
+
+        var map;
+        var marker;
+        var markers = [];
+        var myLatlng;
+        var bounds;
+        {% for d in devices %}
+            {% if d.lat and d.lon %}
+                myLatlng = {lat: {{ d.lat }}, lng: {{ d.lon }}};
+                if (!map) {
+                    console.log(myLatlng);
+                    var myOptions = {
+                        zoom: 2,
+                        scrollwheel: false,
+                        streetViewControl: false,
+                        center: myLatlng
+                    };
+                    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                    bounds  = new google.maps.LatLngBounds();
+                }
+                marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title: '{{ d.org }}: {{ d.label }}',
+                    map: map
+                });
+                markers.push(marker);
+                if (bounds) {
+                    loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+                    bounds.extend(loc);
+                }
+            {% endif %}
+        {% endfor %}
+        if (map && markers.length) {
+            var clusterOptions = {
+                imagePath: '{% static 'dist/webapp/app/images/m' %}'
+            };
+            var markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+            console.log(markerCluster);
+        }
+        if (map && bounds) {
+            map.fitBounds(bounds);
+            map.panToBounds(bounds);
+        }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initMap);
+</script>

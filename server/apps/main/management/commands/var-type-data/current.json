@@ -1,0 +1,32 @@
+{
+  "name": "Current",
+  "storage_units_full": "Amps",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "Amps",
+      "unit_short": "A",
+      "m": 1,
+      "d": 1
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "Amps",
+      "unit_short": "A",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "Milliamps",
+      "unit_short": "mA",
+      "m": 1000,
+      "d": 1,
+      "o": 0,
+      "decimal_places": 0,
+      "derived_units": {}
+    }
+  ]
+}

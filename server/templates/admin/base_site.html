@@ -1,0 +1,28 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Strato Admin{% endblock %}
+
+{% block extrahead %}
+    <link rel="shortcut icon" href="{% static 'dist/webapp/app/extras/favicon.ico' %}" />
+{% endblock %}
+{% block branding %}
+    <h1 id="site-name">
+        IOTile Cloud Admin
+    </h1>
+    <script>
+        (function(){
+            var $ = django.jQuery;
+            $(document).ready(function(){
+                $('textarea.json-editor').each(function(idx, el){
+                    CodeMirror.fromTextArea(el, {
+                        lineNumbers: true,
+                        lineWrapping: true,
+                        mode: 'javascript'
+                    });
+                });
+            });
+        })();
+    </script>
+{% endblock %}
+

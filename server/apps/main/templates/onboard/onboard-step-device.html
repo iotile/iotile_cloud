@@ -1,0 +1,73 @@
+{%  extends "onboard/onboard-base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block onboard_content %}
+    <p>
+        <b>
+            Please see the application-specific instructions for wiring that came with your IOTile device.
+        </b>
+    </p>
+
+        <ul class="list-unstyled timeline">
+        <li>
+            <div class="block">
+                <div class="tags">
+                    <a href="" class="tag">
+                        <span align="right">1</span>
+                    </a>
+                </div>
+                <div class="block_content">
+                    <h2 class="title">
+                        If required, connect any sensor wires to the IOTile POD connector
+                    </h2>
+                    <br>
+                    <p class="excerpt">
+                        * Some devices may not require any external sensors or may already come with a sensor from the
+                        factory.
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="block">
+                <div class="tags">
+                    <a href="" class="tag">
+                        <span align="right">2</span>
+                    </a>
+                </div>
+                <div class="block_content">
+                    <h2 class="title">
+                         If required, install the battery
+                    </h2>
+                    <br>
+                    <p class="excerpt">
+                        * Some devices are shipped with a battery installed. In that case, skip this step
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="block">
+                <div class="tags">
+                    <a href="" class="tag">
+                        <span align="right">More</span>
+                    </a>
+                </div>
+                <div class="block_content">
+                    <h2 class="title">
+                         See <a href="#"><b>FAQs</b></a> for device specific help
+                    </h2>
+                </div>
+            </div>
+        </li>
+
+
+    <br>
+
+    <a href="{{ next }}" class="btn btn-block btn-success">
+        Next Step
+    </a>
+
+
+{% endblock %}

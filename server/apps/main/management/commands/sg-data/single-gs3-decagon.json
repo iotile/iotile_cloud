@@ -1,0 +1,188 @@
+{
+    "name": "Single GS3 Decagon Sensor",
+    "org": "arch-systems",
+    "project_template": "default-template-v1-0-0",
+    "variable_templates": [
+        {
+            "label": "IO 1",
+            "lid_hex": "500f",
+            "derived_lid_hex": "",
+            "var_type": "temp",
+            "default_input_unit": "in--temp--gs3-decagon",
+            "default_output_unit": "out--temp--celsius",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "IO 2",
+            "lid_hex": "5010",
+            "derived_lid_hex": "",
+            "var_type": "electrical-conductivity",
+            "default_input_unit": "in--electrical-conductivity--gs3-decagon",
+            "default_output_unit": "out--electrical-conductivity--uscm",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "IO 3",
+            "lid_hex": "5003",
+            "derived_lid_hex": "",
+            "var_type": "soil-moisture-percent",
+            "default_input_unit": "in--soil-moisture-percent--gs3-decagon",
+            "default_output_unit": "out--soil-moisture-percent--percent",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "Sensor 1",
+            "lid_hex": "1019",
+            "derived_lid_hex": "",
+            "var_type": "temp",
+            "default_input_unit": "in--temp--gs3-decagon",
+            "default_output_unit": "out--temp--celsius",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        },
+       {
+            "label": "Sensor 2",
+            "lid_hex": "101a",
+            "derived_lid_hex": "",
+            "var_type": "electrical-conductivity",
+            "default_input_unit": "in--electrical-conductivity--gs3-decagon",
+            "default_output_unit": "out--electrical-conductivity--uscm",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        },
+       {
+            "label": "Sensor 3",
+            "lid_hex": "100f",
+            "derived_lid_hex": "",
+            "var_type": "soil-moisture-percent",
+            "default_input_unit": "in--soil-moisture-percent--gs3-decagon",
+            "default_output_unit": "out--soil-moisture-percent--percent",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        }
+    ],
+    "display_widget_templates": [
+         {
+            "label": "IO 1",
+            "lid_hex": "500f",
+            "var_type": "temp",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true
+        },
+       {
+            "label": "IO 2",
+            "lid_hex": "5010",
+            "var_type": "electrical-conductivity",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true
+        },
+       {
+            "label": "IO 3",
+            "lid_hex": "5003",
+            "var_type": "soil-moisture-percent",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true
+        },
+        {
+            "label": "Sensor 1",
+            "lid_hex": "1019",
+            "var_type": "temp",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        },
+        {
+            "label": "Sensor 2",
+            "lid_hex": "101a",
+            "var_type": "electrical-conductivity",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        },
+        {
+            "label": "Sensor 3",
+            "lid_hex": "100f",
+            "var_type": "soil-moisture-percent",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        }
+    ],
+    "ui_extra": {
+        "web": {
+            "pageTemplateSlug": "default"
+        },
+        "mobile": {
+            "template": "default",
+            "controller": "defaultCtrl",
+            "other": null,
+            "ioInfo": {
+                "order": [
+                    "500f","5010","5003"
+                ],
+                "map": {
+                    "500f": {
+                        "label": "IO 1",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "1019",
+                                "label": "Sensor 1"
+                            }
+                        }
+                    },
+                    "5010": {
+                        "label": "IO 2",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "101a",
+                                "label": "Sensor 2"
+                            }
+                        }
+                    },
+                    "5003": {
+                        "label": "IO 3",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "100f",
+                                "label": "Sensor 3"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "major_version": 1,
+    "minor_version": 0,
+    "patch_version": 0
+}

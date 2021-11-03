@@ -1,0 +1,93 @@
+{%  extends "project/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block media %}
+    <style>
+       #map_canvas {
+        height: 200px;
+        width: 90%;
+       }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    {% include 'project/snippets/device-locations-js.html' %}
+    <!-- DataTable -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script>
+        var logData = [];
+        {% for n in notes %}
+                logData.push([
+                    '<i class="fa {{ n.get_type_icon }}" aria-hidden="true"></i>',
+                    '{{ n.timestamp|date:'Y-m-d H:i:s' }}',
+                    '<img src="{{ n.created_by.get_gravatar_tiny_url }}" alt="..."> {{ n.created_by }}',
+                    '{{ n.note|linebreaks }}',
+                    {% if not busy %}
+                        {% if not n.attachment %}
+                            '<a href="{{ n.get_upload_url }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>'
+                        {% else %}
+                            '<a href="{{ n.get_attachment_url }}"><i class="fa fa-file-image-o" aria-hidden="true"></i></a>'
+                        {% endif %}
+                    {% else %}
+                        ''
+                    {% endif %}
+                ]);
+        {% endfor %}
+        var logTable = $('#device-logs-table').DataTable({
+            order: [[1, "asc"]],
+            pageLength: 25,
+            responsive: true,
+            columns: [
+                {sTitle: "{% trans 'Type' %}", sWidth: "30px", bSortable: false },
+                {sTitle: "{% trans 'Timestamp' %}",  sWidth: "120px" },
+                {sTitle: "{% trans 'User' %}"},
+                {sTitle: "{% trans 'Note' %}"},
+                {sTitle: "", sWidth: "30px",  bSortable: false }
+            ],
+            data: logData
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row tile_count">
+        <h2>
+            <a href="{{ target.get_absolute_url }}">
+                <i class="fa fa-arrow-left"></i> Back to {{ target.slug }}
+            </a>
+        </h2>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+            <!-- Device logs -->
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>
+                            Notes for {{ target.slug }}
+                        </h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            {% if not busy %}
+                            <li>
+                                <a href="{% url 'streamnote:add' target.slug %}">
+                                    <i class="fa fa-plus"></i> {% trans 'New' %}
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="ibox-content">
+                        <table id="device-logs-table" class="table table-striped table-bordered"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

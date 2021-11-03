@@ -1,0 +1,60 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: utils
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: ">=1.12.0 <1.19.0"
+
+provider:
+  name: aws
+  runtime: python3.6
+  stage: dev
+  region: us-east-1
+  memorySize: 128
+  deploymentBucket: cloud.iotile.serverless.utils
+  environment:
+    sns_topic: "arn:aws:sns:us-east-1:868687213780:iotile-staff-notification-${self:custom.stage}"
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:List*"
+        - "s3:GetBucketLocation"
+      Resource:
+        - "arn:aws:s3:::iotile-cloud-stream-event-data"
+    - Effect: "Allow"
+      Action:
+        - "s3:*Object*"
+        - "s3:List*"
+        - "s3:AbortMultipartUpload"
+      Resource:
+        - "arn:aws:s3:::iotile-cloud-stream-event-data/${self:custom.stage}/*"
+    - Effect: "Allow"
+      Action:
+        - "sns:*"
+      Resource: "arn:aws:sns:us-east-1:868687213780:iotile-staff-notification-${self:custom.stage}"
+
+custom:
+  stage: "${opt:stage, self:provider.stage}"
+
+package:
+  exclude:
+    - README.md
+    - event-dev.json
+
+functions:
+  delete_s3:
+    handler: handler.deleteS3Obj
+    events:
+      - sns: iotile--delete-s3--${self:custom.stage}

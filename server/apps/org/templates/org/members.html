@@ -1,0 +1,236 @@
+{%  extends "org/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block media %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    <!-- DataBlock table -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script type="text/javascript">
+
+    var membersTable = $('#members-table').DataTable({
+        order: [[2, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: "", bSortable: false},
+            {sTitle: "{% trans 'Role' %}"},
+            {sTitle: "{% trans 'Username' %}"},
+            {sTitle: "{% trans 'Email' %}"},
+            {sTitle: "{% trans 'Name' %}"},
+            {% if can_manage_users %}
+            {sTitle: "{% trans 'Edit' %}", bSortable: false}
+            {% endif %}
+        ]
+    });
+
+    var inactiveMembersTable = $('#inactive-members-table').DataTable({
+        order: [[2, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: "", bSortable: false},
+            {sTitle: "{% trans 'Role' %}"},
+            {sTitle: "{% trans 'Username' %}"},
+            {sTitle: "{% trans 'Email' %}"},
+            {sTitle: "{% trans 'Name' %}"},
+            {sTitle: "{% trans 'Edit' %}", bSortable: false}
+        ]
+    });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Company Members</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a href="{% url 'org:roles' org.slug %}">
+                            <i class="fa fa-question-circle"></i> {% trans 'Roles' %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'org:export-member-csv' org.slug %}">
+                            <i class="fa fa-cloud-download"></i> {% trans 'Download CSV' %}
+                        </a>
+                    </li>
+                    {% if can_manage_users %}
+                    <li>
+                        <a href="{% url 'org:member-message' org.slug %}">
+                            <i class="fa fa-envelope-o"></i> {% trans 'Message' %}
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-striped" id="members-table">
+                    <tbody>
+                    {% for member in members %}
+                        <tr>
+                            <td>
+                                <i class="{{ member.get_role_icon }}" title="{{ member.get_role_display }}"></i>
+                            </td>
+                            <td>
+                                {{ member.get_role_display }}
+                            </td>
+                            <th scope="row">
+                                <img src="{{ member.user.get_gravatar_tiny_url }}" alt="...">
+                                {{ member.user }}
+                            </th>
+                            <td>{{ member.user.email }}</td>
+                            <td>{{ member.user.name }}</td>
+                            {% if can_manage_users and is_owner or member.role != "a0" %}
+                                <td>
+                                <a href="{{ member.get_edit_url }}" class="btn btn-sm btn-success">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                </td>
+                            {% else %}
+                            <td></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+{% if can_manage_users %}
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Inactive Members</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+            <table class="table table-striped" id="inactive-members-table">
+                <tbody>
+                {% for member in inactive_members %}
+                <tr>
+                    <td>
+                        <i class="{{ member.get_role_icon }}" title="{{ member.get_role_display }}"></i>
+                    </td>
+                    <td>
+                        {{ member.get_role_display }}
+                    </td>
+                    <th scope="row">
+                        <img src="{{ member.user.get_gravatar_tiny_url }}" alt="...">
+                        {{ member.user }}
+                    </th>
+                    <td>{{ member.user.email }}</td>
+                    <td>{{ member.user.name }}</td>
+                    <td>
+                        <a href="{{ member.get_edit_url }}" class="btn btn-sm btn-success">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+    {% if can_manage_users %}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Member Invitations</h2>
+                {% if can_manage_users %}
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a href="{% url 'org:invitation:invite' org.slug %}">
+                            <i class="fa fa-envelope"></i> {% trans 'Invite' %}
+                        </a>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+                {% endif %}
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <p>
+                    You can send invitations to people to join this Company.
+                    If the person already has an account at iotile.cloud, they will be able to use it.
+                    Otherwise, they will be required to register first before accepting the invitation.
+                </p>
+                <hr>
+            {% if org.invitations.pending_invitations %}
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Email</th>
+                        <th>Sent On</th>
+                        <th>Status</th>
+                        <th>Resend</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for invitation in org.invitations.pending_invitations %}
+                        <tr>
+                            <th scope="row">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            </th>
+                            <td>{{ invitation.email }}</td>
+                            <td>
+                                {% if invitation.sent_on %}
+                                    Sent on {{ invitation.sent_on|date:"Y-m-d" }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if invitation.has_expired %}
+                                    Expired
+                                {% else %}
+                                    Pending
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'org:invitation:resend' org.slug invitation.id %}" class="btn btn-sm btn-success">
+                                    <i class="fa fa-paper-plane"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'org:invitation:delete' org.slug invitation.id %}" class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <br>
+                <h4 align="center">No current invitations are waiting response</h4>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <br/>
+{% endblock %}
+

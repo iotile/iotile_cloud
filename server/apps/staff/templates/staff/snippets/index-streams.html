@@ -1,0 +1,22 @@
+<div class="row tile_count">
+    <div class="col-md-4 col-sm-4 col-xs-12 tile_stats_count">
+        <span class="count_top"><i class="fa fa-line-chart"></i> Stream IDs</span>
+        <div class="count" align="center">
+            <a href="/admin/stream/streamid/">
+                {{ stream_count }}
+            </a>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12 tile_stats_count">
+        <span class="count_top"><i class="fa fa-stop-circle-o"></i> Stream Variables</span>
+        <div class="count" align="center">
+            <a href="/admin/stream/streamvariable/">
+                {{ variable_count }}
+            </a>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12 tile_stats_count">
+        <span class="count_top"><i class="fa fa-random"></i> Data Stream Entries</span>
+        <div class="count" align="center">{{ stream_data_count }}</div>
+    </div>
+</div>

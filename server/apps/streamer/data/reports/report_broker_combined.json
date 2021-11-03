@@ -1,0 +1,160 @@
+{
+    "format": "v100",
+    "device": 10,
+    "streamer_index": 255,
+    "streamer_selector": 65535,
+    "incremental_id": 618917712,
+    "lowest_id": 618913800,
+    "highest_id": 618915600,
+    "device_sent_timestamp": 618917712,
+    "events": [
+        {
+            "stream": 20564,
+            "device_timestamp": 2766399140,
+            "streamer_local_id": 618914710,
+            "timestamp": "2019-08-12T08:58:12.869999",
+            "extra_data": {
+                "unit_serial": "unit2",
+                "panel_serial": "panel2",
+                "production_order": "SimulatedProdOrder",
+                "production_quantity": 20
+            },
+            "data": null
+        },
+        {
+            "stream": 20565,
+            "device_timestamp": 2766399140,
+            "streamer_local_id": 618914720,
+            "timestamp": null,
+            "extra_data": {
+                "unit_serial": "unit2",
+                "panel_serial": "panel2",
+                "passed": false,
+                "first_inspection": true,
+                "production_order": "SimulatedProdOrder",
+                "production_quantity": 20
+            },
+            "data": null
+        },
+        {
+            "stream": 20564,
+            "device_timestamp": 2766399141,
+            "streamer_local_id": 618914730,
+            "timestamp": null,
+            "extra_data": {
+                "unit_serial": "unit2",
+                "panel_serial": "panel2",
+                "production_order": "SimulatedProdOrder",
+                "production_quantity": 20
+            },
+            "data": null
+        },
+        {
+            "stream": 20565,
+            "device_timestamp": 2766399141,
+            "streamer_local_id": 618914740,
+            "timestamp": null,
+            "extra_data": {
+                "unit_serial": "unit2",
+                "panel_serial": "panel2",
+                "passed": false,
+                "first_inspection": true,
+                "production_order": "SimulatedProdOrder",
+                "production_quantity": 20
+            },
+            "data": null
+        },
+        {
+            "stream": 20563,
+            "device_timestamp": 2766399842,
+            "streamer_local_id": 618914750,
+            "timestamp": null,
+            "extra_data": {
+                "unit_serial": "unit3",
+                "panel_serial": "panel3",
+                "production_order": "SimulatedProdOrder",
+                "production_quantity": 20
+            },
+            "data": null
+        }
+    ],
+    "data": [
+        {
+            "stream": 20561,
+            "device_timestamp": 2766397448,
+            "streamer_local_id": 618913800,
+            "timestamp": "2019-08-12T08:30:00.869999",
+            "value": 0
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766398348,
+            "streamer_local_id": 618914700,
+            "timestamp": "2019-08-12T08:45:00",
+            "value": 8
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399140,
+            "streamer_local_id": 618915492,
+            "timestamp": "2019-08-12T08:58:12",
+            "value": 1
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399142,
+            "streamer_local_id": 618915494,
+            "timestamp": "2019-08-12T08:58:14",
+            "value": 1
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399145,
+            "streamer_local_id": 618915497,
+            "timestamp": "2019-08-12T08:58:17",
+            "value": 1
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399146,
+            "streamer_local_id": 618915498,
+            "timestamp": "2019-08-12T08:58:18",
+            "value": 1
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399147,
+            "streamer_local_id": 618915499,
+            "timestamp": "2019-08-12T08:58:19",
+            "value": 1
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399148,
+            "streamer_local_id": 618915500,
+            "timestamp": "2019-08-12T08:58:20",
+            "value": 1
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399149,
+            "streamer_local_id": 618915501,
+            "timestamp": "2019-08-12T08:58:21",
+            "value": 1
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399151,
+            "streamer_local_id": 618915503,
+            "timestamp": "2019-08-12T08:58:23",
+            "value": 1
+        },
+        {
+            "stream": 20561,
+            "device_timestamp": 2766399248,
+            "streamer_local_id": 618915600,
+            "timestamp": "2019-08-12T09:00:00",
+            "value": 7
+        }
+    ]
+}

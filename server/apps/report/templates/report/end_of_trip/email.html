@@ -1,0 +1,159 @@
+{% extends "report/base_email.html" %}
+{% load i18n %}
+{% load l10n %}
+
+{% block repot_iner_body %}
+    <table class="main" width="100%" cellpadding="0" cellspacing="0"
+           style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; border-radius: 3px; background-color: #fff; margin: 0; border: 1px solid #e9e9e9;"
+           bgcolor="#fff">
+        <tbody>
+        <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+            <td class="content-wrap aligncenter"
+                style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 20px;"
+                align="center" valign="top">
+                <table width="100%" cellpadding="0" cellspacing="0"
+                       style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                    <tbody>
+
+                    <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                        <td class="content-block"
+                            style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
+                            valign="top">
+                            <h1 class="alignleft"
+                                style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,&#39;Lucida Grande&#39;,sans-serif;box-sizing: border-box;font-size: 32px;color: #000;line-height: 1.2em;font-weight: 500;text-align: center;margin: 40px 0 0;"
+                                align="center">IOTile Report</h1>
+                        </td>
+                    </tr>
+                    <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                        <td class="content-block"
+                            style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
+                            valign="top">
+                            <h2 class="aligncenter"
+                                style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,&#39;Lucida Grande&#39;,sans-serif;box-sizing: border-box;font-size: 14px;color: #000;line-height: 1.2em;font-weight: 400;text-align: center;margin: 40px 0 0;"
+                                align="center">
+                                <strong>Trip Summary</strong>
+                            </h2>
+                        </td>
+                    </tr>
+
+                    <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                        <td class="content-block aligncenter"
+                            style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;"
+                            align="center" valign="top">
+                            <table class="invoice"
+                                   style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 80%; margin: 40px auto;">
+                                <tbody>
+                                <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                    <td style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 10px;"
+                                        valign="top">
+                                        <table class="invoice-items" cellpadding="0" cellspacing="0"
+                                               style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; margin: 0;">
+                                            <tbody>
+                                            <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                <td style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 10px;"
+                                                    valign="top"><b>Product</b>
+                                                    <br style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                </td>
+
+                                                <td class="alignright"
+                                                    style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif;box-sizing: border-box;font-size: 14px;vertical-align: top;text-align: right;border-top-width: 0;border-top-color: #eee;border-top-style: solid;margin: 0;padding: 5px 10px;"
+                                                    align="center" valign="top">
+                                                </td>
+                                            </tr>
+
+                                            {% for row in property_table %}
+                                                <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                    <td style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 10px;"
+                                                        valign="top">{{ row.name }}
+                                                    </td>
+
+                                                    <td class="alignright"
+                                                        style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 10px; white-space: nowrap"
+                                                        align="right" valign="top">
+                                                        {{ row.value }}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                        <td class="content-block aligncenter"
+                            style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;"
+                            align="center" valign="top">
+                            <table class="invoice"
+                                   style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 80%; margin: 40px auto;">
+                                <tbody>
+                                <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                    <td style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 10px;"
+                                        valign="top">
+                                        <table class="invoice-items" cellpadding="0" cellspacing="0"
+                                               style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; margin: 0;">
+                                            <tbody>
+                                            <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                <td style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 10px;"
+                                                    valign="top"><b>Summary</b>
+                                                    <br style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                </td>
+
+                                                <td class="alignright"
+                                                    style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif;box-sizing: border-box;font-size: 14px;vertical-align: top;text-align: right;border-top-width: 0;border-top-color: #eee;border-top-style: solid;margin: 0;padding: 5px 10px;"
+                                                    align="center" valign="top">
+                                                </td>
+                                            </tr>
+
+                                            {% for row in data_table %}
+                                                <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                    <td style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 10px;"
+                                                        valign="top">{{ row.name }}
+                                                    </td>
+
+                                                    <td class="alignright"
+                                                        style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 10px; white-space: nowrap"
+                                                        align="right" valign="top">
+                                                        {{ row.value }}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+
+
+                    {% include 'report/email_snippets/msg_block.html' %}
+
+                    <tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                        <td class="content-block aligncenter"
+                            style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;"
+                            align="center" valign="top">
+                            <a href="{{ device_url }}" style="text-decoration: none; color: #0159A4">
+                                Trip Detail Page
+                            </a>
+                            {% if user %}
+                                <br>Report generated by {{ user }}
+                            {% endif %}
+                            {% if org %}
+                                from {{ org }}
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+

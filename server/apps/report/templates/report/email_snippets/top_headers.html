@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load l10n %}
+
+<tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+    <td class="content-block"
+        style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
+        valign="top">
+        <h1 class="alignleft"
+            style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,&#39;Lucida Grande&#39;,sans-serif;box-sizing: border-box;font-size: 32px;color: #000;line-height: 1.2em;font-weight: 500;text-align: center;margin: 40px 0 0;"
+            align="center">IOTile Reports</h1>
+    </td>
+</tr>
+<tr style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+    <td class="content-block"
+        style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
+        valign="top">
+        <h2 class="aligncenter"
+            style="font-family: &#39;Helvetica Neue&#39;,Helvetica,Arial,&#39;Lucida Grande&#39;,sans-serif;box-sizing: border-box;font-size: 14px;color: #000;line-height: 1.2em;font-weight: 400;text-align: center;margin: 40px 0 0;"
+            align="center"><strong>{{ label }}</strong> from {{ start|date:"SHORT_DATE_FORMAT" }} to
+            {{ end|date:"SHORT_DATE_FORMAT" }}
+        </h2>
+    </td>
+</tr>
+

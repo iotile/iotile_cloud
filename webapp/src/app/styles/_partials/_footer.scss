@@ -1,0 +1,27 @@
+/* FOOTER */
+
+$footer-bg: #0159A4;
+
+.footer {
+  background: $footer-bg;
+  padding: 15px 100px;
+  @include respond-to(xs) {
+    padding: 25px 20px;
+  }
+  .list-divider {
+    display: inline-block;
+  }
+}
+
+.site-logo__footer {
+  margin-right: 30px;
+  @include respond-to(sm) {
+    margin-right: 15px;
+    width: 70px;
+    height: 23px;
+  }
+  @include respond-to(xs) {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}

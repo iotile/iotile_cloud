@@ -1,0 +1,48 @@
+{%  extends "base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block company_profile %}
+{% endblock %}
+
+{% block side_menu %}
+    <div class="menu_section">
+        <h3>&nbsp;</h3>
+        <ul class="nav side-menu">
+            <li>
+                <a href="{% url 'account_detail' user.slug %}">
+                    <i class="fa fa-user"></i>
+                    View Profile
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'account_edit' user.slug %}">
+                    <i class="fa fa-pencil"></i>
+                    Edit Profile
+                </a>
+            </li>
+            <li>
+                <a href="/account/email/">
+                    <i class="fa fa-envelope"></i>
+                    Add/Change Email
+                </a>
+            </li>
+            <li>
+                <a href="/account/password/change/">
+                    <i class="fa fa-lock"></i>
+                    Change Password
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="HS.beacon.toggle();">
+                    <i class="fa fa-question"></i> Support
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}
+

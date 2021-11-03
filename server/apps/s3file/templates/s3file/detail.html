@@ -1,0 +1,66 @@
+{%  extends "base.html" %}
+{%  load static %}
+{%  load i18n %}
+{%  load s3image %}
+
+{% block content %}
+
+    <br/>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>File Details</h5>
+                    <div class="ibox-tools">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Streams -->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {{ object.title }}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{{ object.url }}" download="{{ object.title }}">
+                                <i class="fa fa-cloud-download"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" align="center">
+
+                    {% if object.file_type == 'image' %}
+
+                        <img style="height: 100%; display: block;" src="{{ object.url }}" alt="image" />
+
+                    {% elif object.file_type == 'device-script' %}
+
+                        <h1>Device Script</h1>
+
+                    {% elif object.file_type == 'sgf' %}
+
+                        <h1>SG File</h1>
+
+                    {% else %}
+
+                        <h1>Unknown data type</h1>
+
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+{% endblock %}
+

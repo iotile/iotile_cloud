@@ -1,0 +1,69 @@
+{%  extends "staff/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{%  load tz %}
+{% load crispy_forms_tags %}
+
+{% block media %}
+    <style>
+       #map_canvas {
+        height: 200px;
+        width: 90%;
+       }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    <!-- ORG table -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script>
+        var projectData = [];
+        {% for p in object_list %}
+                projectData.push([
+                    '<a href="{% url 'staff:project-detail' p.org.slug p.slug %}" style="text-decoration: underline;">{{ p.name }}</a>',
+                    '{{ p.devices.count }}',
+                    '{{ p.variables.count }}',
+                    '{{ p.streams.count }}',
+                    '{{ p.created_on |date:"Y-m-d H:i:s"}}',
+                    '<a href="{% url 'staff:org-detail' p.org.slug %}" style="text-decoration: underline;">{{ p.org.name }}</a>'
+                ]);
+        {% endfor %}
+        var orgTable = $('#project-table').DataTable({
+            order: [[0, "asc"]],
+            pageLength: 100,
+            lengthMenu: [ 50, 100, 500, 1000 ],
+            responsive: true,
+            columns: [
+                {sTitle: "{% trans 'Name' %}"},
+                {sTitle: "{% trans 'Devices' %}"},
+                {sTitle: "{% trans 'Variables' %}"},
+                {sTitle: "{% trans 'Streams' %}"},
+                {sTitle: "{% trans 'Created_on' %}"},
+                {sTitle: "{% trans 'Org' %}"}
+            ],
+            data: projectData
+        });
+    </script>
+
+{% endblock %}
+
+
+{%  block content %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Project list
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table id="project-table" class="table table-striped table-bordered"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+{%  endblock %}

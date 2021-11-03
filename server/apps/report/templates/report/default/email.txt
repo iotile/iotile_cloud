@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load custom_tags %}
+
+Hello from the Arch team!
+
+This is your summary report for the period from {{ start|date:"SHORT_DATE_FORMAT" }} to {{ end|date:"SHORT_DATE_FORMAT" }}.
+
+{% for project_obj in project_list %}
+{% for stream_obj in project_obj.streams %}
+----
+Stream: {{ stream_obj.label }}
+Value: {% for col in stream_obj.cols %}{{ col.value|floatformat:2 }} {{ col.units }} {% endfor %}
+{% endfor %}
+----
+Total '{{ project_obj.name }}': {% for col in project_obj.total %}{{ col.value|floatformat:2 }} {{ col.units }} {% endfor %}
+----
+{% endfor %}
+
+Grand Total:  {% for col in total %}{{ col.value|floatformat:2 }} {{ col.units }} {% endfor %}
+
+{% if msgs %}
+Messages:
+---
+{% for msg in msgs %}
+{{ msg }}
+{% endfor %}
+{% endif %}
+
+{{ url }}
+
+{% include 'base/email.txt' %}

@@ -1,0 +1,17 @@
+{
+    "python.pythonPath": "~/.virtualenv/iotile_cloud/bin/python",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestArgs": [
+        "--exitfirst",
+        "--verbose",
+        "--rootdir", "server/",
+        "server/apps"
+    ],
+    "python.formatting.provider": "black",
+}

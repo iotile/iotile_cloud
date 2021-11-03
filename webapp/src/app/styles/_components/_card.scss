@@ -1,0 +1,56 @@
+/* CARD */
+
+.cards {
+  @extend .flex, .flex-between;
+  @include respond-to(sm) {
+    flex-wrap: wrap;
+  }
+  @include respond-to(xs) {
+    display: block;
+  }
+}
+.card {
+  //flex: 1;
+  margin: 0 5px;
+  padding: 55px 15px 75px 15px;
+  text-align: center;
+  opacity: .9;
+  background-image: linear-gradient(-181deg,#0292d1,#0159a4);
+  box-shadow: inset 0 -2px 0 0 #003674;
+  color: $loblolly;
+  flex-basis: 25%;
+  &+.card {
+    @include respond-to(xs) {
+      margin-top: 20px;
+    }
+  }
+  @include respond-to(sm) {
+    padding: 40px 15px;
+    flex-basis: 48%;
+    margin-bottom: 25px;
+    @include respond-to(xs) {
+      margin-bottom: 0;
+    }
+  }
+}
+.card__img {
+  @extend .img-responsive, .center-block;
+  margin-bottom: 50px;
+  max-width: 120px;
+  @include respond-to(sm) {
+    max-width: 90px;
+  }
+}
+.card__title {
+  color: $white;
+  @include respond-to(sm) {
+		font-size: 18px;
+	}
+}
+.card__divider {
+  width: 50px;
+  height: 1px;
+  background: $white;
+  display: block;
+  margin: 20px auto;
+}

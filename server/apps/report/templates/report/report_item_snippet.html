@@ -1,0 +1,53 @@
+{% load i18n %}
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+    <table class="table table-striped">
+    <caption>
+        <b>{% trans 'Info' %}</b>
+    </caption>
+        <tbody>
+        <tr>
+            <th scope="row">{% trans 'Report ID' %}</th>
+            <td>{{ obj.id }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans 'Report Template' %}</th>
+            <td>{{ obj.get_generator_display }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans 'Auto-Generate' %}</th>
+            <td>{{ obj.get_interval_display }}</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                {% trans 'Report Recipients' %}
+            </th>
+            <td>
+            {% if not obj.notification_recipients %}
+                <h5 class="text-danger" align="center">{% trans 'At least one recipient must be set' %}</h5>
+            {% endif %}
+                {% for recipient in obj.notification_recipients %}
+                    {{ recipient }}<br>
+                {% endfor %}
+                <hr>
+                <a href="{% url 'org:report:add-recipient' org.slug obj.id %} " class="btn btn-default btn-sm btn-block">
+                    <i class="fa fa-envelope"> {% trans 'Add/Edit Recipient' %}</i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12">
+
+    {% include obj.get_item_extra_snippet_path %}
+
+</div>
+
+<div class="col-xs-12">
+    <a href="{{ obj.get_generate_url }}"
+       class="btn btn-success btn-sm btn-block"
+       {% if not obj.fully_configured %}disabled{% endif %}>
+        <i class="fa fa-send"> {% trans 'Generate Report Now' %}</i>
+    </a>
+</div>

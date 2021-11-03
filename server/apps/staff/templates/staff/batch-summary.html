@@ -1,0 +1,41 @@
+{%  extends "staff/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block content %}
+    <div class="row tile_count">
+    <h3>Batch Summary</h3>
+    {% if device_template %}<h5>Device template: {{ device_template }}</h5>{% endif %}
+    <h5>{{ label }}: {{ new_value }}</h5>
+    <h5>Number of devices: {{ num }}</h5>
+    </div>
+    <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {{ title }}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Device Label</th>
+                                <th>Device ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for d in devices %}
+                            <tr>
+                                <td>{{ d.label }}</td>
+                                <td><a href="{% url 'staff:device-detail' d.pk %}">{{ d.slug }}</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{
+    "name": "Default Event",
+    "storage_units_full": "Event",
+    "data_type": "E3",
+    "schema": {
+      "keys": {}
+    },
+    "available_input_units": [],
+    "available_output_units": []
+  }
+  

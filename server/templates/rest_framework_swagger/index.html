@@ -1,0 +1,19 @@
+{% extends "rest_framework_swagger/base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="shortcut icon" href="{% static 'dist/webapp/app/extras/favicon.ico' %}" />
+{% endblock %}
+{% block header %}
+<div id='header'>
+  <div class="swagger-ui-wrap">
+    <a id="logo" href="/">
+        <img class="logo__img" alt="swagger" height="30" width="80" src="{% static 'dist/webapp/app/images/logo.png' %}" />
+    </a>
+    <form id='api_selector'>
+      <input id="input_baseUrl" name="baseUrl" type="hidden"/>
+      <div id='auth_container'></div>
+    </form>
+  </div>
+</div>
+{% endblock %}

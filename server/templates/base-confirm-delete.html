@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            <form action="." method="post" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% block delete_description %}
+                    <h2>
+                        {% trans 'Are you sure?' %}
+                    </h2>
+                {% endblock %}
+                <br><br>
+
+                <button type="submit" class="btn btn-danger btn-block" value="Send">
+                    Delete
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}

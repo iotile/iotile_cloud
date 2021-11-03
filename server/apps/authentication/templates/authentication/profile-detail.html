@@ -1,0 +1,57 @@
+{%  extends "authentication/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+
+
+{% block content %}
+    <br/>
+
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6 col-xs-12 widget_tally_box">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <div class="flex">
+                        <ul class="list-inline widget_profile_box">
+                            <li></li>
+                            <li>
+                                <a href="http://gravatar.com/">
+                                    <img src="{{ object.get_gravatar_thumbnail_url }}" alt="..." class="img-circle profile_img">
+                                </a>
+                            </li>
+                            <li>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="name">@{{ object.username }}</h3>
+                    <h4 class="name">{{ object.name }}</h4>
+                    {% if object.tagline %}
+                    <hr>
+                    <p>{{ object.tagline }}</p>
+                    {% endif %}
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <h4>Email:</h4>
+                        </div>
+                        <div class="col-xs-9">
+                            <h4>{{ object.email }}</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>TZ:</h4>
+                        </div>
+                        <div class="col-xs-9">
+                            <h4>{{ object.time_zone }}</h4>
+                            <h5>{{ now }}</h5>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

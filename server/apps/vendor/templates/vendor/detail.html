@@ -1,0 +1,117 @@
+{%  extends "org/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{% load crispy_forms_tags %}
+
+{% block media %}
+    <style>
+       #map_canvas {
+        height: 200px;
+        width: 90%;
+       }
+    </style>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+    {% include 'project/snippets/project-datatable.js.html' %}
+    {% include 'project/snippets/device-locations-js.html' %}
+{% endblock %}
+
+{% block content %}
+    <!-- top tiles -->
+    <div class="row tile_count">
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-puzzle-piece"></i> Project Templates</span>
+            <div class="count" align="center">
+                <a href="{% url 'vendor:project-list' org.slug %}">
+                    {{ project_count }}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-feed"></i> IOTile Device Templates</span>
+            <div class="count" align="center">
+                <a href="{% url 'vendor:dt-list' org.slug %}">
+                    {{ device_count }}
+                </a>
+            </div>
+        </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 tile_stats_count">
+                <span class="count_top"><i class="fa fa-money"></i> {% trans 'Total Templates' %}</span>
+                <div class="count" align="center">{{ object.templates.active_templates.count }}</div>
+            </div>
+    </div>
+    <!-- /top tiles -->
+
+    <br/>
+    <div class="row">
+        <!-- Location -->
+        <div class="col-md-8 col-sm-6 hidden-xs">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Known Device Locations
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'staff:map' %}">
+                                <i class="fa fa-search-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" align="center">
+                    <div id="map_canvas"  style="height: 400px !important;"><h3>No Location Information</h3></div>
+                </div>
+            </div>
+        </div>
+        <!-- Search Field -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <h4>Device Tracking</h4>
+            <div class="col-xs-12">
+                {% crispy form %}
+            </div>
+            <hr>
+            {% include 'vendor/snippets/summary-actions.html' %}
+        </div>
+    </div>
+
+    {% if org.about %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ org.name }}</h2>
+                    {% if can_manage_org_and_projects %}
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a href="{% url 'org:edit' org.slug %}">
+                                    <i class="fa fa-pencil"></i> Edit
+                                </a>
+                            </li>
+                            <li></li>
+                        </ul>
+                    {% endif %}
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {{ org.about|linebreaks }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if can_access_classic or can_manage_org_and_projects %}
+        {% include 'project/snippets/project-list-snippet.html' %}
+
+        {% if can_manage_ota %}
+            {% include 'fleet/snippets/fleet-list-snippet.html' %}
+        {% endif %}
+    {% endif %}
+
+    <br/>
+{% endblock %}
+

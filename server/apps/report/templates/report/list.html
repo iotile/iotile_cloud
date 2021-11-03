@@ -1,0 +1,66 @@
+{% extends "org/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{% trans 'User Reports' %}</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Current reports' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'org:report:add' org.slug %}">
+                                <i class="fa fa-line-chart"></i> {% trans 'New Report' %}
+                            </a>
+                        </li>
+                        <li>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% for obj in object_list %}
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>
+                                        {{ obj.label }}
+                                    </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a href="{% url 'org:report:delete' org.slug obj.id %}">
+                                                <i class="fa fa-trash"></i> {% trans 'Delete' %}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    {% include 'report/report_item_snippet.html' %}
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

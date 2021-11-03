@@ -1,0 +1,19 @@
+- type: serial
+  name: collect_statics
+  steps:
+      - service: webapp
+        command: npm install
+      - service: webapp
+        command: gulp
+      - service: web
+        command: python manage.py collectstatic --noinput
+
+#- type: serial
+#  name: setup
+#  steps:
+#    - service: web
+#      command: python ./manage.py migrate --no-input
+
+- name: test
+  service: web
+  command: sh runtest.sh

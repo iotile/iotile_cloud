@@ -1,0 +1,98 @@
+{
+  "name": "Water Meter Flow",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "Liters",
+      "unit_short": "L",
+      "m": 1,
+      "d": 65536,
+      "o": 0.0
+    },
+    {
+      "unit_full": "Gallons",
+      "unit_short": "G",
+      "m": 3785,
+      "d": 65536000,
+      "o": 0.0
+    },
+    {
+      "unit_full": "Cubic Meters",
+      "unit_short": "M^3",
+      "m": 1000,
+      "d": 65536,
+      "o": 0.0
+    },
+    {
+      "unit_full": "Acre Feet",
+      "unit_short": "A.F.",
+      "m": 123348185,
+      "d": 6553600,
+      "o": 0.0
+    },
+    {
+      "unit_full": "Barrels (Oil)",
+      "unit_short": "BBL",
+      "m": 158987,
+      "d": 65536000,
+      "o": 0.0
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "Cubic Meters per Hr",
+      "unit_short": "M^3/H",
+      "m": 60,
+      "d": 1000,
+      "o": 0.0,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "Liters per Hr",
+      "unit_short": "LPH",
+      "m": 60,
+      "d": 1,
+      "o": 0.0,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "Liters per Min",
+      "unit_short": "LPM",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "Gallons per Min",
+      "unit_short": "GPM",
+      "m": 100000,
+      "d": 378541,
+      "o": 0.0,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "Gallons per Hr",
+      "unit_short": "GPH",
+      "m": 6000000,
+      "d": 378541,
+      "o": 0.0,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "Barrels (Oil) / Min",
+      "unit_short": "BBL/M",
+      "m": 60000,
+      "d": 158987,
+      "o": 0.0,
+      "decimal_places": 2,
+      "derived_units": {}
+    }
+  ],
+  "storage_units_full": "Liter"
+}

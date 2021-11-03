@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/server/manage.py",
+            "cwd": "${workspaceRoot}/server",
+            "args": [
+                "runserver",
+                "--settings=config.settings.development"
+            ],
+            "django": true
+        }
+    ]
+}

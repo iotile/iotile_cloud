@@ -1,0 +1,649 @@
+{
+  "var_type": [
+    {
+      "name": "Default",
+      "storage_units_full": "Unit",
+      "stream_data_type": "D0",
+      "available_input_units": [
+        {
+          "unit_full": "Unit",
+          "unit_short": "",
+          "m": 1,
+          "d": 1
+        }
+      ],
+      "available_output_units": [
+        {
+          "unit_full": "Unit",
+          "unit_short": "",
+          "m": 1,
+          "d": 1,
+          "decimal_places": 1,
+          "derived_units": {}
+        }
+      ],
+      "created_by": "user1"
+    },
+    {
+      "name": "None",
+      "created_by": "user1",
+      "storage_units_full": "",
+      "data_type": "D0",
+      "available_input_units": [
+        {
+          "unit_full": "N/A",
+          "unit_short": "",
+          "m": 1,
+          "d": 1
+        }
+      ],
+      "available_output_units": [
+        {
+          "unit_full": "N/A",
+          "unit_short": "",
+          "m": 1,
+          "d": 1,
+          "decimal_places": 1,
+          "derived_units": {}
+        }
+      ]
+    },
+    {
+      "name": "Pressure",
+      "storage_units_full": "Pascal",
+      "stream_data_type": "D0",
+      "created_by": "user1",
+      "available_input_units": [
+        {
+          "unit_full": "POD1-M",
+          "unit_short": "",
+          "m": 1,
+          "d": 1,
+          "o": 0.0
+        }
+      ],
+      "available_output_units": [
+        {
+          "unit_full": "Millibar",
+          "unit_short": "Mbar",
+          "m": 1,
+          "d": 100,
+          "o": 0.0,
+          "decimal_places": 0,
+          "derived_units": {}
+        }
+      ]
+    },
+    {
+      "name": "Temp",
+      "storage_units_full": "Kelvin",
+      "stream_data_type": "D0",
+      "created_by": "user1",
+      "available_input_units": [
+        {
+          "unit_full": "POD1-M",
+          "unit_short": "C",
+          "m": 1,
+          "d": 100,
+          "o": 273.15
+        }
+      ],
+      "available_output_units": [
+        {
+          "unit_full": "Celsius",
+          "unit_short": "C",
+          "m": 1,
+          "d": 1,
+          "o": -273.15,
+          "decimal_places": 1,
+          "derived_units": {}
+        }
+      ]
+    },
+    {
+      "name": "Relative Humidity",
+      "storage_units_full": "Percent RH",
+      "stream_data_type": "D0",
+      "created_by": "user1",
+      "available_input_units": [
+        {
+          "unit_full": "POD1-M",
+          "unit_short": "%",
+          "m": 1,
+          "d": 1024,
+          "o": 0.0
+        }
+      ],
+      "available_output_units": [
+        {
+          "unit_full": "Percent",
+          "unit_short": "% RH",
+          "m": 1,
+          "d": 1,
+          "decimal_places": 1,
+          "derived_units": {}
+        }
+      ]
+    },
+    {
+      "name": "Accelerometer Event",
+      "storage_units_full": "Event",
+      "created_by": "user1",
+      "stream_data_type": "E1",
+      "decoder": {
+        "raw_packet_format": "<LLLL",
+        "packet_info": {
+          "decoding": [
+            "H{axis:2,peak:14}",
+            "H{duration}",
+            "l{delta_v_x}",
+            "l{delta_v_y}",
+            "l{delta_v_z}"
+          ],
+          "transform": {
+            "axis": {
+              "map": {
+                "0": "x",
+                "1": "y",
+                "2": "z"
+              }
+            },
+            "peak": {
+              "mdo": [
+                49,
+                1000,
+                0.0
+              ]
+            },
+            "delta_v_x": {
+              "mdo": [
+                1,
+                65536,
+                0.0
+              ]
+            },
+            "delta_v_y": {
+              "mdo": [
+                1,
+                65536,
+                0.0
+              ]
+            },
+            "delta_v_z": {
+              "mdo": [
+                1,
+                65536,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "available_input_units": [],
+      "available_output_units": []
+    },
+    {
+      "name": "Trip Summary",
+      "created_by": "user1",
+      "storage_units_full": "Event",
+      "data_type": "E0",
+      "schema": {},
+      "available_input_units": [],
+      "available_output_units": []
+    }
+  ],
+  "org": [
+    {
+      "name": "Arch Systems",
+      "vendor": true,
+      "created_by": "user1"
+    },
+    {
+      "name": "User Org",
+      "created_by": "user2"
+    }
+  ],
+  "device_template": [
+    {
+      "external_sku": "POD-1M[ae1]",
+      "internal_sku": "arch0099",
+      "family": "POD-1M",
+      "org": "arch-systems",
+      "major_version": 0,
+      "minor_version": 0,
+      "patch_version": 1,
+      "os_tag": 2049,
+      "os_major_version":0,
+      "os_minor_version":1,
+      "released_on": "2018-01-25",
+      "created_by": "user1"
+    }
+  ],
+  "sensor_graph": [
+    {
+      "name": "Shipping",
+      "org": "arch-systems",
+      "report_processing_engine_ver": 2,
+      "app_tag": 1031,
+      "app_major_version":0,
+      "app_minor_version":1,
+      "created_by": "user1",
+      "variable_templates": [
+        {
+          "label": "Trip Summary",
+          "lid_hex": "5a07",
+          "var_type": "trip-summary",
+          "default_input_unit": "in--default--unit",
+          "default_output_unit": "out--default--unit",
+          "app_only": false,
+          "web_only": false
+        },
+        {
+          "label": "Trip Update",
+          "lid_hex": "5a08",
+          "var_type": "trip-summary",
+          "default_input_unit": "in--default--unit",
+          "default_output_unit": "out--default--unit",
+          "app_only": false,
+          "web_only": false
+        },
+        {
+          "label": "Trip Start",
+          "lid_hex": "0e00",
+          "var_type": "none",
+          "default_input_unit": "in--none--na",
+          "default_output_unit": "out--none--na",
+          "ctype": "unsigned int",
+          "app_only": false,
+          "web_only": false
+        },
+        {
+          "label": "Trip End",
+          "lid_hex": "0e01",
+          "var_type": "none",
+          "default_input_unit": "in--none--na",
+          "default_output_unit": "out--none--na",
+          "ctype": "unsigned int",
+          "app_only": false,
+          "web_only": false
+        },
+        {
+          "label": "Trip Pause/Resume",
+          "lid_hex": "0e02",
+          "var_type": "none",
+          "default_input_unit": "in--none--na",
+          "default_output_unit": "out--none--na",
+          "ctype": "unsigned int",
+          "app_only": false,
+          "web_only": false
+        },
+        {
+          "label": "Accelerometer",
+          "lid_hex": "5020",
+          "var_type": "accelerometer-event",
+          "derived_lid_hex": "",
+          "default_input_unit": "in--default--unit",
+          "default_output_unit": "out--default--unit",
+          "web_only": true
+        },
+        {
+          "label": "Pressure",
+          "lid_hex": "5021",
+          "derived_lid_hex": "",
+          "var_type": "pressure",
+          "ctype": "int",
+          "default_input_unit": "in--pressure--pod1-m",
+          "default_output_unit": "out--pressure--millibar",
+          "web_only": true
+        },
+        {
+          "label": "Relative Humidity",
+          "lid_hex": "5022",
+          "derived_lid_hex": "",
+          "var_type": "relative-humidity",
+          "ctype": "int",
+          "default_input_unit": "in--relative-humidity--pod1-m",
+          "default_output_unit": "out--relative-humidity--percent",
+          "web_only": true
+        },
+        {
+          "label": "Temperature",
+          "lid_hex": "5023",
+          "derived_lid_hex": "",
+          "var_type": "temp",
+          "ctype": "int",
+          "default_input_unit": "in--temp--pod1-m",
+          "default_output_unit": "out--temp--celsius",
+          "web_only": true
+        }
+      ],
+      "ui_extra": {
+        "web": {
+          "defaultActiveDeviceName": {
+            "configAttrSearchName": ":webapp:shipping:default_device_name:active"
+          },
+          "defaultInactiveDeviceName": {
+            "configAttrSearchName": ":webapp:shipping:default_device_name:inactive"
+          },
+          "pageTemplateSlug": "shipping",
+          "dropdown_settings": {
+            "show_label_control": true,
+            "show_properties_control": true,
+            "show_archive_control": true
+          }
+        },
+        "analysis": {
+          "trip_summary": {
+            "summary_keys": [
+              "START (UTC)",
+              "END (UTC)",
+              "Duration (Days)",
+              "Event Count",
+              "First event at (UTC)",
+              "Last event at (UTC)",
+              "TimeStamp(MaxPeak) (UTC)",
+              "Max Peak (G)",
+              "DeltaV at Max Peak (in/s)",
+              "TimeStamp(MaxDeltaV) (UTC)",
+              "MaxDeltaV (in/s)",
+              "Peak at MaxDeltaV (G)",
+              "Max Temp (C)",
+              "Median Temp (C)",
+              "Min Temp (C)",
+              "Below 17C",
+              "Above 30C",
+              "Max Humidity (% RH)",
+              "Median Humidity (% RH)",
+              "Min Humidity (% RH)",
+              "Device Full",
+              "Waveform Storage"
+            ],
+            "update_keys": [
+              "Below 17C",
+              "Max Peak (G)",
+              "Min Temp (C)",
+              "Max Humidity (% RH)",
+              "DeltaV at Max Peak (in/s)"
+            ],
+            "property_keys": [
+              "Customer",
+              "Product/Tool Type",
+              "Sales Order No",
+              "System No",
+              "Ship From",
+              "Ship To",
+              "Country",
+              "Region"
+            ],
+            "consts": {
+              "max_g_col": "peak",
+              "max_dv_col": "delta_v",
+              "delta_v_terms": [
+                "delta_v_x",
+                "delta_v_y",
+                "delta_v_z"
+              ],
+              "delta_v_multiplier": 39.370
+            }
+          }
+        }
+      },
+      "major_version": 1,
+      "minor_version": 1,
+      "patch_version": 0
+    }
+  ],
+  "project_template": [
+    {
+      "name": "Shipping Template",
+      "org": "arch-systems",
+      "created_by": "user1",
+      "major_version": 1,
+      "minor_version": 0,
+      "patch_version": 0
+    }
+  ],
+  "project": [
+    {
+      "name": "Project 1",
+      "org": "user-org",
+      "created_by": "user2",
+      "project_template": "shipping-template-v1-0-0",
+      "device": [
+        {
+          "label": "Package 1",
+          "template": "pod-1mae1-v0-0-1",
+          "created_by": "user1",
+          "sg": "shipping-v1-1-0",
+          "properties": [
+            { "name": "Ship From", "str_value": "Here"},
+            { "name": "Ship To", "str_value": "There"},
+            { "name": "Customer", "str_value": "Arch Systems"},
+            { "name": "Sales Order No", "str_value": "123-abc"}
+          ],
+          "event": [
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T00:00:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 13.717422549463455,
+                "duration": 15,
+                "delta_v_x": 1.0,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T01:12:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 93.65360305946159,
+                "duration": 15,
+                "delta_v_x": 2.0,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T02:24:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 133.19932500905523,
+                "duration": 15,
+                "delta_v_x": 1.5,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T03:36:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 27.669302983875745,
+                "duration": 15,
+                "delta_v_x": -5.0,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T04:48:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 56.30468709378142,
+                "duration": 15,
+                "delta_v_x": 0.0,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T06:00:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 118.31895599352863,
+                "duration": 15,
+                "delta_v_x": 0.0,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T07:12:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 116.8585417272853,
+                "duration": 15,
+                "delta_v_x": 0.0,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T08:24:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 98.87201972224078,
+                "duration": 15,
+                "delta_v_x": 0.0,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T09:36:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 134.0966484268009,
+                "duration": 15,
+                "delta_v_x": -1.5,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            },
+            {
+              "variable": "5020",
+              "device_timestamp": null,
+              "timestamp": "2018-01-20T10:48:00Z",
+              "streamer_local_id": 0,
+              "extra_data": {
+                "axis": "z",
+                "peak": 76.42959589388406,
+                "duration": 15,
+                "delta_v_x": 0.0,
+                "delta_v_y": 0.0,
+                "delta_v_z": 0.0
+              }
+            }
+          ],
+          "data": [
+            {
+              "variable": "0e00",
+              "type": "Num",
+              "device_timestamp": 0,
+              "timestamp": "2018-01-20T00:00:00Z",
+              "int_value": 1516406400,
+              "value": null,
+              "streamer_local_id": 1,
+              "dirty_ts": false,
+              "status": "cln"
+            },
+            {
+              "variable": "0e01",
+              "type": "Num",
+              "device_timestamp": 432000,
+              "timestamp": "2018-01-25T00:00:00Z",
+              "int_value": 1516838400,
+              "value": null,
+              "streamer_local_id": 2164,
+              "dirty_ts": false,
+              "status": "cln"
+            },
+            {
+              "variable": "5023",
+              "type": "ITR",
+              "device_timestamp": 0,
+              "timestamp": "2018-01-20T00:00:00Z",
+              "int_value": 2948,
+              "value": 302.63,
+              "streamer_local_id": 3,
+              "dirty_ts": false,
+              "status": "cln"
+            },
+            {
+              "variable": "5023",
+              "type": "ITR",
+              "device_timestamp": 600,
+              "timestamp": "2018-01-20T00:10:00Z",
+              "int_value": 2902,
+              "value": 302.17,
+              "streamer_local_id": 6,
+              "dirty_ts": false,
+              "status": "cln"
+            },
+            {
+              "variable": "5023",
+              "type": "ITR",
+              "device_timestamp": 1200,
+              "timestamp": "2018-01-20T00:20:00Z",
+              "int_value": 2848,
+              "value": 301.63,
+              "streamer_local_id": 9,
+              "dirty_ts": false,
+              "status": "cln"
+            },
+            {
+              "variable": "5023",
+              "type": "ITR",
+              "device_timestamp": 1800,
+              "timestamp": "2018-01-20T00:30:00Z",
+              "int_value": 2784,
+              "value": 280.99,
+              "streamer_local_id": 12,
+              "dirty_ts": false,
+              "status": "cln"
+            },
+            {
+              "variable": "5023",
+              "type": "ITR",
+              "device_timestamp": 2400,
+              "timestamp": "2018-01-20T00:40:00Z",
+              "int_value": 2715,
+              "value": 282.3,
+              "streamer_local_id": 15,
+              "dirty_ts": false,
+              "status": "cln"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

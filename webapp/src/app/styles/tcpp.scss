@@ -1,0 +1,34 @@
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+// npm:scss
+@import 'node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+// endnpm
+
+
+
+// Include componenents
+@import '_components/_mixins.scss';
+@import '_components/_variables.scss';
+@import '_components/_reset.scss';
+@import '_components/_flex.scss';
+@import '_components/_fonts.scss';
+@import '_components/_typography.scss';
+@import '_components/_buttons.scss';
+@import '_components/_nav.scss';
+@import '_components/_section.scss';
+@import '_components/_forms.scss';
+@import '_components/_list.scss';
+@import '_components/_bootstrap-override.scss';
+@import '_components/_card.scss';
+@import '_components/_scroll-top.scss';
+@import '_components/_modal.scss';
+@import '_components/_logo.scss';
+@import '_components/_offcanvas.scss';
+@import '_components/_wrapper.scss';
+@import '_components/_carousel.scss';
+@import '_components/_grid.scss';
+@import '_components/_content.scss';
+@import '_components/_tcpp.scss';
+@import '_components/_team.scss';
+@import '_partials/_header.scss';
+@import '_partials/_footer.scss';

@@ -1,0 +1,4 @@
+<cross-domain-policy>
+    <allow-access-from domain="iotile.cloud"/>
+    <allow-access-from domain="*.iotile.cloud"/>
+</cross-domain-policy>

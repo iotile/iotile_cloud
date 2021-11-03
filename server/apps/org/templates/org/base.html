@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block company_profile %}
+    <div class="profile_pic">
+        <a href="{{ org.get_absolute_url }}">
+            <img src="{{ org.get_avatar_tiny_url }}" alt="..." class="img-circle profile_img">
+        </a>
+    </div>
+    <div class="profile_info">
+        <a href="{{ org.get_absolute_url }}">
+            <span>Company</span>
+            <h2>
+                {{ org.name }}
+            </h2>
+        </a>
+        {% if project %}
+            <small>{{ project.slug }}</small>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block side_menu %}
+    <div class="menu_section">
+        <h3>&nbsp</h3>
+        <ul class="nav side-menu">
+            <li>
+                <a href="{% url 'org:detail' org.slug %}">
+                    <i class="fa fa-qrcode"></i>
+                    Projects
+                </a>
+            </li>
+            {% if can_access_classic %}
+                {% if can_access_datablock %}
+                    <li>
+                        <a href="{% url 'org:datablock:list' org.slug %}">
+                            <i class="fa fa-archive"></i>
+                            Archives
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'org:search' org.slug %}">
+                            <i class="fa fa-search"></i>
+                            Search
+                        </a>
+                    </li>
+                {% endif %}
+                <li><a><i class="fa fa-building"></i> Company <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        {% if can_manage_org_and_projects %}
+                            <li>
+                                <a href="{% url 'org:edit' org.slug %}">
+                                    Settings
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if can_manage_users %}
+                            <li>
+                                <a href="{% url 'org:members' org.slug %}">
+                                    Users
+                                </a>
+                            </li>
+                        {% endif %}
+                        <!--
+                        <li>
+                            <a href="#">
+                                Billing
+                            </a>
+                        </li>
+                        -->
+                    </ul>
+                </li>
+            {% endif %}
+            {% include 'snippets/basic-side-menu-items.html' %}
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}
+

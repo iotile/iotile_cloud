@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
+{% load static %}
+
+{% block body_class %}class="login"{% endblock %}
+
+{% block media %}
+    <style>
+        .alert {
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+
+        .alert-danger {
+            background-color: #f2dede;
+            border-color: #ebcccc;
+            color: #a94442;
+        }
+
+        .alert-danger hr {
+            border-top-color: #e4b9b9;
+        }
+
+        .alert-danger .alert-link {
+            color: #843534;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row" align="center" style="padding-top: 20px">
+        <div class="col-sm-offset-5 col-sm-2 col-xs-offset-2 col-xs-8">
+            <img src="{% static 'dist/webapp/app/images/logo-black-xs.png' %}">
+        </div>
+    </div>
+    <div class="login_wrapper">
+
+        {% block messages %}
+            {% if messages %}
+                <div class="row tile_count">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">  <!-- singular -->
+                            <a class="close" data-dismiss="alert">×</a>
+                            {{ message|safe }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="clearfix"></div>
+            {% endif %}
+        {% endblock %}
+
+        <section class="login_content">
+
+            {% block login_content %}
+            {% endblock %}
+
+            <div class="separator">
+                <p>
+                    <a href="#">Help</a> |
+                    <a href="#">Privacy</a> |
+                    <a href="#">Terms of Service</a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br/>
+
+                <div>
+                    <h1><a href="#">Your Company</a></h1>
+                    <p>©{% now "Y" %} All Rights Reserved.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+

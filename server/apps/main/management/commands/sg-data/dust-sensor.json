@@ -1,0 +1,82 @@
+{
+    "name": "Dust Sensor",
+    "org": "arch-systems",
+    "project_template": "default-template-v1-0-0",
+    "variable_templates": [
+        {
+            "label": "IO 1",
+            "lid_hex": "500b",
+            "derived_lid_hex": "",
+            "var_type": "default",
+            "default_input_unit": "in--default--unit",
+            "default_output_unit": "out--default--unit",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": false,
+            "web_only": false
+        },
+        {
+            "label": "Fast Density 1",
+            "lid_hex": "1015",
+            "derived_lid_hex": "",
+            "var_type": "default",
+            "default_input_unit": "in--default--unit",
+            "default_output_unit": "out--default--unit",
+            "m": 1,
+            "d": 1,
+            "o": 0.0,
+            "app_only": true,
+            "web_only": false
+        }
+    ],
+    "display_widget_templates": [
+         {
+            "label": "IO 1",
+            "lid_hex": "500b",
+            "var_type": "default",
+            "derived_unit_type": "",
+            "show_in_app": false,
+            "show_in_web": true
+        },
+        {
+            "label": "Fast Density 1",
+            "lid_hex": "1015",
+            "var_type": "default",
+            "derived_unit_type": "",
+            "show_in_app": true,
+            "show_in_web": false
+        }
+    ],
+    "ui_extra": {
+        "web": {
+            "pageTemplateSlug": "default"
+        },
+        "mobile": {
+            "template": "default",
+            "controller": "defaultCtrl",
+            "other": null,
+            "ioInfo": {
+                "order": [
+                    "500b"
+                ],
+                "map": {
+                    "500b": {
+                        "label": "IO 1",
+                        "settingsController": "defaultSettingsCtrl",
+                        "settingsTemplate": "default-settings",
+                        "derived": {
+                            "realtime": {
+                                "lid": "1015",
+                                "label": "IO 1"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "major_version": 1,
+    "minor_version": 1,
+    "patch_version": 0
+}

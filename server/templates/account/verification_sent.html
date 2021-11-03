@@ -1,0 +1,32 @@
+{% extends "account/auth-base.html" %}
+
+{% load i18n %}
+{% load account %}
+{% load static %}
+
+{% block main_class %}site-wrapper-login loginbackground{% endblock %}
+
+{% block form_content %}
+
+
+<!--LOGIN -->
+
+    <form method="post" action="" autocomplete="off">
+
+      <div>
+        <img src="{% static 'dist/webapp/app/images/auth/archiotilecloudblue.png' %}" class="logo-separator" alt="Arch Logo">
+        <h5 class="login-title" id="signin">{% trans "Verify Your E-mail Address" %}</h5>
+        <p class="login-description ">
+            {% blocktrans %}
+                We have sent an e-mail to you for verification. Follow the link
+                provided to finalize the signup process. Please contact us if you do not receive
+                it within a few minutes.
+            {% endblocktrans %}
+        </p>
+
+      </div>
+      <p class="message"><a href="{% url 'account_login' %}">Login</a></p>
+    </form>
+
+
+{% endblock %}

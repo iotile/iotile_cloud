@@ -1,0 +1,41 @@
+{%  extends "staff/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{% load crispy_forms_tags %}
+
+{% block media %}
+    <style>
+       #map_canvas {
+        height: 500px;
+        width: 90%;
+       }
+    </style>
+
+{% endblock %}
+
+{% block js %}
+    {% include 'project/snippets/device-locations-js.html' %}
+{% endblock %}
+
+{% block content %}
+
+    <br/>
+    <div class="row">
+        <!-- Location -->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Known Device Locations
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" align="center">
+                    <div id="map_canvas"><h3>No Location Information</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

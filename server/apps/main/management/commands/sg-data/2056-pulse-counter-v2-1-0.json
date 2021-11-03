@@ -1,0 +1,96 @@
+{
+    "name": "Pulse Counter 2056",
+    "org": "arch-systems",
+    "project_template": "default-template-v1-0-0",
+    "description": "New Pulse Cunter SG with RPM based WebApp Device Page",
+    "report_processing_engine_ver": 2,
+    "app_tag": 2056,
+    "app_version": "1.0",
+    "variable_templates": [
+      {
+        "label": "Count Deltas",
+        "lid_hex": "5029",
+        "derived_lid_hex": "",
+        "var_type": "count",
+        "default_input_unit": "in--count--na",
+        "default_output_unit": "out--count--na",
+        "ctype": "unsigned int",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": false,
+        "web_only": false
+      },
+      {
+        "label": "Odometer",
+        "lid_hex": "102a",
+        "derived_lid_hex": "",
+        "var_type": "count",
+        "default_input_unit": "in--count--na",
+        "default_output_unit": "out--count--na",
+        "ctype": "unsigned int",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": true,
+        "web_only": false
+      },
+      {
+        "label": "Rate",
+        "lid_hex": "102b",
+        "derived_lid_hex": "",
+        "var_type": "pulse-rate",
+        "default_input_unit": "in--pulse-rate--ppm",
+        "default_output_unit": "out--pulse-rate--rpm",
+        "ctype": "unsigned int",
+        "m": 1,
+        "d": 1,
+        "o": 0.0,
+        "app_only": true,
+        "web_only": false
+      }
+    ],
+    "display_widget_templates": [
+      {
+        "label": "Count and Rate",
+        "lid_hex": "5029",
+        "var_type": "count",
+        "derived_unit_type": "rate",
+        "show_in_web": true,
+        "show_in_app": false
+      }
+    ],
+    "ui_extra": {
+      "web": {
+        "label": "Rate",
+        "var_type": "pulse-rate",
+        "pageTemplateSlug": "pulse-rate"
+      },
+      "mobile": {
+        "controller": "pulseCounterCtrl",
+        "template": "pulse-counter",
+        "settings": {
+          "isTimerConfigurable": true
+        },
+        "ioInfo": {
+          "label": "Pulse Counter",
+          "order": [
+            "102a",
+            "102b"
+          ],
+          "map": {
+            "102a": {
+              "label": "Odometer", "icon": "ion-ios-pulse", "resetConfigId": "8207"
+            },
+            "102b": {
+              "label": "Rate", "icon": "ion-speedometer"
+            }
+          }
+        }
+      }
+    },
+    "major_version": 2,
+    "minor_version": 1,
+    "patch_version": 0
+  }
+  

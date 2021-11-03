@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        This is to let you know that the analytics report {{ label }} for {{ source_ref }}
+        has been successfully generated.
+    </p>
+
+    <p>
+        Please click on the following link to go to the report page:
+    </p>
+{% endblocktrans %}
+
+<p><a href="{{ url }}">{{ url }}</a></p>
+
+{% include 'base/email.html' %}

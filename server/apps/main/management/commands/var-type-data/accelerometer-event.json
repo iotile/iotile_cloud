@@ -1,0 +1,88 @@
+{
+  "name": "Accelerometer Event",
+  "storage_units_full": "Event",
+  "data_type": "E1",
+  "decoder": {
+    "raw_packet_format": "<LLLL",
+    "packet_info": {
+      "decoding": [
+        "H{axis:2,peak:14}",
+        "H{duration}",
+        "l{delta_v_x}",
+        "l{delta_v_y}",
+        "l{delta_v_z}"
+      ],
+      "transform": {
+        "axis": {
+          "map": {
+            "0": "x",
+            "1": "y",
+            "2": "z"
+          }
+        },
+        "peak": {
+          "mdo": [49, 1000, 0.0]
+        },
+        "delta_v_x": {
+          "mdo": [1, 65536, 0.0]
+        },
+        "delta_v_y": {
+          "mdo": [1, 65536, 0.0]
+        },
+        "delta_v_z": {
+          "mdo": [1, 65536, 0.0]
+        }
+      }
+    }
+  },
+  "schema": {
+    "keys": {
+      "peak": {
+        "label": "Peak",
+        "units": "G",
+        "decimal": 3
+      },
+      "axis": {
+        "label": "Axis",
+        "units": ""
+      },
+      "duration": {
+        "label": "Duration",
+        "units": "ms",
+        "decimal": 3
+      },
+      "delta_v_x": {
+        "label": "dV(X)",
+        "units": "m/s",
+        "decimal": 3,
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      },
+      "delta_v_y": {
+        "label": "dV(Y)",
+        "units": "m/s",
+        "decimal": 3,
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      },
+      "delta_v_z": {
+        "label": "dV(Z)",
+        "units": "m/s",
+        "decimal": 3,
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      }
+    }
+  },
+  "available_input_units": [],
+  "available_output_units": []
+}

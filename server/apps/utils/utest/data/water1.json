@@ -1,0 +1,179 @@
+{
+  "var_type": [
+    {
+      "created_by": "user1",
+      "name": "Water Meter Volume",
+      "stream_data_type": "D0",
+      "available_input_units": [
+        {
+          "unit_full": "Liters",
+          "unit_short": "L",
+          "m": 1,
+          "d": 1,
+          "o": 0.0
+        },
+        {
+          "unit_full": "Gallons",
+          "unit_short": "G",
+          "m": 378541,
+          "d": 100000,
+          "o": 0.0
+        }
+      ],
+      "available_output_units": [
+        {
+          "unit_full": "Liters",
+          "unit_short": "L",
+          "m": 1,
+          "d": 1,
+          "o": 0.0,
+          "decimal_places": 0,
+          "derived_units": {
+            "rate": {
+              "lpm": {
+                "m": 1,
+                "d": 10
+              },
+              "lph": {
+                "m": 6,
+                "d": 1
+              }
+            }
+          }
+        },
+        {
+          "unit_full": "Gallons",
+          "unit_short": "G",
+          "m": 100000,
+          "d": 378541,
+          "o": 0.0,
+          "decimal_places": 0,
+          "derived_units": {
+            "rate": {
+              "gph": {
+                "m": 6,
+                "d": 1
+              },
+              "gpm": {
+                "m": 1,
+                "d": 10
+              }
+            }
+          }
+        }
+      ],
+      "storage_units_full": "Liter"
+    }
+  ],
+  "org": [
+    {
+      "name": "Arch Systems",
+      "vendor": true,
+      "created_by": "user1"
+    },
+    {
+      "name": "User Org",
+      "created_by": "user2"
+    }
+  ],
+  "device_template": [
+    {
+      "created_by": "user1",
+      "external_sku": "POD-1G[g1]",
+      "internal_sku": "arch0004",
+      "family": "POD-1G",
+      "org": "arch-systems",
+      "os_tag": 1024,
+      "os_major_version":0,
+      "os_minor_version":1,
+      "released_on": "2018-01-25",
+      "major_version": 3,
+      "minor_version": 0,
+      "patch_version": 0
+    }
+  ],
+  "sensor_graph": [
+    {
+      "created_by": "user1",
+      "name": "Water Meter",
+      "org": "arch-systems",
+      "project_template": "default-template-v1-0-0",
+      "report_processing_engine_ver": 2,
+      "app_tag": 1027,
+      "app_major_version":0,
+      "app_minor_version":1,
+      "variable_templates": [
+        {
+          "label": "IO 1",
+          "lid_hex": "5001",
+          "derived_lid_hex": "",
+          "var_type": "water-meter-volume",
+          "default_input_unit": "in--water-meter-volume--gallons",
+          "default_output_unit": "out--water-meter-volume--gallons",
+          "web_only": false
+        },
+        {
+          "label": "IO 2",
+          "lid_hex": "5002",
+          "derived_lid_hex": "",
+          "var_type": "water-meter-volume",
+          "default_input_unit": "in--water-meter-volume--gallons",
+          "default_output_unit": "out--water-meter-volume--gallons",
+          "web_only": false
+        }
+      ],
+      "major_version": 1,
+      "minor_version": 2,
+      "patch_version": 0
+    }
+  ],
+  "project_template": [
+    {
+      "name": "Default Template",
+      "org": "arch-systems",
+      "created_by": "user1",
+      "major_version": 1,
+      "minor_version": 0,
+      "patch_version": 0
+    }
+  ],
+  "project": [
+    {
+      "name": "Project 1",
+      "org": "user-org",
+      "created_by": "user2",
+      "project_template": "default-template-v1-0-0",
+      "device": [
+        {
+          "slug": "d--0000-0000-0000-0010",
+          "label": "Meter 1",
+          "template": "pod-1gg1-v3-0-0",
+          "created_by": "user1",
+          "sg": "water-meter-v1-2-0"
+        }
+      ]
+    },
+    {
+      "name": "Project 2",
+      "org": "user-org",
+      "created_by": "user2",
+      "project_template": "default-template-v1-0-0",
+      "device": [
+        {
+          "slug": "d--0000-0000-0000-0011",
+          "label": "Meter 2",
+          "template": "pod-1gg1-v3-0-0",
+          "created_by": "user1",
+          "sg": "water-meter-v1-2-0"
+        },
+        {
+          "slug": "d--0000-0000-0000-0012",
+          "label": "Meter 3",
+          "template": "pod-1gg1-v3-0-0",
+          "created_by": "user1",
+          "sg": "water-meter-v1-2-0"
+        }
+      ]
+    }
+  ]
+}

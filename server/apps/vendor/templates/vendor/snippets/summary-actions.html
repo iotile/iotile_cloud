@@ -1,0 +1,21 @@
+{%  load static %}
+
+<div class="list-group">
+    <div class="list-group-item-heading">Summaries</div>
+    {% if can_manage_org_and_projects %}
+    <a href="{% url 'vendor:product-matrix' org.slug %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-table"></i> IOTile Product Matrix</h4>
+        <p class="list-group-item-text">Product Usage Matrix</p>
+    </a>
+    <a href="{% url 'vendor:sg-matrix' org.slug %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-table"></i> Sensor Graph Matrix</h4>
+        <p class="list-group-item-text">Sensor Graph Usage Matrix</p>
+    </a>
+    {% endif %}
+    {% if can_manage_ota %}
+    <a href="{% url 'ota:index' org.slug %}" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="fa fa-list"></i> OTA Deployments</h4>
+        <p class="list-group-item-text">Over the Air Deployment Dashboard</p>
+    </a>
+    {% endif %}
+</div>

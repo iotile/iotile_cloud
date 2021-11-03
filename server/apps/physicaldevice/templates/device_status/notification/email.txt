@@ -1,0 +1,29 @@
+{% extends "emailutil/notification-base.txt" %}
+{% load i18n %}
+{% load tz %}
+{% blocktrans %}
+    {{ level }} IOTile Cloud Notification
+{% endblocktrans %}
+
+{% block content %}
+    {% trans 'The status of device' %} '{{ device_status.device.slug }}' {% trans 'has changed from' %} {{ device_status.last_known_state.upper }} {% trans 'to' %} {{ current_alert.upper }}.<br>
+    {% if device_status.last_report_ts %}{% trans 'Last known data upload on' %} {{ device_status.last_report_ts|utc|date:'Y-m-d H:i:s' }} UTC{% endif %}
+
+    {% trans 'This notification was caused by scheduled task.' %}
+
+    {% trans 'More information about this notification:' %}
+
+        {% trans 'Organization' %}: {{ device_status.device.org.name }}
+        {% trans 'Project' %}: {{ device_status.device.project.name }}
+        {% trans 'Device label' %}: {{ device_status.device.label }}
+        {% trans 'Device ID' %}: {{ device_status.device.slug }}
+        {% trans 'Timestamp' %}: {{ timestamp|utc|date:'Y-m-d H:i:s' }} UTC
+
+    {% trans 'To view your data, please go to ' %}{{ url }}.
+    {% trans 'For help with these notifications, please contact Arch at help@archsys.io.' %}
+
+{% endblock %}
+
+
+
+{% trans 'Notification ID:' %} {{ uuid }}

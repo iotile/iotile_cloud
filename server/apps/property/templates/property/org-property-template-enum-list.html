@@ -1,0 +1,71 @@
+{%  extends "org/base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block media %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    <!-- DataBlock table -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script type="text/javascript">
+
+    $('#enum-table').DataTable({
+        order: [[0, "asc"]],
+        pageLength: 100,
+        lengthMenu: [ [100, 200, -1], [100, 200, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: "{% trans 'Value' %}"},
+            {sTitle: "", bSortable: false}
+        ]
+    });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>{{ object.name }}</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'property:template-list' object.org.slug %}">
+                                <i class="fa fa-chevron-circle-left"></i> {% trans 'Back' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'property:template-enum-add' object.org.slug %}?template={{ object.id }}">
+                                <i class="fa fa-plus"></i> {% trans 'New value' %}
+                            </a>
+                        </li>
+                    </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-striped" id="enum-table">
+                    <tbody>
+                    {% for item in object.enums.all %}
+                        <tr>
+                            <td>
+                                {{ item.value }}
+                            </td>
+                            <td>
+                                <a href="{% url 'property:template-enum-delete' object.org.slug object.id item.id %}">
+                                    <i class="fa fa-times-circle text-danger"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "org/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% load crispy_forms_tags %}
+
+{%  block media %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    {{ form.media }}
+{% endblock %}
+
+{%  block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Organization Settings</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+            {% crispy form %}
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Admin Operations
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="list-group">
+                        <a href="{% url 'org:upload-image' object.slug %}" class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                <i class="fa fa-image"></i> Upload Logo
+                            </h4>
+                            <p class="list-group-item-text">
+                                Upload Organization Logo
+                            </p>
+                        </a>
+                        {% if can_delete_org %}
+                            <a href="{% url 'property:template-list' object.slug %}" class="list-group-item">
+                                <h4 class="list-group-item-heading">
+                                    <i class="fa fa-pencil"></i> Property Templates
+                                </h4>
+                                <p class="list-group-item-text">
+                                    Add or remove custom organization property values
+                                </p>
+                            </a>
+                            <a onclick="HS.beacon.identify({ name: '{{ user.username }}', email: '{{ user.email }}' }); HS.beacon.prefill({ topic: 'bug-report' }); HS.beacon.toggle();"
+                               class="list-group-item">
+                                <h4 class="list-group-item-heading">
+                                    <i class="fa fa-trash-o text-danger"></i> <span class="text-danger">Request Deactivation</span>
+                                </h4>
+                                <p class="list-group-item-text text-danger">
+                                    Submit request for Arch Staff to help you delete this Organization
+                                </p>
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{%  endblock %}

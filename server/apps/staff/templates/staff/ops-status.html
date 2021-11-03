@@ -1,0 +1,88 @@
+{% extends "staff/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <br/>
+    <div class="row">
+        <!-- Streams -->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Worker Stats
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="row tile_count">
+                        <div class="col-md-6 col-sm-6 col-xs-12 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-clock-o"></i> Current UTC Time</span>
+                            <div class="count" align="center">
+                                <small>{{ utc_now }}</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-exclamation-triangle"></i> Data in Future</span>
+                            {% if future_data_count %}
+                            <div class="count" align="center" style="color:red">
+                                <a href="/api/v1/data/?filter=future&staff=1">
+                                    {{ future_data_count }}
+                                </a>
+                            </div>
+                            {% else %}
+                            <div class="count" align="center" style="color:green">
+                                {{ future_data_count }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Support Operations
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="list-group">
+
+                        <div class="list-group-item">
+                            {% crispy form %}
+                        </div>
+                        <a href="{% url 'staff:worker:home' %}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-cogs"></i> Worker Status and Ops</h4>
+                            <p class="list-group-item-text">Worker specific DevOps</p>
+                        </a>
+                        <a href="/staff/ses/" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-bar-chart-o"></i> Email Stats (SES)</h4>
+                            <p class="list-group-item-text">Check Email success rates (AWS SES)</p>
+                        </a>
+                        <a href="{% url 'staff:test-email' %}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-envelope"></i> Email Test</h4>
+                            <p class="list-group-item-text">Test Email Infrastructure</p>
+                        </a>
+                        <a href="{% url 'staff:sms-send' %}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-phone"></i> SMS Test</h4>
+                            <p class="list-group-item-text">Test SMS Infrastructure</p>
+                        </a>
+                        <a href="{% url 'staff:ops-cache' %}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><i class="fa fa-database"></i> Access Redis data</h4>
+                            <p class="list-group-item-text">Get values from Cache database</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

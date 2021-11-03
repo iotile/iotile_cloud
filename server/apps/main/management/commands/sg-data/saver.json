@@ -1,0 +1,482 @@
+{
+  "name": "Saver",
+  "org": "arch-systems",
+  "project_template": "default-template-v1-0-0",
+  "variable_templates": [
+    {
+      "label": "Accelerometer",
+      "lid_hex": "5020",
+      "var_type": "saver-event",
+      "derived_lid_hex": "",
+      "default_input_unit": "",
+      "default_output_unit": "",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": false,
+      "web_only": true
+    },
+    {
+      "label": "Pressure",
+      "lid_hex": "5021",
+      "derived_lid_hex": "",
+      "var_type": "pressure",
+      "ctype": "int",
+      "default_input_unit": "in--pressure--lansmont-saver",
+      "default_output_unit": "out--pressure--millibar",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": false,
+      "web_only": true
+    },
+    {
+      "label": "Relative Humidity",
+      "lid_hex": "5022",
+      "derived_lid_hex": "",
+      "var_type": "relative-humidity",
+      "ctype": "int",
+      "default_input_unit": "in--relative-humidity--lansmont-saver",
+      "default_output_unit": "out--relative-humidity--percent",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": false,
+      "web_only": true
+    },
+    {
+      "label": "Temperature",
+      "lid_hex": "5023",
+      "derived_lid_hex": "",
+      "var_type": "temp",
+      "ctype": "int",
+      "default_input_unit": "in--temp--lansmont-saver",
+      "default_output_unit": "out--temp--celsius",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": false,
+      "web_only": true
+    },
+    {
+      "label": "Trip Done",
+      "lid_hex": "5024",
+      "derived_lid_hex": "",
+      "var_type": "default",
+      "default_input_unit": "in--default--unit",
+      "default_output_unit": "out--default--unit",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": false,
+      "web_only": true
+    }
+  ],
+  "display_widget_templates": [
+    {
+      "label": "Environmental Data",
+      "lid_hex": "0000",
+      "var_type": "default",
+      "derived_unit_type": "",
+      "show_in_web": true,
+      "show_in_app": false,
+      "args": {
+        "web": {
+          "options": {
+            "downloadable": true,
+            "ngComponent": "ChartSeries",
+            "tabViewId": "tripDetail",
+            "ngComponentInputs": {
+              "useUTC": true,
+              "xAxis": {
+                "minTickInterval": 300000,
+                "labels": {
+                  "datetime_format": "%m-%d %H:%M"
+                },
+                "tooltip": {
+                  "datetime_format": "%Y-%m-%d %H:%M:%S"
+                }
+              },
+              "displayCtrlList": [
+                "5020",
+                "5021",
+                "5022",
+                "5023"
+              ],
+              "displayCtrlDict": {
+                "5020": {
+                  "title": "Max G",
+                  "shortUnit": "G",
+                  "columnToGetDataFromInShockEvent": "max_g",
+                  "color": "#426f85",
+                  "type": "column",
+                  "axisOnTheRight": true
+                },
+                "5021": {
+                  "title": "Pressure",
+                  "color": "#aba4a4",
+                  "type": "line",
+                  "axisOnTheRight": true,
+                  "y_axis_range": {
+                    "low": 0,
+                    "high": 2000
+                  }
+                },
+                "5022": {
+                  "title": "Relative Humidity",
+                  "color": "#60c2f5",
+                  "type": "line",
+                  "axisOnTheRight": false,
+                  "y_axis_range": {
+                    "low": 0,
+                    "high": 100
+                  }
+                },
+                "5023": {
+                  "title": "Temperature",
+                  "color": "#f98831",
+                  "type": "line",
+                  "axisOnTheRight": false,
+                  "showLastValueBox": false,
+                  "y_axis_range": {
+                    "low": -40,
+                    "high": 50
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "label": "Shock Event",
+      "lid_hex": "5020",
+      "var_type": "accelerometer-event",
+      "derived_unit_type": "",
+      "show_in_app": false,
+      "show_in_web": true,
+      "args": {
+        "web": {
+          "options": {
+            "downloadable": true,
+            "ngComponent": "EventTable",
+            "tabViewId": "tripDetail",
+            "ngComponentInputs": {
+              "displayCtrlList": [
+                "5020"
+              ],
+              "displayCtrlDict": {
+                "5020": {
+                  "columnUnitsConfigAttributes": {
+                    "$dVUnit": ":report:summary:trip:dv:units"
+                  },
+                  "show_chart": {
+                    "column_name": "max_g",
+                    "chart_height": 200
+                  },
+                  "title": "Event Logging",
+                  "column_order": [
+                      "time",
+                      "type",
+                      "max_g",
+                      "delta_v",
+                      "duration",
+                      "g_rmsi",
+                      "graph",
+                      "download"
+                  ],
+                  "row": {
+                    "time": {
+                      "header_name": "Time (UTC)",
+                      "type": "timestamp",
+                      "time": true,
+                      "sortable": true,
+                      "key_name": "time",
+                      "event_field": "time",
+                      "formatted_timestamp": "YYYY-MM-DD HH:mm:ss",
+                      "cssClass": "text-center"
+                    },
+                    "type": {
+                      "header_name": "Type",
+                      "type": "string",
+                      "content": true,
+                      "sortable": true,
+                      "key_name": "type",
+                      "event_field": "type",
+                      "cssClass": "text-left"
+                    },
+                    "pressure": {
+                      "header_name": "Pressure",
+                      "type": "number",
+                      "content": true,
+                      "sortable": true,
+                      "key_name": "pressure",
+                      "event_field": "pressure",
+                      "decimal": 2,
+                      "cssClass": "text-right"
+                    },
+                    "relative_humidity": {
+                      "header_name": "Relative Humidity",
+                      "type": "number",
+                      "content": true,
+                      "sortable": true,
+                      "key_name": "relativeHumidity",
+                      "event_field": "relative_humidity",
+                      "decimal": 2,
+                      "cssClass": "text-right"
+                    },
+                    "temperature": {
+                      "header_name": "Temperature",
+                      "type": "number",
+                      "content": true,
+                      "sortable": true,
+                      "key_name": "temperature",
+                      "event_field": "temperature",
+                      "decimal": 2,
+                      "cssClass": "text-right"
+                    },
+                    "max_g": {
+                      "header_name": "Max G",
+                      "type": "number",
+                      "content": true,
+                      "sortable": true,
+                      "key_name": "maxG",
+                      "event_field": "max_g",
+                      "decimal": 2,
+                      "cssClass": "text-right",
+                      "short_unit": "G"
+                    },
+                    "duration": {
+                      "header_name": "Duration",
+                      "type": "number",
+                      "content": true,
+                      "sortable": true,
+                      "key_name": "duration",
+                      "event_field": "duration",
+                      "decimal": 3,
+                      "cssClass": "text-right"
+                    },
+                    "delta_v": {
+                      "header_name": "dV",
+                      "header_label": "dV ($dVUnit)",
+                      "type": "number",
+                      "content": true,
+                      "sortable": true,
+                      "key_name": "deltaV",
+                      "event_field": "delta_v",
+                      "decimal": 3,
+                      "cssClass": "text-right"
+                    },
+                    "g_rmsi": {
+                      "header_name": "Grms",
+                      "type": "number",
+                      "content": true,
+                      "sortable": true,
+                      "key_name": "gRms",
+                      "event_field": "g_rmsi",
+                      "decimal": 3,
+                      "cssClass": "text-right"
+                    },
+                    "graph": {
+                      "header_name": "Graph",
+                      "type": "button",
+                      "graph": true,
+                      "sortable": false,
+                      "key_name": "graph",
+                      "event_field": "graph",
+                      "icon": "fa-line-chart",
+                      "cssClass": "text-center",
+                      "extra_data": {
+                        "column_order": [
+                          "max_g",
+                          "delta_v",
+                          "duration",
+                          "g_rmsi"
+                        ],
+                        "items": {
+                          "max_g": {
+                            "header_name": "Max G",
+                            "event_field": "max_g",
+                            "decimal": 2
+                          },
+                          "duration": {
+                            "header_name": "Duration",
+                            "event_field": "duration",
+                            "decimal": 3
+                          },
+                          "delta_v": {
+                            "header_name": "dV",
+                            "event_field": "delta_v",
+                            "decimal": 3
+                          },
+                          "g_rmsi": {
+                            "header_name": "Grms",
+                            "event_field": "g_rmsi",
+                            "decimal": 3
+                          }
+                        }
+                      }
+                    },
+                    "download": {
+                      "header_name": "Download",
+                      "type": "button",
+                      "download": true,
+                      "sortable": false,
+                      "key_name": "download",
+                      "event_field": "download",
+                      "icon": "fa-download",
+                      "cssClass": "text-center"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "ui_extra": {
+    "web": {
+      "defaultActiveDeviceName": {
+        "configAttrSearchName": ":webapp:shipping:default_device_name:active"
+      },
+      "defaultInactiveDeviceName": {
+        "configAttrSearchName": ":webapp:shipping:default_device_name:inactive"
+      },
+      "pageTemplateSlug": "shipping",
+      "tabView": {
+        "tabViewOrder": [
+          "tripDetail",
+          "tripReports",
+          "tripNotes"
+        ],
+        "tabViewDict": {
+          "tripDetail": {
+            "title": "Details",
+            "hrefId": "trip-detail",
+            "ngComponent": "ShippingTripDetailComponent",
+            "defaultView": true,
+            "viewInputs": {
+              "displayWidgetList": []
+            }
+          },
+          "tripReports":  {
+            "title": "Reports",
+            "hrefId": "trip-reports",
+            "defaultView": false,
+            "permission": "canAccessReports",
+            "ngComponent": "ShippingGeneratedReportsComponent",
+            "viewInputs": {
+              "displayWidgetList": [],
+              "args": {
+                "supportedReportTemplates": [
+                  {
+                    "key": "shipment_overview",
+                    "label": "Shipping - Analytics Overview"
+                  },
+                  {
+                    "key": "shipment_details",
+                    "label": "Shipping - Analytics Details"
+                  }
+                ]
+              }
+            }
+          },
+          "tripNotes": {
+            "title": "Notes",
+            "hrefId": "trip-notes",
+            "ngComponent": "NotesTabComponent",
+            "defaultView": false,
+            "viewInputs": {
+              "displayWidgetList": []
+            }
+          }
+        }
+      },
+      "displayWidgetStreamList": [
+        {
+          "type": "streamEvent",
+          "lid": "5020"
+        },
+        {
+          "type": "streamData",
+          "lid": "5021"
+        },
+        {
+          "type": "streamData",
+          "lid": "5022"
+        },
+        {
+          "type": "streamData",
+          "lid": "5023"
+        }
+      ],
+      "dropdown_settings": {
+        "show_label_control": true,
+        "show_properties_control": true,
+        "show_archive_control": true
+      }
+    },
+    "mobile": {
+      "template": "default",
+      "controller": "defaultCtrl",
+      "other": null,
+      "ioInfo": null
+    },
+    "analysis": {
+      "trip_summary": {
+        "summary_keys": [
+          "START (UTC)",
+          "END (UTC)",
+          "Duration (Days)",
+          "Event Count",
+          "First event at (UTC)",
+          "Last event at (UTC)",
+          "TimeStamp(MaxPeak) (UTC)",
+          "Max Peak (G)",
+          "DeltaV at Max Peak (in/s)",
+          "TimeStamp(MaxDeltaV) (UTC)",
+          "MaxDeltaV (in/s)",
+          "Peak at MaxDeltaV (G)",
+          "Max Temp (C)",
+          "Median Temp (C)",
+          "Min Temp (C)",
+          "Below 17C",
+          "Above 30C",
+          "Max Humidity (% RH)",
+          "Median Humidity (% RH)",
+          "Min Humidity (% RH)"
+        ],
+        "property_keys": [
+          "Customer",
+          "Product/Tool Type",
+          "Sales Order No",
+          "System No",
+          "Ship From",
+          "Ship To",
+          "Country",
+          "Region"
+        ],
+        "consts": {
+          "max_g_col": "max_g",
+          "max_dv_col": "delta_v",
+          "delta_v_multiplier": 39.370
+        }
+      }
+    },
+    "api": {
+      "config_template": {
+        "url": "https://63fkmibf9a.execute-api.us-east-1.amazonaws.com/prod/template/{model}",
+        "methods": [
+          "list",
+          "retrieve"
+        ]
+      }
+    }
+  },
+  "major_version": 1,
+  "minor_version": 0,
+  "patch_version": 0
+}

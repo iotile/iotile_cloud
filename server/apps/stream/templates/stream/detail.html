@@ -1,0 +1,57 @@
+{% extends "project/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load stream_tags %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{{ object.name }}</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% trans 'Attributes' %}
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{{ object.get_edit_url }}">
+                                <i class="fa fa-pencil"></i> {% trans 'Edit' %}
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% with object as stream %}
+                    {% include 'stream/detail-table-snippet.html' %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+    </div>
+
+    <div class="row" align="right">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <a href="{% url 'org:project:stream:list' org.slug object.project.id %}">
+                <i class="fa fa-caret-left"></i> Back to list
+            </a>
+        </div>
+    </div>
+
+    <br/>
+
+{% endblock %}
+

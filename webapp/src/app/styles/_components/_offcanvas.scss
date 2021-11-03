@@ -1,0 +1,187 @@
+/* OFFCANVAS */
+
+$offcanvas-width: 230px;
+$offcanvas-bg: $white;
+$offcanvas-bg-black: $black;
+
+.offcanvas {
+	z-index: 700;
+	@include transition(250ms);
+	transform: translate3d($offcanvas-width, 0, 0);
+	position: absolute;
+	width: $offcanvas-width;
+	right: -20px;
+	min-height: 100vh;
+	background: $offcanvas-bg;
+	overflow: visible;
+	overflow: scroll;
+	padding: 40px 23px;
+	@include respond-to(xs) {
+		padding: 20px 15px;
+		right: -10px;
+	}
+	&.open {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.offcanvas-black {
+	z-index: 700;
+	@include transition(250ms);
+	transform: translate3d($offcanvas-width, 0, 0);
+	position: absolute;
+	width: $offcanvas-width;
+	right: -20px;
+	min-height: 100vh;
+	background: #333;
+	overflow: visible;
+	overflow: scroll;
+	padding: 40px 23px;
+	@include respond-to(xs) {
+		padding: 20px 15px;
+		right: -10px;
+	}
+	&.open {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.offcanvas__title {
+	text-transform: uppercase;
+	border-bottom: 1px solid $mercury;
+	margin-bottom: 5px;
+	padding-bottom: 20px;
+	font-size: 19px;
+	@include respond-to(xs) {
+		padding-bottom: 10px;
+	}
+}
+
+.offcanvas__nav {
+	@extend .list-unstyled;
+	text-transform: uppercase;
+	>li {
+		>a {
+			font-size: 18px;
+			line-height: 20px;
+			display: block;
+			padding: 10px 0;
+			color: $mine-shaft;
+			@include respond-to(xs) {
+				font-size: 16px;
+				line-height: 18px;
+				//padding: 7.5px 0;
+			}
+			&:hover, &:focus, &.active {
+				color: $primary;
+			}
+		}
+	}
+}
+
+
+.offcanvas__toggle {
+	border: none;
+	background: transparent;
+	font-size: 20px;
+	color: $white;
+	z-index: 500;
+	position: relative;
+	z-index: 300;
+	width: 20px;
+	height: 14px;
+	/* top: 50px;
+	right: 40px; */
+	padding: 0;
+	&:before, &:after {
+		content: '';
+		@include transition(250ms);
+		height: 2px;
+		width: 100%;
+		border-radius: 2px;
+		background: $white;
+		display: block;
+		position: absolute;
+	}
+	&:before {
+		top: 0;
+	}
+	&:after {
+		bottom: 0;
+	}
+	&.active {
+		.offcanvas__toggle-bar {
+			opacity: 0;
+		}
+		&:before {
+			top: 6px;
+			@include rotate(45deg);
+		}
+		&:after {
+			bottom: 6px;
+			@include rotate(-45deg);
+		}
+	}
+}
+.offcanvas__toggle_black {
+	border: none;
+	background: transparent;
+	font-size: 20px;
+	color: #333;
+	z-index: 500;
+	position: relative;
+	z-index: 300;
+	width: 20px;
+	height: 14px;
+	/* top: 50px;
+	right: 40px; */
+	padding: 0;
+	&:before, &:after {
+		content: '';
+		@include transition(250ms);
+		height: 2px;
+		width: 100%;
+		border-radius: 2px;
+		background: #333;
+		display: block;
+		position: absolute;
+	}
+	&:before {
+		top: 0;
+	}
+	&:after {
+		bottom: 0;
+	}
+	&.active {
+		.offcanvas__toggle-bar {
+			opacity: 0;
+		}
+		&:before {
+			top: 6px;
+			@include rotate(45deg);
+		}
+		&:after {
+			bottom: 6px;
+			@include rotate(-45deg);
+		}
+	}
+}
+
+
+.offcanvas__toggle-bar {
+	@include transition(250ms);
+	height: 2px;
+	width: 100%;
+	border-radius: 2px;
+	background: $white;
+	display: block;
+}
+
+.offcanvas__toggle-bar_black {
+	@include transition(250ms);
+	height: 2px;
+	width: 100%;
+	border-radius: 2px;
+	background: #333;
+	display: block;
+}

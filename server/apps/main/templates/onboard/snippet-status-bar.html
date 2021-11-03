@@ -1,0 +1,42 @@
+<ul class="wizard_steps" style="padding-left: 0">
+    <li>
+        {% if orgs %}
+            <a href="{% url 'onboard-step-org-done' %}" {% if step >= 1 %}class="done"{% endif %}>
+        {% else %}
+            <a href="{% url 'onboard-step-org' %}" {% if step >= 1 %}class="done"{% endif %}>
+        {% endif %}
+            <span class="step_no">1</span>
+            <span class="step_descr">
+                Step 1<br />
+                <small class="hidden-xs">Enter Company Name</small>
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'onboard-step-device' %}" {% if step >= 2 %}class="done"{% endif %}>
+            <span class="step_no">2</span>
+            <span class="step_descr">
+                Step 2<br />
+                <small class="hidden-xs">Set Up Device</small>
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'onboard-step-mobile' %}" {% if step >= 3 %}class="done"{% endif %}>
+            <span class="step_no">3</span>
+            <span class="step_descr">
+                Step 3<br />
+                <small class="hidden-xs">Download App</small>
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'onboard-step-claim' %}" {% if step >= 4 %}class="done"{% endif %}>
+            <span class="step_no">4</span>
+            <span class="step_descr">
+                Step 4<br />
+                <small class="hidden-xs">Claim Device</small>
+            </span>
+        </a>
+    </li>
+</ul>

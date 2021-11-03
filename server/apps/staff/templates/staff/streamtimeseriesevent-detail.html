@@ -1,0 +1,282 @@
+{% extends "staff/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+
+{% get_current_timezone as TIME_ZONE %}
+
+{% block content %}
+
+    <div class="row tile_count">
+        <h1>StreamTimeSeriesEvent Detail</h1>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>StreamTimeSeriesEvent</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <th>stream_slug</th>
+                                <td>
+                                    {{ timeseriesevent.stream_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>project_slug</th>
+                                <td>
+                                    {{ timeseriesevent.project_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>device_slug</th>
+                                <td>
+                                    {{ timeseriesevent.device_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>variable_slug</th>
+                                <td>
+                                    {{ timeseriesevent.variable_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>block_vid</th>
+                                <td>{{ timeseriesevent.block_vid }}</td>
+                            </tr>
+                            <tr>
+                                <th>device_timestamp</th>
+                                <td>{{ timeseriesevent.device_timestamp }}</td>
+                            </tr>
+                            <tr>
+                                <th>device_seqid</th>
+                                <td>
+                                    {{ timeseriesevent.device_seqid }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>status</th>
+                                <td>
+                                    {{ timeseriesevent.status }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>uuid</th>
+                                <td>
+                                    {{ timeseriesevent.uuid }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>s3_key_path</th>
+                                <td>
+                                    {{ timeseriesevent.s3_key_path }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ext</th>
+                                <td>
+                                    {{ timeseriesevent.ext }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>format_version</th>
+                                <td>
+                                    {{ timeseriesevent.format_version }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>extra_data</th>
+                                <td>
+                                    <pre>{{ timeseriesevent.extra_data }}</pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timestamp</th>
+                                <td>
+                                    {{ timeseriesevent.timestamp }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>raw timestamp</th>
+                                <td>
+                                    {{ timeseriesevent.raw_timestamp }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timezone in DB</th>
+                                <td>
+                                    {{ timeseriesevent.timezone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timezone used by server</th>
+                                <td>
+                                    {{ TIME_ZONE }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>UTC timestamp</th>
+                                <td>
+                                    {{ timeseriesevent.timestamp|utc }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>your local timestamp</th>
+                                <td>
+                                    {{ timeseriesevent.timestamp|timezone:user_timezone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>server timestamp</th>
+                                <td>
+                                    {{ timeseriesevent.timestamp|localtime }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% if streamevent %}
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>StreamEvent</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <th>stream_slug</th>
+                                <td>
+                                    {{ streamevent.stream_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>project_slug</th>
+                                <td>
+                                    {{ streamevent.project_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>device_slug</th>
+                                <td>
+                                    {{ streamevent.device_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>variable_slug</th>
+                                <td>{{ streamevent.variable_slug }}</td>
+                            </tr>
+                            <tr>
+                                <th>dirty_ts</th>
+                                <td>
+                                    {{ streamevent.dirty_ts }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>device_timestamp</th>
+                                <td>{{ streamevent.device_timestamp }}</td>
+                            </tr>
+                            <tr>
+                                <th>streamer_local_id</th>
+                                <td>
+                                    {{ streamevent.streamer_local_id }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>status</th>
+                                <td>
+                                    {{ streamevent.status }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>uuid</th>
+                                <td>
+                                    {{ streamevent.uuid }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>s3_key_path</th>
+                                <td>
+                                    {{ streamevent.s3_key_path }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ext</th>
+                                <td>
+                                    {{ streamevent.ext }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>format_version</th>
+                                <td>
+                                    {{ streamevent.format_version }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>extra_data</th>
+                                <td>
+                                    <pre>{{ streamevent.extra_data }}</pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timestamp</th>
+                                <td>
+                                    {{ streamevent.timestamp }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>raw timestamp</th>
+                                <td>
+                                    {{ streamevent.raw_timestamp }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timezone in DB</th>
+                                <td>
+                                    {{ streamevent.timezone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timezone used by server</th>
+                                <td>
+                                    {{ TIME_ZONE }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>UTC timestamp</th>
+                                <td>
+                                    {{ streamevent.timestamp|utc }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>your local timestamp</th>
+                                <td>
+                                    {{ streamevent.timestamp|timezone:user_timezone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>server timestamp</th>
+                                <td>
+                                    {{ streamevent.timestamp|localtime }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

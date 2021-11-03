@@ -1,0 +1,26 @@
+{% load i18n %}
+
+        var reportData = [];
+        {% for report in generated_user_reports %}
+            reportData.push([
+                {% with report.get_link as link %}
+                '<a href="{{ report.get_absolute_url }}" class="btn btn-sm btn-success"><i class="fa fa-paperclip"  aria-hidden="true"></i></a>',
+                {% endwith %}
+                '{{ report.created_on|date:'Y-m-d H:i:s' }}',
+                '{{ report.label }}',
+                '{{ report.get_status_display }}'
+            ]);
+        {% endfor %}
+        $('#report-table').DataTable({
+            order: [[0, "asc"]],
+            pageLength: 25,
+            responsive: true,
+            columns: [
+                {sTitle: ""},
+                {sTitle: "{% trans 'Date' %}"},
+                {sTitle: "{% trans 'Label' %}"},
+                {sTitle: "{% trans 'Status' %}"},
+            ],
+            data: reportData
+        });
+

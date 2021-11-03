@@ -1,0 +1,54 @@
+{% extends "project/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>IOTile Devices</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        IOTile Device List
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>IOTile Device ID</th>
+                            <th>Label</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for d in object_list %}
+                            <tr>
+                                <th scope="row" style="font-family: Courier;">
+                                    <a href="{{ d.get_absolute_url }}">
+                                        {{ d.slug }}
+                                    </a>
+                                </th>
+                                <td>{{ d.label }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

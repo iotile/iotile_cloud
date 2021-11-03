@@ -1,0 +1,21 @@
+/* FORMS */
+
+.form-control {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+  border-radius: 0;
+}
+
+textarea {
+  min-height: 120px;
+  resize: none;
+}
+.has-error {
+  .control-label--error {
+    display: block;
+  }
+}
+.control-label--error {
+  font-size: 12px;
+  display: none;
+}

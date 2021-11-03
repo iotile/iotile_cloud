@@ -1,0 +1,112 @@
+{
+  "name": "Temp",
+  "storage_units_full": "Kelvin",
+  "data_type": "D0",
+  "available_input_units": [
+    {
+      "unit_full": "LM35",
+      "unit_short": "mA",
+      "m": 280,
+      "d": 4095,
+      "o": 273.15
+    },
+    {
+      "unit_full": "TMP36",
+      "unit_short": "mA",
+      "m": 280,
+      "d": 4095,
+      "o": 223.15
+    },
+    {
+      "unit_full": "10K-Thermistor",
+      "unit_short": "U",
+      "m": -2995,
+      "d": 146250,
+      "o": 323.1
+    },
+    {
+      "unit_full": "miniT-Ext: -15:15C",
+      "unit_short": "U",
+      "m": -2943,
+      "d": 146250,
+      "o": 322.43
+    },
+    {
+      "unit_full": "miniT-Ext: 15:35C",
+      "unit_short": "U",
+      "m": -3790,
+      "d": 146250,
+      "o": 331.68
+    },
+    {
+      "unit_full": "miniT-Int: -15:15C",
+      "unit_short": "U",
+      "m": -3280,
+      "d": 146250,
+      "o": 324.77
+    },
+    {
+      "unit_full": "miniT-Int: 15:35C",
+      "unit_short": "U",
+      "m": -4362,
+      "d": 146250,
+      "o": 336.65
+    },
+    {
+      "unit_full": "POD1-M",
+      "unit_short": "C",
+      "m": 1,
+      "d": 100,
+      "o": 273.15
+    },
+    {
+      "unit_full": "Lansmont Saver",
+      "unit_short": "C",
+      "m": 1,
+      "d": 1000000,
+      "o": 273.15
+    },
+    {
+      "unit_full": "GS3-Decagon",
+      "unit_short": "U",
+      "m": 1,
+      "d": 1000,
+      "o": 273.15
+    },
+    {
+      "unit_full": "milliKelvin",
+      "unit_short": "mK",
+      "m": 1,
+      "d": 1000,
+      "o": 0.0
+    }
+  ],
+  "available_output_units": [
+    {
+      "unit_full": "Kelvin",
+      "unit_short": "K",
+      "m": 1,
+      "d": 1,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "Celsius",
+      "unit_short": "C",
+      "m": 1,
+      "d": 1,
+      "o": -273.15,
+      "decimal_places": 1,
+      "derived_units": {}
+    },
+    {
+      "unit_full": "Fahrenheit",
+      "unit_short": "F",
+      "m": 9,
+      "d": 5,
+      "o": -459.67,
+      "decimal_places": 1,
+      "derived_units": {}
+    }
+  ]
+}

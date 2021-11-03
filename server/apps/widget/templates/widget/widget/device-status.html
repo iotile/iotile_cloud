@@ -1,0 +1,27 @@
+{% load stream_tags %}
+
+<!-- top tiles -->
+<div class="row tile_count">
+    {% for stream in template_streams %}
+    {% if stream.variable.formatted_lid == '5800' %}
+        <div class="col-md-6 col-sm-6 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-battery-three-quarters"></i> {{ stream.variable.name }}</span>
+            <div class="count" align="center">
+                <a href="{% url 'org:project:stream:streamid-data-table' org.slug project.id stream.slug %}">
+                    {{ stream|last_value }} {{ stream.variable.units }}
+                </a>
+            </div>
+        </div>
+    {% endif %}
+    {% if stream.variable.formatted_lid == '5c00' %}
+        <div class="col-md-6 col-sm-6 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-exclamation-triangle"></i> {{ stream.variable.name }}</span>
+            <div class="count" align="center">
+                <a href="{% url 'org:project:stream:streamid-data-table' org.slug project.id stream.slug %}">
+                    {{ stream|record_count }}
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>

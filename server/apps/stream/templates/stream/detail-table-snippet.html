@@ -1,0 +1,87 @@
+{% load i18n %}
+
+
+<table class="table table-striped">
+    <tbody>
+    <tr>
+        <th scope="row">{% trans 'Local data stream id' %}</th>
+        <td  style="font-family: Courier;">{{ stream.local_stream_id }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Units' %}</th>
+        {% if stream.units %}
+            <td>{{ stream.units }}</td>
+        {% else %}
+            <td>{% trans 'Not defined' %}</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Multiplication factor' %}</th>
+        <td>
+            {{ stream.multiplication_factor }} / {{ stream.division_factor }}
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Offset' %}</th>
+        <td>{{ stream.offset }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Decimal places' %}</th>
+        <td>{{ stream.decimal_places }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Chart Type' %}</th>
+        <td>{{ stream.get_type_display }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Display in chart' %}</th>
+        <td>
+        {% if stream.display_limit %}
+            {{ stream.display_limit }} points
+            {% else %}
+            all points
+        {% endif %}
+        {% if stream.display_interval %}
+            / {{ stream.display_interval }}s.
+        {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Display YAxis' %}</th>
+        <td>
+        {% if stream.display_yaxis_min %}
+            {{ stream.display_yaxis_min }}
+        {% else %}
+            Auto
+        {% endif %}
+        -
+        {% if stream.display_yaxis_max %}
+            {{ stream.display_yaxis_max }}
+        {% else %}
+            Auto
+        {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Triggers' %}</th>
+        <td>
+            <a href="{{ stream.get_triggers_url }}" class="btn btn-sm btn-success">{{ stream.triggers.count }}</a>
+            <a href="{{ stream.get_triggers_add_url }}" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></a>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Created on' %}</th>
+        <td>{{ stream.created_on|date:"Y-m-d" }}</td>
+    </tr>
+    <tr>
+        <th scope="row">{% trans 'Created by' %}</th>
+        <td>@{{ stream.created_by.username }}</td>
+    </tr>
+    </tbody>
+</table>
+<h4>{% trans 'Short description' %}</h4>
+{% if stream.about %}
+    <p>{{ stream.about|truncatechars:55 }}</p>
+{% else %}
+    <p>{% trans 'No description' %}</p>
+{% endif %}

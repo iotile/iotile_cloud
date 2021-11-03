@@ -1,0 +1,158 @@
+{% extends 'org/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block js %}
+<script>
+
+$(document).ready(function() {
+
+    var searchBox = $("#id_q")
+    var debounceTimeout = null;
+
+    searchBox.hover(function () {
+        searchBox.focus();
+    });
+
+    var ajaxFn = function() {
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'org:search' org.slug %}",
+            data: {
+                'q': searchBox.val(),
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function(res) {
+                let searchResults = $('.search-results');
+                searchResults.html(res);
+            }
+        });
+    };
+
+    searchBox.keypress(
+        function(event){
+            if (event.which == '13') {
+                event.preventDefault();
+            }
+    });
+
+    searchBox.keyup(function () {
+        clearTimeout(debounceTimeout);
+        debounceTimeout = setTimeout(ajaxFn, 250);
+    });
+
+  });
+</script>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3 class="hidden-xs">Search in: </h3>
+            <h4>{{ org.name }}</h4>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <br>
+
+    {% if can_access_classic and can_access_datablock %}
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-11">
+
+                            {% crispy form %}
+
+                        </div>
+                        <!-- Large modal -->
+                        <div class="col-sm-1">
+
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".help-search">
+                                <i class="fa fa-question-circle" style="color:#23ac8e"></i>
+                            </button>
+
+                            <div class="modal fade help-search" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                            </button>
+                                            <h3 class="modal-title" id="myModalLabel2">Search Syntax</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Token</th>
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Examples</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                    <th scope="row">d</th>
+                                                    <td>Show first 10 devices</td>
+                                                    <td><i>d</i></td>                            
+                                                    </tr>
+                                                    <tr>
+                                                    <th scope="row">b</th>
+                                                    <td>Show first 10 archives (datablocks)</td>
+                                                    <td><i>b</i></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th scope="row">4-digit number</th>
+                                                    <td>Devices & archives having slug ending with it</td>
+                                                    <td><i>0057<br> 0000-0057<br>d--0000-0000-0000-0057</i></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th scope="row">any string</th>
+                                                    <td>Match devices & archives' title, template, <br>sensorgraph, label, properties, owner, etc..</td>
+                                                    <td><i>water <br> korea <br>pod1</i></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th scope="row">propertyName:propertyValue</th>
+                                                    <td>Match device & archives' property, they are defined by the Organization.<br> See full list below.</td>
+                                                    <td><i>country:japan<br>shipto:korea</i></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <br>
+                                            <p>
+                                                <b>Available properties:</b><br>
+                                                {% if org_properties %}
+                                                    {% for property in org_properties %}
+                                                        {{ property }} | 
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <i>None</i>
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /modals -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <div class="search-results">
+            {% include 'org/search-results.html' %}
+        </div>
+
+    {% else %}
+        {% include 'org/no-access-box.html' %}
+    {% endif %}
+{% endblock %}

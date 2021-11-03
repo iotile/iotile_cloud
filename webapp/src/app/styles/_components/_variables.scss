@@ -1,0 +1,58 @@
+/* VARIABLES */
+
+
+/*************************
+	Local color variables
+*************************/
+/* For color names was used site - http://chir.ag/projects/name-that-color */
+/* White group */
+$white: #ffffff;
+$white-soft: #fefefe;
+/* Black group */
+$black: #000000;
+$mine-shaft: #333333;
+/* Gray group */
+$seashell: #F1F1F1;
+$mercury: #e9e7e7; //Border color
+$mercury-soft: #e8e8e8; //Mutted bg
+$loblolly: #c7d1d6; //Mutted color
+$gray: #7e7d7d; //Gray color
+$mine-shaft: #383838;
+/* Blue group */
+$lochmara: #0188D8; //Primary
+
+/*************************
+	Global color variables
+*************************/
+$mutted-bg: $mercury-soft;
+$mutted: $loblolly;
+$gray: $gray;
+$primary: $lochmara;
+
+$body-color: $mine-shaft;
+$body-bg: $seashell;
+
+
+/*************************
+	Fonts variable
+*************************/
+$font-base-thin: 'Montserrat-Thin';
+$font-base-light: 'Montserrat-Light';
+$font-base-regular: 'Montserrat-Regular';
+$font-base-bold: 'Montserrat-Bold';
+$font-secondary: 'Cardo-Regular';
+
+$font-base: $font-base-light;
+/*************************
+	Body variable
+*************************/
+$body-font-family: $font-base;
+$body-color: $body-color;
+$body-font-size: 16px;
+$body-line-height: 1.7;
+$body-bg: $body-bg;
+
+/*************************
+	Links color variable
+*************************/
+$link-color: $primary;

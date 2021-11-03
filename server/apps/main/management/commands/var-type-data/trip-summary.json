@@ -1,0 +1,153 @@
+{
+  "name": "Trip Summary",
+  "storage_units_full": "Event",
+  "data_type": "E0",
+  "schema": {
+    "display_order": [
+      "start",
+      "end",
+      "duration",
+      "event_count",
+      "first",
+      "last",
+      "max_peak_ts",
+      "max_peak",
+      "dv_at_max_peak",
+      "max_dv_ts",
+      "max_dv",
+      "peak_at_max_dv",
+      "max_temp",
+      "min_temp",
+      "median_temp",
+      "below_temp",
+      "above_temp",
+      "max_humidity",
+      "min_humidity",
+      "median_humidity"
+    ],
+    "keys": {
+      "start": {
+        "label": "START",
+        "units": "UTC",
+        "type": "datetime"
+      },
+      "end": {
+        "label": "END",
+        "units": "UTC",
+        "type": "datetime"
+      },
+      "duration": {
+        "label": "Duration",
+        "units": "Days",
+        "type": "float",
+        "decimal": 1
+      },
+      "event_count": {
+        "label": "Event Count",
+        "type": "int"
+      },
+      "first": {
+        "label": "First Event",
+        "units": "UTC",
+        "type": "datetime"
+      },
+      "last": {
+        "label": "Last event",
+        "units": "UTC",
+        "type": "datetime"
+      },
+      "max_peak_ts": {
+        "label": "TimeStamp (Max Peak)",
+        "units": "UTC",
+        "type": "datetime"
+      },
+      "max_peak": {
+        "label": "Max Peak",
+        "units": "G",
+        "type": "float",
+        "decimal": 2
+      },
+      "dv_at_max_peak": {
+        "label": "dV at Max Peak",
+        "units": "m/s",
+        "type": "float",
+        "decimal": 3,
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      },
+      "max_dv_ts": {
+        "label": "TimeStamp (Max dV)",
+        "units": "UTC",
+        "type": "datetime"
+      },
+      "max_dv": {
+        "label": "Max dV",
+        "units": "m/s",
+        "type": "float",
+        "decimal": 3,
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      },
+      "peak_at_max_dv": {
+        "label": "Peak at Max dV",
+        "units": "G",
+        "type": "float",
+        "decimal": 2
+      },
+      "max_temp": {
+        "label": "Max Temp",
+        "units": "C",
+        "type": "float",
+        "decimal": 2
+      },
+      "min_temp": {
+        "label": "Min Temp",
+        "units": "C",
+        "type": "float",
+        "decimal": 2
+      },
+      "median_temp": {
+        "label": "Median Temp",
+        "units": "C",
+        "type": "float",
+        "decimal": 2
+      },
+      "below_temp": {
+        "label": "Below 17C",
+        "units": "times",
+        "type": "int"
+      },
+      "above_temp": {
+        "label": "Above 30C",
+        "units": "times",
+        "type": "int"
+      },
+      "max_humidity": {
+        "label": "Max Humidity",
+        "units": "% RH",
+        "type": "float",
+        "decimal": 2
+      },
+      "min_humidity": {
+        "label": "Min Humidity",
+        "units": "% RH",
+        "type": "float",
+        "decimal": 2
+      },
+      "median_humidity": {
+        "label": "Median Humidity",
+        "units": "% RH",
+        "type": "float",
+        "decimal": 2
+      }
+    }
+  },
+  "available_input_units": [],
+  "available_output_units": []
+}

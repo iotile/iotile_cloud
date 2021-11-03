@@ -1,0 +1,24 @@
+/* GRID */
+
+.grid {
+  @extend .flex;
+  @include respond-to(xs) {
+    display: block;
+  }
+}
+.grid--full-height {
+  height: 100%;
+}
+.grid__item {
+  @extend .flex, .flex-column;
+  height: 100%;
+  @include respond-to(xs) {
+    display: block;
+  }
+}
+.grid__item--half {
+  width: 50%;
+  @include respond-to(xs) {
+    width: 100%;
+  }
+}

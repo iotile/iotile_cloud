@@ -1,0 +1,11 @@
+{
+  "name": "Default Template",
+  "major_version": 1,
+  "minor_version": 0,
+  "patch_version": 0,
+  "extra_data": {
+    "web": {
+      "orgTemplateSlug": "default"
+    }
+  }
+}

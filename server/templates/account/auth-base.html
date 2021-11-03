@@ -1,0 +1,83 @@
+{% extends "dist/webapp/archsys.html" %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
+{% load static %}
+
+{% block media %}
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+          integrity="sha384-6iYDyQZuuNT7DcPJGXx241czdv2+GDGUcXRiqw1iXrjgYMTorSetxFP3JCMQMwnR"
+          crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"
+            integrity="sha384-PDjg2ZdS3khPzd53i18+7tzB32JVQfFMrTXYo21RqPgUmEVAPwIhxOUF/8sP79CS"
+            crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener("load", function() {
+            window.cookieconsent.initialise({
+                "enabled": true,
+                "palette": {
+                    "popup": {
+                        "background": "#000"
+                    },
+                    "button": {
+                        "background": "#0188D8"
+                    }
+                },
+                "theme": "classic",
+                "position": "bottom",
+                "domain": "https://iotile.cloud",
+                "static": true,
+                "content": {
+                    "message": "Some statement",
+                    "link": 'Privacy Policy',
+                    "href": '#'
+                }
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block body %}
+
+    <header class="header-login">
+        <a href="{% url 'home' %}" class="site-logo"></a><!-- site-logo -->
+    </header>
+
+    <div class="{% block form_class %}login-form{% endblock %}" id="formbox">
+
+        {% block form_content %}
+        {% endblock %}
+
+    {% include 'account/messages-snippet.html' %}
+
+    </div>
+
+    <footer class="footer footer-login">
+        <div class="flex-grid">
+            <div class="flex-grid flex-grid__item flex-grow">
+                <a href="https://archsys.io" class="site-logo site-logo__footer"></a>
+                <ul class="list-divider">
+                    <li class="list-divider__item">COPYRIGHT © {% now "Y" %} ARCH SYSTEMS INC.</li>
+                    <li class="list-divider__item">ALL RIGHTS RESERVED.</li>
+                </ul><!-- list-divider -->
+            </div><!-- flex-grid__item -->
+
+            <div class="flex-grid__item">
+                <ul class="list-divider">
+                    <li class="list-divider__item"><a href="#"
+                                                      class="list-divider__link">Help</a></li>
+                    <li class="list-divider__item"><a href="#"
+                                                      class="list-divider__link">Terms & Conditions</a></li>
+                    <li class="list-divider__item"><a href="#"
+                                                      class="list-divider__link">Privacy Policy</a></li>
+                </ul><!-- list-divider -->
+            </div><!-- flex-grid__item -->
+        </div><!-- flex-grid -->
+    </footer><!-- footer -->
+
+
+{% endblock %}

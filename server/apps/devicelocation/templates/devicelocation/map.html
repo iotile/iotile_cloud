@@ -1,0 +1,58 @@
+{% extends "project/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load stream_tags %}
+
+{% block media %}
+    <style>
+       #map_canvas {
+        height: 400px;
+        width: 90%;
+       }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    {% include 'devicelocation/device-locations-js.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                <a href="{{ target.get_absolute_url }}">{{ target }}</a>
+            </h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <p>{{ target.label }}</p>
+    <p>{{ target.title }}</p>
+
+    <br/>
+
+
+    <br/>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Device Locations
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" align="center">
+
+                    <div id="map_canvas"><h3>No Location Information</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

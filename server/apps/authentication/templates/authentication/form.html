@@ -1,0 +1,28 @@
+{%  extends "authentication/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{%  load tz %}
+{% load crispy_forms_tags %}
+
+{%  block content %}
+
+    {%  if title %}
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ title }}</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+    {%  endif %}
+
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            {% crispy form %}
+
+        </div>
+    </div>
+
+
+{%  endblock %}

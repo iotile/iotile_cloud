@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<table class="table table-striped">
+    <caption>
+        <b>{% trans 'Configuration' %}</b>
+    </caption>
+    <tbody>
+        <tr>
+            <td>
+                <a href="{{ obj.get_configure_url }}" class="btn btn-default btn-sm btn-block">
+                    <i class="fa fa-pencil"></i> {% trans 'Edit Configuration' %}
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

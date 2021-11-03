@@ -1,0 +1,23 @@
+{% load i18n %}
+{% load custom_tags %}
+
+{% blocktrans %}
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        This is to let you know that device {{ device_slug }}  ( '{{ device_label }}' ) 
+        data has been fixed:
+    </p>
+
+    <p>
+        {{ msg }}
+    </p>
+    
+    <p>
+        Please click on the following link to go to the device page:
+    </p>
+{% endblocktrans %}
+
+<p><a href="{{ url }}">{{ url }}</a></p>
+
+{% include 'base/email.html' %}

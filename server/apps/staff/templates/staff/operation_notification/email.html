@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load custom_tags %}
+
+<h4>Hello from the Arch team!</h4>
+
+<p>
+    This is to let you know that the following scheduled Staff Operation was completed:
+</p>
+
+<ul>
+    <li>User: {{user}}</li>
+    <li>Operation: {{operation}}</li>
+    <li>
+        Args:
+        <ul>
+            {% for key, value in args.items %}
+                <li>{{ key }}: {{ value }}</li>
+            {%  endfor %}
+        </ul>
+    </li>
+    <li>Elapsed time: {{ op_time }}</li>
+    <li>Notes: {{notes}}</li>
+</ul>
+
+
+<p><a href="{{ url }}">{{ url }}</a></p>
+
+{% include 'base/email.html' %}

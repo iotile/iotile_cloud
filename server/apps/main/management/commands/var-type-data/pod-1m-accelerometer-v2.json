@@ -1,0 +1,60 @@
+{
+  "name": "POD-1M Accelerometer V2",
+  "storage_units_full": "Event",
+  "data_type": "E3",
+  "schema": {
+    "keys": {
+      "peak": {
+        "label": "Peak",
+        "units": "G",
+        "type": "float",
+        "decimal": 2
+      },
+      "axis": {
+        "label": "Axis",
+        "type": "str"
+      },
+      "duration": {
+        "label": "Duration",
+        "units": "ms",
+        "type": "float",
+        "decimal": 3
+      },
+      "delta_v_x": {
+        "label": "dV(X)",
+        "units": "m/s",
+        "decimal": 3,
+        "type": "float",
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      },
+      "delta_v_y": {
+        "label": "dV(Y)",
+        "units": "m/s",
+        "decimal": 3,
+        "type": "float",
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      },
+      "delta_v_z": {
+        "label": "dV(Z)",
+        "units": "m/s",
+        "decimal": 3,
+        "type": "float",
+        "output_units": {
+          "in/s": {
+            "mdo": [3937, 100, 0.0]
+          }
+        }
+      }
+    }
+  },
+  "available_input_units": [],
+  "available_output_units": []
+}

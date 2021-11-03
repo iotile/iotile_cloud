@@ -1,0 +1,87 @@
+{
+  "name": "Digital On/Off 2051",
+  "org": "arch-systems",
+  "project_template": "simple-template-v1-0-0",
+  "report_processing_engine_ver": 2,
+  "app_tag": 2051,
+  "app_version": "1.0",
+  "description": "Similar to Pulse Counter, but detecting On/Off cycles",
+  "variable_templates": [
+    {
+      "label": "On/Off",
+      "lid_hex": "5011",
+      "derived_lid_hex": "",
+      "var_type": "default",
+      "default_input_unit": "in--default--unit",
+      "default_output_unit": "out--default--unit",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": false,
+      "web_only": false
+    },
+    {
+      "label": "On/Off",
+      "lid_hex": "101b",
+      "derived_lid_hex": "",
+      "var_type": "default",
+      "default_input_unit": "in--default--unit",
+      "default_output_unit": "out--default--unit",
+      "m": 1,
+      "d": 1,
+      "o": 0.0,
+      "app_only": true,
+      "web_only": false
+    }
+  ],
+  "display_widget_templates": [
+    {
+      "label": "On/Off",
+      "lid_hex": "5011",
+      "var_type": "default",
+      "derived_unit_type": "",
+      "show_in_app": false,
+      "show_in_web": true
+    },
+    {
+      "label": "On/Off",
+      "lid_hex": "101b",
+      "var_type": "default",
+      "derived_unit_type": "",
+      "show_in_app": true,
+      "show_in_web": false
+    }
+  ],
+  "ui_extra": {
+    "web": {
+      "pageTemplateSlug": "default",
+      "primaryVarId": "5011"
+    },
+    "mobile": {
+      "template": "default",
+      "controller": "defaultCtrl",
+      "other": null,
+      "ioInfo": {
+        "order": [
+          "5011"
+        ],
+        "map": {
+          "5011": {
+            "label": "On/Off",
+            "settingsController": "defaultSettingsCtrl",
+            "settingsTemplate": "default-settings",
+            "derived": {
+              "realtime": {
+                "lid": "101b",
+                "label": "On/Off"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "major_version": 1,
+  "minor_version": 0,
+  "patch_version": 0
+}

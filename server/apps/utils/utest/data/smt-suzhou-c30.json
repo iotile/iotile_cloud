@@ -1,0 +1,278 @@
+{
+  "var_type": [
+    {
+      "name": "Default",
+      "storage_units_full": "Unit",
+      "stream_data_type": "D0",
+      "available_input_units": [
+        {
+          "unit_full": "Unit",
+          "unit_short": "",
+          "m": 1,
+          "d": 1
+        }
+      ],
+      "available_output_units": [
+        {
+          "unit_full": "Unit",
+          "unit_short": "",
+          "m": 1,
+          "d": 1,
+          "decimal_places": 1,
+          "derived_units": {}
+        }
+      ],
+      "created_by": "user1"
+    }
+  ],
+  "org": [
+    {
+      "name": "Arch Systems",
+      "vendor": true,
+      "created_by": "user1"
+    },
+    {
+      "name": "User Org",
+      "created_by": "user2",
+      "config": []
+    }
+  ],
+  "device_template": [
+    {
+      "external_sku": "Node",
+      "internal_sku": "arch002a",
+      "family": "POD-1C",
+      "org": "arch-systems",
+      "major_version": 1,
+      "minor_version": 0,
+      "patch_version": 0,
+      "os_tag": 2050,
+      "os_major_version":0,
+      "os_minor_version":1,
+      "released_on": "2018-01-25",
+      "created_by": "user1"
+    }
+  ],
+  "sensor_graph": [
+    {
+      "name": "SMT",
+      "org": "arch-systems",
+      "report_processing_engine_ver": 2,
+      "app_tag": 1031,
+      "created_by": "user1",
+      "variable_templates": [
+        {
+          "label": "Product Done",
+          "lid_hex": "5051",
+          "var_type": "default",
+          "default_input_unit": "in--default--unit",
+          "default_output_unit": "out--default--unit",
+          "app_only": false,
+          "web_only": false
+        }
+      ],
+      "ui_extra": {},
+      "major_version": 1,
+      "minor_version": 0,
+      "patch_version": 0
+    }
+  ],
+  "project_template": [
+    {
+      "name": "Factory Template",
+      "org": "arch-systems",
+      "created_by": "user1",
+      "major_version": 1,
+      "minor_version": 0,
+      "patch_version": 0
+    }
+  ],
+  "project": [
+    {
+      "name": "Project 1",
+      "org": "user-org",
+      "created_by": "user2",
+      "project_template": "factory-template-v1-0-0",
+      "device": [
+        {
+          "label": "Machine 1",
+          "template": "node-v1-0-0",
+          "created_by": "user1",
+          "sg": "smt-v1-0-0",
+          "data": [
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T01:43:38+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 1,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T01:49:15+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 2,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T01:51:02+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 3,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T01:52:59+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 4,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T01:54:26+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 5,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T01:56:11+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 6,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T01:57:55+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 7,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:00:48+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 8,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:19:43+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 9,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:21:25+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 10,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:22:51+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 11,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:25:01+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 12,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:26:31+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 13,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:28:34+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 14,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:30:01+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 15,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:32:19+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 16,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  },
+                  {
+                    "variable": "5051",
+                    "type": "ITR",
+                    "timestamp": "2019-07-15T02:33:47+00:00",
+                    "int_value": 1,
+                    "value": 1,
+                    "streamer_local_id": 17,
+                    "dirty_ts": false,
+                    "status": "cln"
+                  }
+                ]
+        }
+      ]
+    }
+  ]
+}

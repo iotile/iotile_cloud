@@ -1,0 +1,22 @@
+{% extends "account/login-base.html" %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
+
+{% block login_content %}
+
+    <h1>{% trans "Signup" %}</h1>
+    <h3 align="center">{% trans "We are sorry, but the sign up is currently closed." %}</h3>
+    <br>
+    <br>
+
+    <div class="clearfix"></div>
+    <br/>
+
+        <p class="change_link">Already a member ?
+            <a href="{% url 'account_login' %}" class="to_register"> Log in </a>
+        </p>
+
+{% endblock %}
+

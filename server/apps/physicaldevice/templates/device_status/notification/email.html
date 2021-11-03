@@ -1,0 +1,39 @@
+{% extends "emailutil/notification-base.html" %}
+{% load i18n %}
+{% load tz %}
+
+{% blocktrans %}
+    <h4>{{ level }} IOTile Cloud Notification</h4>
+{% endblocktrans %}
+
+{% block content %}
+        <p>
+            {% trans 'The status of device' %} '{{ device_status.device.slug }}' {% trans 'has changed from' %} {{ device_status.last_known_state.upper }} {% trans 'to' %} {{ current_alert.upper }}.<br>
+            {% if device_status.last_report_ts %}
+            {% trans 'Last known data upload on' %} {{ device_status.last_report_ts|utc|date:'Y-m-d H:i:s' }} UTC
+            {% endif %}
+        </p>
+        <p>
+            {% trans 'This notification was caused by scheduled task.' %}
+        </p>
+
+    <br>
+    <p><b>{% trans 'More information about this notification:' %}</b></p>
+    <p>
+        {% trans 'Organization' %}: {{ device_status.device.org.name }}<br>
+        {% trans 'Project' %}: {{ device_status.device.project.name }}<br>
+        {% trans 'Device label' %}: {{ device_status.device.label }}<br>
+        {% trans 'Device ID' %}: {{ device_status.device.slug }}<br>
+        {% trans 'Timestamp' %}: {{ timestamp|utc|date:'Y-m-d H:i:s' }} UTC
+    </p>
+
+    {% trans 'To view your data, please go to ' %}<a href="{{ url }}">app.iotile.cloud</a>.
+    {% trans 'For help with these notifications, please contact Arch at help@archsys.io.' %}
+
+{% endblock %}
+
+<br>
+<br>
+<hr>
+<p><small>{% trans 'Notification ID' %}: {{ uuid }}</small>></p>
+

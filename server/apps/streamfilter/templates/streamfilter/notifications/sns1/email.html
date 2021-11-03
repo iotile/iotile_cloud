@@ -1,0 +1,33 @@
+{% load i18n %}
+
+{% blocktrans with site_name=site_name %}
+    <h4>Hello from the Arch team!</h4>
+
+    <p>
+        You're receiving this e-mail because you have been defined a stream data filter
+        at {{ site_name }} and this filter has triggered this notification
+    </p>
+
+    <p>
+        Data
+    </p>
+{% endblocktrans %}
+
+<table>
+    {% for key, value in data.items %}
+    <tr>
+        <th>{{ key }}</th>
+        <td>{{ value }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{{ url }}">{{ url }}</a>
+
+{% blocktrans with site_name=site_name %}
+
+    <p>Thank you for using {{ site_name }}!</p>
+
+    <p>-The Arch Team</p>
+
+{% endblocktrans %}

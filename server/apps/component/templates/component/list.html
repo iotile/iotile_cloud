@@ -1,0 +1,40 @@
+{%  extends "base.html" %}
+{%  load static %}
+{%  load i18n %}
+
+{% block media %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+{% endblock %}
+
+{% block js %}
+    <!-- DataBlock table -->
+    <script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+    <script type="text/javascript">
+
+    var componentTable = $('#component-table').DataTable({
+        order: [[1, "asc"]],
+        pageLength: 50,
+        lengthMenu: [ [50, 100, 500, -1], [50, 100, 500, "All"] ],
+        responsive: true,
+        columns: [
+            {sTitle: "", bSortable: false},
+            {sTitle: "{% trans 'SKU/Name' %}"},
+            {sTitle: "{% trans 'Type' %}"},
+            {sTitle: "{% trans 'HW Tag' %}"},
+            {sTitle: "{% trans 'Version' %}"},
+            {sTitle: "{% trans 'Release Date' %}"}
+        ]
+
+    });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <br/>
+    {% include 'component/component-list-snippet.html' %}
+
+{% endblock %}
+

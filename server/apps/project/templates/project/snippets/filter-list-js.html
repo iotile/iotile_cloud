@@ -1,0 +1,31 @@
+{%  load static %}
+{%  load i18n %}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css"/>
+
+<!-- FilterTable -->
+<script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.js"></script>
+
+<script>
+    var filters = [];
+    {% for filter in filters %}
+            filters.push([
+                '<a href="{% url 'filter:detail' filter.slug %}">{{ filter.name }}</a>',
+                '{{ filter.variable }}',
+                '{% if filter.device %}{{ filter.device }}{% else %}All devices in the project{% endif %} ',
+                '{% if can_manage_org_and_projects or is_staff %}<a href="{% url 'filter:delete' filter.slug %}"><i class="fa fa-trash"></i></a>'{% else %}''{% endif %},
+            ]);
+    {% endfor %}
+    var filterTable = $('#filter-table').DataTable({
+        order: [[0, "asc"]],
+        pageLength: 25,
+        responsive: true,
+        columns: [
+            {sTitle: "{% trans 'Filter' %}"},
+            {sTitle: "{% trans 'Variable' %}"},
+            {sTitle: "{% trans 'Device' %}"},
+            {sTitle: "{% trans 'Actions' %}", orderable: false},
+        ],
+        data: filters
+    });
+</script>

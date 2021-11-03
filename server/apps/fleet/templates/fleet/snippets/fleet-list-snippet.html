@@ -1,0 +1,44 @@
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>
+                    Device Fleet
+                </h2>
+                {% if can_manage_ota %}
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a href="{% url 'org:fleet:add' org.slug %}">
+                            <i class="fa fa-plus"></i> Add Fleet
+                        </a>
+                    </li>
+                    <li></li>
+                </ul>
+                {% endif %}
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <div class="list-group">
+                    {% for fleet in fleet_list %}
+                        <a href="{% url 'org:fleet:detail' org.slug fleet.slug %}" class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                {% if fleet.is_network %}
+                                    <i class="fa fa-wifi" aria-hidden="true" title="Network"></i>
+                                {% else %}
+                                    <i class="fa fa-cubes" aria-hidden="true" title="Group"></i>
+                                {% endif %}
+                                {{ fleet.name }}
+                            </h4>
+                            <p class="list-group-item-text">
+                                ID: {{ fleet.slug }}
+                            </p>
+                        </a>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

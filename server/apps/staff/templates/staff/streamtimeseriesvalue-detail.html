@@ -1,0 +1,258 @@
+{% extends "staff/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+
+{% get_current_timezone as TIME_ZONE %}
+
+{% block content %}
+
+    <div class="row tile_count">
+        <h1>StreamTimeSeriesValue Detail</h1>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>StreamTimeSeriesValue</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <th>stream_slug</th>
+                                <td>
+                                    {{ timeseriesvalue.stream_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>project_slug</th>
+                                <td>
+                                    {{ timeseriesvalue.project_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>device_slug</th>
+                                <td>
+                                    {{ timeseriesvalue.device_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>variable_slug</th>
+                                <td>
+                                    {{ timeseriesvalue.variable_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>block_vid</th>
+                                <td>{{ timeseriesvalue.block_vid }}</td>
+                            </tr>
+                            <tr>
+                                <th>device_timestamp</th>
+                                <td>{{ timeseriesvalue.device_timestamp }}</td>
+                            </tr>
+                            <tr>
+                                <th>device_seqid</th>
+                                <td>
+                                    {{ timeseriesvalue.device_seqid }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>status</th>
+                                <td>
+                                    {{ timeseriesvalue.status }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>type</th>
+                                <td>
+                                    {{ timeseriesvalue.type }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>value</th>
+                                <td>
+                                    {{ timeseriesvalue.value }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>raw_value</th>
+                                <td>
+                                    {{ timeseriesvalue.raw_value }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timestamp</th>
+                                <td>
+                                    {{ timeseriesvalue.timestamp }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>raw timestamp</th>
+                                <td>
+                                    {{ timeseriesvalue.raw_timestamp }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timezone in DB</th>
+                                <td>
+                                    {{ timeseriesvalue.timezone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timezone used by server</th>
+                                <td>
+                                    {{ TIME_ZONE }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>UTC timestamp</th>
+                                <td>
+                                    {{ timeseriesvalue.timestamp|utc }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>your local timestamp</th>
+                                <td>
+                                    {{ timeseriesvalue.timestamp|timezone:user_timezone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>server timestamp</th>
+                                <td>
+                                    {{ timeseriesvalue.timestamp|localtime }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% if streamdata %}
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>StreamData</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <th>stream_slug</th>
+                                <td>
+                                    {{ streamdata.stream_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>project_slug</th>
+                                <td>
+                                    {{ streamdata.project_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>device_slug</th>
+                                <td>
+                                    {{ streamdata.device_slug }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>variable_slug</th>
+                                <td>{{ streamdata.variable_slug }}</td>
+                            </tr>
+                            <tr>
+                                <th>dirty_ts</th>
+                                <td>
+                                    {{ streamdata.dirty_ts }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>device_timestamp</th>
+                                <td>{{ streamdata.device_timestamp }}</td>
+                            </tr>
+                            <tr>
+                                <th>streamer_local_id</th>
+                                <td>
+                                    {{ streamdata.streamer_local_id }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>status</th>
+                                <td>
+                                    {{ streamdata.status }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>type</th>
+                                <td>
+                                    {{ streamdata.type }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>value</th>
+                                <td>
+                                    {{ streamdata.value }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>int_value</th>
+                                <td>
+                                    {{ streamdata.int_value }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timestamp</th>
+                                <td>
+                                    {{ streamdata.timestamp }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>raw timestamp</th>
+                                <td>
+                                    {{ streamdata.raw_timestamp }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timezone in DB</th>
+                                <td>
+                                    {{ streamdata.timezone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>timezone used by server</th>
+                                <td>
+                                    {{ TIME_ZONE }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>UTC timestamp</th>
+                                <td>
+                                    {{ streamdata.timestamp|utc }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>your local timestamp</th>
+                                <td>
+                                    {{ streamdata.timestamp|timezone:user_timezone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>server timestamp</th>
+                                <td>
+                                    {{ streamdata.timestamp|localtime }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

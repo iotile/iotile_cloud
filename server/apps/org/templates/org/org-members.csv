@@ -1,0 +1,3 @@
+Username, Email, Name, Role
+{% for member in members %}{{member.user.username}},{{member.user.email}},{{member.user.name}},{{member.role}}
+{% endfor %}

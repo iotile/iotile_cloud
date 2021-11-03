@@ -1,0 +1,141 @@
+{%  extends "staff/base.html" %}
+{%  load static %}
+{%  load i18n %}
+{% load crispy_forms_tags %}
+
+{% block media %}
+    <style>
+       #map_canvas {
+        height: 200px;
+        width: 90%;
+       }
+    </style>
+{% endblock %}
+
+{% block js %}
+    {% include 'project/snippets/device-locations-js.html' %}
+{% endblock %}
+
+{% block content %}
+    <!-- top tiles -->
+    <div class="row tile_count">
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-users"></i> Users</span>
+            <div class="count" align="center">
+                <a href="{% url 'staff:user-list' %}">
+                    {{ user_count }}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-industry"></i> Organizations</span>
+            <div class="count" align="center">
+                <a href="{% url 'staff:org-list' %}">
+                    {{ org_count }}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user-secret"></i> Membership</span>
+            <div class="count" align="center">
+                <a href="/admin/org/orgmembership/">
+                    {{ membership_count }}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-puzzle-piece"></i> Projects</span>
+            <div class="count" align="center">
+                <a href="{% url 'staff:project-list' %}">
+                    {{ project_count }}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-feed"></i> IOTile Devices</span>
+            <div class="count" align="center">
+                <a href="/admin/physicaldevice/device/">
+                    {{ device_count }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /top tiles -->
+
+    <br/>
+    <div class="row">
+        <!-- Location -->
+        <div class="col-md-8 col-sm-6 hidden-xs">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Known Device Locations
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'staff:map' %}">
+                                <i class="fa fa-search-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" align="center">
+                    <div id="map_canvas"  style="height: 400px !important;"><h3>No Location Information</h3></div>
+                </div>
+            </div>
+        </div>
+        <!-- Search Field -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <h4>Device Tracking</h4>
+            <div class="col-xs-12">
+                {% crispy form %}
+            </div>
+            <hr>
+            {% include 'staff/snippets/summary-actions.html' %}
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Streams -->
+        <div class="col-md-8 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Data Streams
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a href="{% url 'staff:streams' %}">
+                                <i class="fa fa-gears"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    {% include 'staff/snippets/index-streams.html' %}
+
+                </div>
+            </div>
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Support Operations
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    {% include 'staff/snippets/index-actions.html' %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
