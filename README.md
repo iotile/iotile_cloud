@@ -20,7 +20,7 @@ This project has the following basic features:
 
 You must have the following installed on your computer
 
-* Python 3.6 or greater
+* Python 3.8 or greater
 * Docker
 
 For MacOS, see https://gist.github.com/dkarchmer/d8124f3ae1aa498eea8f0d658be214a5
@@ -47,29 +47,6 @@ For production, all critical secret keys are stored on AWS SSM Parameter Store, 
 easy to deploy to AWS without having to store secret keys on local machines. The Django 
 settings file gets all these keys from the Parameter Store, assuming the AWS IAM role
 has access to such keys.
-
-#### AWS Credentials
-
-Requires awscli V2 installed:
-
-```bash
-# Installing latest AWS CLI
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-rm -rf awscliv2.zip aws
-```
-
-To create an AWS Profile, do
-
-```bash
-aws configure
-```
-
-and follow the instructions. Select `us-east-1` as your region, and use enter the credentials associated to
-your AWS account (ask release manager to generate a set if required).
-
-For development, the AIM User should be part of the IOTileCloudDevelper Group
 
 ### Static Files
 
