@@ -1,9 +1,6 @@
-
-
 # IOTile Cloud by Arch
 
 Project is built with Python3 using the Django Web Framework (v2+)
-Original template was based on django-aws-template (https://github.com/dkarchmer/django-aws-template)
 
 This project has the following basic features:
 
@@ -13,6 +10,22 @@ This project has the following basic features:
 * Improved user interface for forms using Django Crispy Forms
 * Search capabilities with Django Elasticserach DSL
 * Email notifications using AWS SES and Django SES
+* Custom worker scheme using AWS SQS as message queue
+* Ready for deployment using AWS Elasticsearch and AWS ECS for workers
+* Uses AWS S3 for file storage
+* Production deployment requires AWS RDS and AWS Redshift for SQL databases
+* production deployment requires AWS Elasticache and AWS Elasticseach
+* Local server uses Docker Compose, but requires AWS S3 and AWS SQS
+
+## Notes and Disclaimers
+
+The current version of this project is not exactly user friendly and relias on AWS
+ever for running a local server. With a little more work, the following changes could be
+made to remove these requirements:
+
+* Use `roribio16/alpine-sqs:latest` docker image or similar to run SQS locally
+* Switch worker infrastructure to use RabbitMQ and Celery
+* Use `minio/minio` docker image or similar to run S3 locally
 
 ## Installation
 
@@ -21,7 +34,7 @@ This project has the following basic features:
 You must have the following installed on your computer
 
 * Python 3.8 or greater
-* Docker
+* Docker and Docker Compose
 
 For MacOS, see https://gist.github.com/dkarchmer/d8124f3ae1aa498eea8f0d658be214a5
 
@@ -29,11 +42,11 @@ For MacOS, see https://gist.github.com/dkarchmer/d8124f3ae1aa498eea8f0d658be214a
 
 To set up a development environment quickly, first install Python 3. It comes with virtualenv built-in. So create a virtual env by:
 
-```
-$ python3 -m venv  ~/.virtualenv/iotile_cloud
-$ .  ~/.virtualenv/iotile_cloud/bin/activate
-$ pip install -U pip
-$ pip install -r requirements.txt
+```bash
+python3 -m venv  ~/.virtualenv/iotile_cloud
+.  ~/.virtualenv/iotile_cloud/bin/activate
+pip install -U pip
+pip install -r requirements.txt
 ```
 
 ### Secret Keys
@@ -43,8 +56,8 @@ As per security best practices, secret credentials/keys should never be stored u
 Get the proper `.local-env`, `.docker.env` and place them under `server/config/settings`.
 If you cannot get a copy, just used the `sample-*.env` files under the same directory, and modify as needed.
 
-For production, all critical secret keys are stored on AWS SSM Parameter Store, making it 
-easy to deploy to AWS without having to store secret keys on local machines. The Django 
+For production, all critical secret keys are stored on AWS SSM Parameter Store, making it
+easy to deploy to AWS without having to store secret keys on local machines. The Django
 settings file gets all these keys from the Parameter Store, assuming the AWS IAM role
 has access to such keys.
 

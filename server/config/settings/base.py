@@ -717,15 +717,15 @@ STREAM_EVENT_DATA_S3_KEY_FORMAT_V2 = '{stage}/{{path}}/{{id}}.{{ext}}'.format(st
 # SNS Topics:
 # -----------
 # SNS_STREAM_WORKER is used to send messages to the back end stream-data-worker Lambda Functions
-SNS_STREAM_WORKER = 'arn:aws:sns:us-east-1:868687213780:stream-data-worker-{stage}'.format(stage=SERVER_TYPE)
-SNS_STAFF_NOTIFICATION = 'arn:aws:sns:us-east-1:868687213780:StaffNotification'
+SNS_STREAM_WORKER = 'arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:stream-data-worker-{stage}'.format(stage=SERVER_TYPE)
+SNS_STAFF_NOTIFICATION = 'arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:StaffNotification'
 # Following SNS is used to publish to Arch's iotile-cloud Slack Channel
 # Only used for publishing information that will be useful to everybody
-SNS_ARCH_SLACK_NOTIFICATION = 'arn:aws:sns:us-east-1:868687213780:arch-slack-notifications-{stage}'.format(stage=SERVER_TYPE)
+SNS_ARCH_SLACK_NOTIFICATION = 'arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:arch-slack-notifications-{stage}'.format(stage=SERVER_TYPE)
 # SNS channel to delete record on s3
-SNS_DELETE_S3 = 'arn:aws:sns:us-east-1:868687213780:iotile--delete-s3--{stage}'.format(stage=SERVER_TYPE)
+SNS_DELETE_S3 = 'arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:iotile--delete-s3--{stage}'.format(stage=SERVER_TYPE)
 # SNS channel to trigger processing of .SXd files
-SNS_UPLOAD_SXD = 'arn:aws:sns:us-east-1:868687213780:iotile--upload-sxd--{stage}'.format(stage=SERVER_TYPE)
+SNS_UPLOAD_SXD = 'arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:iotile--upload-sxd--{stage}'.format(stage=SERVER_TYPE)
 
 # Kinesis Firehose:
 # -----------------

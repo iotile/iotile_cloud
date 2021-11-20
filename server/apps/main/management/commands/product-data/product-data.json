@@ -797,28 +797,6 @@
             "released_on": "2018-01-28"
         },
         {
-            "external_sku": "Gyarados",
-            "internal_sku": "welldone0001",
-            "family": "WellDone PODs",
-            "org": "welldone",
-            "version": "0-0-1",
-            "os_tag": 2060,
-            "os_version": "0.1",
-            "hw_tag": 8203,
-            "hw_version": "1",
-            "components": [
-                {
-                    "slug": "btc1-3-0-0",
-                    "slot": 0
-                },
-                {
-                    "slug": "gpio1-1-0-0",
-                    "slot": 1
-                }
-            ],
-            "description": "WellDone's custom POD. It contains: v3 Controller - has no RTC tile_gpio + capsense chip - use to measure water flow from hand pumps"
-        },
-        {
             "external_sku": "Generic Virtual Device",
             "internal_sku": "",
             "family": "Virtual",

@@ -65,7 +65,7 @@ django-health-check==3.12.1
     # via -r requirements/base.in
 django-multiurl==1.4.0
     # via -r requirements/base.in
-# django-pandas==0.6.5
+django-pandas==0.6.5
     # via -r requirements/base.in
 django-recaptcha==2.0.6
     # via -r requirements/base.in
@@ -130,7 +130,7 @@ markupsafe==1.1.1
     # via jinja2
 msgpack==1.0.2
     # via -r requirements/base.in
-#numpy==1.19.5
+numpy==1.19.5
     # via
     #   bokeh
     #   iotile-analytics-core
@@ -142,7 +142,7 @@ packaging==20.8
     # via
     #   bokeh
     #   drf-yasg
-#pandas==1.3.4
+pandas==1.3.4
     # via
     #   -r requirements/base.in
     #   django-pandas
@@ -197,7 +197,7 @@ requests-aws4auth==1.0.1
     # via -r requirements/base.in
 requests-oauthlib==1.3.0
     # via django-allauth
-# rest-pandas==1.1.0
+rest-pandas==1.1.0
     # via -r requirements/base.in
 ruamel.yaml==0.16.12
     # via drf-yasg

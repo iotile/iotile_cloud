@@ -28,7 +28,7 @@ services:
     restart: always
     build: ./nginx/
     ports:
-      - "9000:80"
+      - "80:80"
     volumes:
       - ./staticfiles:/www/static
     depends_on:

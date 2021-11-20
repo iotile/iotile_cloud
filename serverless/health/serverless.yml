@@ -26,20 +26,20 @@ provider:
   environment:
     dynamodb_workerlog_table_name: "iotile-worker-logs-${self:custom.stage}"
     sqs_queue_name: "iotile-worker-${self:custom.stage}"
-    sns_topic: "arn:aws:sns:us-east-1:868687213780:iotile-staff-notification-${self:custom.stage}"
+    sns_topic: "arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:iotile-staff-notification-${self:custom.stage}"
   iamRoleStatements:
     - Effect: "Allow"
       Action:
         - "sqs:*"
-      Resource: "arn:aws:sqs:us-east-1:868687213780:iotile-worker-*"
+      Resource: "arn:aws:sqs:us-east-1:xxxxxxxxxxxxxx:iotile-worker-*"
     - Effect: "Allow"
       Action:
         - "dynamodb:*"
-      Resource: "arn:aws:sqs:us-east-1:868687213780:iotile-worker-logs-${self:custom.stage}"
+      Resource: "arn:aws:sqs:us-east-1:xxxxxxxxxxxxxx:iotile-worker-logs-${self:custom.stage}"
     - Effect: "Allow"
       Action:
         - "sns:*"
-      Resource: "arn:aws:sns:us-east-1:868687213780:iotile-staff-notification-${self:custom.stage}"
+      Resource: "arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:iotile-staff-notification-${self:custom.stage}"
 
 custom:
   stage: "${opt:stage, self:provider.stage}"

@@ -216,10 +216,10 @@ class InvitationTestCase(TestMixin, TestCase):
 
     def test_disalloed_domains(self):
         adapter = InvitationAdapter()
-        email = adapter.clean_email('test@kla.com')
-        self.assertEqual(email, 'test@kla.com')
-        email = adapter.clean_email('test@sub.kla.com')
-        self.assertEqual(email, 'test@sub.kla.com')
+        email = adapter.clean_email('test@foo.com')
+        self.assertEqual(email, 'test@foo.com')
+        email = adapter.clean_email('test@sub.foo.com')
+        self.assertEqual(email, 'test@sub.foo.com')
         with self.assertRaises(ValidationError):
             adapter.clean_email('info.avalins.com')
         with self.assertRaises(ValidationError):

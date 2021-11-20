@@ -526,7 +526,7 @@ def delete_dynamodb_device_table(ctx, stage='dev'):
 
 @task
 def update_secret_key(ctx, name, value):
-    key = 'arn:aws:kms:us-east-1:868687213780:key/20cba84a-898d-4d97-a3f8-c1c68ad6dc01'
+    key = 'arn:aws:kms:us-east-1:xxxxxxxxxxxxxx:key/20cba84a-898d-4d97-a3f8-c1c68ad6dc01'
     cmd = 'aws ssm put-parameter --name {}'.format(name)
     cmd += ' --value "{}"'.format(value)
     cmd += ' --type SecureString --key-id "{}"'.format(key)

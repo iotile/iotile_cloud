@@ -25,7 +25,7 @@ provider:
   memorySize: 128
   deploymentBucket: cloud.iotile.serverless.utils
   environment:
-    sns_topic: "arn:aws:sns:us-east-1:868687213780:iotile-staff-notification-${self:custom.stage}"
+    sns_topic: "arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:iotile-staff-notification-${self:custom.stage}"
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -43,7 +43,7 @@ provider:
     - Effect: "Allow"
       Action:
         - "sns:*"
-      Resource: "arn:aws:sns:us-east-1:868687213780:iotile-staff-notification-${self:custom.stage}"
+      Resource: "arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:iotile-staff-notification-${self:custom.stage}"
 
 custom:
   stage: "${opt:stage, self:provider.stage}"

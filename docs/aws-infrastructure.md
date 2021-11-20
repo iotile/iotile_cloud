@@ -154,11 +154,6 @@ AWS Kinesis Firehose requires a bucket to be defined for all the stream data to 
 
 This is the equivalent Firehose bucket for the new TimeSeries Redshift database (currently not used).
 
-### iotile-cloud-misc
-
-Not technically used by IOTile Cloud. This bucket is used to store custom misc files used for specific custom Lambda functions. Currently:
-
-- KLA Saver Configuration Templates
 
 ## AWS Lambda Functions
 
@@ -216,8 +211,6 @@ All message based notifications are done using **AWS SNS**. We currently use the
 - **SESIssues** to get SES notifications on email delivery issues
 - **StaffNotifications** used by the Django apps as a simple way to send notifications to IOTile Cloud Staff. DevOps people need to be subscribed to this topic to receive emails.
 - **IotileCloudEBNotifications** used to get notification on ElasticBeanstalk deployment or alarms.
-- **arch-slack-notification-{stage}** to allow Django apps to send messages to Arch Slack channel. Triggers an AWS lambda function to do the actual posting.
-- **custom--kla-tencor1--{stage}** is used to trigger a special custom AWS Lambda function used to process Lanmond Saver waveform events.
 - **iotile--delete-s3--{stage}** Used to trigger an AWS Lambda function to delete an S3 file.
 - **iotile--upload-sxd--{stage}** Used to trigger an AWS Lambda function to process an uploaded SXd file.
 - **dyanmodb** Used to get notificaitons on DynamoDb issues.

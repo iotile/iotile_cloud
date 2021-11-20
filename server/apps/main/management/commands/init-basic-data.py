@@ -41,9 +41,6 @@ def _create_project_templates(admin_user, org):
 
 
 def _create_vendor_org(admin_user):
-    # Most create all external vendors as well
-    for vendor in ['WellDone']:
-        Org.objects.create_org(name=vendor, is_vendor=True, created_by=admin_user)
     # Now create Arch's vendor org
     org = Org.objects.create_org(name='Arch Systems', is_vendor=True, created_by=admin_user)
     for u in Account.objects.all():
