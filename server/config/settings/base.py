@@ -57,6 +57,7 @@ env = environ.Env(
     REDSHIFT_DB_NAME=(str, 'needdb'),
     USE_WORKER=(bool, False),
     DYNAMODB_URL=(str, None),
+    SQS_URL=(str, None),
     METRICS_CACHING_DISABLE_DEBUG_NOTIF=(bool, True)
 )
 
@@ -149,6 +150,7 @@ if not PRODUCTION:
     COMPANY_NAME += ' ({})'.format(SERVER_TYPE)
 
 DYNAMODB_URL = env('DYNAMODB_URL')
+SQS_URL = env('SQS_URL')
 
 print('PRODUCTION = {0}, SITE_NAME={1}'.format(PRODUCTION, SITE_NAME))
 
@@ -740,8 +742,12 @@ USE_DYNAMODB_WORKERLOG_DB = False
 USE_DYNAMODB_FILTERLOG_DB = False
 
 # SQS worker
-SQS_WORKER_QUEUE_NAME = 'iotile-worker-{0}'.format(os.environ['SERVER_TYPE'])
-SQS_ANALYTICS_QUEUE_NAME = 'iotile-report-{0}'.format(os.environ['SERVER_TYPE'])
+if SQS_URL:
+    SQS_WORKER_QUEUE_NAME = 'default'
+    SQS_ANALYTICS_QUEUE_NAME = 'default'
+else:
+    SQS_WORKER_QUEUE_NAME = 'iotile-worker-{0}'.format(os.environ['SERVER_TYPE'])
+    SQS_ANALYTICS_QUEUE_NAME = 'iotile-report-{0}'.format(os.environ['SERVER_TYPE'])
 
 
 # Google API Keys

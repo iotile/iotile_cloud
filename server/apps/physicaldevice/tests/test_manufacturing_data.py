@@ -1,8 +1,8 @@
 import datetime
 import json
-from unittest import mock
 
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 from rest_framework.reverse import reverse
 from rest_framework import status
@@ -443,7 +443,7 @@ class ManufacturingDataAPITestCase(TestMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         apikey = get_apikey_object_from_generated_key(self.generated_key_o2)
-        apikey.expiry_date = datetime.datetime.utcnow() - datetime.timedelta(days=1)
+        apikey.expiry_date = timezone.now() - datetime.timedelta(days=1)
         apikey.save()
 
         response = self.client.get(url, **auth_headers)
@@ -451,10 +451,10 @@ class ManufacturingDataAPITestCase(TestMixin, APITestCase):
 
     def test_create_virtual_serializer(self):
         sg_avail = SensorGraph.objects.create(
-            name='Connector ASM OIB', major_version=1,
+            name='forwarder-generic', major_version=1,
             created_by=self.u1, org=self.o2
         )
-        self.assertEqual(sg_avail.slug, "connector-asm-oib-v1-0-0")
+        self.assertEqual(sg_avail.slug, "forwarder-generic-v1-0-0")
         sg_unavail = SensorGraph.objects.create(
             name='Development', major_version=1,
             created_by=self.u1, org=self.o2
@@ -479,7 +479,7 @@ class ManufacturingDataAPITestCase(TestMixin, APITestCase):
     def test_create_virtual_device(self):
         url = reverse('manufacturingdata-create-virtual')
         sg_avail = SensorGraph.objects.create(
-            name='Connector ASM OIB', major_version=1,
+            name='forwarder-generic', major_version=1,
             created_by=self.u1, org=self.o2
         )
         auth_headers = {

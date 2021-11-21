@@ -18,6 +18,14 @@ services:
   dynamodb:
     image: peopleperhour/dynamodb
 
+  sqs:
+    image: roribio16/alpine-sqs:latest
+    ports:
+      - "9324:9324"
+      - "9325:9325"
+    stdin_open: true
+    tty: true
+
   es:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.9.0
     environment:
@@ -49,6 +57,7 @@ services:
       - db2
       - redis1
       - dynamodb
+      - sqs
       - es
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings.docker
@@ -64,6 +73,7 @@ services:
       - REDIS_PORT=6379
       - USE_WORKER=True
       - DYNAMODB_URL=http://dynamodb@dynamodb:8000/dynamodb
+      - SQS_URL=http://sqs:9324
       - TWILIO_FROM_NUMBER=+14432724468
       - TWILIO_ACCOUNT_SID=twilio-dummy
       - TWILIO_AUTH_TOKEN=twilio-dummy
@@ -81,6 +91,7 @@ services:
       - db2
       - redis1
       - dynamodb
+      - sqs
       - es
     environment:
       - USE_WORKER=True
@@ -96,6 +107,7 @@ services:
       - REDIS_HOSTNAME=redis1
       - REDIS_PORT=6379
       - DYNAMODB_URL=http://dynamodb@dynamodb:8000/dynamodb
+      - SQS_URL=http://sqs:9324
       - TWILIO_FROM_NUMBER=+14432724468
       - TWILIO_ACCOUNT_SID=twilio-dummy
       - TWILIO_AUTH_TOKEN=twilio-dummy

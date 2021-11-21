@@ -218,7 +218,7 @@ class Worker(object):
                         if task:
                             self.process_task(action=action, task=task, message=message)
                 else:
-                    logger.debug('Nothing in SQS queue, worker goes to sleep at {}'.format(timezone.now()))
+                    logger.info('Nothing in SQS queue, worker goes to sleep at {}'.format(timezone.now()))
                     time.sleep(self.wait_time)
             except KeyboardInterrupt as e:
                 self.stop()

@@ -2,12 +2,27 @@ import boto3
 import logging
 import json
 
+from django.conf import settings
+
 from .common import AWS_REGION
 
 logger = logging.getLogger(__name__)
-sqs = boto3.resource('sqs', region_name=AWS_REGION)
-sqs_client = boto3.client('sqs', region_name=AWS_REGION)
 
+if settings.SQS_URL:
+    print(f'Using {settings.SQS_URL=}')
+    sqs = boto3.resource('sqs',
+                         region_name=AWS_REGION,
+                         aws_access_key_id=None,
+                         aws_secret_access_key=None,
+                         endpoint_url=settings.SQS_URL)
+    sqs_client = boto3.client('sqs',
+                              region_name=AWS_REGION,
+                              aws_access_key_id=None,
+                              aws_secret_access_key=None,
+                              endpoint_url=settings.SQS_URL)
+else:
+    sqs = boto3.resource('sqs', region_name=AWS_REGION)
+    sqs_client = boto3.client('sqs', region_name=AWS_REGION)
 
 def get_queue_by_name(queue_name):
     """
