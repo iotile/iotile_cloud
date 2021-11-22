@@ -11,10 +11,13 @@ This project has the following basic features:
 * Search capabilities with Django Elasticserach DSL
 * Email notifications using AWS SES and Django SES
 * Custom worker scheme using AWS SQS as message queue
+  * Uses s12v/elasticmq when running locally
 * Ready for deployment using AWS Elasticsearch and AWS ECS for workers
 * Uses AWS S3 for file storage
 * Production deployment requires AWS RDS and AWS Redshift for SQL databases
 * production deployment requires AWS Elasticache and AWS Elasticseach
+* Uses DynamoDB for logging
+  * Uses peopleperhour/dynamodb when running locally
 * Local server uses Docker Compose, but requires AWS S3 and AWS SQS
 
 ## Notes and Disclaimers
@@ -23,7 +26,6 @@ The current version of this project is not exactly user friendly and relias on A
 ever for running a local server. With a little more work, the following changes could be
 made to remove these requirements:
 
-* Use `roribio16/alpine-sqs:latest` docker image or similar to run SQS locally
 * Switch worker infrastructure to use RabbitMQ and Celery
 * Use `minio/minio` docker image or similar to run S3 locally
 
