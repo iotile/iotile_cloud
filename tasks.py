@@ -56,7 +56,7 @@ CACHE_CONFIG = {
     'REDIS_INSTANCE_TYPE': 'cache.t2.small',
     'REDIS_VERSION': '2.8.24',
     'REDIS_PORT': 6379,
-    'NOTIFICATION': 'arn:aws:sns:us-east-1:{0}:StratoEBNotifications'.format(AWS_ACCOUNT)
+    'NOTIFICATION': 'arn:aws:sns:us-east-1:{0}:IOTileCloudEBNotifications'.format(AWS_ACCOUNT)
 
 }
 

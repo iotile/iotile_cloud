@@ -19,12 +19,12 @@ services:
     image: peopleperhour/dynamodb
 
   sqs:
-    image: roribio16/alpine-sqs:latest
+    image: s12v/elasticmq
+    restart: always
     ports:
       - "9324:9324"
-      - "9325:9325"
-    stdin_open: true
-    tty: true
+    volumes:
+      - ./sqs_local:/etc/elasticmq
 
   es:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.9.0

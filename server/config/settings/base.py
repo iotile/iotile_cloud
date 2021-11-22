@@ -1,5 +1,5 @@
 """
-Django settings for Strato project.
+Django settings for IOTile Cloud project.
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see

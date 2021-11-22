@@ -258,7 +258,7 @@ The iotile.cloud domain SSL certificate was manually created and is managed by *
 
 ### AIM Policies
 
-- **IOTileDevPolicy** is used by Strato developers to develop on their local machines/docker
+- **IOTileDevPolicy** is used by iotile_cloud developers to develop on their local machines/docker
 - **iotileProductionPolicy** defines most of the production permissions
 - **IotileCloudProductionCredentialsPolicy** gives permissions to the EC2 Parameter Store
 - **iotile-streamer-upload-{stage}** is used to give upload only permission to the iotile-streamer-dropbox s3 bucket.
