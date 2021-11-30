@@ -1,22 +1,22 @@
 import json
-from pprint import pprint
 from datetime import timedelta
-from django.utils import timezone, dateparse
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
+from pprint import pprint
 
-from apps.project.models import Project
+from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
+from django.utils import dateparse, timezone
+
 from apps.physicaldevice.models import Device
-from apps.utils.test_util import TestMixin
-from apps.vartype.models import *
+from apps.project.models import Project
 from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
-
+from apps.utils.test_util import TestMixin
 from apps.utils.utest.devices import ThreeWaterMetersDeviceMocks
+from apps.vartype.models import *
 
+from ..generator.default.generator import DefaultReportGenerator, ReportColumn
 from ..models import *
 from ..worker.report_generator import *
-from ..generator.default.generator import DefaultReportGenerator, ReportColumn
 
 user_model = get_user_model()
 

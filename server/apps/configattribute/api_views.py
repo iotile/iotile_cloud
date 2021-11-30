@@ -4,6 +4,7 @@ import pprint
 
 from django.db.utils import IntegrityError
 from django.utils import timezone
+
 from drf_yasg import openapi
 from drf_yasg.utils import no_body, swagger_auto_schema
 from rest_framework import status, viewsets
@@ -13,7 +14,7 @@ from rest_framework.response import Response
 
 from apps.physicaldevice.models import Device
 from apps.streamnote.models import StreamNote
-from apps.utils.rest.exceptions import ApiIllegalPkException, ApiIllegalFilterOrTargetException
+from apps.utils.rest.exceptions import ApiIllegalFilterOrTargetException, ApiIllegalPkException
 from apps.utils.rest.permissions import IsStaffOrReadOnly
 
 from .filters import *

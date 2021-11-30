@@ -1,21 +1,21 @@
-import logging
 import json
+import logging
 
 from django.conf import settings
-from django.views.generic import TemplateView, FormView
-from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.generic import FormView, TemplateView
 
 from apps.staff.views import StaffRequiredMixin
 
-from .workerhelper import str_to_class
-from .stats import WorkerStats
-from .forms import *
-from .dynamodb import DynamoWorkerLogModel
-from .tracker import WorkerUUID
 from .common import ACTION_CLASS_MODULE
+from .dynamodb import DynamoWorkerLogModel
+from .forms import *
 from .models import WorkerStatistics
+from .stats import WorkerStats
+from .tracker import WorkerUUID
+from .workerhelper import str_to_class
 
 
 class WorkerStatusView(StaffRequiredMixin, TemplateView):

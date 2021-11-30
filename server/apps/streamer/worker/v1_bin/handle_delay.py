@@ -1,15 +1,17 @@
 import logging
-import pytz
 from datetime import timedelta
+
+import pytz
+
 from django.conf import settings
 
-from apps.utils.aws.redshift import get_ts_from_redshift
-from apps.utils.iotile.variable import SYSTEM_VID
-from apps.sqsworker.action import Action
-from apps.project.models import Project
-from apps.sqsworker.exceptions import WorkerActionHardError
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.sqsworker.action import Action
+from apps.sqsworker.exceptions import WorkerActionHardError
+from apps.utils.aws.redshift import get_ts_from_redshift
 from apps.utils.data_helpers.manager import DataManager
+from apps.utils.iotile.variable import SYSTEM_VID
 
 from .handle_reboot import HandleRebootAction
 

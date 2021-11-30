@@ -1,12 +1,14 @@
-from apps.physicaldevice.models import Device
-from apps.project.models import Project
-from apps.utils.test_util import TestMixin
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
+
 from rest_framework import status
 
-from ..models import Org, OrgMembership, OrgDomain
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.utils.test_util import TestMixin
+
+from ..models import Org, OrgDomain, OrgMembership
 from ..roles import ORG_ROLE_PERMISSIONS
 
 user_model = get_user_model()

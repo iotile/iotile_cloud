@@ -1,13 +1,14 @@
 import json
-from django.views.generic import UpdateView
+
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.utils.translation import gettext_lazy as _
-from django.contrib import messages
+from django.views.generic import UpdateView
 
 from apps.utils.views.basic import LoginRequiredAccessMixin
 
-from .models import ConfigAttribute
 from .forms import ConfigAttributeForm
+from .models import ConfigAttribute
 
 
 class ConfigAttributeEditView(LoginRequiredAccessMixin, UpdateView):

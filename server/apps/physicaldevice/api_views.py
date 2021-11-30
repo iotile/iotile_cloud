@@ -1,13 +1,13 @@
-import django_filters
 from django.core.exceptions import PermissionDenied
 
+import django_filters
 from drf_yasg.utils import swagger_auto_schema
-from iotile_cloud.utils.gid import IOTileProjectSlug
-from rest_framework import status
-from rest_framework import viewsets
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
+
+from iotile_cloud.utils.gid import IOTileProjectSlug
 
 from apps.deviceauth.authentication import DEVICE_TOKEN_AUTH_HEADER_PREFIX, encode_device_ajwt_key
 from apps.deviceauth.models import DeviceKey
@@ -24,9 +24,10 @@ from apps.utils.data_mask.serializers import DeviceDataMaskSerializer
 from apps.utils.rest.pagination import LargeResultsSetPagination
 from apps.utils.rest.permissions import HasAuthAPIKey, ReadOnly
 from apps.utils.uuid_utils import validate_uuid
+
 from .claim_utils import device_claim
 from .serializers import *
-from .tasks import send_device_action_notification, schedule_reset
+from .tasks import schedule_reset, send_device_action_notification
 from .worker.device_data_trim import DeviceDataTrimAction
 from .worker.device_unclaim import DeviceUnClaimAction
 

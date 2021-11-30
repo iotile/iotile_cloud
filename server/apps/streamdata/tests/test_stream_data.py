@@ -1,36 +1,35 @@
-import json
 import csv
 import datetime
-import dateutil.parser
-from unittest import mock
+import json
 from io import StringIO
-from django.contrib.auth import get_user_model
-from django.utils import timezone
-from django.core.cache import cache
+from unittest import mock
 
-from rest_framework.reverse import reverse
+import dateutil.parser
+
+from django.contrib.auth import get_user_model
+from django.core.cache import cache
+from django.utils import timezone
+
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.utils.test_util import TestMixin
-from apps.utils.utest.utils.alias_utils import TestStreamAliasHelper
-
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamalias.models import StreamAlias, StreamAliasTap
 from apps.physicaldevice.models import Device
+from apps.stream.helpers import StreamDataDisplayHelper, StreamDataQueryHelper
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamalias.models import StreamAlias, StreamAliasTap
+from apps.streamfilter.models import State, StateTransition, StreamFilter, StreamFilterAction, StreamFilterTrigger
 from apps.utils.data_mask.mask_utils import set_data_mask
-from apps.streamfilter.models import (
-    StreamFilterAction, StreamFilterTrigger, StreamFilter, State, StateTransition
-)
-from apps.stream.helpers import StreamDataQueryHelper, StreamDataDisplayHelper
-from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit
 from apps.utils.mdo.helpers import MdoHelper
+from apps.utils.test_util import TestMixin
 from apps.utils.timezone_utils import str_utc
+from apps.utils.utest.utils.alias_utils import TestStreamAliasHelper
+from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit
 
+from ..helpers import StreamDataBuilderHelper
 from ..models import *
 from ..serializers import StreamDataSerializer
-from ..helpers import StreamDataBuilderHelper
-from ..utils import get_stream_input_mdo, get_stream_output_mdo, get_stream_mdo
+from ..utils import get_stream_input_mdo, get_stream_mdo, get_stream_output_mdo
 
 user_model = get_user_model()
 

@@ -1,19 +1,19 @@
 import datetime
 
-from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.core import mail
 from django.forms import ValidationError
+from django.test import TestCase
 from django.utils import timezone
 
-from rest_framework import status
 from allauth.account.models import EmailAddress
+from rest_framework import status
 
 from apps.org.models import *
 from apps.utils.test_util import TestMixin
 
-from .models import *
 from .adapter import InvitationAdapter
+from .models import *
 
 user_model = get_user_model()
 

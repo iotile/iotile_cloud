@@ -15,7 +15,9 @@ from apps.utils.timezone_utils import str_utc
 from apps.utils.views.basic import LoginRequiredAccessMixin
 
 from .forms import *
-from .mixins import StreamIdAccessMixin, StreamIdWriteAccessMixin, StreamVariableAccessMixin, StreamVariableWriteAccessMixin
+from .mixins import (
+    StreamIdAccessMixin, StreamIdWriteAccessMixin, StreamVariableAccessMixin, StreamVariableWriteAccessMixin,
+)
 from .models import *
 
 logger = logging.getLogger(__name__)

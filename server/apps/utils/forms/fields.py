@@ -1,4 +1,5 @@
 import json
+
 from django.forms import JSONField
 from django.forms.fields import InvalidJSONInput
 

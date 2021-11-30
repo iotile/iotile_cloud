@@ -1,26 +1,27 @@
-import json
 import datetime
-import dateutil.parser
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
-from django.utils import timezone, dateparse
+import json
 
-from rest_framework.reverse import reverse
+import dateutil.parser
+
+from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
+from django.utils import dateparse, timezone
+from django.utils.dateparse import parse_datetime
+
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
 from apps.physicaldevice.models import Device
 from apps.projecttemplate.models import ProjectTemplate
-from apps.vartype.models import *
-from apps.utils.test_util import TestMixin
-from apps.utils.gid.convert import *
-from apps.utils.timezone_utils import str_utc
 from apps.streamdata.models import StreamData
-from django.utils.dateparse import parse_datetime
+from apps.utils.gid.convert import *
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import str_utc
+from apps.vartype.models import *
 
-
-from ..models import *
 from ..helpers import *
+from ..models import *
 
 user_model = get_user_model()
 

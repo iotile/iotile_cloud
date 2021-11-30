@@ -1,19 +1,18 @@
-from django.views.generic import CreateView, TemplateView
-from django.http import Http404
-from django.utils.translation import gettext_lazy as _
-from django.http import HttpResponseRedirect
-from django.utils import timezone
-from django.shortcuts import get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
+from django.utils import timezone
+from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, TemplateView
 
-from apps.s3file.views import S3FileUploadSuccessEndpointView, S3FileUploadView, S3FileUploadSignView
-from apps.utils.objects.view_mixins import ByTargetAccessMixin
-from apps.project.models import Project
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.s3file.views import S3FileUploadSignView, S3FileUploadSuccessEndpointView, S3FileUploadView
+from apps.utils.objects.view_mixins import ByTargetAccessMixin
 
 from .forms import StreamNoteForm
 from .models import StreamNote

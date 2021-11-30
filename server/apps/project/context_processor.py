@@ -1,7 +1,9 @@
 from django.conf import settings
 
 from apps.devicetemplate.models import DeviceTemplate
+
 from .models import Project
+
 
 def active_org(request):
     project = None

@@ -1,10 +1,12 @@
-import django_filters
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
+
+import django_filters
 
 from apps.utils.objects.utils import get_object_by_slug
 
 from .models import *
+
 
 class DeploymentRequestFilter(django_filters.rest_framework.FilterSet):
     fleet = django_filters.CharFilter(method='filter_by_fleet')

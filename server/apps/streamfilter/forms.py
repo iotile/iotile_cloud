@@ -1,16 +1,19 @@
 import json
+
 from django import forms
-from django.forms import ModelForm
-from django.utils.translation import gettext_lazy as _
-from django.contrib.postgres.forms import SimpleArrayField
 from django.conf import settings
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div
-from apps.stream.models import StreamVariable, StreamId
-from apps.project.models import Project
-from apps.physicaldevice.models import Device
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
+from django.forms import ModelForm
+from django.utils.translation import gettext_lazy as _
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, ButtonHolder, Div, Field, Layout, Submit
+
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.stream.models import StreamId, StreamVariable
+
 from .models import *
 
 

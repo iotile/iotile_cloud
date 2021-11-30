@@ -1,10 +1,11 @@
 import uuid
-from django.db import models
+
 from django.conf import settings
+from django.db import models
+from django.db.models import Manager
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.db.models import Manager
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 

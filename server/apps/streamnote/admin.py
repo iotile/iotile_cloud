@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import StreamNote
 
+
 class StreamNoteAdmin(admin.ModelAdmin):
     list_display = ('id', 'target_slug', 'timestamp', 'type', 'created_by')
     search_fields = ['target_slug', ]

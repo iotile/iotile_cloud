@@ -3,17 +3,17 @@ from django.shortcuts import get_object_or_404
 
 from rest_framework import serializers
 
-from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileBlockSlug
+from iotile_cloud.utils.gid import IOTileBlockSlug, IOTileDeviceSlug
 
-from apps.physicaldevice.models import Device
-from apps.utils.rest.exceptions import ApiIllegalSlugException
-from apps.s3file.serializers import S3FileSerializer, S3FileUploadUrlSerializer
 from apps.org.models import Org
+from apps.physicaldevice.models import Device
+from apps.s3file.serializers import S3FileSerializer, S3FileUploadUrlSerializer
 from apps.utils.objects.utils import get_object_by_slug
+from apps.utils.rest.exceptions import ApiIllegalSlugException
 from apps.verticals.utils import get_analytics_report_availability_vertical_helper
 
-from .models import GeneratedUserReport
 from .generator.analytics.choices import template_choices
+from .models import GeneratedUserReport
 
 
 class DeviceSummaryReportSerializer(serializers.Serializer):

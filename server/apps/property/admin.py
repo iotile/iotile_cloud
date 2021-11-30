@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import *
 
+
 class GenericPropertyAdmin(admin.ModelAdmin):
     list_display = ('id', 'target', 'name', 'str_value', 'is_system', )
     exclude = ['created_by',]

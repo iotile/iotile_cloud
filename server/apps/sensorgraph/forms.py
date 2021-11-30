@@ -1,10 +1,11 @@
 import json
 import logging
+
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Div, HTML
+from crispy_forms.layout import HTML, Div, Layout, Submit
 
 from apps.utils.aws.s3 import download_text_as_object, upload_text_from_object
 from apps.utils.codemirror.widgets import JsonEditor, SgfEditor

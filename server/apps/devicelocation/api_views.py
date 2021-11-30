@@ -1,30 +1,27 @@
 import logging
 
 from django.conf import settings
-from django.core.exceptions import PermissionDenied
 from django.contrib.auth import get_user_model
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
 import django_filters
-from rest_framework import viewsets
-from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework import filters
-from rest_framework import exceptions as drf_exceptions
-
 from drf_yasg import openapi
 from drf_yasg.utils import no_body, swagger_auto_schema
+from rest_framework import exceptions as drf_exceptions
+from rest_framework import filters, status, viewsets
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
-from apps.utils.rest.pagination import LargeResultsSetPagination
-from apps.utils.timezone_utils import str_to_dt_utc
 from apps.utils.data_mask.mask_utils import get_data_mask_date_range_for_slug
 from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.rest.pagination import LargeResultsSetPagination
+from apps.utils.timezone_utils import str_to_dt_utc
 
-from .serializers import *
-from .models import *
 from .filters import DeviceLocationFilter
+from .models import *
+from .serializers import *
 
 user_model = get_user_model()
 

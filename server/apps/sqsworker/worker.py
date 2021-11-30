@@ -1,17 +1,20 @@
-import logging
 import datetime
+import logging
+
 from django.conf import settings
-from apps.sqsworker.action import Action
-from apps.utils.aws.sns import sns_staff_notification
-from django.utils import timezone
 from django.core.cache import cache
+from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 
-from .exceptions import WorkerActionHardError, HaltAndCatchFire
-from .tracker import WorkerUUID
-from .dynamodb import DynamoWorkerLogModel
+from apps.sqsworker.action import Action
+from apps.utils.aws.sns import sns_staff_notification
+
 from .common import ACTION_LIST
+from .dynamodb import DynamoWorkerLogModel
+from .exceptions import HaltAndCatchFire, WorkerActionHardError
 from .models import WorkerStatistics
+from .tracker import WorkerUUID
+
 logger = logging.getLogger(__name__)
 
 WORKER_LAST_PIN_DT = 'sqs-worker-last-ping'

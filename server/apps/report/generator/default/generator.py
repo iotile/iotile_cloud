@@ -1,9 +1,11 @@
 from pprint import pprint
-from django.db.models import Sum, Max, Min
+
+from django.db.models import Max, Min, Sum
+
+from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileVariableSlug
 
 from apps.utils.mdo.helpers import MdoHelper
 from apps.vartype.models import VarTypeOutputUnit
-from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileVariableSlug
 
 from ..base import ReportGenerator
 

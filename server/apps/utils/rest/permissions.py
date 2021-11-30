@@ -1,7 +1,8 @@
 __author__ = 'dkarchmer'
 
-from rest_framework import permissions
 from rest_framework_api_key.permissions import BaseHasAPIKey
+
+from rest_framework import permissions
 
 from apps.org.models import AuthAPIKey
 from apps.utils.api_key_utils import get_apikey_object_from_generated_key

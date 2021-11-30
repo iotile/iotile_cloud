@@ -1,17 +1,15 @@
-from django.db import models
 from django.conf import settings
-from django.utils.translation import gettext_lazy as _
-from django.urls import reverse
+from django.core.exceptions import ValidationError
+from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.core.exceptions import ValidationError
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
-from apps.utils.gid.convert import int2did
-from apps.physicaldevice.models import Device
 from apps.org.models import Org, OrgMembership
-from apps.utils.gid.convert import formatted_fleet_id, int2fleet_id
-
+from apps.physicaldevice.models import Device
 from apps.sensorgraph.models import SensorGraph
+from apps.utils.gid.convert import formatted_fleet_id, int2did, int2fleet_id
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 

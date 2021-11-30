@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class ProjectTemplateAdmin(admin.ModelAdmin):
     list_display = ('slug', 'name', 'org', 'version', 'active', )

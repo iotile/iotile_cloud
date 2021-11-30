@@ -1,35 +1,31 @@
 import logging
+
 from django.shortcuts import get_object_or_404
 
-from rest_framework.views import APIView
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework import exceptions as drf_exceptions
+from rest_framework import mixins, permissions, status, viewsets
+from rest_framework.decorators import action
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework import permissions
-from rest_framework import viewsets
-from rest_framework.decorators import action
-from rest_framework import exceptions as drf_exceptions
-from rest_framework import mixins
+from rest_framework.views import APIView
 
-from drf_yasg.utils import swagger_auto_schema
+from iotile_cloud.utils.gid import IOTileBlockSlug, IOTileDeviceSlug, IOTileStreamSlug
 
-from apps.project.models import Project
-
-from apps.org.models import Org
-from apps.physicaldevice.models import Device
 from apps.datablock.models import DataBlock
-from apps.physicaldevice.serializers import DeviceSerializer
-from apps.utils.rest.renderers import BrowsableAPIRendererWithoutForms
+from apps.org.models import Org
 from apps.org.permissions import IsMemberOnly
-from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileStreamSlug, IOTileBlockSlug
+from apps.physicaldevice.models import Device
+from apps.physicaldevice.serializers import DeviceSerializer
+from apps.project.models import Project
+from apps.utils.rest.renderers import BrowsableAPIRendererWithoutForms
 
-from .utils.trip import set_device_to_active, schedule_trip_archive
-from .utils.renderer import OrgQualityCSVRenderer
 from .serializers import (
-    TripSummaryReportSerializer, TripOrgQualityReportSerializer,
-    TripArchiveSerializer, ShippingTripSetupSerializer,
-    ShippingArchivedTripInfoSerializer, ShippingTripInfoSerializer,
+    ShippingArchivedTripInfoSerializer, ShippingTripInfoSerializer, ShippingTripSetupSerializer, TripArchiveSerializer,
+    TripOrgQualityReportSerializer, TripSummaryReportSerializer,
 )
+from .utils.renderer import OrgQualityCSVRenderer
+from .utils.trip import schedule_trip_archive, set_device_to_active
 
 logger = logging.getLogger(__name__)
 

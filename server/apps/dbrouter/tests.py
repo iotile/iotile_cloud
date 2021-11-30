@@ -5,19 +5,18 @@ from unittest import TestCase
 # DB1
 from apps.authentication.models import Account
 from apps.org.models import Org, OrgMembership
-from apps.project.models import Project
 from apps.physicaldevice.models import Device
-from apps.stream.models import StreamId, StreamVariable, StreamSystemVariable
-from apps.streamer.models import Streamer, StreamerReport
-from apps.streamfilter.models import StreamFilter, StreamFilterAction, StreamFilterTrigger
-
+from apps.project.models import Project
+from apps.stream.models import StreamId, StreamSystemVariable, StreamVariable
 # DB2
 from apps.streamdata.models import StreamData
+from apps.streamer.models import Streamer, StreamerReport
 from apps.streamevent.models import StreamEventData
+from apps.streamfilter.models import StreamFilter, StreamFilterAction, StreamFilterTrigger
 
 from .default import DefaultRouter
-from .streamdata import StreamDataRouter
 from .router_config import REDSHIFT_APPs
+from .streamdata import StreamDataRouter
 
 
 class DbRouteTestCase(TestCase):

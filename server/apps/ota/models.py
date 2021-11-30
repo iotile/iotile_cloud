@@ -1,16 +1,15 @@
-from django.db import models
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
+from django.db import models
+from django.db.models import Manager, Q
+from django.urls import reverse
 from django.utils import timezone
-from django.db.models import Manager
-from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
 
-from apps.physicaldevice.models import Device
 from apps.devicescript.models import DeviceScript
 from apps.fleet.models import Fleet
 from apps.org.models import Org
+from apps.physicaldevice.models import Device
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 

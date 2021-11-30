@@ -1,19 +1,20 @@
 import datetime
 import time
+
+from django.contrib.auth import get_user_model
+from django.contrib.messages import get_messages
 from django.test import TestCase
 from django.urls import reverse
-from django.contrib.auth import get_user_model
 from django.utils import timezone
-from django.contrib.messages import get_messages
 
 from rest_framework import status
 
-from apps.utils.test_util import TestMixin
-from apps.physicaldevice.models import Device
 from apps.devicetemplate.models import DeviceTemplate
-from apps.projecttemplate.models import ProjectTemplate
-from apps.project.models import Project
 from apps.org.models import Org
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.projecttemplate.models import ProjectTemplate
+from apps.utils.test_util import TestMixin
 
 user_model = get_user_model()
 

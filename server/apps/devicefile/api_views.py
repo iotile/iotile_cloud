@@ -5,17 +5,14 @@ import uuid
 from django.core.exceptions import PermissionDenied
 
 import django_filters
-
-from rest_framework import viewsets
+from drf_yasg.utils import no_body, swagger_auto_schema
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework import status
 
-from drf_yasg.utils import no_body, swagger_auto_schema
-
-from apps.utils.rest.permissions import IsStaffOrReadOnly
-from apps.s3file.serializers import S3FileUploadUrlSerializer, S3FileSuccessUrlSerializer, S3FileSerializer
+from apps.s3file.serializers import S3FileSerializer, S3FileSuccessUrlSerializer, S3FileUploadUrlSerializer
 from apps.s3file.utils import get_s3file_post_url
+from apps.utils.rest.permissions import IsStaffOrReadOnly
 
 from .models import *
 from .serializers import *

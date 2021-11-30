@@ -1,29 +1,30 @@
 import json
 import os
+from unittest import mock, skipIf
+
 import dateutil.parser
-from unittest import skipIf, mock
 
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.core.cache import cache
+from django.test import Client, TestCase
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
+from apps.configattribute.models import ConfigAttribute
 from apps.physicaldevice.models import Device
 from apps.sensorgraph.models import SensorGraph
-from apps.utils.timezone_utils import *
-from apps.utils.iotile.streamer import STREAMER_SELECTOR
-from apps.utils.dynamic_loading import str_to_class
-from apps.configattribute.models import ConfigAttribute
 from apps.sqsworker.tests import QueueTestMock
 from apps.sqsworker.workerhelper import Worker
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
 from apps.streamer.models import Streamer, StreamerReport
+from apps.utils.dynamic_loading import str_to_class
+from apps.utils.iotile.streamer import STREAMER_SELECTOR
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
 
 from ...common.test_utils import sqs_process_report_payload
 

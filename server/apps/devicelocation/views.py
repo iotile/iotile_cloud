@@ -1,8 +1,9 @@
 from django.conf import settings
-from django.views.generic import TemplateView
 from django.core.exceptions import PermissionDenied
+from django.views.generic import TemplateView
 
 from apps.utils.objects.view_mixins import ByTargetAccessMixin
+
 from .models import DeviceLocation
 
 

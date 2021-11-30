@@ -1,4 +1,5 @@
 import logging
+
 from django import template
 
 from apps.streamnote.models import StreamNote

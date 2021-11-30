@@ -1,10 +1,12 @@
-import time
 import logging
+import time
+
 from rest_framework import serializers
 
-from .models import *
 from apps.stream.helpers import StreamDataDisplayHelper
 from apps.utils.timezone_utils import str_utc
+
+from .models import *
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)

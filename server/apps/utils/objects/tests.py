@@ -1,13 +1,13 @@
 from django.test import TestCase
 
-from apps.physicaldevice.models import Device
 from apps.datablock.models import DataBlock
-from apps.stream.models import StreamId, StreamVariable
 from apps.fleet.models import Fleet
+from apps.physicaldevice.models import Device
+from apps.stream.models import StreamId, StreamVariable
 
 from ..test_util import TestMixin
-from .utils import _get_real_slug
 from .utils import *
+from .utils import _get_real_slug
 
 
 class ObjectBySlugTests(TestMixin, TestCase):

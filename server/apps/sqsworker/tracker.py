@@ -1,5 +1,5 @@
-import uuid
 import logging
+import uuid
 
 from django.core.cache import cache
 

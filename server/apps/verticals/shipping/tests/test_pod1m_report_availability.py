@@ -1,21 +1,22 @@
 import json
+
 from django.contrib.auth import get_user_model
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
+from apps.datablock.models import DataBlock
+from apps.datablock.worker.archive_device_data import ArchiveDeviceDataAction
+from apps.org.models import Org
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.report.models import GeneratedUserReport
+from apps.streamdata.models import StreamData
+from apps.streamevent.models import StreamEventData
+from apps.utils.data_mask.mask_utils import set_data_mask
 from apps.utils.test_util import TestMixin
 from apps.utils.utest.devices import TripDeviceMock
-from apps.project.models import Project
-from apps.org.models import Org
-from apps.streamevent.models import StreamEventData
-from apps.streamdata.models import StreamData
-from apps.physicaldevice.models import Device
-from apps.datablock.models import DataBlock
-from apps.utils.data_mask.mask_utils import set_data_mask
-from apps.report.models import GeneratedUserReport
-from apps.datablock.worker.archive_device_data import ArchiveDeviceDataAction
 
 user_model = get_user_model()
 

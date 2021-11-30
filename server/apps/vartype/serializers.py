@@ -5,7 +5,7 @@ from django.core.cache import cache
 
 from rest_framework import serializers
 
-from .models import VarType, VarTypeInputUnit, VarTypeOutputUnit, VarTypeDecoder, VarTypeSchema
+from .models import VarType, VarTypeDecoder, VarTypeInputUnit, VarTypeOutputUnit, VarTypeSchema
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)

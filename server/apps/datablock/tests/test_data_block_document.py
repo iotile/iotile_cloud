@@ -1,18 +1,19 @@
-import json
 import datetime
+import json
+
 import dateutil.parser
-from django.test import TestCase, Client
+from elasticsearch_dsl import Q
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 
 from rest_framework import status
 
-from apps.utils.test_util import TestMixin
 from apps.streamfilter.models import *
+from apps.utils.test_util import TestMixin
 
-from ..models import *
 from ..documents import *
-
-from elasticsearch_dsl import Q
+from ..models import *
 
 user_model = get_user_model()
 

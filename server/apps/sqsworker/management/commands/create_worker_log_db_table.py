@@ -1,9 +1,11 @@
 import logging
 import sys
-from django.core.management.base import BaseCommand
+
 from django.conf import settings
+from django.core.management.base import BaseCommand
 
 from apps.sqsworker.dynamodb import DynamoWorkerLogModel, create_worker_log_table_if_needed
+
 logger = logging.getLogger(__name__)
 
 

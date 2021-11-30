@@ -4,8 +4,8 @@ import uuid
 
 from django.conf import settings
 
-from apps.emailutil.utils import EmailRecipientHelper
 from apps.emailutil.tasks import Email
+from apps.emailutil.utils import EmailRecipientHelper
 
 from ..action import BaseAction
 

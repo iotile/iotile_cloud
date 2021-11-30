@@ -1,51 +1,46 @@
 # Modules needed to execute back-end jobs requested by server
-import logging
 import csv
-import pytz
+import logging
 from datetime import datetime, timedelta
-from django.utils.timezone import localtime
-from django.db.models import Q
+
+import pytz
 
 from django.conf import settings
-from django.core.exceptions import PermissionDenied, ValidationError
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
-from django.http import HttpResponse
-from django.utils import timezone
+from django.core.exceptions import PermissionDenied, ValidationError
 from django.core.paginator import Paginator
 from django.db.models import Q
-
-from drf_yasg import openapi
-from drf_yasg.utils import swagger_auto_schema
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from django.utils import timezone
+from django.utils.timezone import localtime
 
 import django_filters
-from django_filters.rest_framework import FilterSet, DjangoFilterBackend
-
-from apps.utils.rest.custom_serializers import MultiSerializerViewSetMixin
-from rest_framework.views import APIView
-from rest_framework import viewsets
-from rest_framework import mixins, generics
-from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from django_filters.rest_framework import DjangoFilterBackend, FilterSet
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework import filters, generics, mixins, status, viewsets
 from rest_framework.decorators import action
-from rest_framework.response import Response
 from rest_framework.exceptions import NotFound
-from rest_framework import filters
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from iotile_cloud.utils.gid import IOTileProjectSlug
 
-from apps.utils.gid.convert import formatted_gvid, formatted_gsid, get_device_and_block_by_did
-from apps.utils.rest.pagination import SuperLargeResultsSetPagination, LargeResultsSetPagination
-from apps.utils.uuid_utils import validate_uuid
 from apps.project.models import Project
 from apps.streamdata.serializers import StreamIdDataSerializer
-from apps.streamevent.serializers import StreamIdEventDataSerializer
 from apps.streamdata.utils import get_stream_output_mdo
+from apps.streamevent.serializers import StreamIdEventDataSerializer
+from apps.utils.gid.convert import formatted_gsid, formatted_gvid, get_device_and_block_by_did
+from apps.utils.rest.custom_serializers import MultiSerializerViewSetMixin
+from apps.utils.rest.pagination import LargeResultsSetPagination, SuperLargeResultsSetPagination
+from apps.utils.uuid_utils import validate_uuid
 from apps.vartype.serializers import VarTypeReadOnlySerializer
 
-from .serializers import *
+from .helpers import StreamDataDisplayHelper, StreamDataQueryHelper
 from .models import *
-from .helpers import StreamDataQueryHelper, StreamDataDisplayHelper
+from .serializers import *
 
 user_model = get_user_model()
 

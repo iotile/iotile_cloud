@@ -1,32 +1,33 @@
+import copy
+import datetime
 import json
 import os
-import datetime
-import dateutil.parser
-import copy
 import random
 import string
-import json
 from unittest import mock
 
+import dateutil.parser
+
 from django.contrib.auth import get_user_model
-from django.test import TestCase
-from django.utils import timezone
 from django.core.cache import cache
+from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
 from rest_framework import status
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
 from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import *
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
 from apps.streamer.models import Streamer, StreamerReport
 from apps.utils.dynamic_loading import str_to_class
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
+
 from ..action import Action
-from ..workerhelper import Worker
-from ..tracker import WorkerUUID
 from ..common import ACTION_CLASS_MODULE
+from ..tracker import WorkerUUID
+from ..workerhelper import Worker
 
 user_model = get_user_model()
 

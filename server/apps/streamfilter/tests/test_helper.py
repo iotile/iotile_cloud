@@ -1,21 +1,21 @@
-import dateutil.parser
 import datetime
 
-from django.test import TestCase
+import dateutil.parser
+
 from django.core.cache import cache
+from django.test import TestCase
 
 from apps.physicaldevice.models import Device
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.helpers import StreamDataBuilderHelper
 from apps.streamdata.models import StreamData
 from apps.utils.test_util import TestMixin
-from apps.streamdata.helpers import StreamDataBuilderHelper
 
-from ..models import *
 from ..actions.action import *
-from ..process import FilterHelper
 from ..cache_utils import cached_serialized_filter_for_slug, get_current_cached_filter_state_for_slug
+from ..models import *
+from ..process import FilterHelper
 from ..processing.trigger import evaluate_cached_transition
-
 from ..serializers import *
 
 

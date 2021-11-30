@@ -1,13 +1,14 @@
-from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView
-from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
+from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
+from django.views.generic import DetailView
 
 from apps.physicaldevice.models import Device
 from apps.stream.models import StreamVariable
 
 from .models import *
+
 
 class PageDeviceAccessMixin(object):
 

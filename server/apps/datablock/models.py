@@ -1,16 +1,14 @@
-from django.db import models
 from django.conf import settings
-from django.utils.translation import gettext_lazy as _
+from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
-from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileProjectSlug
+from iotile_cloud.utils.gid import IOTileProjectSlug, IOTileStreamSlug
 
-from apps.utils.gid.convert import int2did
-from apps.physicaldevice.models import Device
 from apps.org.models import Org
-from apps.utils.gid.convert import formatted_dbid, int2bid, int2did_short
-
+from apps.physicaldevice.models import Device
 from apps.sensorgraph.models import SensorGraph
+from apps.utils.gid.convert import formatted_dbid, int2bid, int2did, int2did_short
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 

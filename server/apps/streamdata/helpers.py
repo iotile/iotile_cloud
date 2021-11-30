@@ -3,15 +3,15 @@ import struct
 
 from django.shortcuts import get_object_or_404
 
-from apps.stream.models import StreamId
-from apps.project.models import Project
 from apps.physicaldevice.models import Device
-from apps.utils.iotile.variable import ENCODED_STREAM_VALUES
+from apps.project.models import Project
+from apps.stream.models import StreamId
 from apps.streamfilter.cache_utils import cached_serialized_filter_for_slug
 from apps.streamfilter.process import FilterHelper
+from apps.utils.iotile.variable import ENCODED_STREAM_VALUES
 
 from .models import StreamData
-from .utils import get_stream_mdo, get_stream_input_mdo
+from .utils import get_stream_input_mdo, get_stream_mdo
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)

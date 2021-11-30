@@ -1,21 +1,21 @@
-import uuid
 import logging
-from django.db import models
+import uuid
+
 from django.conf import settings
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
-from django.db.models import Manager
-from django.db.models import Max
+from django.db import models
+from django.db.models import Manager, Max
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
-from iotile_cloud.utils.gid import IOTileVariableSlug, IOTileStreamSlug
+from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileVariableSlug
 
-from apps.property.models import GenericProperty
 from apps.org.models import Org
 from apps.projecttemplate.models import ProjectTemplate
-from apps.utils.gid.convert import int2pid, formatted_gpid
+from apps.property.models import GenericProperty
+from apps.utils.gid.convert import formatted_gpid, int2pid
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 logger = logging.getLogger(__name__)

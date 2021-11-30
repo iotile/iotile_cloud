@@ -1,6 +1,7 @@
 import json
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 
 from apps.physicaldevice.models import Device
 from apps.utils.test_util import TestMixin

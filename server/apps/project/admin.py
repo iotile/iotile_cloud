@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class ProjectAdmin(admin.ModelAdmin):
     raw_id_fields = ('created_by', )

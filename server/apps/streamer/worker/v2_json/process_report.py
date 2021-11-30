@@ -6,18 +6,19 @@ import time
 from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.utils.dateparse import parse_datetime
-from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileVariableSlug
+
 from rest_framework.parsers import JSONParser
+
+from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileVariableSlug
 
 from apps.physicaldevice.models import DeviceStatus
 from apps.sqsworker.exceptions import WorkerActionHardError, WorkerInternalError
-
+from apps.streamdata.helpers import StreamDataBuilderHelper
 from apps.streamer.msg_pack import Python2CompatMessagePackParser
 from apps.streamer.serializers import StreamerReportJsonPostSerializer
 from apps.streamevent.helpers import StreamEventDataBuilderHelper
-from apps.streamdata.helpers import StreamDataBuilderHelper
 from apps.utils.data_helpers.manager import DataManager
-from apps.utils.timezone_utils import convert_to_utc, formatted_ts, force_to_utc
+from apps.utils.timezone_utils import convert_to_utc, force_to_utc, formatted_ts
 
 from ..common.base_action import ProcessReportBaseAction
 from ..misc.forward_streamer_report import ForwardStreamerReportAction

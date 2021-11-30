@@ -1,23 +1,23 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
-from django.utils import timezone
+from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
 from rest_framework import status
 
-from apps.utils.utest.devices import TripDeviceMock
-from apps.sqsworker.exceptions import WorkerActionHardError
-from apps.utils.test_util import TestMixin
+from apps.devicelocation.models import DeviceLocation
 from apps.org.models import Org
-from apps.project.models import Project
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.property.models import GenericProperty
+from apps.report.models import GeneratedUserReport
+from apps.sqsworker.exceptions import WorkerActionHardError
 from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
 from apps.streamnote.models import StreamNote
-from apps.devicelocation.models import DeviceLocation
-from apps.property.models import GenericProperty
-from apps.report.models import GeneratedUserReport
+from apps.utils.test_util import TestMixin
+from apps.utils.utest.devices import TripDeviceMock
 
 from ..worker.device_move import DeviceMoveAction
 

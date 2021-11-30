@@ -1,13 +1,13 @@
 import json
 import logging
 
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
 
-from apps.utils.aws.s3 import sign_policy_document, sign_headers
+from apps.utils.aws.s3 import sign_headers, sign_policy_document
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)

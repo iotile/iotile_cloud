@@ -1,19 +1,19 @@
 from unittest import mock
 
 from django.contrib.auth import get_user_model
+from django.core.cache import cache
 from django.test import TestCase
 from django.utils import timezone
-from django.core.cache import cache
 
 from apps.physicaldevice.models import Device
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.utils import get_stream_output_mdo
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
+from apps.streamdata.utils import get_stream_output_mdo
 from apps.utils.test_util import TestMixin
 from apps.vartype.models import VarType, VarTypeOutputUnit
 
-from ..models import *
 from ..actions.factory import action_factory
+from ..models import *
 from ..process import FilterHelper
 from ..serializers import *
 

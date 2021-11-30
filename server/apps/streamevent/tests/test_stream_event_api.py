@@ -1,27 +1,28 @@
 import datetime
 import os
 from unittest import mock
+
 import dateutil.parser
 
 from django.contrib.auth import get_user_model
-from django.utils import timezone
 from django.test import Client
+from django.utils import timezone
 
 from rest_framework import status
-from rest_framework.test import APITestCase
 from rest_framework.reverse import reverse
+from rest_framework.test import APITestCase
 
+from apps.datablock.models import DataBlock
 from apps.physicaldevice.models import Device
-from apps.utils.data_mask.mask_utils import set_data_mask
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamalias.models import StreamAlias, StreamAliasTap
 from apps.streamfilter.models import *
+from apps.utils.data_mask.mask_utils import set_data_mask
 from apps.utils.gid.convert import *
 from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import str_utc
 from apps.utils.utest.utils.alias_utils import TestStreamAliasHelper
 from apps.vartype.models import VarType
-from apps.utils.timezone_utils import str_utc
-from apps.datablock.models import DataBlock
 
 from ..models import *
 

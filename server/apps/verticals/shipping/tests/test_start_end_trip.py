@@ -1,17 +1,18 @@
 import json
-from django.test import TestCase
-from django.contrib.auth import get_user_model
 
-from rest_framework.reverse import reverse
+from django.contrib.auth import get_user_model
+from django.test import TestCase
+
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
+from apps.org.models import Org
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.streamer.models import Streamer
 from apps.utils.test_util import TestMixin
 from apps.utils.utest.devices import TripDeviceMock
-from apps.org.models import Org
-from apps.project.models import Project
-from apps.physicaldevice.models import Device
-from apps.streamer.models import Streamer
 
 from ..forms import SxdDeviceForm
 from ..utils.trip import set_device_to_active

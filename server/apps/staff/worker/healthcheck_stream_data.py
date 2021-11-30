@@ -2,9 +2,9 @@ import logging
 
 from django.conf import settings
 
-from apps.utils.aws.sns import sns_staff_notification
-from apps.sqsworker.exceptions import WorkerActionHardError, WorkerInternalError
 from apps.sqsworker.action import Action
+from apps.sqsworker.exceptions import WorkerActionHardError, WorkerInternalError
+from apps.utils.aws.sns import sns_staff_notification
 from apps.utils.data_helpers.manager import DataManager
 
 logger = logging.getLogger(__name__)

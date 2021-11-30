@@ -1,8 +1,9 @@
 import logging
 
-from apps.stream.models import StreamVariable
 from apps.projecttemplate.models import ProjectTemplate
+from apps.stream.models import StreamVariable
 from apps.utils.gid.convert import gid2int
+
 from .models import Project
 
 logger = logging.getLogger(__name__)

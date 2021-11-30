@@ -1,14 +1,16 @@
 import json
+
 from django import forms
-from django.forms import ModelForm, SelectMultiple
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div
-from django.core.validators import validate_email
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
+from django.forms import ModelForm, SelectMultiple
 
-from apps.streamfilter.models import StreamFilterAction
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, ButtonHolder, Div, Field, Layout, Submit
+
 from apps.emailutil.utils import get_member_choice_list_by_org
+from apps.streamfilter.models import StreamFilterAction
 
 
 class EmailNotificationActionForm(ModelForm):

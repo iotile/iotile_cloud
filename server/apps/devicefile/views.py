@@ -1,19 +1,19 @@
 import logging
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView, CreateView, UpdateView, ListView, RedirectView
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.http import Http404
+
 from django.contrib import messages
-from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.utils import timezone
+from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DetailView, ListView, RedirectView, UpdateView
 
 from apps.s3file.views import S3FileUploadSuccessEndpointView, S3FileUploadView
 
-from .models import *
 from .forms import *
+from .models import *
 
 logger = logging.getLogger(__name__)
 

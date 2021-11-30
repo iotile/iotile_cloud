@@ -1,15 +1,16 @@
 import json
+
 from django import forms
-from django.forms import ModelForm
 from django.contrib.auth import get_user_model
 from django.core.validators import ValidationError
+from django.forms import ModelForm
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div
+from crispy_forms.layout import HTML, ButtonHolder, Div, Field, Layout, Submit
 
-from apps.streamfilter.models import StreamFilterAction
-from apps.stream.models import StreamId, StreamVariable
 from apps.project.models import Project
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamfilter.models import StreamFilterAction
 from apps.utils.gid.convert import int16gid
 
 user_model = get_user_model()

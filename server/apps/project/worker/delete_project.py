@@ -4,9 +4,9 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 
 from apps.emailutil.tasks import Email
+from apps.org.models import Org
 from apps.physicaldevice.models import Device
 from apps.project.models import Project
-from apps.org.models import Org
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
 from apps.stream.models import StreamId, StreamVariable

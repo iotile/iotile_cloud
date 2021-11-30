@@ -1,11 +1,12 @@
 import datetime
+
 import dateutil.parser
 
+from apps.physicaldevice.models import Device
 from apps.stream.models import StreamId
 from apps.streamalias.models import StreamAlias, StreamAliasTap
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
-from apps.physicaldevice.models import Device
 
 
 class TestStreamAliasHelper(object):

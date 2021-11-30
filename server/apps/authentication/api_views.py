@@ -1,24 +1,22 @@
 import logging
 
 from django.contrib.auth import authenticate, login, logout
-from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import gettext_lazy as _
+from django.views.decorators.csrf import csrf_exempt
 
 from allauth.account.utils import send_email_confirmation
-
-from rest_framework.views import APIView
-from rest_framework.generics import GenericAPIView
-from rest_framework import permissions, viewsets
-from rest_framework import status
-from rest_framework.parsers import JSONParser
+from drf_yasg.utils import no_body, swagger_auto_schema
+from rest_framework import permissions, status, viewsets
 from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
+from rest_framework.generics import GenericAPIView
+from rest_framework.parsers import JSONParser
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from rest_framework.exceptions import ValidationError
-
-from drf_yasg.utils import no_body, swagger_auto_schema
+from rest_framework.views import APIView
 
 from apps.utils.rest.permissions import *
+
 from .permissions import IsAccountOwner
 from .serializers import *
 from .tasks import send_new_user_notification

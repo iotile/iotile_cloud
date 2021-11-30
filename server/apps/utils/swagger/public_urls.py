@@ -1,33 +1,33 @@
-from rest_framework import routers
 from django.urls import include, path
 
+from rest_framework import routers
+
 from apps.authentication.api_views import AccountViewSet
-from apps.org.api_views import APIOrgViewSet
 from apps.component.api_views import APIComponentViewSet
-from apps.stream.api_views import APIStreamVariableViewSet, APIStreamIdViewSet
-from apps.devicetemplate.api_views import APIDeviceTemplateViewSet
-from apps.projecttemplate.api_views import APIProjectTemplateViewSet
-from apps.sensorgraph.api_views import APISensorGraphViewSet
-from apps.project.api_views import APIProjectViewSet
-from apps.physicaldevice.api_views import APIDeviceViewSet
-from apps.streamdata.api_views import APIStreamDataViewSet, APIStreamDataFrameViewSet
-from apps.streamevent.api_views import  APIStreamEventDataViewSet
-from apps.streamfilter.api_views import APIStreamFilterViewSet
-from apps.devicescript.api_views import APIDeviceScriptViewSet
-from apps.streamer.api_views import APIStreamerViewSet, APIStreamerReportUploadView
-from apps.vartype.api_views import APIVarTypeViewSet
+from apps.configattribute.api_views import *
+from apps.configattribute.api_views import APIConfigAttributeNameViewSet, APIConfigAttributeViewSet
 from apps.datablock.api_views import APIDataBlockViewSet
 from apps.deviceauth.api_views import APICreateDeviceKeyViewSet
-from apps.streamnote.api_views import APIStreamNoteViewSet
-from apps.main.api_views import APIServerInfoViewSet, APIDbStatsViewSet
-from apps.fleet.api_views import APIFleetViewSet
-from apps.property.api_views import APIPropertyTemplateViewSet, APIGenericPropertyViewSet
-from apps.ota.api_views import *
-from apps.report.api_views import APIReportSummaryGenerationViewSet
-from apps.configattribute.api_views import *
 from apps.devicelocation.api_views import APIDeviceLocationViewSet
-from apps.configattribute.api_views import APIConfigAttributeNameViewSet, APIConfigAttributeViewSet
-
+from apps.devicescript.api_views import APIDeviceScriptViewSet
+from apps.devicetemplate.api_views import APIDeviceTemplateViewSet
+from apps.fleet.api_views import APIFleetViewSet
+from apps.main.api_views import APIDbStatsViewSet, APIServerInfoViewSet
+from apps.org.api_views import APIOrgViewSet
+from apps.ota.api_views import *
+from apps.physicaldevice.api_views import APIDeviceViewSet
+from apps.project.api_views import APIProjectViewSet
+from apps.projecttemplate.api_views import APIProjectTemplateViewSet
+from apps.property.api_views import APIGenericPropertyViewSet, APIPropertyTemplateViewSet
+from apps.report.api_views import APIReportSummaryGenerationViewSet
+from apps.sensorgraph.api_views import APISensorGraphViewSet
+from apps.stream.api_views import APIStreamIdViewSet, APIStreamVariableViewSet
+from apps.streamdata.api_views import APIStreamDataFrameViewSet, APIStreamDataViewSet
+from apps.streamer.api_views import APIStreamerReportUploadView, APIStreamerViewSet
+from apps.streamevent.api_views import APIStreamEventDataViewSet
+from apps.streamfilter.api_views import APIStreamFilterViewSet
+from apps.streamnote.api_views import APIStreamNoteViewSet
+from apps.vartype.api_views import APIVarTypeViewSet
 
 public_api = routers.DefaultRouter()
 public_api.register(r'org', APIOrgViewSet)

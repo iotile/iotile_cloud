@@ -3,26 +3,26 @@ import os
 import uuid
 from unittest import mock
 
-from django.test import TestCase
-from django.utils.dateparse import parse_datetime
 from django.conf import settings
 from django.core.cache import cache
+from django.test import TestCase
+from django.utils.dateparse import parse_datetime
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
 from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import *
-from apps.streamer.models import Streamer, StreamerReport
-from apps.sqsworker.workerhelper import Worker
-from apps.sqsworker.tests import QueueTestMock
-from apps.sqsworker.dynamodb import create_worker_log_table_if_needed, DynamoWorkerLogModel
-from apps.utils.gid.convert import formatted_gsid
+from apps.sqsworker.dynamodb import DynamoWorkerLogModel, create_worker_log_table_if_needed
 from apps.sqsworker.exceptions import *
+from apps.sqsworker.tests import QueueTestMock
+from apps.sqsworker.workerhelper import Worker
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
+from apps.streamer.models import Streamer, StreamerReport
+from apps.utils.gid.convert import formatted_gsid
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
 
-from ..process_report import ProcessReportV1Action, DELAY_SECONDS
-from ..handle_reboot import HandleRebootAction
 from ...common.test_utils import *
+from ..handle_reboot import HandleRebootAction
+from ..process_report import DELAY_SECONDS, ProcessReportV1Action
 
 
 def _full_path(filename):

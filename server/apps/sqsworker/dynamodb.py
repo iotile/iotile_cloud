@@ -1,5 +1,6 @@
-import logging
 import datetime
+import logging
+
 from django.conf import settings
 from django.utils import timezone
 
@@ -9,9 +10,9 @@ USE_DYNAMODB_WORKERLOG_DB = getattr(settings, 'USE_DYNAMODB_WORKERLOG_DB')
 SERVER_TYPE = getattr(settings, 'SERVER_TYPE')
 
 
+from pynamodb.attributes import BooleanAttribute, JSONAttribute, NumberAttribute, UnicodeAttribute, UTCDateTimeAttribute
+from pynamodb.indexes import AllProjection, GlobalSecondaryIndex
 from pynamodb.models import Model
-from pynamodb.attributes import UnicodeAttribute, UTCDateTimeAttribute, NumberAttribute, BooleanAttribute, JSONAttribute
-from pynamodb.indexes import GlobalSecondaryIndex, AllProjection
 
 
 class TaskIndex(GlobalSecondaryIndex):

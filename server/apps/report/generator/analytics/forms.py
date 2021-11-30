@@ -1,11 +1,12 @@
 import json
+
 from django import forms
 from django.forms import ModelForm
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, HTML, Div
+from crispy_forms.layout import HTML, Div, Layout, Submit
 
-from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileBlockSlug
+from iotile_cloud.utils.gid import IOTileBlockSlug, IOTileDeviceSlug
 
 from apps.report.models import UserReport
 

@@ -1,6 +1,5 @@
 import logging
 
-from allauth.account.models import EmailAddress
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user_model
@@ -14,6 +13,8 @@ from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, ListView, TemplateView, UpdateView
 from django.views.generic.edit import CreateView, DeleteView, FormView
+
+from allauth.account.models import EmailAddress
 
 from apps.component.models import Component
 from apps.component.views import ComponentAccessMixin

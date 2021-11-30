@@ -2,23 +2,22 @@ from unittest import mock
 
 from django.core.exceptions import PermissionDenied
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
 from iotile_cloud.utils.gid import *
 
-from apps.utils.test_util import TestMixin
-from apps.streamevent.models import StreamEventData
-
-from apps.utils.iotile.variable import SYSTEM_VID
-from apps.utils.utest.devices import TripDeviceMock
-from apps.utils.rest.exceptions import ApiIllegalSlugException
 from apps.org.models import OrgMembership
+from apps.streamevent.models import StreamEventData
+from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.rest.exceptions import ApiIllegalSlugException
+from apps.utils.test_util import TestMixin
+from apps.utils.utest.devices import TripDeviceMock
 
 from ..models import *
-from ..worker.report_generator import *
 from ..serializers import ScheduleAnalyticsReportSerializer
+from ..worker.report_generator import *
 
 user_model = get_user_model()
 

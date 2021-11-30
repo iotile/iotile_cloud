@@ -1,19 +1,20 @@
 import logging
-from django.views.generic import DetailView, CreateView, UpdateView, ListView, DeleteView, TemplateView
-from django.http import HttpResponseRedirect
-from django.utils.translation import gettext_lazy as _
-from django.shortcuts import get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.urls import reverse
+
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, TemplateView, UpdateView
 
-from apps.utils.views.basic import LoginRequiredAccessMixin
 from apps.streamdata.utils import get_stream_output_unit
+from apps.utils.views.basic import LoginRequiredAccessMixin
 
+from .actions.factory import action_form_class
+from .cache_utils import clear_serialized_filter_for_slug, set_current_cached_filter_state_for_slug
 from .forms import *
 from .models import *
-from .actions.factory import action_form_class
-from .cache_utils import set_current_cached_filter_state_for_slug, clear_serialized_filter_for_slug
 
 
 def get_filter_output_unit(f):

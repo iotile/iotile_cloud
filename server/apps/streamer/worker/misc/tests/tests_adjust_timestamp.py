@@ -1,18 +1,17 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
-from apps.streamevent.models import StreamEventData
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.helpers import StreamDataBuilderHelper
-from apps.streamevent.helpers import StreamEventDataBuilderHelper
-from apps.utils.timezone_utils import *
+from apps.streamdata.models import StreamData
 from apps.streamer.serializers import *
-
-from ..adjust_timestamp import AdjustTimestampAction
+from apps.streamevent.helpers import StreamEventDataBuilderHelper
+from apps.streamevent.models import StreamEventData
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
 
 from ...common.test_utils import create_test_data, get_reboot_slug
+from ..adjust_timestamp import AdjustTimestampAction
 
 user_model = get_user_model()
 USE_WORKER = getattr(settings, 'USE_WORKER')

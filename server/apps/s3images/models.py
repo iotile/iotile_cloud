@@ -1,13 +1,14 @@
-import uuid
-import os
 import logging
-from django.db import models
+import os
+import uuid
+
 from django.conf import settings
+from django.db import models
+from django.db.models import Manager
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
-from django.db.models import Manager
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 logger = logging.getLogger(__name__)

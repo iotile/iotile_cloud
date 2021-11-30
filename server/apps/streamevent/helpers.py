@@ -1,17 +1,19 @@
 import logging
-import struct
-import structpp
 import os
+import struct
+
+import structpp
 
 from django.shortcuts import get_object_or_404
+
 from rest_framework.exceptions import ValidationError
 
-from apps.utils.aws.s3 import upload_json_data_from_object, upload_blob
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
 from apps.stream.models import StreamId
 from apps.streamfilter.cache_utils import cached_serialized_filter_for_slug
 from apps.streamfilter.process import FilterHelper
-from apps.project.models import Project
-from apps.physicaldevice.models import Device
+from apps.utils.aws.s3 import upload_blob, upload_json_data_from_object
 from apps.utils.mdo.helpers import MdoHelper
 
 from .models import StreamEventData

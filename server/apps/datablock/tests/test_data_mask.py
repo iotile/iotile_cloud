@@ -1,24 +1,26 @@
-import json
 import datetime
+import json
+
 import dateutil.parser
-from django.test import TestCase
+
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 
+from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
-from rest_framework import status
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
-from apps.streamnote.models import StreamNote
 from apps.streamfilter.models import *
-from apps.utils.timezone_utils import str_utc
-from apps.utils.iotile.variable import SYSTEM_VID
+from apps.streamnote.models import StreamNote
 from apps.utils.data_mask.mask_utils import *
+from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import str_utc
 
 from ..models import *
 

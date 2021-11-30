@@ -1,16 +1,17 @@
-import json
-import dateutil.parser
 import datetime
+import json
+
+import dateutil.parser
 
 from django.utils import timezone
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
 from apps.org.models import Org
-from apps.project.models import Project
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
 from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData

@@ -1,31 +1,32 @@
 
-import json
 import datetime
-import dateutil.parser
+import json
 from unittest import mock
 
-from django.test import TestCase
-from django.contrib.auth.models import User
-from django.urls import reverse
+import dateutil.parser
+
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.test import TestCase
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 
 from rest_framework import status
 
-from apps.utils.test_util import TestMixin
-from apps.utils.gid.convert import int16gid
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
-from apps.physicaldevice.models import Device
-from apps.devicetemplate.models import DeviceTemplate
-from apps.sensorgraph.models import SensorGraph
-from apps.project.models import Project
-from apps.org.models import Org
-from apps.property.models import GenericProperty
-from apps.utils.timezone_utils import str_utc
-from apps.streamevent.models import StreamEventData
 from apps.deviceauth.models import DeviceKey
+from apps.devicetemplate.models import DeviceTemplate
+from apps.org.models import Org
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.property.models import GenericProperty
+from apps.sensorgraph.models import SensorGraph
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
+from apps.streamevent.models import StreamEventData
+from apps.utils.gid.convert import int16gid
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import str_utc
 
 user_model = get_user_model()
 

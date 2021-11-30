@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class OrgTemplateAdmin(admin.ModelAdmin):
     list_display = ('slug', 'name', 'version', 'active', )

@@ -1,12 +1,12 @@
 
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.exceptions import PermissionDenied
-
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.exceptions import PermissionDenied
+from rest_framework.response import Response
 
 from .serializers import *
+
 
 class GeneralPropertyMixin(object):
 

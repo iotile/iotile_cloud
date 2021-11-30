@@ -4,8 +4,9 @@ from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
 
-from apps.utils.aws.sns import sns_arc_slack_notification
 from apps.streamnote.models import StreamNote
+from apps.utils.aws.sns import sns_arc_slack_notification
+
 from .worker.device_data_reset import DeviceDataResetAction
 
 logger = logging.getLogger(__name__)

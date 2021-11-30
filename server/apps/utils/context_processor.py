@@ -5,6 +5,7 @@ __author__ = 'dkarchmer'
 
 from django.conf import settings
 
+
 def basics(request):
     # Used to enable  production only behavior
     context = {

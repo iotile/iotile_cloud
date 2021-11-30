@@ -1,17 +1,18 @@
 __author__ = 'dkarchmer'
 
 import base64
-import os
-import io
-import time
-import hmac
-import hashlib
-import json
-import boto3
 import gzip
+import hashlib
+import hmac
+import io
+import json
 import logging
+import os
 import tempfile
+import time
 from io import BytesIO, StringIO
+
+import boto3
 
 from django.conf import settings
 

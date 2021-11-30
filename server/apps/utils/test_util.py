@@ -2,14 +2,14 @@ import datetime
 
 from django.contrib.auth import get_user_model
 
-from apps.org.models import Org, OrgMembership
-from apps.devicetemplate.models import DeviceTemplate, DeviceSlot
-from apps.projecttemplate.models import ProjectTemplate
 from apps.component.models import Component
-from apps.project.models import Project
-from apps.stream.models import StreamVariable
-from apps.sensorgraph.models import *
+from apps.devicetemplate.models import DeviceSlot, DeviceTemplate
+from apps.org.models import Org, OrgMembership
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.projecttemplate.models import ProjectTemplate
+from apps.sensorgraph.models import *
+from apps.stream.models import StreamVariable
 
 user_model = get_user_model()
 

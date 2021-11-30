@@ -1,11 +1,12 @@
-import logging
-import struct
+import datetime
 import hashlib
 import hmac
+import logging
 import os
-import sys
 import pprint
-import datetime
+import struct
+import sys
+
 from dateutil import parser as dt_parser
 
 """

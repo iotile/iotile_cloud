@@ -1,12 +1,11 @@
 import logging
+from functools import wraps
+
 from django.core.cache import caches
 from django.views.decorators.cache import cache_page
 
-from rest_framework import viewsets
+from rest_framework import status, viewsets
 from rest_framework.response import Response
-from rest_framework import status
-from functools import wraps
-
 
 logger = logging.getLogger(__name__)
 

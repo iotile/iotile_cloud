@@ -1,12 +1,13 @@
 import json
 import logging
-from urllib.parse import urlencode
 import urllib.request as urlrequest
+from urllib.parse import urlencode
 
 from django.conf import settings
 
-from apps.streamfilter.models import StreamFilter
 from apps.physicaldevice.models import Device
+from apps.streamfilter.models import StreamFilter
+
 from ..action import BaseAction
 
 logger = logging.getLogger(__name__)

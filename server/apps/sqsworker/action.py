@@ -1,5 +1,5 @@
-import logging
 import json
+import logging
 import time
 
 from django.conf import settings
@@ -7,9 +7,9 @@ from django.conf import settings
 from apps.utils.aws.sns import sns_staff_notification
 from apps.utils.aws.sqs import get_queue_by_name
 
-from .workerhelper import Worker
 from .exceptions import WorkerActionHardError
 from .pid import ActionPID
+from .workerhelper import Worker
 
 logger = logging.getLogger(__name__)
 

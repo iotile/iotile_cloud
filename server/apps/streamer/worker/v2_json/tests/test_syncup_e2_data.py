@@ -1,22 +1,23 @@
 import json
 import os
-import dateutil.parser
 from unittest import mock
 
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
+import dateutil.parser
+
 from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 from django.utils.dateparse import parse_datetime
 
-from apps.utils.test_util import TestMixin
-from apps.streamdata.models import StreamData
-from apps.streamdata.helpers import StreamDataBuilderHelper
-from apps.streamevent.models import StreamEventData
-from apps.streamevent.helpers import StreamEventDataBuilderHelper
-from apps.stream.models import StreamVariable, StreamId
-from apps.utils.timezone_utils import *
-from apps.streamer.serializers import *
 from apps.sensorgraph.models import SensorGraph
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.helpers import StreamDataBuilderHelper
+from apps.streamdata.models import StreamData
+from apps.streamer.serializers import *
+from apps.streamevent.helpers import StreamEventDataBuilderHelper
+from apps.streamevent.models import StreamEventData
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
 
 from ...common.test_utils import *
 from ..syncup_e2_data import SyncUpE2DataAction

@@ -1,14 +1,15 @@
 import jwt
-from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import get_user_model
-from django.utils.encoding import smart_str
-
-from rest_framework.authentication import get_authorization_header
-from rest_framework import exceptions
-
 from rest_framework_jwt.authentication import BaseJSONWebTokenAuthentication
 
+from django.contrib.auth import get_user_model
+from django.utils.encoding import smart_str
+from django.utils.translation import gettext_lazy as _
+
+from rest_framework import exceptions
+from rest_framework.authentication import get_authorization_header
+
 from apps.physicaldevice.models import Device
+
 from .models import DeviceKey
 
 DEVICE_TOKEN_AUTH_HEADER_PREFIX = 'a-jwt'

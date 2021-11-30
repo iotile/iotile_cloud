@@ -1,15 +1,15 @@
 import json
 
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.utils import timezone
-from django.contrib.auth import get_user_model
 
 from rest_framework.reverse import reverse
 
-from ..models import *
-from ..tasks import *
 from ..api_views import *
+from ..models import *
 from ..serializers import AccountSerializer
+from ..tasks import *
 
 user_model = get_user_model()
 

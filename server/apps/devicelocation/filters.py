@@ -3,7 +3,9 @@ from django.db.models import Q
 import django_filters
 
 from apps.utils.objects.utils import get_object_by_slug
+
 from .models import DeviceLocation
+
 
 class DeviceLocationFilter(django_filters.rest_framework.FilterSet):
     target = django_filters.CharFilter(method='filter_by_target', required=True,

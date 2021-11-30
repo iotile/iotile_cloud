@@ -1,25 +1,26 @@
 import json
+
 import pytz
 
 from django.contrib.auth import get_user_model
 from django.utils.dateparse import parse_datetime
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.project.models import Project
-from apps.utils.test_util import TestMixin
-from apps.sensorgraph.models import SensorGraph
-from apps.streamer.models import Streamer, StreamerReport
-from apps.stream.models import StreamId, StreamVariable
-from apps.streamfilter.models import StreamFilter, StreamFilterAction, State, StateTransition, StreamFilterTrigger
-from apps.streamfilter.serializers import StreamFilterSerializer
-from apps.streamfilter.dynamodb import DynamoFilterLogModel, create_filter_log_table_if_needed, create_filter_log
-from apps.streamdata.models import StreamData
-from apps.streamevent.models import StreamEventData
-from apps.streamnote.models import StreamNote
 from apps.datablock.models import DataBlock
+from apps.project.models import Project
+from apps.sensorgraph.models import SensorGraph
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
+from apps.streamer.models import Streamer, StreamerReport
+from apps.streamevent.models import StreamEventData
+from apps.streamfilter.dynamodb import DynamoFilterLogModel, create_filter_log, create_filter_log_table_if_needed
+from apps.streamfilter.models import State, StateTransition, StreamFilter, StreamFilterAction, StreamFilterTrigger
+from apps.streamfilter.serializers import StreamFilterSerializer
+from apps.streamnote.models import StreamNote
+from apps.utils.test_util import TestMixin
 from apps.utils.timezone_utils import str_utc
 
 from ..models import *

@@ -1,12 +1,12 @@
 
 import json
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.utils.test_util import TestMixin
 from apps.invitation.models import Invitation
+from apps.utils.test_util import TestMixin
 
 from ..models import *
 

@@ -1,12 +1,13 @@
 from django.urls import reverse
 
 from apps.configattribute.models import get_or_create_config_name
-from .helpers.device_claim_helper import DeviceVerticalClaimHelper
+
 from .helpers.analytics_report_availability_helper import AnalyticsReportAvailabilityHelpter
-from .shipping.utils.trip import on_trip_archive_completed
-from .shipping.utils.device_claim_helper import ShippingDeviceVerticalClaimHelper
+from .helpers.device_claim_helper import DeviceVerticalClaimHelper
 from .shipping.utils.analytics_report_availability import ShippingAnalyticsReportAvailabilityHelpter
+from .shipping.utils.device_claim_helper import ShippingDeviceVerticalClaimHelper
 from .shipping.utils.project_status_report import TripProjectStatusReport
+from .shipping.utils.trip import on_trip_archive_completed
 
 
 def _is_shipping_device(obj):

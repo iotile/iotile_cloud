@@ -2,7 +2,7 @@ import json
 import logging
 
 from django.conf import settings
-from django.core.exceptions import ValidationError, ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
 
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerActionHardError

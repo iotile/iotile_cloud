@@ -1,15 +1,14 @@
-import uuid
-import os
 import logging
-from django.db import models
+import os
+import uuid
+
 from django.conf import settings
+from django.db import IntegrityError, models
+from django.db.models import Manager
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
-from django.db.models import Manager
 from django.utils.safestring import mark_safe
-from django.db import IntegrityError
-
+from django.utils.translation import gettext_lazy as _
 
 from apps.utils.aws.s3 import get_s3_url
 

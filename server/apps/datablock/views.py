@@ -3,35 +3,36 @@ import logging
 import pprint
 import re
 
-from django.conf import settings
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.core.exceptions import PermissionDenied
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
-from django.utils.translation import gettext_lazy as _
-from django.views.generic import DetailView, UpdateView, ListView, CreateView
-from django.db import transaction
-from django.contrib import messages
-
-from rest_framework.reverse import reverse as api_reverse
 from elasticsearch_dsl import Q
 
-from apps.stream.models import StreamId
-from apps.utils.views.basic import LoginRequiredAccessMixin
-from apps.org.roles import NO_PERMISSIONS_ROLE
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.db import transaction
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
+
+from rest_framework.reverse import reverse as api_reverse
+
 from apps.org.mixins import get_org_menu_extras
+from apps.org.roles import NO_PERMISSIONS_ROLE
 from apps.report.models import GeneratedUserReport
 from apps.report.views import BaseGeneratedUserReportScheduleView
-from apps.utils.data_mask.mask_utils import set_data_mask, clear_data_mask
+from apps.stream.models import StreamId
+from apps.utils.data_mask.mask_utils import clear_data_mask, set_data_mask
 from apps.utils.timezone_utils import str_utc
+from apps.utils.views.basic import LoginRequiredAccessMixin
 from apps.verticals.utils import get_data_block_vertical_helper
 
-from .documents import DataBlockDocument
-from .models import *
-from .forms import *
-from .tasks import schedule_archive, schedule_delete
 from .data_utils import StreamDataCountHelper
+from .documents import DataBlockDocument
+from .forms import *
+from .models import *
+from .tasks import schedule_archive, schedule_delete
 
 logger = logging.getLogger(__name__)
 

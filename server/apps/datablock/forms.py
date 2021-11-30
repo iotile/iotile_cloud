@@ -1,18 +1,21 @@
-from django.forms import ModelForm
 from django import forms
+from django.forms import ModelForm
 
-# from haystack.forms import SearchForm
-
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, HTML
 from crispy_forms.bootstrap import FieldWithButtons
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, Layout, Submit
 
-from apps.utils.data_mask.form_mixins import DataMaskFormMixin, DATETIME_WIDGET_OPTIONS
+from apps.utils.data_mask.form_mixins import DATETIME_WIDGET_OPTIONS, DataMaskFormMixin
 from apps.utils.data_mask.mask_utils import get_data_mask_date_range
 from apps.utils.timezone_utils import str_to_dt_utc
 
-from .models import *
 from .documents import DataBlockDocument
+from .models import *
+
+# from haystack.forms import SearchForm
+
+
+
 
 
 class DataBlockBasicUpdateForm(ModelForm):

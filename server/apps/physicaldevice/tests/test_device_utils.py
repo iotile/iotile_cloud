@@ -2,13 +2,13 @@ from django.test import TestCase
 from django.utils import timezone
 
 from apps.project.models import Project
-from apps.utils.test_util import TestMixin
+from apps.property.models import GenericProperty
 # from apps.utils.gid.convert import *
 from apps.stream.models import StreamId, StreamVariable
-from apps.property.models import GenericProperty
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
 from apps.streamnote.models import StreamNote
+from apps.utils.test_util import TestMixin
 
 from ..claim_utils import *
 from ..models import *

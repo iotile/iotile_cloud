@@ -1,22 +1,23 @@
 import logging
+
 import pytz
+
 from django.conf import settings
 from django.utils import timezone
 
-from apps.sqsworker.action import Action
-from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
-
 from apps.datablock.models import DataBlock
+from apps.devicelocation.models import DeviceLocation
+from apps.emailutil.tasks import Email
 from apps.physicaldevice.models import Device
 from apps.property.models import GenericProperty
+from apps.report.models import GeneratedUserReport
+from apps.sqsworker.action import Action
+from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
 from apps.stream.models import StreamId
 from apps.streamnote.models import StreamNote
-from apps.devicelocation.models import DeviceLocation
-from apps.report.models import GeneratedUserReport
-from apps.utils.gid.convert import formatted_gsid, gid_split
-from apps.emailutil.tasks import Email
 from apps.utils.aws.sns import sns_staff_notification
 from apps.utils.data_helpers.manager import DataManager
+from apps.utils.gid.convert import formatted_gsid, gid_split
 from apps.utils.iotile.variable import SYSTEM_VID
 
 logger = logging.getLogger(__name__)

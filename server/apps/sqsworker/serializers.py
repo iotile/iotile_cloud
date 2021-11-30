@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from .pid import ActionPID
 
+
 class ActionPidSerializer(serializers.Serializer):
     pid = serializers.CharField(max_length=26)
     info = serializers.SerializerMethodField()

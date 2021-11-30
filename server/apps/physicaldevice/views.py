@@ -1,5 +1,4 @@
 from django.core.exceptions import PermissionDenied
-from django.core.exceptions import PermissionDenied
 from django.utils.dateparse import parse_datetime
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import RedirectView
@@ -14,11 +13,11 @@ from apps.utils.data_mask.mask_utils import clear_data_mask, set_data_mask
 from apps.utils.timezone_utils import convert_to_utc
 from apps.utils.views.basic import LoginRequiredAccessMixin
 from apps.verticals.utils import get_device_detail_vertical_helper
+
 from .claim_utils import *
 from .data_utils import StreamDataCountHelper
 from .forms import *
-from .mixins import (DeviceAccessMixin, DeviceCanResetAccessMixin,
-                     DeviceWriteAccessMixin)
+from .mixins import DeviceAccessMixin, DeviceCanResetAccessMixin, DeviceWriteAccessMixin
 from .tasks import schedule_reset
 from .worker.device_data_trim import DeviceDataTrimAction, get_streams_to_trim
 from .worker.device_move import DeviceMoveAction

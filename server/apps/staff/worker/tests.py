@@ -1,9 +1,12 @@
 import dateutil.parser
 
-from django.test import TestCase
-from django.utils.dateparse import parse_datetime
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 from django.urls import reverse
+from django.utils.dateparse import parse_datetime
+
+from rest_framework import status
+
 from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileVariableSlug
 
 from apps.datablock.models import DataBlock
@@ -16,14 +19,12 @@ from apps.project.models import Project
 from apps.property.models import GenericProperty
 from apps.sqsworker.tests import QueueTestMock
 from apps.sqsworker.workerhelper import Worker
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
 from apps.utils.test_util import TestMixin
 from apps.utils.utest.devices import ThreeWaterMetersDeviceMocks
 from apps.vartype.models import VarType
-
-from rest_framework import status
 
 user_model = get_user_model()
 

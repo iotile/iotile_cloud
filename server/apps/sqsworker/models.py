@@ -1,9 +1,10 @@
-import uuid
 import logging
-from django.db import models
+import uuid
+
 from django.conf import settings
-from django.utils.translation import gettext_lazy as _
+from django.db import models
 from django.db.models import Manager
+from django.utils.translation import gettext_lazy as _
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 logger = logging.getLogger(__name__)

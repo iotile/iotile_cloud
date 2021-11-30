@@ -1,12 +1,13 @@
 import datetime
 import decimal
 
-from dateutil.parser import parse
 import msgpack
+from dateutil.parser import parse
+from six import text_type
+
 from rest_framework.exceptions import ParseError
 from rest_framework.parsers import BaseParser
 from rest_framework.renderers import BaseRenderer
-from six import text_type
 
 
 class MessagePackDecoder:

@@ -1,16 +1,17 @@
-import sys
 import logging
+import sys
+
 from django.conf import settings
-from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
 from django.template.defaultfilters import slugify
 
-from apps.org.models import Org
-from apps.project.models import Project
 from apps.devicetemplate.models import DeviceTemplate
-from apps.sensorgraph.models import SensorGraph
-from apps.physicaldevice.models import Device
+from apps.org.models import Org
 from apps.physicaldevice.claim_utils import device_claim
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.sensorgraph.models import SensorGraph
 
 logger = logging.getLogger(__name__)
 

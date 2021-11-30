@@ -1,13 +1,12 @@
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.utils.test_util import TestMixin
-from apps.streamevent.models import StreamEventData
 from apps.datablock.models import DataBlock
 from apps.datablock.worker.archive_device_data import ArchiveDeviceDataAction
-
+from apps.streamevent.models import StreamEventData
 from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.test_util import TestMixin
 from apps.utils.utest.devices import TripDeviceMock
 
 from ..models import *

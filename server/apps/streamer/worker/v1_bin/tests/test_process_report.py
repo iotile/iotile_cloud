@@ -1,29 +1,30 @@
 import datetime
 import os
-import dateutil.parser
 from unittest import mock
 
+import dateutil.parser
+
+from django.core.cache import cache
 from django.test import TestCase
 from django.utils.dateparse import parse_datetime
-from django.core.cache import cache
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
 from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import *
-from apps.streamer.models import Streamer, StreamerReport
-from apps.sqsworker.workerhelper import Worker
-from apps.sqsworker.tests import QueueTestMock
-from apps.utils.gid.convert import formatted_gsid
-
-from apps.streamdata.helpers import StreamDataBuilderHelper
-from apps.streamfilter.models import StreamFilter, StreamFilterTrigger, StreamFilterAction, State, StateTransition
-from apps.sqsworker.dynamodb import create_worker_log_table_if_needed, DynamoWorkerLogModel
-from apps.streamer.report.parser import ReportParser
+from apps.sqsworker.dynamodb import DynamoWorkerLogModel, create_worker_log_table_if_needed
 from apps.sqsworker.exceptions import *
-from ..process_report import ProcessReportV1Action, DELAY_SECONDS
+from apps.sqsworker.tests import QueueTestMock
+from apps.sqsworker.workerhelper import Worker
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.helpers import StreamDataBuilderHelper
+from apps.streamdata.models import StreamData
+from apps.streamer.models import Streamer, StreamerReport
+from apps.streamer.report.parser import ReportParser
+from apps.streamfilter.models import State, StateTransition, StreamFilter, StreamFilterAction, StreamFilterTrigger
+from apps.utils.gid.convert import formatted_gsid
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
+
 from ...common.test_utils import *
+from ..process_report import DELAY_SECONDS, ProcessReportV1Action
 
 
 class ProcessReportTestCase(TestMixin, TestCase):

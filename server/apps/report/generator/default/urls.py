@@ -1,10 +1,7 @@
 from django.urls import path
 
 from .views import (
-    DefaultReportConfigureView,
-    DefaultReportDefaultStep1View,
-    DefaultReportDefaultStep2View,
-    DefaultReportGenerateView,
+    DefaultReportConfigureView, DefaultReportDefaultStep1View, DefaultReportDefaultStep2View, DefaultReportGenerateView,
 )
 
 app_name='report.generator.default'

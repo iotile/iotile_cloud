@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class DeviceScriptAdmin(admin.ModelAdmin):
     list_display = ('slug', 'released', 'version' )

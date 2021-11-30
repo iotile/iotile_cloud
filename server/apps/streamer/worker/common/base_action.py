@@ -17,8 +17,7 @@ from apps.streamer.report.parser import ParseReportException
 from apps.utils.aws.s3 import download_file_from_s3, get_s3_metadata
 from apps.utils.aws.sns import sns_staff_notification
 from apps.utils.data_helpers.manager import DataManager
-from apps.utils.gid.convert import (formatted_gdid, formatted_gsid,
-                                    get_vid_from_gvid, int2did, int2vid)
+from apps.utils.gid.convert import formatted_gdid, formatted_gsid, get_vid_from_gvid, int2did, int2vid
 from apps.utils.iotile.streamer import STREAMER_SELECTOR
 from apps.utils.iotile.variable import *
 

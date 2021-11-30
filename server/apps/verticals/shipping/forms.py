@@ -1,12 +1,12 @@
 from django import forms
 from django.forms import ModelForm
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div
 from crispy_forms.bootstrap import FieldWithButtons
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, ButtonHolder, Div, Field, Layout, Submit
 
 from apps.physicaldevice.models import Device
-from apps.property.models import GenericPropertyOrgTemplate, GenericPropertyOrgEnum, GenericProperty
+from apps.property.models import GenericProperty, GenericPropertyOrgEnum, GenericPropertyOrgTemplate
 
 
 class SxdDeviceForm(forms.Form):

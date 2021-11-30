@@ -1,7 +1,8 @@
-import socket
-from .base import *             # NOQA
-import sys
 import logging.config
+import socket
+import sys
+
+from .base import *  # NOQA
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

@@ -1,21 +1,21 @@
 import logging
-from django.shortcuts import render
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView, CreateView, UpdateView, ListView, RedirectView
-from django.views.generic.edit import FormView
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.http import Http404
-from django.utils.translation import gettext_lazy as _
 
-from apps.s3images.views import S3ImageUploadView, S3ImageUploadSuccessEndpointView
-from apps.s3images.views import S3ImageDeleteView, S3ImageTitleUpdateView
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DetailView, ListView, RedirectView, UpdateView
+from django.views.generic.edit import FormView
+
+from apps.s3images.views import (
+    S3ImageDeleteView, S3ImageTitleUpdateView, S3ImageUploadSuccessEndpointView, S3ImageUploadView,
+)
 from apps.utils.views.basic import LoginRequiredAccessMixin
 
-from .models import *
 from .forms import *
+from .models import *
 
 logger = logging.getLogger(__name__)
 

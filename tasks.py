@@ -1,5 +1,6 @@
-import os
 import configparser
+import os
+
 from invoke import task
 
 from ecs.tasks import *

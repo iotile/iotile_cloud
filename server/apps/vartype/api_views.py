@@ -1,12 +1,13 @@
 import logging
 
-from rest_framework import viewsets
-from rest_framework import filters
-from django_filters.rest_framework import DjangoFilterBackend
 from django.utils.decorators import method_decorator
 
-from apps.utils.rest.permissions import IsStaffOrReadOnly, HasAuthAPIKeyNoOrg, ReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, viewsets
+
 from apps.utils.rest.cached_views import cache_on_auth
+from apps.utils.rest.permissions import HasAuthAPIKeyNoOrg, IsStaffOrReadOnly, ReadOnly
+
 from .models import VarType
 from .serializers import VarTypeReadOnlySerializer
 

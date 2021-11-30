@@ -1,19 +1,19 @@
 import logging
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
-from django.db import transaction
-from django.utils.translation import gettext_lazy as _
+
 from django.contrib import messages
-from django.http import Http404
+from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
 from apps.physicaldevice.models import Device
 from apps.utils.views.basic import LoginRequiredAccessMixin
 
-from .models import *
 from .forms import *
+from .models import *
 
 logger = logging.getLogger(__name__)
 

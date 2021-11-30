@@ -1,13 +1,15 @@
-import json
 import datetime
+import json
+
 import dateutil.parser
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 from django.utils import timezone
 
+from apps.devicescript.models import DeviceScript
 from apps.utils.test_util import TestMixin
 
-from apps.devicescript.models import DeviceScript
 from ..models import *
 
 user_model = get_user_model()

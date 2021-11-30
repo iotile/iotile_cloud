@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from .convert import *
 
+
 class GIDTests(TestCase):
 
     def testBasicInt2Gid(self):

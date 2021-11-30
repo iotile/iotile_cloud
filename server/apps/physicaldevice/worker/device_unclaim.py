@@ -7,6 +7,7 @@ from apps.emailutil.tasks import Email
 from apps.physicaldevice.models import Device
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
+
 from ..claim_utils import device_unclaim
 
 logger = logging.getLogger(__name__)

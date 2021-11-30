@@ -1,9 +1,10 @@
+import datetime
+import json
+import logging
 import os
 import sys
-import json
-import datetime
-import logging
-from utils import sqs_publish, handle_error
+
+from utils import handle_error, sqs_publish
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)

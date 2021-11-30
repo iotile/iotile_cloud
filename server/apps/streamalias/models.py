@@ -1,11 +1,11 @@
 import logging
 
-from django.db import models
 from django.conf import settings
-from django.utils.translation import gettext_lazy as _
+from django.db import models
 from django.db.models import Manager
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.translation import gettext_lazy as _
 
 from apps.org.models import Org
 from apps.utils.gid.convert import formatted_alias_id, int64gid

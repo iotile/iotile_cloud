@@ -3,11 +3,11 @@ from django.core.cache import cache
 
 from apps.utils.aws.sqs import get_queue_stats
 
-from .worker import WORKER_LAST_PIN_DT
-from .dynamodb import DynamoWorkerLogModel, USE_DYNAMODB_WORKERLOG_DB
 from .common import ACTION_LIST
-from .tracker import WorkerUUID
+from .dynamodb import USE_DYNAMODB_WORKERLOG_DB, DynamoWorkerLogModel
 from .pid import ActionPID
+from .tracker import WorkerUUID
+from .worker import WORKER_LAST_PIN_DT
 
 WORKER_QUEUE_NAME = getattr(settings, 'SQS_WORKER_QUEUE_NAME')
 

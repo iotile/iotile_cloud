@@ -2,14 +2,16 @@ import json
 import os
 
 import dateutil.parser
+
+from django.test import TestCase
+
 from apps.physicaldevice.models import Device
 from apps.sqsworker.exceptions import *
 from apps.sqsworker.exceptions import WorkerActionHardError
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamevent.models import StreamEventData
 from apps.streamevent.worker.update_event_extra_data import UpdateEventExtraDataAction
 from apps.utils.test_util import TestMixin
-from django.test import TestCase
 
 
 def _full_path(filename):

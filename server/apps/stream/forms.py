@@ -1,13 +1,13 @@
-from django.forms import ModelForm, CharField
+from django import forms
 from django.core.validators import ValidationError
+from django.forms import CharField, ModelForm
 from django.utils.translation import gettext_lazy as _
 
+from crispy_forms.bootstrap import AppendedText, InlineField, PrependedAppendedText, PrependedText
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, Button, Div, Fieldset, HTML
-from crispy_forms.bootstrap import InlineField, AppendedText, PrependedText, PrependedAppendedText
+from crispy_forms.layout import HTML, Button, ButtonHolder, Div, Field, Fieldset, Layout, Submit
 
 from apps.utils.gid.convert import gid2int, int16gid
-from django import forms
 from apps.utils.timezone_utils import str_utc
 
 from .models import *

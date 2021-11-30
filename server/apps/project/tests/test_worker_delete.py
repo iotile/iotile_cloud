@@ -1,17 +1,18 @@
 import datetime
+
 from django.core import mail
 from django.test import TestCase
 from django.utils.dateparse import parse_datetime
 
-from apps.sqsworker.exceptions import WorkerActionHardError
-from apps.utils.test_util import TestMixin
 from apps.org.models import OrgMembership
-from apps.stream.models import StreamVariable, StreamId
+from apps.physicaldevice.models import Device
+from apps.sqsworker.exceptions import WorkerActionHardError
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
-from apps.streamnote.models import StreamNote
-from apps.physicaldevice.models import Device
 from apps.streamfilter.models import *
+from apps.streamnote.models import StreamNote
+from apps.utils.test_util import TestMixin
 
 from ..worker.delete_project import ProjectDeleteAction
 

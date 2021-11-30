@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Invitation
 from .forms import InvitationAdminCreateForm, InvitationAdminEditForm
+from .models import Invitation
 
 
 class InvitationAdmin(admin.ModelAdmin):

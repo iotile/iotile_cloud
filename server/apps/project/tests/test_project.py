@@ -1,21 +1,23 @@
-import json
 import datetime
+import json
+
 import pytz
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 
 from rest_framework import status
 
-from apps.utils.test_util import TestMixin
-from apps.org.models import OrgMembership, Org
-from apps.physicaldevice.models import Device
 from apps.devicetemplate.models import DeviceTemplate
-from apps.vartype.models import VarType
+from apps.org.models import Org, OrgMembership
+from apps.physicaldevice.models import Device
 from apps.sensorgraph.models import SensorGraph, VariableTemplate
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
 from apps.streamnote.models import StreamNote
+from apps.utils.test_util import TestMixin
+from apps.vartype.models import VarType
 
 from ..models import *
 from ..utils import *

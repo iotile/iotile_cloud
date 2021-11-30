@@ -1,7 +1,8 @@
-from django.contrib import admin
 from django import forms
+from django.contrib import admin
 
 from .models import StreamEventData
+
 
 class StreamEventDataAdminForm(forms.ModelForm):
     def clean_extra_data(self):

@@ -2,15 +2,17 @@
 Script to upload IOTile Device Streamer Reports (containing stream data)
 
 """
-import sys
-import json
-import os
-import datetime
 import argparse
+import datetime
 import getpass
+import json
 import logging
-import pytz
+import os
+import sys
 from pprint import pprint
+
+import pytz
+
 from iotile_cloud.api.connection import Api
 from iotile_cloud.api.exceptions import HttpClientError
 
@@ -22,7 +24,7 @@ logger = logging.getLogger(__name__)
 if __name__ == '__main__':
     # Test
     # Logger Format
-    from logging import StreamHandler, Formatter
+    from logging import Formatter, StreamHandler
     FORMAT = '[%(asctime)-15s] %(levelname)-6s %(message)s'
     DATE_FORMAT = '%d/%b/%Y %H:%M:%S'
     formatter = Formatter(fmt=FORMAT, datefmt=DATE_FORMAT)

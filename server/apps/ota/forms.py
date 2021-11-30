@@ -1,10 +1,10 @@
 from django import forms
+from django.db.models import Q
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
-from django.db.models import Q
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Div, HTML
+from crispy_forms.layout import HTML, Div, Layout, Submit
 
 from .models import *
 from .utils.selection import op_by_type, validate_value_by_type

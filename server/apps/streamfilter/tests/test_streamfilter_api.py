@@ -1,21 +1,23 @@
 
 from unittest import mock
 
-from apps.physicaldevice.models import Device
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.utils import get_stream_output_mdo
-from apps.streamdata.models import StreamData
-from apps.utils.test_util import TestMixin
-from apps.vartype.models import VarType, VarTypeOutputUnit
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.utils import timezone
+
 from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
+from apps.physicaldevice.models import Device
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
+from apps.streamdata.utils import get_stream_output_mdo
 from apps.utils.gid.convert import formatted_gfid
+from apps.utils.test_util import TestMixin
+from apps.vartype.models import VarType, VarTypeOutputUnit
+
 from ..actions.action import *
 from ..cache_utils import *
 from ..dynamodb import *

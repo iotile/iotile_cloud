@@ -1,12 +1,14 @@
-from django.core.management.base import BaseCommand
-import os
-import json
 import datetime
+import json
 import logging
+import os
+
+from django.core.management.base import BaseCommand
 from django.template.defaultfilters import slugify
+
 from apps.authentication.models import Account
-from apps.projecttemplate.models import ProjectTemplate
 from apps.org.models import Org
+from apps.projecttemplate.models import ProjectTemplate
 
 logger = logging.getLogger(__name__)
 

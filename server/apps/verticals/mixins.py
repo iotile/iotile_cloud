@@ -1,12 +1,12 @@
-from django.shortcuts import get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
 
-from apps.project.models import Project
-from apps.project.mixins import ProjectBaseAccessMixin
-from apps.physicaldevice.models import Device
 from apps.physicaldevice.mixins import DeviceAccessMixin
+from apps.physicaldevice.models import Device
+from apps.project.mixins import ProjectBaseAccessMixin
+from apps.project.models import Project
 
 
 class VerticalProjectAccessMixin(ProjectBaseAccessMixin):

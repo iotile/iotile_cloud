@@ -22,6 +22,7 @@
 
 from rest_framework import serializers
 
+
 class FineUploaderSignSerializer(serializers.Serializer):
     expiration = serializers.DateTimeField()
     conditions = serializers.JSONField()

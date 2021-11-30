@@ -1,30 +1,26 @@
-import logging
 import datetime
-import os
 import json
+import logging
+import os
 
-from django.shortcuts import get_object_or_404
-from django.views.generic import TemplateView, RedirectView
-from django.views.generic.edit import FormView, CreateView, DeleteView
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.contrib import messages
-from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import RedirectView, TemplateView
+from django.views.generic.edit import CreateView, DeleteView, FormView
 
-from apps.staff.views import StaffRequiredMixin
-from apps.staff.worker.staff_operations import StaffOperationsAction
+from apps.configattribute.models import ConfigAttribute, get_or_create_config_name
 from apps.project.models import Project
 from apps.projecttemplate.models import ProjectTemplate
-from apps.configattribute.models import ConfigAttribute, get_or_create_config_name
 from apps.property.models import GenericProperty
+from apps.staff.views import StaffRequiredMixin
+from apps.staff.worker.staff_operations import StaffOperationsAction
 
-from .forms import (
-    NewStreamerForwarderConfigForm,
-    ArchFxDeviceBatchForm,
-    STREAMER_REPORT_FORWARDER_CONFIG_NAME
-)
+from .forms import STREAMER_REPORT_FORWARDER_CONFIG_NAME, ArchFxDeviceBatchForm, NewStreamerForwarderConfigForm
 
 logger = logging.getLogger(__name__)
 user_model = get_user_model()

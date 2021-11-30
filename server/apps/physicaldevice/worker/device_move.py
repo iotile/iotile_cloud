@@ -7,14 +7,14 @@ from django.utils import timezone
 from iotile_cloud.utils.gid import IOTileVariableSlug
 
 from apps.emailutil.tasks import Email
+from apps.physicaldevice.claim_utils import create_streams_from_sensorgraph
 from apps.physicaldevice.models import Device
 from apps.project.models import Project
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamnote.models import StreamNote
 from apps.utils.data_helpers.manager import DataManager
-from apps.physicaldevice.claim_utils import create_streams_from_sensorgraph
 from apps.utils.gid.convert import int16gid
 
 logger = logging.getLogger(__name__)

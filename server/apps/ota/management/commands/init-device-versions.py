@@ -1,11 +1,12 @@
 import logging
 import sys
+
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
+from apps.ota.models import DeviceVersionAttribute
 from apps.physicaldevice.models import Device
 from apps.sensorgraph.models import SensorGraph
-from apps.ota.models import DeviceVersionAttribute
 
 logger = logging.getLogger(__name__)
 

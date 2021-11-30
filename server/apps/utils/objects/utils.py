@@ -1,7 +1,9 @@
 import logging
+
 from django.apps import apps
 
 from iotile_cloud.utils.gid import IOTileBlockSlug
+
 from apps.utils.aws.sns import sns_staff_notification
 
 logger = logging.getLogger(__name__)

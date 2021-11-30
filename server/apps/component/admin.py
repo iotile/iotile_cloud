@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class ComponentAdmin(admin.ModelAdmin):
     list_display = ('slug', 'external_sku', 'hw_tag', 'version', 'type', 'active', )

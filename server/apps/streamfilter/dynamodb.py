@@ -1,16 +1,19 @@
-import logging
 import json
-from django.conf import settings
+import logging
 import uuid
+
+from django.conf import settings
+
 logger = logging.getLogger(__name__)
 DYNAMODB_FILTER_LOG_TABLE_NAME = getattr(settings, 'DYNAMODB_FILTER_LOG_TABLE_NAME')
 SERVER_TYPE = getattr(settings, 'SERVER_TYPE')
 
+from pynamodb.attributes import BooleanAttribute, JSONAttribute, NumberAttribute, UnicodeAttribute, UTCDateTimeAttribute
+from pynamodb.indexes import AllProjection, GlobalSecondaryIndex
 from pynamodb.models import Model
-from pynamodb.attributes import UnicodeAttribute, UTCDateTimeAttribute, NumberAttribute, BooleanAttribute, JSONAttribute
+
 from .models import StreamFilter
 from .serializers import StreamFilterActionSerializer
-from pynamodb.indexes import GlobalSecondaryIndex, AllProjection
 
 
 class TargetIndex(GlobalSecondaryIndex):

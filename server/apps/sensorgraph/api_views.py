@@ -1,20 +1,19 @@
 import logging
+
 from django.core.cache import caches
-from django.utils.decorators import method_decorator
 from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
 
 import django_filters
-from rest_framework import permissions, viewsets
+from rest_framework import mixins, permissions, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework import status, mixins
-
-from apps.utils.rest.cached_views import cache_on_auth
-from apps.utils.rest.permissions import IsStaffOrReadOnly, HasAuthAPIKeyNoOrg
-from apps.property.serializers import GenericPropertyOrgTemplateSerializer
 
 from apps.org.models import AuthAPIKey
+from apps.property.serializers import GenericPropertyOrgTemplateSerializer
 from apps.utils.api_key_utils import get_org_slug_from_apikey
+from apps.utils.rest.cached_views import cache_on_auth
+from apps.utils.rest.permissions import HasAuthAPIKeyNoOrg, IsStaffOrReadOnly
 
 from .models import *
 from .serializers import *

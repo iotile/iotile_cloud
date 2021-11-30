@@ -1,10 +1,12 @@
 import os
 import struct
+
 from django.test import TestCase
 
 from ..models import *
 from ..serializers import *
-from .parser import ReportParser, READINGS_FORMAT
+from .parser import READINGS_FORMAT, ReportParser
+
 
 class StreamerReportParsingTestCase(TestCase):
 

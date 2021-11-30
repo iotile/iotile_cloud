@@ -1,17 +1,17 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 from django.utils import timezone
 
-from apps.utils.utest.devices import TripDeviceMock
+from apps.configattribute.models import ConfigAttribute
 from apps.org.models import Org
+from apps.physicaldevice.claim_utils import *
+from apps.physicaldevice.models import Device
 from apps.project.models import Project
-from apps.utils.test_util import TestMixin
 from apps.sensorgraph.models import SensorGraph
 from apps.stream.models import StreamId, StreamVariable
 from apps.streamfilter.models import StreamFilter
-from apps.configattribute.models import ConfigAttribute
-from apps.physicaldevice.models import Device
-from apps.physicaldevice.claim_utils import *
+from apps.utils.test_util import TestMixin
+from apps.utils.utest.devices import TripDeviceMock
 
 user_model = get_user_model()
 

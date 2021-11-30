@@ -1,7 +1,8 @@
 import json
 import logging
-import requests
 from urllib import parse
+
+import requests
 
 from django.conf import settings
 from django.core.cache import cache
@@ -10,10 +11,10 @@ from django.utils import timezone
 from iotile_cloud.api.connection import Api
 from iotile_cloud.api.exceptions import HttpClientError, HttpServerError
 
+from apps.configattribute.models import ConfigAttribute
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
 from apps.streamer.models import StreamerReport
-from apps.configattribute.models import ConfigAttribute
 from apps.utils.aws.s3 import download_file_from_s3
 
 logger = logging.getLogger(__name__)

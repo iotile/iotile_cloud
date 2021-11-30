@@ -1,9 +1,8 @@
 from django.urls import path
 
 from .views import (
-    SensorGraphListView, SensorGraphCreateView, SensorGraphDetailView,
-    SensorGraphUpdateView, SensorGraphEditUiExtraView, SensorGraphEditSgfView,
-    SensorGraphSGFUploadView, SensorGraphSGFUploadSuccessEndpointView
+    SensorGraphCreateView, SensorGraphDetailView, SensorGraphEditSgfView, SensorGraphEditUiExtraView,
+    SensorGraphListView, SensorGraphSGFUploadSuccessEndpointView, SensorGraphSGFUploadView, SensorGraphUpdateView,
 )
 
 app_name = 'sensorgraph'

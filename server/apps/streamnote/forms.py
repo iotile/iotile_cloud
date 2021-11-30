@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout
+from crispy_forms.layout import Layout, Submit
 
 from .models import StreamNote
 

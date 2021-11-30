@@ -1,24 +1,25 @@
-import logging
 import json
+import logging
 from datetime import timedelta
+
 from django.conf import settings
-from django.utils.dateparse import parse_datetime
 from django.contrib.auth import get_user_model
+from django.utils.dateparse import parse_datetime
 
-from iotile_cloud.utils.gid import IOTileProjectSlug, IOTileDeviceSlug, IOTileStreamSlug, IOTileBlockSlug
+from iotile_cloud.utils.gid import IOTileBlockSlug, IOTileDeviceSlug, IOTileProjectSlug, IOTileStreamSlug
 
+from apps.datablock.models import DataBlock
+from apps.org.models import Org
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerActionHardError
-from apps.project.models import Project
-from apps.physicaldevice.models import Device
-from apps.datablock.models import DataBlock
 from apps.stream.models import StreamId
 from apps.utils.timezone_utils import str_utc
-from apps.org.models import Org
 
-from ..models import UserReport
 from ..generator.base import ReportGenerator
 from ..generator.config import rpt_configuration_requirements_met
+from ..models import UserReport
 
 logger = logging.getLogger(__name__)
 

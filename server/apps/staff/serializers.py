@@ -1,9 +1,10 @@
+from django.utils import timezone
+
 from rest_framework import serializers
 
-from django.utils import timezone
+from apps.staff.dbstats import DbStats
 from apps.utils.timezone_utils import str_utc
 
-from apps.staff.dbstats import DbStats
 
 class DbStatsSerializer(serializers.Serializer):
     now = serializers.SerializerMethodField()

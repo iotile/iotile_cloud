@@ -1,14 +1,16 @@
 import logging
 
-import django_filters
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
+
+import django_filters
 from drf_yasg.utils import swagger_auto_schema
-from iotile_cloud.utils.gid import IOTileProjectSlug
 from rest_framework import exceptions as drf_exceptions
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+
+from iotile_cloud.utils.gid import IOTileProjectSlug
 
 from apps.org.permissions import IsMemberOnly
 from apps.utils.uuid_utils import validate_uuid

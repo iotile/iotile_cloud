@@ -1,15 +1,15 @@
 import logging
 
+from django import forms
 from django.forms import ModelForm
 from django.template.defaultfilters import slugify
-from django import forms
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, HTML, Div
 from crispy_forms.bootstrap import FieldWithButtons, StrictButton
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, Div, Field, Layout, Submit
 
-from .models import Org, OrgMembership, AuthAPIKey
-from .roles import ORG_ROLE_CHOICES, MEMBERSHIP_FORM_BEGIN, MEMBERSHIP_FORM_END
+from .models import AuthAPIKey, Org, OrgMembership
+from .roles import MEMBERSHIP_FORM_BEGIN, MEMBERSHIP_FORM_END, ORG_ROLE_CHOICES
 
 logger = logging.getLogger(__name__)
 

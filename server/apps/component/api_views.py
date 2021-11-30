@@ -1,16 +1,16 @@
 import json
-from django.http import HttpResponse, Http404
-from django.core.exceptions import PermissionDenied
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
+
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
+from django.http import Http404, HttpResponse
+from django.shortcuts import get_object_or_404
 
 import django_filters
-from rest_framework import viewsets
-from rest_framework import mixins
-from rest_framework import status
+from rest_framework import mixins, status, viewsets
 
 from apps.utils.rest.permissions import IsStaffOrReadOnly
+
 from .models import *
 from .serializers import ComponentSerializer
 

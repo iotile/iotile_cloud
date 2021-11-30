@@ -2,12 +2,12 @@ import logging
 import random
 import string
 
-from django.db import models
 from django.conf import settings
+from django.db import models
+from django.db.models import Manager
+from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.dispatch import receiver
-from django.db.models import Manager
 
 from apps.physicaldevice.models import Device
 

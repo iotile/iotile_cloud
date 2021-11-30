@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class DeviceKeyAdmin(admin.ModelAdmin):
     list_display = ('slug', 'type', 'downloadable', )

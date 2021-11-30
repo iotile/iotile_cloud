@@ -1,15 +1,15 @@
-from django.utils.decorators import method_decorator
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.contrib import messages
+from django.utils.decorators import method_decorator
 
-from apps.utils.views.basic import LoginRequiredAccessMixin
 from apps.org.models import Org
 from apps.project.models import Project
+from apps.utils.views.basic import LoginRequiredAccessMixin
 
-from .models import StreamVariable, StreamId
+from .models import StreamId, StreamVariable
 
 
 class StreamVariableAccessMixin(LoginRequiredAccessMixin):

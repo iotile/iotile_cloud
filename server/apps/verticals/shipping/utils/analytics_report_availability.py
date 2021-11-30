@@ -1,8 +1,7 @@
-from apps.streamevent.models import StreamEventData
 from apps.streamdata.models import StreamData
+from apps.streamevent.models import StreamEventData
 from apps.utils.data_mask.mask_utils import get_data_mask_date_range
 from apps.utils.timezone_utils import str_to_dt_utc
-
 from apps.verticals.helpers.analytics_report_availability_helper import AnalyticsReportAvailabilityHelpter
 
 

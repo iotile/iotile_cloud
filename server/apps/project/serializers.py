@@ -1,10 +1,12 @@
 from django.contrib.auth import get_user_model
+
 from rest_framework import serializers
 
-from .models import Project
 from apps.org.models import Org
-from apps.projecttemplate.models import ProjectTemplate
 from apps.physicaldevice.models import Device
+from apps.projecttemplate.models import ProjectTemplate
+
+from .models import Project
 
 user_model = get_user_model()
 

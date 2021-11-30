@@ -6,7 +6,6 @@ from apps.streamnote.models import StreamNote
 
 from .models import Device, DeviceStatus
 
-
 # Name of the Elasticsearch index
 device_index = Index('device')
 # See Elasticsearch Indices API reference for available settings

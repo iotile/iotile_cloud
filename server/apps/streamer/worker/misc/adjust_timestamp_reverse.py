@@ -7,11 +7,11 @@ from django.db import transaction
 from django.utils import timezone
 
 from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import convert_to_utc, str_to_dt_utc
-from apps.utils.aws.sns import sns_staff_notification
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerActionHardError
+from apps.utils.aws.sns import sns_staff_notification
 from apps.utils.data_helpers.manager import DataManager
+from apps.utils.timezone_utils import convert_to_utc, str_to_dt_utc
 
 user_model = get_user_model()
 logger = logging.getLogger(__name__)

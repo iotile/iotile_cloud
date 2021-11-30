@@ -4,9 +4,9 @@ import sys
 here = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(here, "./vendored"))
 
+from pynamodb.attributes import BooleanAttribute, JSONAttribute, NumberAttribute, UnicodeAttribute, UTCDateTimeAttribute
+from pynamodb.indexes import AllProjection, GlobalSecondaryIndex
 from pynamodb.models import Model
-from pynamodb.attributes import UnicodeAttribute, UTCDateTimeAttribute, NumberAttribute, BooleanAttribute, JSONAttribute
-from pynamodb.indexes import GlobalSecondaryIndex, AllProjection
 
 DYNAMODB_WORKERLOG_TABLE_NAME = os.environ['dynamodb_workerlog_table_name']
 

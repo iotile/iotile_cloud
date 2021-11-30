@@ -1,10 +1,10 @@
-from django.utils import timezone
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
+from django.utils import timezone
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamId, StreamVariable
 from apps.physicaldevice.models import Device
+from apps.stream.models import StreamId, StreamVariable
+from apps.utils.test_util import TestMixin
 
 from ..models import *
 

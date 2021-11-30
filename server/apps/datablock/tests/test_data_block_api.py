@@ -1,23 +1,23 @@
-import json
 import datetime
+import json
+
 import dateutil.parser
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 from django.utils import timezone
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
 from apps.physicaldevice.models import Device
-from apps.utils.test_util import TestMixin
-from apps.utils.gid.convert import *
-
 from apps.property.models import GenericProperty
-from apps.stream.models import StreamVariable, StreamId
-from apps.physicaldevice.models import Device
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamfilter.models import *
+from apps.utils.gid.convert import *
 from apps.utils.gid.convert import formatted_dbid
+from apps.utils.test_util import TestMixin
 
 from ..models import *
 from ..worker.archive_device_data import ArchiveDeviceDataAction

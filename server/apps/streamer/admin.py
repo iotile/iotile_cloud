@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class StreamerAdmin(admin.ModelAdmin):
     list_display = ('id', 'slug', 'last_id',  'selector',)

@@ -1,19 +1,18 @@
 import json
 from datetime import datetime, timedelta
 
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.org.models import Org, AuthAPIKey
+from apps.org.models import AuthAPIKey, Org
 from apps.utils.api_key_utils import get_apikey_object_from_generated_key
 from apps.utils.test_util import TestMixin
 
 from ..models import *
-
 
 user_model = get_user_model()
 

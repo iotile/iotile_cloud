@@ -12,6 +12,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
+
 from iotile_cloud.utils.gid import IOTileStreamSlug
 
 from apps.devicetemplate.models import DeviceTemplate
@@ -19,7 +20,8 @@ from apps.org.models import Org
 from apps.project.models import Project
 from apps.property.models import GenericProperty
 from apps.sensorgraph.models import SensorGraph
-from apps.utils.gid.convert import int2did, formatted_gdid
+from apps.utils.gid.convert import formatted_gdid, int2did
+
 from .state import DEVICE_STATE_CHOICES
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')

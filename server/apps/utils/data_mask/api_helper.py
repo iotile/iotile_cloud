@@ -1,8 +1,8 @@
 from rest_framework import status
-from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.response import Response
 
-from .mask_utils import set_data_mask, clear_data_mask, get_data_mask_date_range
+from .mask_utils import clear_data_mask, get_data_mask_date_range, set_data_mask
 from .serializers import DeviceDataMaskSerializer
 
 

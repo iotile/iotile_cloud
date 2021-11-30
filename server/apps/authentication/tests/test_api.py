@@ -1,19 +1,19 @@
 import json
+
 import jwt
 
 from django.contrib.auth import get_user_model
 from django.core import mail
 
-from rest_framework.test import APIClient
+from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.reverse import reverse
-from rest_framework import status
-from rest_framework.test import APITestCase
+from rest_framework.test import APIClient, APITestCase
 
-from ..models import *
-from ..tasks import *
 from ..api_views import *
+from ..models import *
 from ..serializers import AccountSerializer
+from ..tasks import *
 
 user_model = get_user_model()
 
