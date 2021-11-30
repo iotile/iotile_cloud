@@ -1,19 +1,19 @@
 import json
 import logging
 
-from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.parsers import JSONParser
-from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
+from rest_framework.parsers import JSONParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
+from apps.utils.aws.s3 import sign_headers, sign_policy_document
 from apps.utils.fineuploader.serializers import FineUploaderSignSerializer
-from apps.utils.aws.s3 import sign_policy_document, sign_headers
 
 from .models import S3File
 

@@ -3,14 +3,14 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 
 from apps.physicaldevice.models import Device
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.utils import get_stream_output_mdo
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
+from apps.streamdata.utils import get_stream_output_mdo
 from apps.utils.test_util import TestMixin
 from apps.vartype.models import VarType, VarTypeOutputUnit
 
-from ..models import *
 from ..cache_utils import *
+from ..models import *
 from ..serializers import *
 
 user_model = get_user_model()

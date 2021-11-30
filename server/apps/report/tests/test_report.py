@@ -1,9 +1,10 @@
 import json
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
 
-from apps.project.models import Project
+from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
+
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
 from apps.utils.test_util import TestMixin
 from apps.utils.timezone_utils import formated_timedelta
 

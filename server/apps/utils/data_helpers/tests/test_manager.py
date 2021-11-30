@@ -2,11 +2,12 @@ from datetime import timedelta
 from unittest import mock
 
 import dateutil.parser
+from django_pandas.managers import DataFrameQuerySet
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.test import TestCase
 from django.utils import timezone
-from django_pandas.managers import DataFrameQuerySet
 
 from apps.physicaldevice.models import Device
 from apps.stream.models import StreamId, StreamVariable

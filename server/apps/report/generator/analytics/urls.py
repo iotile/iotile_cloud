@@ -1,9 +1,6 @@
 from django.urls import path
 
-from .views import (
-    AnalyticsReportConfigureView,
-    AnalyticsReportGenerateView,
-)
+from .views import AnalyticsReportConfigureView, AnalyticsReportGenerateView
 
 app_name='report.generator.analytics'
 

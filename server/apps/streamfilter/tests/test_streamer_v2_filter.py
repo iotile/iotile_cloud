@@ -1,28 +1,30 @@
 import json
 import os
+
 import dateutil.parser
-from django.test import TestCase, override_settings
-from django.contrib.auth import get_user_model
+
 from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.test import TestCase, override_settings
 from django.utils.dateparse import parse_datetime
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
-from apps.streamdata.helpers import StreamDataBuilderHelper
 from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import *
-from apps.utils.iotile.streamer import STREAMER_SELECTOR
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.helpers import StreamDataBuilderHelper
+from apps.streamdata.models import StreamData
 from apps.streamer.models import *
 from apps.streamer.serializers import *
-from apps.vartype.models import VarType, VarTypeDecoder
-from apps.streamevent.models import StreamEventData
-from apps.streamer.worker.v2_bin.process_report import ProcessReportV2Action
 from apps.streamer.worker.common.test_utils import create_test_data, get_reboot_slug
+from apps.streamer.worker.v2_bin.process_report import ProcessReportV2Action
+from apps.streamevent.models import StreamEventData
+from apps.utils.iotile.streamer import STREAMER_SELECTOR
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
+from apps.vartype.models import VarType, VarTypeDecoder
 
-from ..process import FilterHelper
-from ..models import *
 from ..cache_utils import get_current_cached_filter_state_for_slug
+from ..models import *
+from ..process import FilterHelper
 
 user_model = get_user_model()
 USE_WORKER = getattr(settings, 'USE_WORKER')

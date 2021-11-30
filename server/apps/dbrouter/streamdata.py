@@ -1,4 +1,4 @@
-from .router_config import REDSHIFT_APPs, DB2
+from .router_config import DB2, REDSHIFT_APPs
 
 
 class StreamDataRouter(object):

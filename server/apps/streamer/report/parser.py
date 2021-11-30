@@ -1,8 +1,8 @@
-import logging
-import struct
 import hashlib
 import hmac
+import logging
 import os
+import struct
 
 logger = logging.getLogger(__name__)
 

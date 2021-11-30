@@ -1,18 +1,22 @@
 import datetime
+from unittest import mock
 
 import dateutil.parser
-from unittest import mock
-from apps.org.models import Org, OrgMembership
+
+from django.contrib.auth import get_user_model
+from django.test import TestCase
+
 from apps.devicetemplate.models import DeviceTemplate
+from apps.org.models import Org, OrgMembership
 from apps.physicaldevice.models import Device
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamfilter.models import *
 from apps.utils.gid.convert import *
 from apps.utils.test_util import TestMixin
 from apps.vartype.models import VarType, VarTypeInputUnit
-from django.contrib.auth import get_user_model
-from django.test import TestCase
+
 from ..models import *
+
 SNS_DELETE_S3 = getattr(settings, 'SNS_DELETE_S3')
 
 user_model = get_user_model()

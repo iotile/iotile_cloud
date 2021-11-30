@@ -4,7 +4,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 
-from apps.org.models import Org, OrgMembership, AuthAPIKey
+from apps.org.models import AuthAPIKey, Org, OrgMembership
 from apps.utils.api_key_utils import get_apikey_object_from_generated_key, get_org_slug_from_apikey
 from apps.utils.test_util import TestMixin
 

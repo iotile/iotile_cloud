@@ -1,6 +1,7 @@
-from django.urls import path, re_path, include
+from django.urls import include, path, re_path
 
-from apps.stream.views import StreamVariableListView, StreamVariableCreateView
+from apps.stream.views import StreamVariableCreateView, StreamVariableListView
+
 from .views import *
 
 app_name = 'project'

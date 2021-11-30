@@ -1,11 +1,12 @@
 import datetime
 import logging
 
+from django_pandas.managers import DataFrameManager
+
 from django.db import models
 from django.db.models import Manager
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from django_pandas.managers import DataFrameManager
 
 from apps.datablock.models import DataBlock
 from apps.org.models import Org, OrgMembership

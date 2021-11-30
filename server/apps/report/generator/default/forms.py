@@ -2,11 +2,11 @@ from django import forms
 from django.forms import ModelForm
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, HTML, Div
+from crispy_forms.layout import HTML, Div, Layout, Submit
 
 from apps.project.models import Project
-from apps.vartype.models import VarTypeOutputUnit, VarType
 from apps.report.models import UserReport
+from apps.vartype.models import VarType, VarTypeOutputUnit
 
 
 class DefaultConfigureForm(ModelForm):

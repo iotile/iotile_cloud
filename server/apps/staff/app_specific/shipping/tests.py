@@ -1,26 +1,27 @@
 import datetime
 import time
+
+from django.contrib.auth import get_user_model
+from django.contrib.messages import get_messages
 from django.test import TestCase
 from django.urls import reverse
-from django.contrib.auth import get_user_model
 from django.utils import timezone
-from django.contrib.messages import get_messages
 
 from rest_framework import status
 
-from apps.utils.test_util import TestMixin
+from apps.configattribute.models import ConfigAttribute
+from apps.devicetemplate.models import DeviceTemplate
+from apps.org.models import Org
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.projecttemplate.models import ProjectTemplate
+from apps.sensorgraph.models import SensorGraph
 from apps.stream.models import StreamId
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
-from apps.physicaldevice.models import Device
-from apps.devicetemplate.models import DeviceTemplate
-from apps.configattribute.models import ConfigAttribute
-from apps.projecttemplate.models import ProjectTemplate
-from apps.sensorgraph.models import SensorGraph
-from apps.project.models import Project
-from apps.org.models import Org
+from apps.streamfilter.models import State, StateTransition, StreamFilter, StreamFilterAction, StreamFilterTrigger
 from apps.utils.iotile.variable import SYSTEM_VID
-from apps.streamfilter.models import StreamFilter, StreamFilterTrigger, State, StreamFilterAction, StateTransition
+from apps.utils.test_util import TestMixin
 
 user_model = get_user_model()
 

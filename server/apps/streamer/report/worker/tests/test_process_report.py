@@ -1,27 +1,29 @@
 import datetime
 import os
-import dateutil.parser
 from unittest import mock
-from django.test import TestCase
+
+import dateutil.parser
+
 from django.conf import settings
 from django.core.cache import cache
+from django.test import TestCase
 from django.utils.dateparse import parse_datetime
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
 from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import *
-from apps.streamer.models import Streamer, StreamerReport
-from apps.sqsworker.workerhelper import Worker
+from apps.sqsworker.dynamodb import DynamoWorkerLogModel, create_worker_log_table_if_needed
+from apps.sqsworker.exceptions import *
 from apps.sqsworker.tests import QueueTestMock
-from apps.streamer.report.worker.process_report import ProcessReportAction, RETRY_DELAY_SECONDS
+from apps.sqsworker.workerhelper import Worker
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
+from apps.streamer.models import Streamer, StreamerReport
+from apps.streamer.report.parser import ReportParser
+from apps.streamer.report.worker.process_report import RETRY_DELAY_SECONDS, ProcessReportAction
+from apps.streamfilter.models import State, StateTransition, StreamFilter, StreamFilterAction, StreamFilterTrigger
 from apps.utils.gid.convert import formatted_gsid
 from apps.utils.iotile.streamer import STREAMER_SELECTOR
-from apps.streamfilter.models import StreamFilter, StreamFilterTrigger, StreamFilterAction, State, StateTransition
-from apps.sqsworker.dynamodb import create_worker_log_table_if_needed, DynamoWorkerLogModel
-from apps.streamer.report.parser import ReportParser
-from apps.sqsworker.exceptions import *
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
 
 
 def _full_path(filename):

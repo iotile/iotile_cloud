@@ -1,24 +1,24 @@
-import uuid
 import logging
-from django.db import models
-from django.conf import settings
-from django.template.defaultfilters import slugify
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
-from django.db.models import Manager
-from django.shortcuts import get_object_or_404
-from django.contrib.auth import get_user_model
-from django.db.models import Q
+import uuid
 
 from rest_framework_api_key.models import AbstractAPIKey
 
+from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.db import models
+from django.db.models import Manager, Q
+from django.shortcuts import get_object_or_404
+from django.template.defaultfilters import slugify
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+
 from allauth.account.signals import email_confirmed
 
-from apps.utils.gravatar import get_gravatar_thumbnail_url
-from apps.s3images.models import S3Image
 from apps.orgtemplate.models import OrgTemplate
+from apps.s3images.models import S3Image
+from apps.utils.gravatar import get_gravatar_thumbnail_url
 
-from .roles import ORG_ROLE_PERMISSIONS, NO_PERMISSIONS_ROLE, ROLE_DISPLAY, DEFAULT_ROLE
+from .roles import DEFAULT_ROLE, NO_PERMISSIONS_ROLE, ORG_ROLE_PERMISSIONS, ROLE_DISPLAY
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 user_model = get_user_model()

@@ -8,6 +8,7 @@ from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+
 from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileProjectSlug, IOTileStreamSlug
 
 from apps.datablock.models import DataBlock
@@ -16,7 +17,7 @@ from apps.physicaldevice.models import Device
 from apps.project.models import Project
 from apps.sensorgraph.models import DisplayWidgetTemplate
 from apps.utils.data_helpers.manager import DataManager
-from apps.utils.gid.convert import gid2int, int2pid, int2vid, int2did, gid_split, gid_join, formatted_gvid
+from apps.utils.gid.convert import formatted_gvid, gid2int, gid_join, gid_split, int2did, int2pid, int2vid
 from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit
 from apps.vartype.types import STREAM_DATA_TYPE_CHOICES
 

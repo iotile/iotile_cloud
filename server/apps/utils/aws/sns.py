@@ -1,5 +1,6 @@
 import json
 import logging
+
 import boto3
 
 from django.conf import settings

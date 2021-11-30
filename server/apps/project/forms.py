@@ -1,13 +1,15 @@
-from django.forms import ModelForm
 from django import forms
+from django.contrib.postgres.forms import SimpleArrayField
+from django.forms import ModelForm
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, HTML, Button, Div
-from django.contrib.postgres.forms import SimpleArrayField
-from .models import *
-from apps.streamfilter.models import StreamFilter
-from apps.stream.models import StreamVariable, StreamId
+from crispy_forms.layout import HTML, Button, Div, Field, Layout, Submit
+
 from apps.physicaldevice.models import Device
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamfilter.models import StreamFilter
+
+from .models import *
 
 
 class ProjectForm(ModelForm):

@@ -1,15 +1,14 @@
-from django.test import TestCase
 from django.core.cache import cache
+from django.test import TestCase
 
 from apps.physicaldevice.models import Device
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.utils.test_util import TestMixin
 
-from ..models import *
 from ..cache_utils import *
 from ..cache_utils import _get_current_state_cache_key, _get_filter_cache_key
-
+from ..models import *
 from ..serializers import *
 
 

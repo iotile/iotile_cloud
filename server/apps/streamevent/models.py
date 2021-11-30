@@ -1,17 +1,18 @@
-import uuid
 import json
 import logging
-from django.db import models
+import uuid
+
 from django.conf import settings
-from django.utils.translation import gettext_lazy as _
+from django.db import models
 from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from iotile_cloud.utils.gid import *
 
-from apps.utils.aws.s3 import get_s3_url
 from apps.streamdata.models import StreamDataBase, StreamDataManager
+from apps.utils.aws.s3 import get_s3_url
 from apps.utils.aws.sns import sns_lambda_message
 from apps.utils.enums import EXT_CHOICES
 

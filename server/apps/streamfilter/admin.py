@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import *
 
+
 class StreamFilterAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'slug', 'project', )
     exclude = ['created_by', 'slug']

@@ -1,11 +1,12 @@
 import json
-from django.contrib import admin
-from django.forms import TextInput, Textarea
-from django.contrib.postgres.forms import SimpleArrayField
-from django.contrib.postgres.fields import ArrayField
 
-from .models import *
+from django.contrib import admin
+from django.contrib.postgres.fields import ArrayField
+from django.contrib.postgres.forms import SimpleArrayField
+from django.forms import Textarea, TextInput
+
 from .forms import UserReportAdminForm
+from .models import *
 
 
 class UserReportAdmin(admin.ModelAdmin):

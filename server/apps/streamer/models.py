@@ -1,17 +1,18 @@
-import uuid
 import datetime
 import logging
-from django.db import models
-from django.utils.translation import gettext_lazy as _
+import uuid
+
 from django.conf import settings
-from django.utils import timezone
+from django.db import models
 from django.db.models import Manager
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from apps.org.models import Org, OrgMembership
-from apps.utils.gid.convert import int16gid, formatted_gtid
 from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import str_utc
+from apps.utils.gid.convert import formatted_gtid, int16gid
 from apps.utils.iotile.streamer import STREAMER_SELECTOR
+from apps.utils.timezone_utils import str_utc
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 logger = logging.getLogger(__name__)

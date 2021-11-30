@@ -1,32 +1,28 @@
 import json
-from django.http import HttpResponse, Http404
-from django.core.exceptions import PermissionDenied
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
+
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
 from django.db import IntegrityError
+from django.http import Http404, HttpResponse
+from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
 import django_filters
-from rest_framework import viewsets
-from rest_framework import mixins
-from rest_framework import status
-from rest_framework import filters
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework import exceptions, filters, mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework import exceptions
 
-from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
-
-from apps.project.serializers import ProjectSerializer
-from apps.utils.rest.pagination import LargeResultsSetPagination
-from apps.invitation.serializers import SendInvitationSerializer, PendingInvitationsSerializer
-from apps.invitation.models import Invitation
 from apps.datablock.documents import DataBlockDocument
 from apps.datablock.serializers import DataBlockSerializer
+from apps.invitation.models import Invitation
+from apps.invitation.serializers import PendingInvitationsSerializer, SendInvitationSerializer
 from apps.physicaldevice.documents import DeviceDocument
 from apps.physicaldevice.serializers import DeviceSerializer
+from apps.project.serializers import ProjectSerializer
+from apps.utils.rest.pagination import LargeResultsSetPagination
 
 from .models import *
 from .permissions import IsMemberOnly

@@ -1,11 +1,12 @@
 import logging
-from django.db import models
-from django.conf import settings
-from django.utils.translation import gettext_lazy as _
-from django.urls import reverse
 
-from apps.utils.objects.utils import get_object_by_slug
+from django.conf import settings
+from django.db import models
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+
 from apps.org.models import Org
+from apps.utils.objects.utils import get_object_by_slug
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 logger = logging.getLogger(__name__)

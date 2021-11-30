@@ -1,20 +1,20 @@
 import logging
+
 from django.conf import settings
 from django.utils import timezone
 
 from iotile_cloud.utils.gid import *
 
-from apps.utils.aws.sns import sns_staff_notification
 from apps.org.models import Org
-from apps.physicaldevice.models import Device
 from apps.physicaldevice.claim_utils import device_claim
-from apps.stream.models import StreamId
+from apps.physicaldevice.models import Device
 from apps.project.models import Project
-from apps.stream.models import StreamId, StreamVariable
 from apps.sensorgraph.models import SensorGraph
-from apps.streamdata.helpers import StreamDataBuilderHelper
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerInternalError
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.helpers import StreamDataBuilderHelper
+from apps.utils.aws.sns import sns_staff_notification
 from apps.utils.data_helpers.manager import DataManager
 
 from ..dbstats import DbStats

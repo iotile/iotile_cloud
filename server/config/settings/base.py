@@ -10,9 +10,11 @@ import os
 import sys
 
 import boto3
+
+from django.contrib import messages
+
 # Use 12factor inspired environment variables or from a file
 import environ
-from django.contrib import messages
 
 from apps.utils.aws.common import AWS_REGION
 

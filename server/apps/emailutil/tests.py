@@ -1,10 +1,10 @@
 import pytest
 
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 
-from apps.utils.test_util import TestMixin
 from apps.org.models import Org, OrgMembership
+from apps.utils.test_util import TestMixin
 
 from .utils import EmailRecipientHelper
 

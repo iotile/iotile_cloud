@@ -1,11 +1,11 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 
+from apps.property.models import GenericPropertyOrgEnum, GenericPropertyOrgTemplate
 from apps.utils.test_util import TestMixin
-from apps.property.models import GenericPropertyOrgTemplate, GenericPropertyOrgEnum
 
 from ..models import SensorGraph
 

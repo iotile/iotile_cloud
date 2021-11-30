@@ -1,17 +1,17 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 
+from apps.org.models import Org
 from apps.project.models import Project
-from apps.utils.test_util import TestMixin
-from apps.utils.gid.convert import formatted_gdid, int64gid, int2did
+from apps.property.forms import GenericPropertyForm
+from apps.property.models import GenericProperty
 from apps.sensorgraph.models import SensorGraph
 from apps.stream.models import StreamId, StreamVariable
-from apps.property.models import GenericProperty
-from apps.property.forms import GenericPropertyForm
-from apps.org.models import Org
+from apps.utils.gid.convert import formatted_gdid, int2did, int64gid
+from apps.utils.test_util import TestMixin
 
 from ..models import Device
 

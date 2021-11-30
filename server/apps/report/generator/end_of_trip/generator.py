@@ -6,9 +6,11 @@ from io import StringIO
 
 import numpy as np
 import pandas as pd
+
 from django.db.models import Q
 from django.utils import timezone
-from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileStreamSlug, IOTileVariableSlug, IOTileBlockSlug
+
+from iotile_cloud.utils.gid import IOTileBlockSlug, IOTileDeviceSlug, IOTileStreamSlug, IOTileVariableSlug
 
 from apps.physicaldevice.models import Device
 from apps.property.models import GenericProperty
@@ -17,9 +19,9 @@ from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.utils import get_stream_output_mdo
 from apps.utils.aws.redshift import get_ts_from_redshift
 from apps.utils.data_helpers.manager import DataManager
-from apps.utils.gid.convert import gid2int, get_device_and_block_by_did
-from apps.utils.objects.utils import get_device_or_block
+from apps.utils.gid.convert import get_device_and_block_by_did, gid2int
 from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.objects.utils import get_device_or_block
 from apps.utils.timezone_utils import convert_to_utc, str_to_dt_utc
 
 from ..base import ReportGenerator

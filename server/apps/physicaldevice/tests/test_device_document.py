@@ -1,19 +1,18 @@
-from django.test import TestCase
+from elasticsearch_dsl import Q
+
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 from django.utils import timezone
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 
-from apps.utils.test_util import TestMixin
-from apps.utils.gid.convert import *
 from apps.property.models import GenericProperty
+from apps.utils.gid.convert import *
+from apps.utils.test_util import TestMixin
 
-
-from ..models import *
 from ..documents import *
-
-from elasticsearch_dsl import Q
+from ..models import *
 
 user_model = get_user_model()
 

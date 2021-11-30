@@ -1,8 +1,10 @@
 # In production set the environment variable like this:
 #    DJANGO_SETTINGS_MODULE=config.settings.production
 import socket
+
 import requests
 from requests.exceptions import ConnectionError
+
 from django.core.exceptions import ImproperlyConfigured
 
 from .base import *

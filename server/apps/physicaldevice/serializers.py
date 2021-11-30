@@ -1,12 +1,14 @@
 import json
 
 import pytz
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Count
+
 from rest_framework import serializers
 
-from apps.deviceauth.serializers import DeviceKeySerializer, DeviceKey
+from apps.deviceauth.serializers import DeviceKey, DeviceKeySerializer
 from apps.devicescript.models import DeviceScript
 from apps.devicescript.serializers import DeviceScriptReadOnlySerializer
 from apps.stream.models import StreamId

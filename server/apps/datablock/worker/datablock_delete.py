@@ -1,23 +1,24 @@
-import logging
 import json
+import logging
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import transaction
 
-from apps.sqsworker.action import Action
-from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
-from apps.utils.gid.convert import int16gid
-from apps.utils.aws.sns import sns_staff_notification
+from apps.devicelocation.models import DeviceLocation
+from apps.emailutil.tasks import Email
 from apps.org.models import OrgMembership
 from apps.org.roles import ORG_ROLE_PERMISSIONS
-from apps.stream.models import StreamId
-from apps.streamnote.models import StreamNote
-from apps.devicelocation.models import DeviceLocation
 from apps.property.models import GenericProperty
 from apps.report.models import GeneratedUserReport
-from apps.emailutil.tasks import Email
+from apps.sqsworker.action import Action
+from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
+from apps.stream.models import StreamId
+from apps.streamnote.models import StreamNote
+from apps.utils.aws.sns import sns_staff_notification
 from apps.utils.data_helpers.manager import DataManager
 from apps.utils.data_mask.mask_utils import clear_data_mask
+from apps.utils.gid.convert import int16gid
 
 from ..models import DataBlock
 

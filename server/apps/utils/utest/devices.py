@@ -1,18 +1,18 @@
 from datetime import timedelta
-from django.utils import timezone, dateparse
 
+from django.utils import dateparse, timezone
 
-from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit, VarTypeDecoder
-from apps.org.models import Org
+from apps.configattribute.models import ConfigAttribute, ConfigAttributeName
 from apps.devicetemplate.models import DeviceTemplate
-from apps.projecttemplate.models import ProjectTemplate
-from apps.project.models import Project
+from apps.org.models import Org
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.projecttemplate.models import ProjectTemplate
 from apps.sensorgraph.models import SensorGraph, VariableTemplate
 from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
-from apps.configattribute.models import ConfigAttributeName, ConfigAttribute
+from apps.vartype.models import VarType, VarTypeDecoder, VarTypeInputUnit, VarTypeOutputUnit
 
 from .base import BaseDeviceMock
 

@@ -1,21 +1,21 @@
 import logging
 
-from django.db import models
-from django.core.cache import cache
 from django.conf import settings
+from django.core.cache import cache
+from django.db import models
+from django.db.models import Manager
+from django.db.models.signals import m2m_changed, post_save, pre_delete
+from django.dispatch import receiver
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.db.models import Manager
-from django.db.models.signals import post_save, pre_delete, m2m_changed
-from django.dispatch import receiver
 
-from apps.s3file.models import S3File
 from apps.org.models import Org
 from apps.projecttemplate.models import ProjectTemplate
-from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit
-from apps.utils.gid.convert import gid2int
 from apps.property.models import GenericProperty, GenericPropertyOrgTemplate
+from apps.s3file.models import S3File
+from apps.utils.gid.convert import gid2int
+from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 logger = logging.getLogger(__name__)

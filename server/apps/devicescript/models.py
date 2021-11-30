@@ -1,13 +1,14 @@
 import uuid
+
+from django.conf import settings
 from django.db import models
+from django.db.models import Max
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.conf import settings
-from django.db.models import Max
 
-from apps.s3file.models import S3File
 from apps.org.models import Org
-from apps.utils.gid.convert import int32gid, gid_join
+from apps.s3file.models import S3File
+from apps.utils.gid.convert import gid_join, int32gid
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 

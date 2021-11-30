@@ -2,21 +2,22 @@
 Custom User Model
 """
 
-import pytz
 import logging
 
-from django.contrib.auth.models import AbstractBaseUser
-from django.db import models
+import pytz
+from rest_framework_jwt.settings import api_settings
+
 from django.conf import settings
-from django.contrib.auth.models import BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 
+from allauth.account.signals import email_confirmed, user_signed_up
 from rest_framework.authtoken.models import Token
-from allauth.account.signals import user_signed_up, email_confirmed
-from rest_framework_jwt.settings import api_settings
 
 from apps.utils.gravatar import get_gravatar_thumbnail_url
+
 from .tasks import send_new_user_notification
 
 # Get an instance of a logger

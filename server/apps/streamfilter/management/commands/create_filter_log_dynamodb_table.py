@@ -1,8 +1,10 @@
 import logging
 import sys
+
 from django.core.management.base import BaseCommand
 
 from apps.streamfilter.dynamodb import DynamoFilterLogModel, create_filter_log_table_if_needed
+
 logger = logging.getLogger(__name__)
 
 

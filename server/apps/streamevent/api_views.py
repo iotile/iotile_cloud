@@ -1,38 +1,34 @@
 # Modules needed to execute back-end jobs requested by server
 from botocore.exceptions import ClientError
 
-from rest_framework.parsers import MultiPartParser, FormParser
-from django.core.exceptions import PermissionDenied
 from django.contrib.auth import get_user_model
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 
 import django_filters
-from rest_framework import viewsets
-from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework.exceptions import ValidationError
-from rest_framework.parsers import JSONParser
-from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
-
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework import status, viewsets
+from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
+from rest_framework.response import Response
 
-from apps.utils.rest.pagination import LargeResultsSetPagination
-from apps.utils.rest.exceptions import ApiIllegalPkException
-from apps.utils.aws.s3 import download_json_data_as_object, download_gzip_blob, upload_json_data_from_object
-from apps.utils.rest.exceptions import ApiIllegalFilterOrTargetException
-from apps.utils.objects.utils import get_object_by_slug, get_device_or_block
 from apps.stream.models import StreamId
-from apps.streamer.msg_pack import MessagePackRenderer, MessagePackParser
+from apps.streamer.msg_pack import MessagePackParser, MessagePackRenderer
+from apps.utils.aws.s3 import download_gzip_blob, download_json_data_as_object, upload_json_data_from_object
 from apps.utils.data_mask.mask_utils import get_data_mask_date_range_for_slug
 from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.objects.utils import get_device_or_block, get_object_by_slug
+from apps.utils.rest.exceptions import ApiIllegalFilterOrTargetException, ApiIllegalPkException
+from apps.utils.rest.pagination import LargeResultsSetPagination
 from apps.utils.timezone_utils import str_to_dt_utc
 
-from .serializers import *
-from .models import *
 from .helpers import StreamEventDataBuilderHelper
+from .models import *
+from .serializers import *
 
 user_model = get_user_model()
 

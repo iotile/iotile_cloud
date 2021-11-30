@@ -1,7 +1,7 @@
-import os
-import json
 import datetime
+import json
 import logging
+import os
 import sys
 
 from django.core.management.base import BaseCommand
@@ -9,9 +9,9 @@ from django.template.defaultfilters import slugify
 from django.utils import timezone
 
 from apps.authentication.models import Account
-from apps.devicetemplate.models import DeviceTemplate, DeviceSlot
-from apps.org.models import Org
 from apps.component.models import Component
+from apps.devicetemplate.models import DeviceSlot, DeviceTemplate
+from apps.org.models import Org
 
 logger = logging.getLogger(__name__)
 

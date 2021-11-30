@@ -1,15 +1,13 @@
-from django.contrib.auth import update_session_auth_hash
 from django.conf import settings
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordResetForm
-from allauth.account.utils import user_pk_to_url_str
-from allauth.account.forms import EmailAwarePasswordResetTokenGenerator
 
+from allauth.account.forms import EmailAwarePasswordResetTokenGenerator
+from allauth.account.models import EmailAddress
+from allauth.account.utils import user_pk_to_url_str
 from rest_framework import serializers
 
-from allauth.account.models import EmailAddress
-
 from .models import Account
-
 
 default_token_generator = EmailAwarePasswordResetTokenGenerator()
 

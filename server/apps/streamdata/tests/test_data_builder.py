@@ -1,31 +1,30 @@
-import json
 import datetime
+import json
 import struct
+
 import dateutil.parser
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 from django.utils import timezone
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.physicaldevice.models import Device
-from apps.utils.test_util import TestMixin
-from apps.utils.gid.convert import *
-
-from apps.stream.models import StreamVariable, StreamId
-from apps.physicaldevice.models import Device
 from apps.devicetemplate.models import DeviceTemplate
+from apps.physicaldevice.models import Device
+from apps.stream.helpers import StreamDataDisplayHelper, StreamDataQueryHelper
+from apps.stream.models import CTYPE_TO_RAW_FORMAT, StreamId, StreamVariable
 from apps.streamfilter.models import *
-from apps.stream.helpers import StreamDataQueryHelper, StreamDataDisplayHelper
-from apps.stream.models import CTYPE_TO_RAW_FORMAT
-from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit
+from apps.utils.gid.convert import *
 from apps.utils.mdo.helpers import MdoHelper
+from apps.utils.test_util import TestMixin
+from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit
 
-from ..models import *
 from ..helpers import StreamDataBuilderHelper
-from ..utils import get_stream_input_mdo, get_stream_output_mdo, get_stream_mdo
+from ..models import *
+from ..utils import get_stream_input_mdo, get_stream_mdo, get_stream_output_mdo
 
 user_model = get_user_model()
 

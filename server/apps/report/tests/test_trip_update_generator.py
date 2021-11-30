@@ -1,22 +1,22 @@
 import json
 from datetime import timedelta
-from django.utils import timezone, dateparse
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
+from django.utils import dateparse, timezone
 
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from apps.utils.test_util import TestMixin
 from apps.streamevent.models import StreamEventData
-
+from apps.streamfilter.models import State, StateTransition, StreamFilter, StreamFilterAction, StreamFilterTrigger
 from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.test_util import TestMixin
 from apps.utils.utest.devices import TripDeviceMock
-from apps.streamfilter.models import StreamFilter, State, StreamFilterAction, StateTransition, StreamFilterTrigger
 
+from ..generator.trip_update.generator import TripUpdateReportGenerator
 from ..models import *
 from ..worker.report_generator import *
-from ..generator.trip_update.generator import TripUpdateReportGenerator
 
 user_model = get_user_model()
 

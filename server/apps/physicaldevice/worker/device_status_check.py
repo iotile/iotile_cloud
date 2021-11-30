@@ -1,17 +1,16 @@
 import logging
+
 import pytz
 
 from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from apps.sqsworker.action import Action
-from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
-
-from apps.physicaldevice.models import Device, DeviceStatus
 from apps.emailutil.tasks import Email
 from apps.emailutil.utils import EmailRecipientHelper
-
+from apps.physicaldevice.models import Device, DeviceStatus
+from apps.sqsworker.action import Action
+from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
 
 logger = logging.getLogger(__name__)
 

@@ -1,8 +1,10 @@
 import logging
 import sys
+
 from django.core.management.base import BaseCommand
 
 from apps.deviceauth.models import DeviceKey
+
 logger = logging.getLogger(__name__)
 
 

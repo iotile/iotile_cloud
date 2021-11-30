@@ -1,22 +1,23 @@
 import json
 import os
+from unittest import mock, skipIf
+
 import dateutil.parser
-from unittest import skipIf, mock
 
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
 from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 
-from apps.utils.test_util import TestMixin
-from apps.streamdata.models import StreamData
-from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import *
-from apps.streamer.serializers import *
-from apps.sensorgraph.models import SensorGraph
-from apps.utils.iotile.variable import SYSTEM_VID
-from apps.ota.models import DeploymentRequest, DeploymentAction, DeviceScript, DeviceVersionAttribute
 from apps.devicetemplate.models import DeviceTemplate
+from apps.ota.models import DeploymentAction, DeploymentRequest, DeviceScript, DeviceVersionAttribute
+from apps.physicaldevice.models import Device
+from apps.sensorgraph.models import SensorGraph
+from apps.streamdata.models import StreamData
+from apps.streamer.serializers import *
 from apps.streamnote.models import StreamNote
+from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
 
 from ..utils.streamer import DeploymentActionStreamerHelper
 

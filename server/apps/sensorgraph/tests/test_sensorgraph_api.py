@@ -1,14 +1,14 @@
 import json
 
-from django.test import override_settings
 from django.contrib.auth import get_user_model
+from django.test import override_settings
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
+from apps.property.models import GenericPropertyOrgEnum, GenericPropertyOrgTemplate
 from apps.utils.test_util import TestMixin
-from apps.property.models import GenericPropertyOrgTemplate, GenericPropertyOrgEnum
 from apps.vartype.models import VarType
 
 from ..models import DisplayWidgetTemplate, SensorGraph, VariableTemplate

@@ -1,20 +1,21 @@
 import json
 import logging
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView, RedirectView
-from django.http import HttpResponseRedirect
-from django.utils.translation import gettext_lazy as _
-from django.shortcuts import get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.urls import reverse
+
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.urls import reverse
 from django.utils import timezone
+from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
 from apps.org.models import Org
+from apps.utils.objects.utils import get_object_by_slug
 from apps.utils.timezone_utils import str_utc
 from apps.utils.views.basic import LoginRequiredAccessMixin
-from apps.utils.objects.utils import get_object_by_slug
 
 from .forms import *
 from .models import UserReport

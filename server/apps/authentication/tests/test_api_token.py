@@ -3,12 +3,11 @@ import json
 from django.conf import settings
 from django.contrib.auth import get_user_model
 
-from rest_framework.test import APIClient
-from rest_framework.reverse import reverse
 from rest_framework import status
-from rest_framework.test import APITestCase
+from rest_framework.reverse import reverse
+from rest_framework.test import APIClient, APITestCase
 
-from apps.org.models import Org, AuthAPIKey
+from apps.org.models import AuthAPIKey, Org
 from apps.utils.test_util import TestMixin
 
 from ..api_views import *

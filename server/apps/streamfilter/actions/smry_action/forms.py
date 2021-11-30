@@ -1,13 +1,12 @@
 from django import forms
-from django.forms import ModelForm
 from django.forms import ModelForm, SelectMultiple
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div
+from crispy_forms.layout import HTML, ButtonHolder, Div, Field, Layout, Submit
 
-from apps.streamfilter.models import StreamFilterAction
-from apps.org.models import Org
 from apps.emailutil.utils import get_member_choice_list_by_org
+from apps.org.models import Org
+from apps.streamfilter.models import StreamFilterAction
 
 
 class SummaryReportActionForm(ModelForm):

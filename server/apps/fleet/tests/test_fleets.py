@@ -1,19 +1,20 @@
-import json
 import datetime
-import dateutil.parser
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
-from django.utils import timezone, dateparse
-from django.core.exceptions import ValidationError
+import json
 
-from rest_framework.reverse import reverse
+import dateutil.parser
+
+from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
+from django.test import Client, TestCase
+from django.utils import dateparse, timezone
+
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
 from apps.physicaldevice.models import Device
-from apps.utils.test_util import TestMixin
 from apps.utils.gid.convert import *
-
+from apps.utils.test_util import TestMixin
 
 from ..models import *
 

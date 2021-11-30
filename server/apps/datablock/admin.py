@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class DataBlockAdmin(admin.ModelAdmin):
     list_display = ('id', 'slug', 'org', 'device', 'block', )

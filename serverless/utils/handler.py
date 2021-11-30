@@ -1,8 +1,9 @@
 import json
-import boto3
 import logging
 import os
 import pprint
+
+import boto3
 
 s3 = boto3.client('s3')
 logger = logging.getLogger()

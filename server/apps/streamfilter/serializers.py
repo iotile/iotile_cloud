@@ -1,16 +1,17 @@
 import json
+
 from django.shortcuts import get_object_or_404
 from django.template.defaultfilters import slugify
 
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
-from apps.streamdata.utils import get_stream_output_mdo, get_stream_output_unit
-from apps.utils.mdo.helpers import MdoHelper
-from apps.project.models import Project
-from apps.stream.models import StreamVariable, StreamId
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.utils import get_stream_output_mdo, get_stream_output_unit
 from apps.utils.gid.convert import formatted_gfid
+from apps.utils.mdo.helpers import MdoHelper
 
 from .models import *
 

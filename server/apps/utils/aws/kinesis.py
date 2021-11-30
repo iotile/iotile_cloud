@@ -1,11 +1,13 @@
 __author__ = 'dkarchmer'
 
+import datetime
 import json
-import boto3
 import logging
 import pprint
+
+import boto3
+
 from django.conf import settings
-import datetime
 
 from .common import AWS_REGION
 

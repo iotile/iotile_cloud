@@ -2,19 +2,20 @@
 Script to facilitate development by uploading (or downloading) data streams via Rest API
 
 """
-import sys
-import json
-import time
-import os
-import csv
 import argparse
+import csv
 import getpass
+import json
 import logging
-import dateutil.parser
-from pprint import pprint
+import os
+import sys
+import time
 from datetime import datetime
-from iotile_cloud.api.connection import Api
+from pprint import pprint
 
+import dateutil.parser
+
+from iotile_cloud.api.connection import Api
 
 PRODUCTION_DOMAIN_NAME = 'https://iotile.cloud'
 TEST_DOMAIN_NAME = 'http://127.0.0.1:8000'
@@ -137,7 +138,7 @@ def load_data(c, filepath, stream_id, skip_zeros=True):
 if __name__ == '__main__':
     # Test
     # Logger Format
-    from logging import StreamHandler, Formatter
+    from logging import Formatter, StreamHandler
     FORMAT = '[%(asctime)-15s] %(levelname)-6s %(message)s'
     DATE_FORMAT = '%d/%b/%Y %H:%M:%S'
     formatter = Formatter(fmt=FORMAT, datefmt=DATE_FORMAT)

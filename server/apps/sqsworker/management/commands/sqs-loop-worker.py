@@ -1,8 +1,10 @@
+import logging
+
+from django.conf import settings
 from django.core.management.base import BaseCommand
+
 from apps.sqsworker.workerhelper import Worker
 from apps.utils.aws.sqs import get_queue_by_name
-from django.conf import settings
-import logging
 
 logger = logging.getLogger(__name__)
 

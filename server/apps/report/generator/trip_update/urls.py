@@ -1,9 +1,6 @@
 from django.urls import path
 
-from .views import (
-    EndOfTripReportConfigureView,
-    EndOfTripReportGenerateView,
-)
+from .views import EndOfTripReportConfigureView, EndOfTripReportGenerateView
 
 app_name='report.generator.trip_update'
 

@@ -1,14 +1,15 @@
-import uuid
 import logging
-from django.db import models
+import uuid
+
 from django.conf import settings
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
-from django.template.defaultfilters import slugify
 from django.contrib.postgres.fields import ArrayField
 from django.core.cache import cache
+from django.db import models
 from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
+from django.template.defaultfilters import slugify
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 from apps.utils.mdo.helpers import MdoHelper
 

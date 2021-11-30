@@ -9,6 +9,7 @@ from django.db import transaction
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
+
 from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileProjectSlug, IOTileStreamSlug, IOTileVariableSlug
 
 from apps.physicaldevice.models import Device, DeviceStatus

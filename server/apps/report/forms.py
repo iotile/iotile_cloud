@@ -1,19 +1,19 @@
 import json
 import logging
+
 from django import forms
-from django.forms import ModelForm
-from django.forms import SelectMultiple
 from django.conf import settings
+from django.forms import ModelForm, SelectMultiple
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, HTML, Div
+from crispy_forms.layout import HTML, Div, Layout, Submit
 
-from apps.utils.forms.fields import FormattedJsonField
 from apps.emailutil.utils import get_member_choice_list_by_org
 from apps.utils.aws.sqs import SqsPublisher
+from apps.utils.forms.fields import FormattedJsonField
 
-from .models import UserReport, GeneratedUserReport
 from .generator.analytics.choices import template_choices
+from .models import GeneratedUserReport, UserReport
 
 logger = logging.getLogger(__name__)
 

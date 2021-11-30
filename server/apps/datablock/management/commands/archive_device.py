@@ -1,12 +1,12 @@
 import logging
 import sys
 
-from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
 
+from apps.datablock.models import DataBlock
 from apps.datablock.worker.archive_device_data import ArchiveDeviceDataAction
 from apps.physicaldevice.models import Device
-from apps.datablock.models import DataBlock
 
 logger = logging.getLogger(__name__)
 

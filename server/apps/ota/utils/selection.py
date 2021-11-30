@@ -1,10 +1,10 @@
 from django.db.models import Q
 
-from apps.physicaldevice.models import Device
-from apps.org.models import Org
 from apps.devicetemplate.models import DeviceTemplate
-from ..models import DeploymentRequest, DeviceVersionAttribute
+from apps.org.models import Org
+from apps.physicaldevice.models import Device
 
+from ..models import DeploymentRequest, DeviceVersionAttribute
 
 op_by_type = {
     'os_tag': ['eq'],

@@ -1,27 +1,29 @@
 import json
 import os
-import dateutil.parser
-from unittest import skipIf, mock
+from unittest import mock, skipIf
 
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
+import dateutil.parser
+
 from django.conf import settings
-from rest_framework.reverse import reverse
+from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
+
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.utils.test_util import TestMixin
-from apps.stream.models import StreamVariable, StreamId
-from apps.streamdata.models import StreamData
 from apps.physicaldevice.models import Device
 from apps.sensorgraph.models import SensorGraph
-from apps.utils.timezone_utils import *
-from apps.utils.iotile.streamer import STREAMER_SELECTOR
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
 from apps.utils.dynamic_loading import str_to_class
+from apps.utils.iotile.streamer import STREAMER_SELECTOR
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
 
 from .models import *
-from .serializers import *
 from .report.parser import ReportParser
+from .serializers import *
 from .worker.common.types import ENGINE_TYPES
 
 user_model = get_user_model()

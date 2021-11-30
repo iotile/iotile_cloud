@@ -1,13 +1,15 @@
-from django.core.management.base import BaseCommand
-import os
-import sys
 import json
 import logging
+import os
+import sys
+
+from django.core.management.base import BaseCommand
 from django.template.defaultfilters import slugify
-from apps.sensorgraph.models import DisplayWidgetTemplate, SensorGraph, VariableTemplate
-from apps.org.models import Org
+
 from apps.authentication.models import Account
+from apps.org.models import Org
 from apps.projecttemplate.models import ProjectTemplate
+from apps.sensorgraph.models import DisplayWidgetTemplate, SensorGraph, VariableTemplate
 from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit
 
 logger = logging.getLogger(__name__)

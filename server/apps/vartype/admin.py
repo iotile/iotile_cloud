@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import VarType, VarTypeInputUnit, VarTypeOutputUnit, VarTypeDecoder, VarTypeSchema
+
+from .models import VarType, VarTypeDecoder, VarTypeInputUnit, VarTypeOutputUnit, VarTypeSchema
 
 
 class VarTypeAdmin(admin.ModelAdmin):

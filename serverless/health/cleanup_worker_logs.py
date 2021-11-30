@@ -1,8 +1,9 @@
+import datetime
+import json
+import logging
 import os
 import sys
-import json
-import datetime
-import logging
+
 from utils import handle_error
 
 here = os.path.dirname(os.path.realpath(__file__))

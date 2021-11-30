@@ -1,15 +1,17 @@
-import json
 import datetime
+import json
+
 import dateutil.parser
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 
 from rest_framework import status
 from rest_framework.reverse import reverse as api_reverse
 
-from apps.utils.test_util import TestMixin
-from apps.streamfilter.models import *
 from apps.report.models import GeneratedUserReport
+from apps.streamfilter.models import *
+from apps.utils.test_util import TestMixin
 
 from ..models import *
 

@@ -1,7 +1,9 @@
 import logging
+
 from rest_framework import serializers
 
 from apps.s3file.serializers import S3FileSerializer
+
 from .models import StreamNote
 
 # Get an instance of a logger

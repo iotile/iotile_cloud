@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.utils.dateparse import parse_datetime
+
 from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
@@ -14,6 +15,7 @@ from apps.streamfilter.models import *
 from apps.utils.data_mask.mask_utils import *
 from apps.utils.test_util import TestMixin
 from apps.utils.timezone_utils import str_utc
+
 from ..models import *
 
 user_model = get_user_model()

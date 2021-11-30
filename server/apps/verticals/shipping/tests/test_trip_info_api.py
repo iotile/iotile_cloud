@@ -2,6 +2,7 @@ import datetime
 import json
 
 from django.contrib.auth import get_user_model
+
 from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
@@ -9,9 +10,9 @@ from rest_framework.test import APITestCase
 from apps.datablock.models import DataBlock
 from apps.org.models import Org
 from apps.project.models import Project
-from apps.streamevent.models import StreamEventData
 from apps.streamdata.models import StreamData
 from apps.streamdata.serializers import StreamDataSerializer
+from apps.streamevent.models import StreamEventData
 from apps.utils.data_mask.mask_utils import set_data_mask
 from apps.utils.test_util import TestMixin
 from apps.utils.timezone_utils import formatted_ts

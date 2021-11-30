@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class PageTemplateAdmin(admin.ModelAdmin):
     list_display = ('id', 'label', 'type', 'template_path', 'created_by', )

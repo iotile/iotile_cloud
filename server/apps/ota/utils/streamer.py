@@ -1,16 +1,17 @@
 import logging
 import struct
+
 import structpp
 
-from apps.utils.iotile.variable import SYSTEM_VID
-from apps.utils.timezone_utils import convert_to_utc
 from apps.devicetemplate.models import DeviceTemplate
 from apps.sensorgraph.models import SensorGraph
-from apps.streamnote.models import StreamNote
 from apps.sqsworker.exceptions import WorkerInternalError
+from apps.streamnote.models import StreamNote
 from apps.utils.aws.sns import sns_staff_notification
+from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.timezone_utils import convert_to_utc
 
-from ..models import DeviceVersionAttribute, DeploymentRequest, DeploymentAction
+from ..models import DeploymentAction, DeploymentRequest, DeviceVersionAttribute
 
 logger = logging.getLogger(__name__)
 

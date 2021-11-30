@@ -1,18 +1,19 @@
-import uuid
-import logging
 import datetime
-from django.db import models
-from django.conf import settings
-from django.utils import timezone
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
-from django.template.defaultfilters import slugify
-from django.contrib.postgres.fields import ArrayField
+import logging
+import uuid
 
+from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
+from django.db import models
+from django.template.defaultfilters import slugify
+from django.urls import reverse
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
+from apps.emailutil.tasks import Email
 from apps.org.models import Org
 from apps.project.models import Project
 from apps.s3file.models import S3File
-from apps.emailutil.tasks import Email
 
 from .generator.config import rpt_configuration_requirements_met
 

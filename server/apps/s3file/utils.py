@@ -1,4 +1,5 @@
 import os
+
 from django.conf import settings
 
 from apps.utils.aws.s3 import get_s3_post_url

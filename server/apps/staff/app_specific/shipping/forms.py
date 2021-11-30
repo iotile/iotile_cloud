@@ -1,13 +1,13 @@
 
 from django import forms
-from django.forms import ModelForm
 from django.contrib.auth import get_user_model
-from django.template.defaultfilters import slugify
 from django.db.models import Q
+from django.forms import ModelForm
+from django.template.defaultfilters import slugify
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, HTML, Div
 from crispy_forms.bootstrap import FieldWithButtons
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, Div, Layout, Submit
 
 from apps.org.models import Org
 from apps.project.models import Project

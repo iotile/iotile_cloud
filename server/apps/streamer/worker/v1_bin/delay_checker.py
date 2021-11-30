@@ -1,8 +1,10 @@
 import logging
+
 from django.core.cache import cache
+
 from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
-from apps.utils.iotile.variable import SYSTEM_VID
 from apps.utils.data_helpers.manager import DataManager
+from apps.utils.iotile.variable import SYSTEM_VID
 
 logger = logging.getLogger(__name__)
 

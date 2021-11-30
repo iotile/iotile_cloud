@@ -3,10 +3,8 @@ from rest_framework import serializers
 
 from apps.vartype.models import *
 from apps.vartype.serializers import (
-    VarTypeInputUnitSerializer, VarTypeOutputUnitSerializer,
-    VarTypeDecoderSerializer, VarTypeSchemaSerializer
+    VarTypeDecoderSerializer, VarTypeInputUnitSerializer, VarTypeOutputUnitSerializer, VarTypeSchemaSerializer,
 )
-
 
 
 class VarTypeSerializer(serializers.ModelSerializer):

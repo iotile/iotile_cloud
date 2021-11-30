@@ -1,9 +1,11 @@
 import os
+
 from django.conf import settings
 
-from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileProjectSlug, IOTileVariableSlug, IOTileStreamSlug
+from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileProjectSlug, IOTileStreamSlug, IOTileVariableSlug
 
 from .types import ENGINE_TYPES
+
 
 def full_path(filename):
     module_path = os.path.dirname((os.path.dirname(os.path.dirname(__file__))))

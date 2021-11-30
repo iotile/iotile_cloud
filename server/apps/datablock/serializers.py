@@ -1,18 +1,19 @@
 import logging
+
 from django.contrib.auth import get_user_model
-from django.utils.timezone import localtime
 from django.db.models import Count
+from django.utils.timezone import localtime
 
 from rest_framework import serializers
 
-from apps.physicaldevice.models import Device
 from apps.org.models import Org
+from apps.physicaldevice.models import Device
 from apps.stream.models import StreamId
-from apps.verticals.utils import get_data_block_vertical_helper
 from apps.utils.data_helpers.manager import DataManager
+from apps.verticals.utils import get_data_block_vertical_helper
 
-from .tasks import schedule_archive
 from .models import DataBlock, get_block_id
+from .tasks import schedule_archive
 
 user_model = get_user_model()
 logger = logging.getLogger(__name__)

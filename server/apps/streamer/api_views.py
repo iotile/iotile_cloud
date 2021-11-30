@@ -1,29 +1,26 @@
 from django.shortcuts import get_object_or_404
 
 import django_filters
-
-from rest_framework.decorators import action
-from rest_framework.parsers import MultiPartParser, FormParser
-from rest_framework.exceptions import ValidationError
-from rest_framework import viewsets
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.parsers import JSONParser
-from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
-
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework import status, viewsets
+from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
+from rest_framework.response import Response
 
 from iotile_cloud.utils.gid import IOTileDeviceSlug
 
 from apps.utils.rest.custom_serializers import MultiSerializerViewSetMixin
 from apps.utils.rest.exceptions import ApiIllegalFilterOrTargetException
-from apps.utils.uuid_utils import validate_uuid
-from apps.utils.timezone_utils import convert_to_utc, force_to_utc
 from apps.utils.rest.permissions import IsStaffOrReadOnly
+from apps.utils.timezone_utils import convert_to_utc, force_to_utc
+from apps.utils.uuid_utils import validate_uuid
+
 from .models import *
-from .msg_pack import Python2CompatMessagePackParser, MessagePackRenderer
+from .msg_pack import MessagePackRenderer, Python2CompatMessagePackParser
 from .serializers import *
 from .tasks import ReportUploaderAndProcessScheduler
 

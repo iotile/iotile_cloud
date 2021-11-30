@@ -1,21 +1,20 @@
 import datetime
-import uuid
 import logging
+import uuid
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.utils import timezone
-from django.db.models import Q
 from django.conf import settings
-from django.urls import reverse
 from django.contrib import messages
-from django.db import migrations, transaction
+from django.db import migrations, models, transaction
+from django.db.models import Q
+from django.urls import reverse
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from allauth.account.signals import user_signed_up
 
+from apps.emailutil.tasks import Email
 from apps.org.models import Org, OrgMembership
 from apps.org.roles import DEFAULT_ROLE, ROLE_DISPLAY
-from apps.emailutil.tasks import Email
 
 INVITATION_ACTIVE_DAYS = 14 # two weeks
 logger = logging.getLogger(__name__)

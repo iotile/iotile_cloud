@@ -1,24 +1,25 @@
-import json
 import datetime
+import json
+
 import dateutil.parser
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 from django.utils import timezone
 
-from apps.sqsworker.exceptions import WorkerActionHardError
-from apps.physicaldevice.models import Device
-from apps.utils.test_util import TestMixin
-from apps.utils.gid.convert import *
-from apps.stream.models import StreamVariable, StreamId
-from apps.physicaldevice.models import Device
-from apps.streamdata.models import StreamData
-from apps.streamevent.models import StreamEventData
-from apps.streamnote.models import StreamNote
 from apps.devicelocation.models import DeviceLocation
-from apps.streamfilter.models import *
+from apps.physicaldevice.models import Device
 from apps.property.models import GenericProperty
 from apps.report.models import GeneratedUserReport
-from apps.utils.data_mask.mask_utils import set_data_mask, get_data_mask_event
+from apps.sqsworker.exceptions import WorkerActionHardError
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
+from apps.streamevent.models import StreamEventData
+from apps.streamfilter.models import *
+from apps.streamnote.models import StreamNote
+from apps.utils.data_mask.mask_utils import get_data_mask_event, set_data_mask
+from apps.utils.gid.convert import *
+from apps.utils.test_util import TestMixin
 
 from ..models import *
 from ..worker.archive_device_data import ArchiveDeviceDataAction

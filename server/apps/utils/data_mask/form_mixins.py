@@ -1,9 +1,11 @@
 import logging
 
 import pytz
+
+from django import forms
+
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import HTML, Div, Layout, Submit
-from django import forms
 
 from apps.utils.aws.redshift import get_ts_from_redshift
 from apps.utils.data_helpers.manager import DataManager

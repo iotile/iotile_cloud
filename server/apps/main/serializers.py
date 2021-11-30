@@ -1,8 +1,10 @@
+from django.conf import settings
+from django.utils import timezone
+
 from rest_framework import serializers
 
-from django.utils import timezone
-from django.conf import settings
 from apps.utils.timezone_utils import str_utc
+
 
 class ServerInfoSerializer(serializers.Serializer):
     now = serializers.SerializerMethodField()

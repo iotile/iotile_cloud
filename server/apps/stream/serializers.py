@@ -2,10 +2,10 @@ import logging
 
 from rest_framework import serializers
 
-from apps.vartype.serializers import VarTypeInputUnitField, VarTypeOutputUnitField
-from apps.vartype.models import VarType
 from apps.physicaldevice.models import Device
-from apps.utils.gid.convert import gid_split, gid_join
+from apps.utils.gid.convert import gid_join, gid_split
+from apps.vartype.models import VarType
+from apps.vartype.serializers import VarTypeInputUnitField, VarTypeOutputUnitField
 
 from .models import StreamId, StreamVariable
 

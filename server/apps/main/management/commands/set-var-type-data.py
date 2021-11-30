@@ -1,12 +1,12 @@
-import os
 import json
 import logging
+import os
 
 from django.core.management.base import BaseCommand
 
 from apps.authentication.models import Account
+from apps.vartype.models import VarType, VarTypeDecoder, VarTypeInputUnit, VarTypeOutputUnit, VarTypeSchema
 from apps.vartype.types import STREAM_DATA_TYPE_CHOICES
-from apps.vartype.models import VarType, VarTypeInputUnit, VarTypeOutputUnit, VarTypeDecoder, VarTypeSchema
 
 logger = logging.getLogger(__name__)
 

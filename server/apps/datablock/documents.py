@@ -6,7 +6,6 @@ from apps.streamnote.models import StreamNote
 
 from .models import DataBlock
 
-
 # Name of the Elasticsearch index
 datablock_index = Index('datablock')
 # See Elasticsearch Indices API reference for available settings

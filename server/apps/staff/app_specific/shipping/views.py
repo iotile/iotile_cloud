@@ -1,28 +1,29 @@
+import datetime
 import logging
 import secrets
 import string
-import datetime
-from django.views.generic import TemplateView
-from django.views.generic.edit import FormView, CreateView
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+
 from django.contrib import messages
-from django.utils.translation import gettext_lazy as _
-from django.template.defaultfilters import slugify
 from django.contrib.auth import get_user_model
+from django.http import HttpResponseRedirect
+from django.template.defaultfilters import slugify
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView, FormView
 
 from allauth.account.models import EmailAddress
 
-from apps.staff.views import StaffRequiredMixin
 from apps.org.models import Org
+from apps.physicaldevice.claim_utils import device_claim
 from apps.project.models import Project
 from apps.projecttemplate.models import ProjectTemplate
-from apps.physicaldevice.claim_utils import device_claim
-from apps.verticals.shipping.utils.device_claim_helper import ShippingDeviceVerticalClaimHelper
-from apps.utils.iotile.variable import SYSTEM_VID, USER_VID
-from apps.utils.data_helpers.manager import DataManager
+from apps.staff.views import StaffRequiredMixin
 from apps.streamer.worker.misc.adjust_timestamp import AdjustTimestampAction
+from apps.utils.data_helpers.manager import DataManager
+from apps.utils.iotile.variable import SYSTEM_VID, USER_VID
 from apps.utils.timezone_utils import str_utc
+from apps.verticals.shipping.utils.device_claim_helper import ShippingDeviceVerticalClaimHelper
 
 from .forms import NewShippingOrgForm, NewShippingProjectForm, ShippingDeviceClaimForm, ShippingDeviceTimestampFixForm
 

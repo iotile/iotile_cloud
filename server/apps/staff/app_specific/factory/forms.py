@@ -1,16 +1,16 @@
 
 from django import forms
-from django.forms import ModelForm
 from django.contrib.auth import get_user_model
+from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, HTML, Div, Field
+from crispy_forms.layout import HTML, Div, Field, Layout, Submit
 
-from apps.org.models import Org
-from apps.project.models import Project
 from apps.configattribute.models import ConfigAttribute, get_or_create_config_name
 from apps.devicetemplate.models import DeviceTemplate
+from apps.org.models import Org
+from apps.project.models import Project
 from apps.sensorgraph.models import SensorGraph
 
 user_model = get_user_model()

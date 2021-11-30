@@ -1,26 +1,25 @@
 
 import logging
-from django.template import RequestContext
-from django.views.generic.edit import FormView
-from django.http import HttpResponseRedirect
-from django.views.generic import DetailView, TemplateView, CreateView
-from django.urls import reverse
-from django.contrib import admin
+
 from django.conf import settings
-from django.views.generic import View
-from django.contrib import messages
-from django.views.decorators.csrf import ensure_csrf_cookie
-from django.views.generic.base import RedirectView
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
-from django.utils.translation import gettext_lazy as _
-from django.utils.safestring import mark_safe
+from django.contrib import admin, messages
 from django.contrib.auth import get_user_model
-from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.template import RequestContext
+from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
+from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.generic import CreateView, DetailView, TemplateView, View
+from django.views.generic.base import RedirectView
+from django.views.generic.edit import FormView
 
 from apps.org.models import Org, OrgMembership
-from apps.project.models import Project
 from apps.project.forms import ProjectCreateFromTemplateForm
+from apps.project.models import Project
+
 from .forms import *
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')

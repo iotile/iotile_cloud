@@ -1,15 +1,14 @@
 import json
 
-from rest_framework.test import APIClient
+from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.reverse import reverse
-from rest_framework import status
-from rest_framework.test import APITestCase
+from rest_framework.test import APIClient, APITestCase
 
 from apps.utils.test_util import TestMixin
 
-from ..models import *
 from ..authentication import *
+from ..models import *
 
 user_model = get_user_model()
 

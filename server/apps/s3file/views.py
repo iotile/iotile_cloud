@@ -1,17 +1,18 @@
-import logging
 import json
+import logging
 import uuid
-from django.utils.decorators import method_decorator
+
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView, CreateView, TemplateView
-from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from django.utils.decorators import method_decorator
+from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from django.urls import reverse
-from django.utils.html import format_html
+from django.views.generic import CreateView, DetailView, TemplateView
 
 from apps.utils.fineuploader.sign import FineUploaderSignMixIn
 from apps.utils.views.basic import LoginRequiredAccessMixin

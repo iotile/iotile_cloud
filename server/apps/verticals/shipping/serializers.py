@@ -1,18 +1,16 @@
-import logging
 import datetime
+import logging
+
+from rest_framework import serializers
 
 from apps.datablock.models import DataBlock, get_block_id
 from apps.org.models import Org
 from apps.physicaldevice.models import Device
-from apps.datablock.models import DataBlock
-from apps.datablock.models import DataBlock, get_block_id
-from apps.utils.iotile.variable import SYSTEM_VID, USER_VID
 from apps.project.models import Project
 from apps.streamdata.serializers import StreamDataSerializer
 from apps.utils.data_helpers.manager import DataManager
-from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.iotile.variable import SYSTEM_VID, USER_VID
 from apps.utils.timezone_utils import convert_to_utc, str_to_dt_utc, str_utc
-from rest_framework import serializers
 
 from .utils.org_quality_report import TripOrgQualityReport
 from .utils.project_status_report import TripProjectStatusReport

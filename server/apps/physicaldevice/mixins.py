@@ -1,9 +1,9 @@
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 
-from apps.utils.views.basic import LoginRequiredAccessMixin
 from apps.org.roles import NO_PERMISSIONS_ROLE
 from apps.project.mixins import get_project_menu_extras
+from apps.utils.views.basic import LoginRequiredAccessMixin
 
 from .models import Device
 

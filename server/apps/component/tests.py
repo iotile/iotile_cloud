@@ -1,16 +1,17 @@
 import json
-from django.test import TestCase, Client
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 from django.utils import timezone
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from apps.utils.test_util import TestMixin
+from apps.devicetemplate.models import DeviceTemplate
 from apps.org.models import Org, OrgMembership
 from apps.project.models import Project
-from apps.devicetemplate.models import DeviceTemplate
+from apps.utils.test_util import TestMixin
 
 from .models import *
 

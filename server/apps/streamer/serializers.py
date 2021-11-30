@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from apps.utils.iotile.streamer import STREAMER_SELECTOR
+
 from .models import *
 
 

@@ -1,8 +1,8 @@
 from django.db.models import Count
 
 from apps.stream.models import StreamId
-from apps.utils.data_mask.mask_utils import get_data_mask_date_range
 from apps.utils.data_helpers.manager import DataManager
+from apps.utils.data_mask.mask_utils import get_data_mask_date_range
 
 
 class StreamDataCountHelper(object):

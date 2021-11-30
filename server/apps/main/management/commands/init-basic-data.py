@@ -1,25 +1,26 @@
 import datetime
+
 from django.conf import settings
-from django.core.management.base import BaseCommand
 from django.contrib.sites.models import Site
+from django.core.management.base import BaseCommand
 from django.db.models import F
 from django.db.utils import IntegrityError
 
 from allauth.account.models import EmailAddress
 
 from apps.authentication.models import Account
+from apps.devicetemplate.models import DeviceSlot, DeviceTemplate
 from apps.org.models import Org, OrgMembership
 from apps.org.roles import ORG_ROLE_PERMISSIONS
-from apps.devicetemplate.models import DeviceTemplate, DeviceSlot
-from apps.projecttemplate.models import ProjectTemplate
-from apps.project.models import Project
+from apps.physicaldevice.claim_utils import device_claim
 from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.projecttemplate.models import ProjectTemplate
 from apps.sensorgraph.models import *
-from apps.stream.models import StreamVariable, StreamId
+from apps.staff.worker.dbstats import METRIC_ID
+from apps.stream.models import StreamId, StreamVariable
 from apps.vartype.models import *
 from apps.widget.models import *
-from apps.physicaldevice.claim_utils import device_claim
-from apps.staff.worker.dbstats import METRIC_ID
 
 NUM_TEST_DEVICES = 128
 

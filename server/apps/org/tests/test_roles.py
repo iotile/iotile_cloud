@@ -1,6 +1,6 @@
 import json
-from django.test import SimpleTestCase
-from django.test import TestCase
+
+from django.test import SimpleTestCase, TestCase
 
 from apps.utils.test_util import TestMixin
 

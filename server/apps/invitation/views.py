@@ -1,19 +1,20 @@
 import logging
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, UpdateView, DeleteView
-from django.http import HttpResponseRedirect
-from django.utils.translation import gettext_lazy as _
-from django.urls import reverse
+
 from django.contrib import messages
-from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from django.utils import timezone
+from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DeleteView, UpdateView
 
 from allauth.account.adapter import get_adapter
 from allauth.account.models import EmailAddress
 
-from .models import *
 from .forms import *
+from .models import *
 
 logger = logging.getLogger(__name__)
 

@@ -1,9 +1,10 @@
+from rest_framework_api_key.admin import APIKeyModelAdmin
+
 from django.contrib import admin
+
+from .forms import OrgDomainAdminForm, OrgMembershipAdminForm
 from .models import *
 from .roles import ORG_ROLE_CHOICES, ORG_ROLE_PERMISSIONS
-from .forms import OrgDomainAdminForm, OrgMembershipAdminForm
-
-from rest_framework_api_key.admin import APIKeyModelAdmin
 
 
 class OrgAdmin(admin.ModelAdmin):

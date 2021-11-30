@@ -2,6 +2,7 @@ import json
 import logging
 
 import boto3
+
 from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -13,13 +14,11 @@ from django.views.generic import DetailView, FormView, UpdateView
 from apps.configattribute.models import ConfigAttribute
 from apps.project.mixins import get_project_menu_extras
 from apps.project.models import Project
-from apps.verticals.mixins import VerticalProjectAccessMixin, VerticalDeviceAccessMixin
-from apps.s3file.views import S3FileUploadSuccessEndpointView, S3FileUploadView, S3FileUploadSignView
 from apps.property.models import GenericProperty
-from apps.s3file.views import S3FileUploadSuccessEndpointView, S3FileUploadView
+from apps.s3file.views import S3FileUploadSignView, S3FileUploadSuccessEndpointView, S3FileUploadView
+from apps.streamer.models import Streamer
 from apps.streamfilter.models import StreamFilter
 from apps.streamnote.models import StreamNote
-from apps.streamer.models import Streamer
 from apps.utils.aws.common import AWS_REGION
 from apps.utils.aws.sns import sns_lambda_message, sns_staff_notification
 from apps.verticals.mixins import VerticalDeviceAccessMixin, VerticalProjectAccessMixin

@@ -1,22 +1,21 @@
 import json
-from django.http import HttpResponse, Http404
-from django.core.exceptions import PermissionDenied
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
+
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
+from django.http import Http404, HttpResponse
+from django.shortcuts import get_object_or_404
 
 import django_filters
-from rest_framework import viewsets
-from rest_framework import mixins
-from rest_framework import status
+from rest_framework import mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from apps.utils.rest.permissions import IsStaffOrReadOnly, ReadOnly, HasAuthAPIKeyNoOrg
 from apps.utils.api_key_utils import get_org_slug_from_apikey
+from apps.utils.rest.permissions import HasAuthAPIKeyNoOrg, IsStaffOrReadOnly, ReadOnly
 
 from .models import *
-from .serializers import DeviceTemplateSerializer, DeviceSlotSerializer, DeviceSlotReadOnlySerializer
+from .serializers import DeviceSlotReadOnlySerializer, DeviceSlotSerializer, DeviceTemplateSerializer
 
 
 class APIDeviceTemplateViewSet(viewsets.ModelViewSet):

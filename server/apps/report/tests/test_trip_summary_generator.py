@@ -1,21 +1,21 @@
 import json
-from pprint import pprint
 from datetime import timedelta
-from django.utils import timezone, dateparse
-from django.test import TestCase, Client
+from pprint import pprint
+
 from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
+from django.utils import dateparse, timezone
 
-from apps.utils.test_util import TestMixin
-from apps.streamevent.models import StreamEventData
 from apps.streamdata.models import StreamData
-
-from apps.utils.iotile.variable import SYSTEM_VID
-from apps.utils.utest.devices import TripDeviceMock
+from apps.streamevent.models import StreamEventData
 from apps.utils.data_mask.mask_utils import set_data_mask
+from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.test_util import TestMixin
+from apps.utils.utest.devices import TripDeviceMock
 
+from ..generator.end_of_trip.generator import EndOfTripReportGenerator, TripSummary
 from ..models import *
 from ..worker.report_generator import *
-from ..generator.end_of_trip.generator import EndOfTripReportGenerator, TripSummary
 
 user_model = get_user_model()
 

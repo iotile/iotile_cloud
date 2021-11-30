@@ -1,11 +1,13 @@
-import json
-import sys
-import boto3
-import time
-import pprint
 import datetime
+import json
+import pprint
+import sys
+import time
+
+import boto3
 from botocore.exceptions import ClientError
 from invoke import run, task
+
 from .definitions.sqs_worker import register_sqs_worker_tasks
 
 AWS_REGION  = 'us-east-1'

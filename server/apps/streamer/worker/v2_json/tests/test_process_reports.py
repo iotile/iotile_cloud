@@ -1,30 +1,30 @@
 import json
 import os
-import dateutil.parser
-from unittest import skipIf, mock
+from unittest import mock, skipIf
 
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
+import dateutil.parser
+
 from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.test import Client, TestCase
 from django.utils.dateparse import parse_datetime
 
-from apps.utils.test_util import TestMixin
-from apps.streamdata.models import StreamData
-from apps.streamdata.helpers import StreamDataBuilderHelper
-from apps.streamevent.models import StreamEventData
-from apps.stream.models import StreamVariable, StreamId
 from apps.physicaldevice.models import Device
-from apps.utils.timezone_utils import *
+from apps.sensorgraph.models import SensorGraph
+from apps.sqsworker.tests import QueueTestMock
+from apps.sqsworker.workerhelper import Worker
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.helpers import StreamDataBuilderHelper
+from apps.streamdata.models import StreamData
 from apps.streamer.models import *
 from apps.streamer.serializers import *
-from apps.sqsworker.workerhelper import Worker
-from apps.sqsworker.tests import QueueTestMock
+from apps.streamevent.models import StreamEventData
 from apps.utils.iotile.streamer import STREAMER_SELECTOR
-from apps.sensorgraph.models import SensorGraph
-
-from ..process_report import ProcessReportV2JsonAction
+from apps.utils.test_util import TestMixin
+from apps.utils.timezone_utils import *
 
 from ...common.test_utils import *
+from ..process_report import ProcessReportV2JsonAction
 
 user_model = get_user_model()
 USE_WORKER = getattr(settings, 'USE_WORKER')

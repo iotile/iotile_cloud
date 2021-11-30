@@ -1,11 +1,11 @@
-import os
 import json
-from apps.projecttemplate.models import ProjectTemplate
-from apps.streamfilter.models import *
-from apps.stream.models import StreamVariable
-from apps.configattribute.models import ConfigAttribute
-from apps.utils.iotile.variable import SYSTEM_VID
+import os
 
+from apps.configattribute.models import ConfigAttribute
+from apps.projecttemplate.models import ProjectTemplate
+from apps.stream.models import StreamVariable
+from apps.streamfilter.models import *
+from apps.utils.iotile.variable import SYSTEM_VID
 from apps.verticals.helpers.device_claim_helper import DeviceVerticalClaimHelper
 
 

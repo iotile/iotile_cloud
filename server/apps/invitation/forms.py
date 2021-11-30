@@ -1,12 +1,12 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Div, Fieldset, HTML
-
 from allauth.account.models import EmailAddress
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, Div, Fieldset, Layout, Submit
 
-from apps.org.roles import ORG_ROLE_CHOICES, MEMBERSHIP_FORM_BEGIN, MEMBERSHIP_FORM_END, DEFAULT_ROLE
+from apps.org.roles import DEFAULT_ROLE, MEMBERSHIP_FORM_BEGIN, MEMBERSHIP_FORM_END, ORG_ROLE_CHOICES
+
 from .models import Invitation
 
 

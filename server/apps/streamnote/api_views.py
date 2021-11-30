@@ -3,28 +3,26 @@ import os
 import uuid
 
 from django.conf import settings
-from django.core.exceptions import PermissionDenied
 from django.contrib.auth import get_user_model
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 
 import django_filters
-from rest_framework import viewsets
-from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.exceptions import ValidationError
 
-from drf_yasg.utils import swagger_auto_schema
-
-from apps.utils.rest.pagination import LargeResultsSetPagination
-from apps.s3file.serializers import S3FileUploadUrlSerializer, S3FileSuccessUrlSerializer, S3FileSerializer
-from apps.s3file.utils import get_s3file_post_url
 from apps.s3file.models import S3File
+from apps.s3file.serializers import S3FileSerializer, S3FileSuccessUrlSerializer, S3FileUploadUrlSerializer
+from apps.s3file.utils import get_s3file_post_url
+from apps.utils.rest.pagination import LargeResultsSetPagination
 
-from .serializers import StreamNoteSerializer
-from .models import StreamNote
 from .helpers import StreamNoteBuilderHelper
+from .models import StreamNote
+from .serializers import StreamNoteSerializer
 
 user_model = get_user_model()
 

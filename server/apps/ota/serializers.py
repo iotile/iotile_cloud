@@ -1,8 +1,9 @@
 from rest_framework import serializers
 
 from apps.devicetemplate.models import DeviceTemplate
-from apps.sensorgraph.models import SensorGraph
 from apps.physicaldevice.serializers import DeviceSerializer
+from apps.sensorgraph.models import SensorGraph
+
 from .models import *
 
 

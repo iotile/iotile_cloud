@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import *
 
+
 class DeviceLocationAdmin(admin.ModelAdmin):
     list_display = ('id', 'target_slug', 'timestamp', 'lat', 'lon', 'user')
     search_fields = ['target_slug', ]

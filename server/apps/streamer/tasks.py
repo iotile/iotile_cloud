@@ -1,9 +1,10 @@
-import logging
 import datetime
-import time
+import logging
 import os
-from django.shortcuts import get_object_or_404
+import time
+
 from django.conf import settings
+from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
 from rest_framework.exceptions import ValidationError
@@ -11,18 +12,17 @@ from rest_framework.parsers import JSONParser
 
 from iotile_cloud.utils.gid import IOTileDeviceSlug
 
-from apps.utils.gid.convert import formatted_gdid, int2did
 from apps.physicaldevice.models import Device, DeviceStatus
-from apps.utils.timezone_utils import convert_to_utc
 from apps.utils.aws.s3 import upload_blob
 from apps.utils.aws.sns import sns_staff_notification
-from apps.utils.timezone_utils import str_utc
+from apps.utils.gid.convert import formatted_gdid, int2did
+from apps.utils.timezone_utils import convert_to_utc, str_utc
 
 from .models import Streamer, get_streamer_error_s3_bucket_name
-from .report.parser import ReportParser, ParseReportException
-from .worker.common.base_action import ProcessReportBaseAction
-from .serializers import StreamerReportJsonV2PostSerializer
 from .msg_pack import Python2CompatMessagePackParser
+from .report.parser import ParseReportException, ReportParser
+from .serializers import StreamerReportJsonV2PostSerializer
+from .worker.common.base_action import ProcessReportBaseAction
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL')
 

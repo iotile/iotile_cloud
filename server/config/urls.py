@@ -1,21 +1,21 @@
 """server URL Configuration
 
 """
-from django.urls import path, include, re_path
-from django.contrib import admin
 from django.conf import settings
+from django.contrib import admin
 from django.contrib.auth.decorators import login_required
+from django.urls import include, path, re_path
 
 from rest_framework import routers
-from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 
-from apps.streamdata.api_views import APIStreamDataFrameViewSet
-from apps.main.api_views import APIServerInfoViewSet, APIDbStatsViewSet
+from apps.main.api_views import APIDbStatsViewSet, APIServerInfoViewSet
 from apps.ota.api_views import *
 from apps.report.api_views import APIReportSummaryGenerationViewSet
+from apps.report.views import GeneratedUserReportPublicRedirect
 from apps.s3file.api_views import APIFineUploaderSignViewSet
 from apps.sqsworker.api_views import APIActionPidViewSet
-from apps.report.views import GeneratedUserReportPublicRedirect
+from apps.streamdata.api_views import APIStreamDataFrameViewSet
 
 from .v1_urls import v1_api_router
 
@@ -76,8 +76,9 @@ urlpatterns = [
 ]
 
 if settings.GENERATE_API_DOCS:
-    from drf_yasg.views import get_schema_view
     from drf_yasg import openapi
+    from drf_yasg.views import get_schema_view
+
     from apps.utils.swagger.public_urls import docs_urlpatterns
 
     swagger_info = openapi.Info(

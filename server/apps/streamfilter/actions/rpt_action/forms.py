@@ -1,9 +1,11 @@
 from django import forms
 from django.forms import ModelForm
+
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div
+from crispy_forms.layout import HTML, ButtonHolder, Div, Field, Layout, Submit
 
 from apps.streamfilter.models import StreamFilterAction
+
 
 class ReportActionForm(ModelForm):
     rpt = forms.CharField(label="Report ID", max_length=32, required=True)

@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class FleetAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'slug', 'org', 'is_network')

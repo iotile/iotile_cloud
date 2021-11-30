@@ -4,32 +4,34 @@ V1 API Router
 from rest_framework import routers
 
 from apps.authentication.api_views import AccountViewSet
-from apps.org.api_views import APIOrgViewSet
 from apps.component.api_views import APIComponentViewSet
-from apps.stream.api_views import APIStreamVariableViewSet, APIStreamIdViewSet
-from apps.devicetemplate.api_views import APIDeviceTemplateViewSet
-from apps.projecttemplate.api_views import APIProjectTemplateViewSet
-from apps.orgtemplate.api_views import APIOrgTemplateViewSet
-from apps.sensorgraph.api_views import APISensorGraphViewSet, APIVariableTemplateViewSet, APIDisplayWidgetTemplateViewSet
-from apps.project.api_views import APIProjectViewSet
-from apps.physicaldevice.api_views import APIDeviceViewSet, APIManufacturingDataViewSet
-from apps.streamdata.api_views import APIStreamDataViewSet
-from apps.streamevent.api_views import  APIStreamEventDataViewSet, APIStreamEventUploadViewSet
-from apps.streamfilter.api_views import APIStreamFilterViewSet
-from apps.streamalias.api_views import APIStreamAliasViewSet, APIStreamAliasTapViewSet
-from apps.devicescript.api_views import APIDeviceScriptViewSet
-from apps.streamer.api_views import APIStreamerViewSet, APIStreamerReportUploadView
-from apps.vartype.api_views import APIVarTypeViewSet
+from apps.configattribute.api_views import APIConfigAttributeNameViewSet, APIConfigAttributeViewSet
 from apps.datablock.api_views import APIDataBlockViewSet
 from apps.deviceauth.api_views import APICreateDeviceKeyViewSet
-from apps.streamnote.api_views import APIStreamNoteViewSet
-from apps.fleet.api_views import APIFleetViewSet
-from apps.property.api_views import APIPropertyTemplateViewSet, APIGenericPropertyViewSet
-from apps.ota.api_views import APIDeploymentRequestViewSet, APIDeploymentActionViewSet, APIDeviceVersionViewSet
-from apps.configattribute.api_views import APIConfigAttributeNameViewSet, APIConfigAttributeViewSet
-from apps.devicelocation.api_views import APIDeviceLocationViewSet
 from apps.devicefile.api_views import APIDeviceFileViewSet
+from apps.devicelocation.api_views import APIDeviceLocationViewSet
+from apps.devicescript.api_views import APIDeviceScriptViewSet
+from apps.devicetemplate.api_views import APIDeviceTemplateViewSet
+from apps.fleet.api_views import APIFleetViewSet
+from apps.org.api_views import APIOrgViewSet
+from apps.orgtemplate.api_views import APIOrgTemplateViewSet
+from apps.ota.api_views import APIDeploymentActionViewSet, APIDeploymentRequestViewSet, APIDeviceVersionViewSet
+from apps.physicaldevice.api_views import APIDeviceViewSet, APIManufacturingDataViewSet
+from apps.project.api_views import APIProjectViewSet
+from apps.projecttemplate.api_views import APIProjectTemplateViewSet
+from apps.property.api_views import APIGenericPropertyViewSet, APIPropertyTemplateViewSet
 from apps.report.api_views import APIGeneratedUserReportViewSet
+from apps.sensorgraph.api_views import (
+    APIDisplayWidgetTemplateViewSet, APISensorGraphViewSet, APIVariableTemplateViewSet,
+)
+from apps.stream.api_views import APIStreamIdViewSet, APIStreamVariableViewSet
+from apps.streamalias.api_views import APIStreamAliasTapViewSet, APIStreamAliasViewSet
+from apps.streamdata.api_views import APIStreamDataViewSet
+from apps.streamer.api_views import APIStreamerReportUploadView, APIStreamerViewSet
+from apps.streamevent.api_views import APIStreamEventDataViewSet, APIStreamEventUploadViewSet
+from apps.streamfilter.api_views import APIStreamFilterViewSet
+from apps.streamnote.api_views import APIStreamNoteViewSet
+from apps.vartype.api_views import APIVarTypeViewSet
 from apps.verticals.shipping.api_views import APIShippingTripViewSet
 
 # Rest APIs

@@ -1,30 +1,31 @@
-import json
 import datetime
+import json
+
 import pytz
+
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 
-from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileVariableSlug, IOTileProjectSlug, IOTileDeviceSlug
+from iotile_cloud.utils.gid import IOTileDeviceSlug, IOTileProjectSlug, IOTileStreamSlug, IOTileVariableSlug
 
-from apps.utils.test_util import TestMixin
-from apps.utils.utest.devices import TripDeviceMock
-from apps.utils.iotile.variable import SYSTEM_VID
-from apps.org.models import OrgMembership, Org
-from apps.physicaldevice.models import Device
 from apps.devicetemplate.models import DeviceTemplate
-from apps.vartype.models import VarType
+from apps.org.models import Org, OrgMembership
+from apps.physicaldevice.models import Device
+from apps.project.models import Project
+from apps.property.models import GenericProperty
 from apps.sensorgraph.models import SensorGraph, VariableTemplate
-from apps.stream.models import StreamVariable, StreamId
+from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
 from apps.streamevent.models import StreamEventData
-from apps.property.models import GenericProperty
-from apps.project.models import Project
+from apps.utils.iotile.variable import SYSTEM_VID
+from apps.utils.test_util import TestMixin
 from apps.utils.timezone_utils import display_formatted_ts
-
+from apps.utils.utest.devices import TripDeviceMock
+from apps.vartype.models import VarType
 
 user_model = get_user_model()
 

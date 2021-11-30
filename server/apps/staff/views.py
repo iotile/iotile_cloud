@@ -1,6 +1,5 @@
 import logging
 
-from allauth.account.models import EmailAddress
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user_model
@@ -20,6 +19,9 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, ListView, TemplateView, UpdateView
 from django.views.generic.edit import CreateView, DeleteView, FormView
+
+from allauth.account.models import EmailAddress
+
 from iotile_cloud.utils.gid import *
 
 from apps.deviceauth.models import DeviceKey
@@ -31,28 +33,29 @@ from apps.physicaldevice.models import Device, DeviceStatus
 from apps.physicaldevice.serializers import DeviceStatusReadOnlySerializer
 from apps.project.models import Project
 from apps.project.utils import clone_project
-# from apps.streamtimeseries.models import StreamTimeSeriesValue, StreamTimeSeriesEvent
-from apps.utils.gid.convert import int16gid, formatted_gsid, int2vid
 from apps.sensorgraph.models import SensorGraph
 from apps.sqsworker.stats import WorkerStats
 from apps.sqsworker.worker import WorkerHealthCheckAction
 from apps.stream.models import StreamId, StreamVariable
 from apps.streamdata.models import StreamData
-from apps.streamevent.models import StreamEventData
 from apps.streamer.models import StreamerReport
+from apps.streamevent.models import StreamEventData
 from apps.streamfilter.dynamodb import DynamoFilterLogModel
 from apps.streamfilter.models import StreamFilter, StreamFilterAction, StreamFilterTrigger
 from apps.streamnote.models import StreamNote
 from apps.utils.data_helpers.manager import DataManager
 from apps.utils.fineuploader.sign import FineUploaderSignMixIn
+# from apps.streamtimeseries.models import StreamTimeSeriesValue, StreamTimeSeriesEvent
+from apps.utils.gid.convert import formatted_gsid, int2vid, int16gid
 from apps.utils.sms.helper import SmsHelper
 from apps.utils.timezone_utils import convert_to_utc, str_utc
-from apps.ota.models import DeviceVersionAttribute
-# from apps.utils.data_helpers.convert import DataConverter
 
 from .forms import *
 from .worker.move_device_stream_data import MoveDeviceStreamDataAction
 from .worker.staff_operations import StaffOperationsAction
+
+# from apps.utils.data_helpers.convert import DataConverter
+
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 FILTER_LOGS_LIMIT = 50

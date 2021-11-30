@@ -1,6 +1,7 @@
 import logging
-from django.core.cache import cache
+
 from django.conf import settings
+from django.core.cache import cache
 
 from .models import StreamFilter
 from .serializers import StreamFilterSerializer

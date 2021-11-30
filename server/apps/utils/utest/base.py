@@ -1,34 +1,32 @@
-import os
 import json
+import os
 
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 
-from iotile_cloud.utils.gid import IOTileStreamSlug, IOTileVariableSlug, IOTileProjectSlug
+from iotile_cloud.utils.gid import IOTileProjectSlug, IOTileStreamSlug, IOTileVariableSlug
 
-from apps.utils.objects.utils import get_object_by_slug
-from apps.org.models import Org
-from apps.org.serializers import OrgSerializer
-from apps.sensorgraph.serializers import SensorGraphSerializer, VariableTemplateSerializer
-from apps.sensorgraph.models import SensorGraph, VariableTemplate
-from apps.sensorgraph.serializers import SensorGraphSerializer, VariableTemplateSerializer
+from apps.configattribute.models import ConfigAttribute, ConfigAttributeName
+from apps.configattribute.serializers import ConfigAttributeSerializer
 from apps.devicetemplate.models import DeviceTemplate
 from apps.devicetemplate.serializers import DeviceTemplateSerializer
-from apps.projecttemplate.models import ProjectTemplate
-from apps.projecttemplate.serializers import ProjectTemplateSerializer
-from apps.project.models import Project
-from apps.project.serializers import ProjectSerializer
+from apps.org.models import Org
+from apps.org.serializers import OrgSerializer
+from apps.physicaldevice.claim_utils import device_claim
 from apps.physicaldevice.models import Device
 from apps.physicaldevice.serializers import DeviceSerializer
-from apps.physicaldevice.claim_utils import device_claim
-from apps.streamevent.models import StreamEventData
-from apps.streamdata.models import StreamData
-from apps.stream.models import StreamId, StreamVariable
-from apps.property.serializers import GenericPropertyWriteOnlySerializer
+from apps.project.models import Project
+from apps.project.serializers import ProjectSerializer
+from apps.projecttemplate.models import ProjectTemplate
+from apps.projecttemplate.serializers import ProjectTemplateSerializer
 from apps.property.models import GenericProperty
-from apps.configattribute.models import ConfigAttributeName, ConfigAttribute
-from apps.configattribute.serializers import ConfigAttributeSerializer
-
+from apps.property.serializers import GenericPropertyWriteOnlySerializer
+from apps.sensorgraph.models import SensorGraph, VariableTemplate
+from apps.sensorgraph.serializers import SensorGraphSerializer, VariableTemplateSerializer
+from apps.stream.models import StreamId, StreamVariable
+from apps.streamdata.models import StreamData
+from apps.streamevent.models import StreamEventData
+from apps.utils.objects.utils import get_object_by_slug
 
 from .serializers import *
 

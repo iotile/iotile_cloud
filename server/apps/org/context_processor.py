@@ -2,7 +2,9 @@
 __author__ = 'dkarchmer'
 
 from django.conf import settings
+
 from .models import Org
+
 
 def active_org(request):
     org = None

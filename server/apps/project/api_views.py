@@ -1,27 +1,25 @@
 import json
 import logging
-from django.http import HttpResponse, Http404
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
+
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.http import Http404, HttpResponse
+from django.shortcuts import get_object_or_404
 
 import django_filters
-from rest_framework import viewsets
-from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import exceptions as drf_exceptions
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from drf_yasg.utils import swagger_auto_schema
-
-
-from apps.property.mixins import GeneralPropertyMixin
 from apps.org.permissions import IsMemberOnly
+from apps.property.mixins import GeneralPropertyMixin
 from apps.utils.uuid_utils import validate_uuid
 
-from .utils import create_project_from_device
 from .models import *
-from .serializers import ProjectSerializer, ProjectFromTemplateSerializer, ProjectExtraInfoSerializer
+from .serializers import ProjectExtraInfoSerializer, ProjectFromTemplateSerializer, ProjectSerializer
+from .utils import create_project_from_device
 
 logger = logging.getLogger(__name__)
 

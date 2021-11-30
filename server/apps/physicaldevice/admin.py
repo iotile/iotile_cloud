@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import *
+
 
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ('id', 'slug', 'project', 'template', 'sg', 'state', )

@@ -1,23 +1,23 @@
 import json
 import logging
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
-from django.http import HttpResponseRedirect
-from django.utils.translation import gettext_lazy as _
-from django.shortcuts import get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.urls import reverse
+
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.urls import reverse
 from django.utils import timezone
+from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from apps.org.models import Org
-from apps.vartype.models import VarTypeOutputUnit
-from apps.utils.timezone_utils import str_utc
-
 from apps.report.models import UserReport
-from apps.report.worker.report_generator import ReportGeneratorAction
 from apps.report.views import UserReportViewMixin
+from apps.report.worker.report_generator import ReportGeneratorAction
+from apps.utils.timezone_utils import str_utc
+from apps.vartype.models import VarTypeOutputUnit
 
 from .forms import *
 

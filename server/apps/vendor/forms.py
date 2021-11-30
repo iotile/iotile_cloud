@@ -1,23 +1,24 @@
 import json
-from django import forms
-from django.forms import ModelForm
-from django.contrib.auth import get_user_model
 from datetime import datetime
-from django.db.models import Q
-from django.core.validators import validate_email
+
+from django import forms
+from django.contrib.auth import get_user_model
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
+from django.db.models import Q
+from django.forms import ModelForm
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, ButtonHolder, HTML, Div
 from crispy_forms.bootstrap import FieldWithButtons
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, ButtonHolder, Div, Field, Layout, Submit
 
-from apps.org.models import Org
-from apps.project.models import Project
-from apps.physicaldevice.models import Device
-from apps.physicaldevice.claim_utils import DEFAULT_IOTILE_DEVICE_NAME_FORMAT
-from apps.physicaldevice.state import DEVICE_STATE_CHOICES
 from apps.devicetemplate.models import DeviceTemplate
+from apps.org.models import Org
+from apps.physicaldevice.claim_utils import DEFAULT_IOTILE_DEVICE_NAME_FORMAT
+from apps.physicaldevice.models import Device
+from apps.physicaldevice.state import DEVICE_STATE_CHOICES
+from apps.project.models import Project
 from apps.sensorgraph.models import SensorGraph
 from apps.stream.models import StreamId
 

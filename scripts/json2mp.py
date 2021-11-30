@@ -8,12 +8,12 @@ python json2mp.py myfile.json
 Generates: myfile.mp
 
 """
-import logging
 import argparse
-import os
-import json
 import datetime
 import decimal
+import json
+import logging
+import os
 from pprint import pprint
 
 import msgpack
@@ -35,7 +35,7 @@ class MessagePackEncoder(object):
             return obj
 
 if __name__ == '__main__':
-    from logging import StreamHandler, Formatter
+    from logging import Formatter, StreamHandler
     FORMAT = '[%(asctime)-15s] %(levelname)-6s %(message)s'
     DATE_FORMAT = '%d/%b/%Y %H:%M:%S'
     formatter = Formatter(fmt=FORMAT, datefmt=DATE_FORMAT)

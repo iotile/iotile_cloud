@@ -1,4 +1,4 @@
-from .router_config import STREAM_TIME_SERIES_APPs, DB3
+from .router_config import DB3, STREAM_TIME_SERIES_APPs
 
 
 class StreamTimeSeriesRouter:

@@ -6,9 +6,9 @@ from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.utils import timezone
 
+from apps.datablock.models import DataBlock
 from apps.emailutil.tasks import Email
 from apps.physicaldevice.models import Device
-from apps.datablock.models import DataBlock
 from apps.sqsworker.action import Action
 from apps.sqsworker.exceptions import WorkerActionHardError, WorkerActionSoftError
 from apps.utils.aws.sns import sns_staff_notification

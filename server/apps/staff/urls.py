@@ -1,21 +1,14 @@
 from django.conf.urls import *
 
-from .views import *
-from .app_specific.shipping.views import (
-    StaffShippingView,
-    StaffNewShippingOrgView,
-    StaffNewShippingProjectView,
-    StaffClaimShippingDeviceView,
-    StaffShippingDeviceTimestampFixView
-
-)
 from .app_specific.factory.views import (
-    ArchFXCreateDeviceBatchView,
-    StaffStreamerReportForwarderListView,
-    StaffStreamerReportForwarderAddView,
-    StaffStreamerReportForwarderDeleteView,
-    StaffStreamerReportForwarderToggleView
+    ArchFXCreateDeviceBatchView, StaffStreamerReportForwarderAddView, StaffStreamerReportForwarderDeleteView,
+    StaffStreamerReportForwarderListView, StaffStreamerReportForwarderToggleView,
 )
+from .app_specific.shipping.views import (
+    StaffClaimShippingDeviceView, StaffNewShippingOrgView, StaffNewShippingProjectView,
+    StaffShippingDeviceTimestampFixView, StaffShippingView,
+)
+from .views import *
 
 app_name = 'staff'
 

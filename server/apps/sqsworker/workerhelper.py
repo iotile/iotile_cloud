@@ -1,23 +1,24 @@
-import logging
 import json
+import logging
+import sys
 import time
 import traceback
-import time
-import sys
 from datetime import datetime
+
+from django import db
+from django.conf import settings
+from django.db.utils import DatabaseError, InterfaceError, OperationalError
 from django.utils import timezone
 
-from django.conf import settings
-from django.db.utils import InterfaceError, OperationalError, DatabaseError
-from django import db
 from apps.utils.aws.sns import sns_staff_notification
-from apps.utils.timezone_utils import str_utc
+from apps.utils.aws.sqs import change_sqs_message_visibility, get_sqs_messages
 from apps.utils.dynamic_loading import str_to_class
-from apps.utils.aws.sqs import get_sqs_messages, change_sqs_message_visibility
+from apps.utils.timezone_utils import str_utc
+
 from .dynamodb import create_worker_log
 from .exceptions import *
-from .tracker import WorkerUUID
 from .pid import ActionPID
+from .tracker import WorkerUUID
 
 logger = logging.getLogger(__name__)
 WORKER_QUEUE_NAME = getattr(settings, 'SQS_WORKER_QUEUE_NAME')

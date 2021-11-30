@@ -1,4 +1,5 @@
 import logging
+
 from apps.configattribute.models import ConfigAttribute
 from apps.datablock.tasks import schedule_archive
 
