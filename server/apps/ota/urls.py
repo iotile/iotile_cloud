@@ -5,7 +5,6 @@ from .views import *
 app_name = 'ota'
 
 urlpatterns = [
-    path('device-file/', include('apps.devicefile.urls', namespace='file')),
     path('<slug:org_slug>/', OtaIndexView.as_view(), name='index'),
     path('<slug:org_slug>/script/', include('apps.devicescript.urls', namespace='script')),
     path('<slug:org_slug>/request/', DeploymentRequestListView.as_view(), name='request-list'),

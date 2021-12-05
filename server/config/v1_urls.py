@@ -8,7 +8,6 @@ from apps.component.api_views import APIComponentViewSet
 from apps.configattribute.api_views import APIConfigAttributeNameViewSet, APIConfigAttributeViewSet
 from apps.datablock.api_views import APIDataBlockViewSet
 from apps.deviceauth.api_views import APICreateDeviceKeyViewSet
-from apps.devicefile.api_views import APIDeviceFileViewSet
 from apps.devicelocation.api_views import APIDeviceLocationViewSet
 from apps.devicescript.api_views import APIDeviceScriptViewSet
 from apps.devicetemplate.api_views import APIDeviceTemplateViewSet
@@ -69,7 +68,6 @@ v1_api_router.register(r'config/name', APIConfigAttributeNameViewSet)
 v1_api_router.register(r'config/attr', APIConfigAttributeViewSet)
 v1_api_router.register(r'propertytemplate', APIPropertyTemplateViewSet, 'propertytemplate')
 v1_api_router.register(r'key', APICreateDeviceKeyViewSet, 'key')
-v1_api_router.register(r'ota/file', APIDeviceFileViewSet)
 v1_api_router.register(r'ota/script', APIDeviceScriptViewSet)
 v1_api_router.register(r'ota/request', APIDeploymentRequestViewSet)
 v1_api_router.register(r'ota/action', APIDeploymentActionViewSet)

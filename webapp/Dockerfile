@@ -8,6 +8,9 @@ FROM node:6
 #    docker run --rm -v ${PWD}/webapp:/var/app/webapp -t builder templates
 # ==========================================================
 
+# create unprivileged user
+RUN adduser --disabled-password --gecos '' myuser
+
 RUN mkdir -p /var/app/webapp
 RUN mkdir -p /var/app/staticfiles
 RUN mkdir -p /var/app/server

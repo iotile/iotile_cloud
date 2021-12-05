@@ -1,9 +1,5 @@
 from django.conf.urls import *
 
-from .app_specific.factory.views import (
-    ArchFXCreateDeviceBatchView, StaffStreamerReportForwarderAddView, StaffStreamerReportForwarderDeleteView,
-    StaffStreamerReportForwarderListView, StaffStreamerReportForwarderToggleView,
-)
 from .app_specific.shipping.views import (
     StaffClaimShippingDeviceView, StaffNewShippingOrgView, StaffNewShippingProjectView,
     StaffShippingDeviceTimestampFixView, StaffShippingView,
@@ -96,10 +92,6 @@ urlpatterns = [
     url(r'^gateway/$', StaffGatewayStatusView.as_view(), name='gateway'),
     url(r'^sg/matrix/$', StaffSensorGraphMatrixView.as_view(), name='sg-matrix'),
     url(r'^sms/send/$', StaffSmsSendView.as_view(), name='sms-send'),
-    # url(r'^streamtimeseries/data/migrate/$', StaffStreamTimeSeriesMigrateDataView.as_view(), name='streamtimeseries-migrate-data'),
-    # url(r'^streamtimeseries/data/(?P<pk>\d+)/$', StaffStreamTimeSeriesValueDetailView.as_view(), name='streamtimeseriesvalue-detail'),
-    # url(r'^streamtimeseries/event/migrate/$', StaffStreamTimeSeriesMigrateEventView.as_view(), name='streamtimeseries-migrate-event'),
-    # url(r'^streamtimeseries/event/(?P<pk>\d+)/$', StaffStreamTimeSeriesEventDetailView.as_view(), name='streamtimeseriesevent-detail'),
 
     # App Specifc: Shipping
     url(r'^shipping/$', StaffShippingView.as_view(), name='shipping'),
@@ -112,28 +104,5 @@ urlpatterns = [
     url(
         r'^shipping/device/data/fix/$',
         StaffShippingDeviceTimestampFixView.as_view(), name='shipping-data-fix'
-    ),
-
-    # App Specifc: Factory
-    url(r'^factory/device/create/$', ArchFXCreateDeviceBatchView.as_view(), name='factory-batch-device'),
-    url(
-        r'^factory/forwarder/$',
-        StaffStreamerReportForwarderListView.as_view(),
-        name='streamer-report-forwarder'
-    ),
-    url(
-        r'^factory/forwarder/add/$',
-        StaffStreamerReportForwarderAddView.as_view(),
-        name='streamer-report-forwarder-add'
-    ),
-    url(
-        r'^factory/forwarder/(?P<pk>\d+)/delete/$',
-        StaffStreamerReportForwarderDeleteView.as_view(),
-        name='streamer-report-forwarder-delete'
-    ),
-    url(
-        r'^factory/forwarder/(?P<pk>\d+)/toggle/$',
-        StaffStreamerReportForwarderToggleView.as_view(),
-        name='streamer-report-forwarder-toggle'
     ),
 ]

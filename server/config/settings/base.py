@@ -212,7 +212,6 @@ COMMON_APPS = (
     'apps.invitation',
     'apps.streamfilter',
     'apps.devicescript',
-    'apps.devicefile',
     'apps.streamer',
     'apps.vartype',
     'apps.sqsworker',

@@ -134,36 +134,6 @@ class StaffTestCase(TestMixin, TestCase):
 
         self.client.logout()
 
-    def testDeviceBatchForArchFX(self):
-        """New batch claim with semi-claiming to an org"""
-        device_template = DeviceTemplate.objects.first()
-        sg1 = SensorGraph.objects.create_graph(name='SG 1',
-                                               created_by=self.u2, org=self.o1)
-        url = reverse('staff:factory-batch-device')
-        name_format = 'Device {id}'
-        payload = {
-            'template': device_template.id,
-            'sg': sg1.id,
-            'org': self.o2.id,
-            'name_format': name_format,
-            'num_devices': 10
-        }
-
-        self.assertEqual(Device.objects.count(), 0)
-
-        ok = self.client.login(email='staff@acme.com', password='pass')
-        self.assertTrue(ok)
-
-        response = self.client.post(url, data=payload)
-        self.assertEqual(response.status_code, status.HTTP_302_FOUND)
-
-        self.assertEqual(Device.objects.count(), 10)
-        dev1 = Device.objects.first()
-        self.assertEqual(dev1.label, name_format.format(id=int16gid(dev1.id)))
-        self.assertEqual(dev1.org.slug, self.o2.slug)
-
-        self.client.logout()
-
     def testUpgradeSgBatch(self):
         device_template = DeviceTemplate.objects.first()
         sg_from = SensorGraph.objects.create_graph(name='SG 1',

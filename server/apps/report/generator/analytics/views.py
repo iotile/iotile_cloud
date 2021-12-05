@@ -74,6 +74,13 @@ class AnalyticsReportGenerateView(UserReportViewMixin, UpdateView):
             }
             logger.info(report_worker_payload)
 
+            # This generator assumes that an AWS lambda or other platofmr exists
+            # that can take an SQS message and use to generate a report.
+            # In this case, the report is generated using data fetched via the
+            # Server Rest API. The user's token is passed as an argument to allow
+            # the external script to be able to use it to access the Rest API
+            # (authenticated as the user that initiated the generation)
+            # This is NOT INCLUDED in this open source project at this time
             sqs = SqsPublisher(getattr(settings, 'SQS_ANALYTICS_QUEUE_NAME'))
             sqs.publish(payload=report_worker_payload)
 

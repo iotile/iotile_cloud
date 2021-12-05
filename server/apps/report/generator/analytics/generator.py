@@ -21,13 +21,9 @@ class AnalyticsReportGenerator(ReportGenerator):
         pass
 
     def generate_user_report(self):
+        """There is no generator here because these reports were generated
+        with an external platform, and then uploaded to S3. 
+        See AnalyticsReportGenerateView class
         """
-        Generate an End of Trip Summary Report
-
-        :return: Nothing
-        """
-
-        for source_slug in self._sources:
-
-            logger.info('Processing {}'.format(source_slug))
+        pass
 

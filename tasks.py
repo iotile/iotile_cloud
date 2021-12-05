@@ -588,7 +588,7 @@ def run_local(ctx, action='up'):
         inv run-local -a up             # To run docker-compose up -d
         inv run-local -a stop           # To run docker-compose stop
         inv run-local -a down           # To run docker-compose down
-        inv run-local -a logs-server    # To show logs for Server
+        inv run-local -a logs-web       # To show logs for Server
         inv run-local -a makemigrations # Run Django makemigrations
         inv run-local -a collectstatic  # Run Django collectstatic 
     """

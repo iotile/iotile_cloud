@@ -108,7 +108,7 @@ idna==2.10
     # via requests
 inflection==0.5.1
     # via drf-yasg
-#iotile-analytics-core==0.6.1
+iotile-analytics-core==0.6.1
     # via iotile-analytics-interactive
 iotile-analytics-interactive==0.6.3
     # via -r requirements/base.in
